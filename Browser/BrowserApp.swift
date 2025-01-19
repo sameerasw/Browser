@@ -10,23 +10,19 @@ import SwiftData
 
 @main
 struct BrowserApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
+    @StateObject var userPreferences = UserPreferences()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(userPreferences)
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(for: [Item.self])
+        .windowStyle(.hiddenTitleBar)
+        
+        Settings {
+            SettingsView()
+                .frame(width: 750, height: 550)
+                .environmentObject(userPreferences)
+        }
     }
 }

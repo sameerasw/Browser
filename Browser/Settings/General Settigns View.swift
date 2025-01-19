@@ -7,12 +7,22 @@
 
 import SwiftUI
 
-struct Settings_View: View {
+struct GeneralSettingsView: View {
+    
+    @EnvironmentObject var userPreferences: UserPreferences
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section(header: Text("Sidebar Position")) {
+                Picker("Sidebar Position", selection: $userPreferences.sidebarPosition) {
+                    Text("Leading").tag(UserPreferences.SidebarPosition.leading)
+                    Text("Trailing").tag(UserPreferences.SidebarPosition.trailing)
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    Settings_View()
+    GeneralSettingsView()
 }

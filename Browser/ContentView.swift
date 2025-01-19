@@ -9,51 +9,32 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    
+    @EnvironmentObject var preferences: UserPreferences
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
+        ZStack {
+            HStack {
+                if preferences.sidebarPosition == .leading {
+                    Sidebar()
+                        .transition(.move(edge: .leading))
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-            .toolbar {
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+                
+                Text("Web Content")
+                    .transition(.move(edge: preferences.sidebarPosition == .leading ? .trailing : .leading))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                if preferences.sidebarPosition == .trailing {
+                    Sidebar()
+                        .transition(.move(edge: .trailing))
                 }
             }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
+            .animation(.easeOut, value: preferences.sidebarPosition)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
