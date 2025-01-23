@@ -14,4 +14,7 @@ class UserPreferences: ObservableObject {
     }
     
     @AppStorage("sidebar_position") var sidebarPosition = SidebarPosition.leading
+    @AppStorage("sidebar_width") var sidebarWidth = 250.0
+//    @AppStorage("sidebar_showing") var showSidebar = true
+    @Published var showSidebar = true
 }

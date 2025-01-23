@@ -6,32 +6,32 @@
 //
 
 import SwiftUI
-import SwiftData
+import SplitView
 
 struct ContentView: View {
     
     @EnvironmentObject var preferences: UserPreferences
     
+    let sidebarFraction = FractionHolder.usingUserDefaults(0.20, key: "sidebar_fraction")
+    let sidebarHide = SideHolder.usingUserDefaults(key: "sidebar_hide")
+    
     var body: some View {
         ZStack {
-            HStack {
-                if preferences.sidebarPosition == .leading {
-                    Sidebar()
-                        .transition(.move(edge: .leading))
-                }
-                
-                Text("Web Content")
-                    .transition(.move(edge: preferences.sidebarPosition == .leading ? .trailing : .leading))
+            HSplit {
+                Sidebar()
+            } right: {
+                Text("WebContent")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
-                if preferences.sidebarPosition == .trailing {
-                    Sidebar()
-                        .transition(.move(edge: .trailing))
-                }
+                    .background(.blue)
             }
-            .animation(.easeOut, value: preferences.sidebarPosition)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .hide(sidebarHide)
+            .fraction(sidebarFraction)
+            .splitter { Splitter.invisible() }
+            .styling(hideSplitter: true)
+            .constraints(minPFraction: 0.15, minSFraction: 0.5, priority: .left, dragToHideP: true)
         }
+        .padding(5)
+        .ignoresSafeArea(.all, edges: .all)
     }
 }
 
