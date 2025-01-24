@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct BrowserApp: App {
+    @NSApplicationDelegateAdaptor(BrowserAppDelegate.self) var appDelegate
     @StateObject var userPreferences = UserPreferences()
     var body: some Scene {
         WindowGroup {
