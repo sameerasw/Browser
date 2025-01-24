@@ -14,19 +14,17 @@ struct Sidebar: View {
     var body: some View {
         VStack {
             SidebarToolbar()
+            
             Text("URL")
+            
             ScrollView {
-                LazyVStack(alignment: .leading) {
-                    Text("Sidebar")
-                }
-                .background(.red)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                Text("Hi")
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.pink)
         }
-    }
-    
-    func toggleSidebar() {
-        preferences.showSidebar.toggle()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        
     }
 }
 

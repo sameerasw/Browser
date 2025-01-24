@@ -21,6 +21,7 @@ struct BrowserApp: App {
                         transaction.animation = nil
                     }
                 }
+                .frame(minWidth: 400, minHeight: 200)
         }
         .modelContainer(for: [Item.self])
         .windowStyle(.hiddenTitleBar)

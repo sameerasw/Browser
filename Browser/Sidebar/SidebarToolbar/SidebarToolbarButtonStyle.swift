@@ -14,7 +14,7 @@ struct SidebarToolbarButtonStyle: ButtonStyle {
         configuration.label
             .font(.title2)
             .frame(width: 30, height: 30, alignment: .center)
-            .background(hover ? AnyShapeStyle(.thickMaterial) : AnyShapeStyle(.clear))
+            .background(hover ? AnyShapeStyle(.background.opacity(0.4)) : AnyShapeStyle(.clear))
             .clipShape(.rect(cornerRadius: 4))
             .onHover { hover in
                 self.hover = hover

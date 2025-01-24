@@ -9,30 +9,32 @@ import SwiftUI
 
 struct SidebarToolbar: View {
     
-    @EnvironmentObject var preferences: UserPreferences
+    @EnvironmentObject var sidebarModel: SidebarModel
     
     var body: some View {
-        HStack {
-            SidebarToolbarButton("sidebar.left", action: preferences.toggleSidebar)
-            
-            Spacer()
-            
-            SidebarToolbarButton("arrow.left") {
-                print("Go back")
+        LazyVStack(alignment: .leading) {
+            HStack {
+                TrafficLights()
+                
+                SidebarToolbarButton("sidebar.left", action: sidebarModel.toggleSidebar)
+                
+                Spacer()
+                
+                SidebarToolbarButton("arrow.left") {
+                    print("Go back")
+                }
+                
+                SidebarToolbarButton("arrow.right") {
+                    print("Go forward")
+                }
+                
+                SidebarToolbarButton("arrow.trianglehead.counterclockwise") {
+                    print("refresh")
+                }
             }
-            
-            SidebarToolbarButton("arrow.right") {
-                print("Go forward")
-            }
-            
-            SidebarToolbarButton("arrow.trianglehead.counterclockwise") {
-                print("refresh")
-            }
+            .frame(alignment: .top)
+            .padding(.top, .approximateTrafficLightsTopPadding)
         }
-        .buttonStyle(SidebarToolbarButtonStyle())
-        .padding(.leading, .approximateTrafficLightsLeadingPadding)
-        .padding(.top, .approximateTrafficLightsTopPadding)
-        .frame(maxWidth: .infinity)
     }
 }
 
