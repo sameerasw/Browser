@@ -13,6 +13,7 @@ struct Sidebar: View {
     
     var body: some View {
         VStack {
+            SidebarToolbar()
             Text("URL")
             ScrollView {
                 LazyVStack(alignment: .leading) {

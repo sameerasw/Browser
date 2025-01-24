@@ -54,6 +54,11 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     func saveWindowPositionAndSize(_ window: NSWindow) {
         guard !windowWasClosed else { return }
+        guard let windowId = window.identifier?.rawValue,
+              windowId.hasPrefix("BrowserWindow") else {
+            return
+        }
+        
         let windowFrame = window.frame
         UserDefaults.standard.set(windowFrame.origin.x, forKey: "windowOriginX")
         UserDefaults.standard.set(windowFrame.origin.y, forKey: "windowOriginY")

@@ -13,12 +13,18 @@ struct BrowserApp: App {
     @NSApplicationDelegateAdaptor(BrowserAppDelegate.self) var appDelegate
     @StateObject var userPreferences = UserPreferences()
     var body: some Scene {
-        WindowGroup {
+        WindowGroup(id: "BrowserWindow") {
             ContentView()
                 .environmentObject(userPreferences)
+                .transaction { transaction in
+                    if userPreferences.disableAnimations {
+                        transaction.animation = nil
+                    }
+                }
         }
         .modelContainer(for: [Item.self])
         .windowStyle(.hiddenTitleBar)
+        .windowToolbarStyle(.unified(showsTitle: false))
         
         Settings {
             SettingsView()

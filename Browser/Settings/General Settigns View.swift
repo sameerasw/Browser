@@ -19,6 +19,8 @@ struct GeneralSettingsView: View {
                     Text("Trailing").tag(UserPreferences.SidebarPosition.trailing)
                 }
             }
+            
+            Toggle("Disable Animations", isOn: $userPreferences.disableAnimations)
         }
     }
 }
