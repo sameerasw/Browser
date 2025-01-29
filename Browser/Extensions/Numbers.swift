@@ -8,12 +8,16 @@
 import AppKit
 
 extension CGFloat {
-    /// Approximate traffic lights height
-    static let approximateTrafficLightsTopPadding: CGFloat = 11
+    /// Approximate traffic lights height, taking into account the size of the toolbar
+    static let approximateTrafficLightsTopPadding: CGFloat = 13.5
     /// Approximate traffic lights position
     static let approximateTrafficLightsLeadingPadding: CGFloat = 20
     /// Sidebar border width for hover area to resize
     static let sidebarBorderWidth: CGFloat = 5
-    /// Sidebar max width
-    static let sidebarMaxWidth: CGFloat = 300
+    /// Sidebar minimum width
+    static let minimumSidebarWidth: CGFloat = 150
+    /// Sidebar maximum width
+    static let maximumSidebarWidth: CGFloat = 500
+    /// Sidebar preferred width
+    static let preferredSidebarWidth: CGFloat = 225
 }

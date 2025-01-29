@@ -9,8 +9,8 @@ import SwiftUI
 
 class SidebarModel: ObservableObject {
     
-    @Published var currentSidebarWidth: CGFloat = 250
-    @Published var lastSidebarWidth: CGFloat = 250
+    @Published var currentSidebarWidth: CGFloat = 220
+    @Published var lastSidebarWidth: CGFloat = 220
     @Published var sidebarCollapsed: Bool = false
     
     func toggleSidebar() {
@@ -21,8 +21,11 @@ class SidebarModel: ObservableObject {
                 currentSidebarWidth = 0
                 setTrafficLights(show: false)
             } else {
-                currentSidebarWidth = lastSidebarWidth
-                setTrafficLights(show: true)
+                self.currentSidebarWidth = self.lastSidebarWidth
+            }
+        } completion: {
+            if !self.sidebarCollapsed {
+                self.setTrafficLights(show: true)
             }
         }
     }

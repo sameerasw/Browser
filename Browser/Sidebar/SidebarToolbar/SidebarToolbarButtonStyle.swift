@@ -12,8 +12,8 @@ struct SidebarToolbarButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.title2)
-            .frame(width: 30, height: 30, alignment: .center)
+            .font(.system(size: 17))
+            .frame(width: 25, height: 25, alignment: .center)
             .background(hover ? AnyShapeStyle(.background.opacity(0.4)) : AnyShapeStyle(.clear))
             .clipShape(.rect(cornerRadius: 4))
             .onHover { hover in

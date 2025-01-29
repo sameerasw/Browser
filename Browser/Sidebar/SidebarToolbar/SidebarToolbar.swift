@@ -9,14 +9,18 @@ import SwiftUI
 
 struct SidebarToolbar: View {
     
+    @EnvironmentObject var userPreferences: UserPreferences
     @EnvironmentObject var sidebarModel: SidebarModel
     
     var body: some View {
         LazyVStack(alignment: .leading) {
             HStack {
-                TrafficLights()
+                if userPreferences.sidebarPosition == .leading {
+                    TrafficLights()
+                }
                 
-                SidebarToolbarButton("sidebar.left", action: sidebarModel.toggleSidebar)
+                SidebarToolbarButton(userPreferences.sidebarPosition == .leading ? "sidebar.left" : "sidebar.right", action: sidebarModel.toggleSidebar)
+                    .padding(.leading, userPreferences.sidebarPosition == .trailing ? 5 : 0)
                 
                 Spacer()
                 
@@ -28,12 +32,13 @@ struct SidebarToolbar: View {
                     print("Go forward")
                 }
                 
-                SidebarToolbarButton("arrow.trianglehead.counterclockwise") {
+                SidebarToolbarButton("arrow.trianglehead.clockwise") {
                     print("refresh")
                 }
             }
             .frame(alignment: .top)
             .padding(.top, .approximateTrafficLightsTopPadding)
+            .padding(.trailing, 5)
         }
     }
 }

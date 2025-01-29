@@ -13,9 +13,11 @@ struct WebView: View {
     @EnvironmentObject var sidebarModel: SidebarModel
     
     var body: some View {
-        WKWebViewRepresentable(url: URL(string: "https://www.apple.com")!)
+        WKWebViewRepresentable(url: URL(string: "https://www.google.com.mx")!)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
+            .layoutPriority(1)
             .overlay {
-                Button("Sidebar", action: sidebarModel.toggleSidebar) 
+                Button("Sidebar", action: sidebarModel.toggleSidebar)
             }
     }
 }

@@ -36,6 +36,11 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                 
                 windowWasClosed = false
             }
+            
+            if let windowId = window.identifier?.rawValue,
+               windowId.hasPrefix("BrowserWindow") {
+                window.backgroundColor = .clear
+            }
         }
     }
     
