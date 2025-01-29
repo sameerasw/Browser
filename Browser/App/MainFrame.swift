@@ -27,10 +27,10 @@ struct MainFrame: View {
                 .clipShape(.rect(cornerRadius: 8))
                 .frame(maxWidth: .infinity)
                 .padding([.top, .bottom], 10)
-                .padding(userPreferences.sidebarPosition == .leading ? .leading : .trailing, 5)
+                .padding(userPreferences.sidebarPosition == .leading ? .leading : .trailing, sidebarModel.sidebarCollapsed ? 10 : 5)
                 .padding([userPreferences.sidebarPosition == .leading ? .trailing : .leading], 10)
             
-            if userPreferences.sidebarPosition != .leading {
+            if userPreferences.sidebarPosition == .trailing {
                 if !sidebarModel.sidebarCollapsed {
                     SidebarResizer()
                     Sidebar()

@@ -18,6 +18,7 @@ struct GeneralSettingsView: View {
                     Text("Leading").tag(UserPreferences.SidebarPosition.leading)
                     Text("Trailing").tag(UserPreferences.SidebarPosition.trailing)
                 }
+                .pickerStyle(.segmented)
             }
             
             Toggle("Disable Animations", isOn: $userPreferences.disableAnimations)

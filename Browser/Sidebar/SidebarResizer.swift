@@ -22,7 +22,7 @@ struct SidebarResizer: View {
                 Color.secondary.opacity(isDragging ? 0.2 : 0)
                     .animation(.bouncy, value: isDragging)
                     .clipShape(.rect(cornerRadius: 12))
-                    .frame(width: 10)
+                    .frame(width: 5)
                     .padding(.vertical)
             }
             .overlay(alignment: .top) {
