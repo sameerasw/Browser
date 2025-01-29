@@ -40,36 +40,40 @@ struct SidebarResizer: View {
                     }
                     .gesture(
                         DragGesture()
-                            .onChanged { value in
-                                if isDragging == false {
-                                    sidebarModel.lastSidebarWidth = sidebarModel.currentSidebarWidth
-                                }
-                                
-                                isDragging = true
-                                let newWidth = sidebarModel.currentSidebarWidth + value.translation.width
-                                if newWidth >= .minimumSidebarWidth && newWidth <= .maximumSidebarWidth {
-                                    let fixedWidth = newWidth / .preferredSidebarWidth
-                                    if fixedWidth > 0.95 && fixedWidth < 1.06 {
-                                        sidebarModel.currentSidebarWidth = .preferredSidebarWidth
-                                    } else {
-                                        sidebarModel.currentSidebarWidth = newWidth
-                                    }
-                                } else {
-                                    if newWidth < .minimumSidebarWidth * 0.5 {
-                                        sidebarModel.currentSidebarWidth = 0
-                                    }
-                                }
-                            }
-                            .onEnded { value in
-                                isDragging = false
-                                setArrowNSCursor()
-                                
-                                if sidebarModel.currentSidebarWidth == 0 {
-                                    sidebarModel.sidebarCollapsed = true
-                                }
-                            }
+                            .onChanged(resizeSidebar)
+                            .onEnded(endDragging)
                     )
             }
+    }
+    
+    private func resizeSidebar(with value: DragGesture.Value) {
+        if isDragging == false {
+            sidebarModel.lastSidebarWidth = sidebarModel.currentSidebarWidth
+        }
+        
+        isDragging = true
+        let newWidth = sidebarModel.currentSidebarWidth + value.translation.width
+        if newWidth >= .minimumSidebarWidth && newWidth <= .maximumSidebarWidth {
+            let fixedWidth = newWidth / .preferredSidebarWidth
+            if fixedWidth > 0.95 && fixedWidth < 1.06 {
+                sidebarModel.currentSidebarWidth = .preferredSidebarWidth
+            } else {
+                sidebarModel.currentSidebarWidth = newWidth
+            }
+        } else {
+            if newWidth < .minimumSidebarWidth * 0.5 {
+                sidebarModel.currentSidebarWidth = 0
+            }
+        }
+    }
+    
+    private func endDragging(with value: DragGesture.Value) {
+        isDragging = false
+        setArrowNSCursor()
+        
+        if sidebarModel.currentSidebarWidth == 0 {
+            sidebarModel.sidebarCollapsed = true
+        }
     }
     
     private func setArrowNSCursor() {

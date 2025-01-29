@@ -13,7 +13,7 @@ struct WebView: View {
     @EnvironmentObject var sidebarModel: SidebarModel
     
     var body: some View {
-        WKWebViewRepresentable(url: URL(string: "https://www.google.com.mx")!)
+        WKWebViewRepresentable(url: URL(string: "https://www.ilovepdf.com/es/pdf_a_jpg")!)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
             .layoutPriority(1)
             .overlay {
