@@ -15,7 +15,8 @@ struct BrowserApp: App {
     var body: some Scene {
         WindowGroup(id: "BrowserWindow") {
             ContentView()
-                .environmentObject(userPreferences)
+                .environmentObject(UserPreferences())
+                .environmentObject(BrowserWindowState())
                 .transaction { transaction in
                     if userPreferences.disableAnimations {
                         transaction.animation = nil
@@ -23,7 +24,7 @@ struct BrowserApp: App {
                 }
                 .frame(minWidth: 400, minHeight: 200)
         }
-        .modelContainer(for: [Item.self])
+        .modelContainer(for: [BrowserSpace.self, BrowserTab.self])
         .windowStyle(.hiddenTitleBar)
         .windowToolbarStyle(.unified(showsTitle: false))
         

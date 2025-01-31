@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// `WKCoordinator` is the coordinator for the `WKWebViewRepresentable` view.
 class WKCoordinator {
     let navigationDelegateCoordinator: WKNavigationDelegateCoordinator
     let uiDelegateCoordinator: WKUIDelegateCoordinator

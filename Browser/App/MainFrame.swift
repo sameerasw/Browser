@@ -26,6 +26,7 @@ struct MainFrame: View {
             WebView()
                 .clipShape(.rect(cornerRadius: 8))
                 .frame(maxWidth: .infinity)
+                .shadow(radius: 3)
                 .padding([.top, .bottom], 10)
                 .padding(userPreferences.sidebarPosition == .leading ? .leading : .trailing, sidebarModel.sidebarCollapsed ? 10 : 5)
                 .padding([userPreferences.sidebarPosition == .leading ? .trailing : .leading], 10)

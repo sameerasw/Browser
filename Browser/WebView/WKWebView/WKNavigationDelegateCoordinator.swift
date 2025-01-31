@@ -16,14 +16,18 @@ class WKNavigationDelegateCoordinator: NSObject, WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("🔵 Loading \(webView.url?.absoluteString ?? "")")
+        guard let url = webView.url else { return }
+        print("🔵 Loading \(url.absoluteString)")
+    
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("🟢 Finished loading \(webView.url?.absoluteString ?? "")")
+        guard let url = webView.url else { return }
+        print("🟢 Finished loading \(url.absoluteString)")
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print("🔴 Failed loading \(webView.url?.absoluteString ?? "") with error: \(error.localizedDescription)")
+        guard let url = webView.url else { return }
+        print("🔴 Failed loading \(url.absoluteString) with error: \(error.localizedDescription)")
     }
 }

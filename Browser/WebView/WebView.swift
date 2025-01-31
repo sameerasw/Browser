@@ -9,16 +9,23 @@ import SwiftUI
 
 struct WebView: View {
     
-    @EnvironmentObject var preferences: UserPreferences
+    @EnvironmentObject var browserWindowState: BrowserWindowState
     @EnvironmentObject var sidebarModel: SidebarModel
     
     var body: some View {
-        WKWebViewRepresentable(url: URL(string: "https://www.ilovepdf.com/es/pdf_a_jpg")!)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
-            .layoutPriority(1)
-            .overlay {
-                Button("Sidebar", action: sidebarModel.toggleSidebar)
+        Group {
+            if browserWindowState.currentTab == nil {
+                Rectangle()
+                    .fill(.regularMaterial)
+            } else {
+                WKWebViewRepresentable(browserTab: browserWindowState.currentTab)
             }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
+        .layoutPriority(1)
+        .overlay {
+            Button("Sidebar", action: sidebarModel.toggleSidebar)
+        }
     }
 }
 
