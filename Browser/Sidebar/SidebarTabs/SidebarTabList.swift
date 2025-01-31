@@ -17,6 +17,6 @@ struct SidebarTabList: View {
             }
         }
         .frame(maxWidth: .infinity)
-        .padding(.leading, 5)
+        .padding(.leading, .sidebarPadding)
     }
 }

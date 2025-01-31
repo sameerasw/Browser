@@ -38,7 +38,7 @@ struct SidebarToolbar: View {
             }
             .frame(alignment: .top)
             .padding(.top, .approximateTrafficLightsTopPadding)
-            .padding(.trailing, 5)
+            .padding(.trailing, .sidebarPadding)
         }
     }
 }

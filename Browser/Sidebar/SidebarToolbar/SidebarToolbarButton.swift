@@ -21,6 +21,6 @@ struct SidebarToolbarButton: View {
         Button(action: action) {
             Image(systemName: systemImage)
         }
-        .buttonStyle(SidebarToolbarButtonStyle())
+        .buttonStyle(.sidebarHover())
     }
 }

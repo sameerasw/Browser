@@ -15,7 +15,7 @@ struct Sidebar: View {
     @EnvironmentObject var browserWindowState: BrowserWindowState
     @EnvironmentObject var sidebarModel: SidebarModel
     
-    @Query(animation: .bouncy) var tabs: [BrowserTab]
+    @Query(animation: .bouncy) var browserSpaces: [BrowserSpace]
     
     var body: some View {
         VStack {
@@ -30,13 +30,9 @@ struct Sidebar: View {
                     try? modelContext.save()
                 }
             }
-            ScrollView {
-                SidebarTabList(browserTabs: tabs)
-            }
-            .frame(maxWidth: sidebarModel.currentSidebarWidth, maxHeight: .infinity)
-            .scrollContentBackground(.hidden)
             
-            SidebarSpaceList()
+            SidebarSpacesTabView(browserSpaces: browserSpaces)
+            SidebarBottomToolbar(browserSpaces: browserSpaces)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .gesture(WindowDragGesture()) // Move the browser window by dragging the sidebar

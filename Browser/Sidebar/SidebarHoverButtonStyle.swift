@@ -1,0 +1,47 @@
+//
+//  SidebarHoverButtonStyle.swift
+//  Browser
+//
+//  Created by Leonardo Larrañaga on 1/23/25.
+//
+
+import SwiftUI
+
+struct SidebarHoverButtonStyle: ButtonStyle {
+    
+    let padding: CGFloat
+    let colorScheme: String
+    
+    init(padding: CGFloat = .zero, colorScheme: String = "Light") {
+        self.padding = padding
+        self.colorScheme = colorScheme
+    }
+    
+    @State private var hover = false
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .labelStyle(.iconOnly)
+            .font(.system(size: 17))
+            .frame(width: 25, height: 25, alignment: .center)
+            .padding(padding)
+            .background(hover ? AnyShapeStyle(.white.opacity(0.4)) : AnyShapeStyle(.clear))
+            .clipShape(.rect(cornerRadius: 4))
+            .onHover { hover in
+                self.hover = hover
+            }
+    }
+}
+
+extension ButtonStyle where Self == SidebarHoverButtonStyle {
+    static func sidebarHover(padding: CGFloat = .zero, colorScheme: String = "Light") -> SidebarHoverButtonStyle {
+        SidebarHoverButtonStyle(padding: padding, colorScheme: colorScheme)
+    }
+}
+
+#Preview {
+    Button(action: { print("Pressed") }) {
+        Label("Press Me", systemImage: "star")
+    }
+    .buttonStyle(.sidebarHover())
+}

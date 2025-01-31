@@ -10,6 +10,8 @@ import SwiftUI
 struct MainFrame: View {
     
     @EnvironmentObject var userPreferences: UserPreferences
+    @EnvironmentObject var browserWindowState: BrowserWindowState
+
     @StateObject var sidebarModel = SidebarModel()
     
     var body: some View {
@@ -43,6 +45,13 @@ struct MainFrame: View {
         .animation(userPreferences.disableAnimations ? nil : .bouncy, value: userPreferences.sidebarPosition)
         .frame(maxWidth: .infinity)
         .toolbar { Text("") }
+        .toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
         .environmentObject(sidebarModel)
+        .background {
+            if let color = browserWindowState.currentSpace?.colors.first {
+                Color(hex: color)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+        }
     }
 }
