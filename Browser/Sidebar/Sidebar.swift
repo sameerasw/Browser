@@ -21,6 +21,7 @@ struct Sidebar: View {
         VStack {
             SidebarToolbar()
             
+            Text("Link goes here")
             
             SidebarSpacesTabView(browserSpaces: browserSpaces)
             SidebarBottomToolbar(browserSpaces: browserSpaces)

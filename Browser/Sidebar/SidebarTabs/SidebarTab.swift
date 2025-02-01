@@ -38,8 +38,17 @@ struct SidebarTab: View {
         .frame(height: 30)
         .padding(3)
         .background(
-            browserWindowState.currentSpace?.currentTab == browserTab ? .white.opacity(0.6) :
-                isHoveringTab ? .white.opacity(0.3) : .clear
+            ZStack {
+                if let currentTab = browserWindowState.currentSpace?.currentTab {
+                    if currentTab as AnyHashable == browserTab as AnyHashable {
+                        Color.white.opacity(0.6)
+                    } else if isHoveringTab {
+                        Color.white.opacity(0.3)
+                    } else {
+                        Color.clear
+                    }
+                }
+            }
         )
         .clipShape(.rect(cornerRadius: 10))
         .onHover { hover in
