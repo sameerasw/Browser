@@ -38,7 +38,7 @@ struct SidebarTab: View {
         .frame(height: 30)
         .padding(3)
         .background(
-            browserWindowState.currentTab == browserTab ? .white.opacity(0.6) :
+            browserWindowState.currentSpace?.currentTab == browserTab ? .white.opacity(0.6) :
                 isHoveringTab ? .white.opacity(0.3) : .clear
         )
         .clipShape(.rect(cornerRadius: 10))

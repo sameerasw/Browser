@@ -10,8 +10,22 @@ import SwiftData
 
 @main
 struct BrowserApp: App {
+    
     @NSApplicationDelegateAdaptor(BrowserAppDelegate.self) var appDelegate
     @StateObject var userPreferences = UserPreferences()
+    
+    let modelContainer: ModelContainer
+    init() {
+        do {
+            modelContainer = try ModelContainer(
+                for: BrowserSpace.self, BrowserTab.self,
+                migrationPlan: BrowserSchemasMigrationPlan.self
+            )
+        } catch {
+            fatalError("Failed to create ModelContainer: \(error)")
+        }
+    }
+    
     var body: some Scene {
         WindowGroup(id: "BrowserWindow") {
             ContentView()
@@ -24,7 +38,7 @@ struct BrowserApp: App {
                 }
                 .frame(minWidth: 400, minHeight: 200)
         }
-        .modelContainer(for: [BrowserSpace.self, BrowserTab.self])
+        .modelContainer(modelContainer)
         .windowStyle(.hiddenTitleBar)
         .windowToolbarStyle(.unified(showsTitle: false))
         

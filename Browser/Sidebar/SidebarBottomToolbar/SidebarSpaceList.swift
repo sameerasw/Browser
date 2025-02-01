@@ -10,14 +10,12 @@ import SwiftData
 
 struct SidebarSpaceList: View {
     
-    @Environment(\.modelContext) var modelContext
-    
     @EnvironmentObject var browserWindowState: BrowserWindowState
     
-   let browserSpaces: [BrowserSpace]
+    let browserSpaces: [BrowserSpace]
     
     var body: some View {
-        ScrollView([.horizontal, .vertical]) {
+        ScrollView(.horizontal) {
             LazyHStack {
                 ForEach(browserSpaces) { browserSpace in
                     SidebarSpaceIcon(browserSpace: browserSpace)

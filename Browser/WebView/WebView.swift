@@ -14,11 +14,11 @@ struct WebView: View {
     
     var body: some View {
         Group {
-            if browserWindowState.currentTab == nil {
+            if browserWindowState.currentSpace?.currentTab == nil {
                 Rectangle()
                     .fill(.regularMaterial)
             } else {
-                WKWebViewRepresentable(browserTab: browserWindowState.currentTab)
+//                WKWebViewRepresentable(browserTab: browserWindowState.currentTab)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)

@@ -21,15 +21,6 @@ struct Sidebar: View {
         VStack {
             SidebarToolbar()
             
-            Text(browserWindowState.currentTab?.url.absoluteString ?? "")
-            
-            Button("Add Tab") {
-                withAnimation {
-                    let newTab = BrowserTab(title: "New Tab", favicon: nil, url: URL(string: "google.com")!)
-                    modelContext.insert(newTab)
-                    try? modelContext.save()
-                }
-            }
             
             SidebarSpacesTabView(browserSpaces: browserSpaces)
             SidebarBottomToolbar(browserSpaces: browserSpaces)

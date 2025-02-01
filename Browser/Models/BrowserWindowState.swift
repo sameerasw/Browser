@@ -9,7 +9,6 @@ import SwiftUI
 
 class BrowserWindowState: ObservableObject {
     
-    @Published var currentTab: BrowserTab? = nil
     @Published var currentSpace: BrowserSpace? = nil {
         willSet {
             if let newValue {
