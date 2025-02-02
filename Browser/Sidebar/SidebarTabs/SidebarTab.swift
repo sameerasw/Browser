@@ -99,13 +99,14 @@ struct SidebarTab: View {
         else { return }
         let newTab = currentSpace.tabs[safe: index == 0 ? 1 : index - 1]
         
+        browserTab.stopObserving()
+        modelContext.delete(browserTab)
+        try? modelContext.save()
+        
         withAnimation(.bouncy) {
             if let newTab {
                 currentSpace.currentTab = newTab
             }
-            
-            modelContext.delete(browserTab)
-            try? modelContext.save()
         }
     }
 }

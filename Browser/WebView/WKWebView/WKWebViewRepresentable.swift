@@ -64,11 +64,11 @@ struct WKWebViewRepresentable: NSViewRepresentable {
             
             webView.navigationDelegate = context.coordinator.navigationDelegateCoordinator
             webView.uiDelegate = context.coordinator.uiDelegateCoordinator
-            
+                        
             tab.webview = webView
         }
         
-        return tab.webview!
+        return tab.webview ?? WKWebView()
     }
     
     func updateNSView(_ webView: WKWebView, context: Context) {
@@ -80,5 +80,13 @@ struct WKWebViewRepresentable: NSViewRepresentable {
     
     func makeCoordinator() -> WKCoordinator {
         WKCoordinator(self)
+    }
+    
+    static func dismantleNSView(_ webView: WKWebView, coordinator: WKCoordinator) {
+        webView.stopLoading()
+        webView.load(URLRequest(url: URL(string: "about:blank")!))
+        webView.removeFromSuperview()
+        webView.navigationDelegate = nil
+        webView.uiDelegate = nil
     }
 }

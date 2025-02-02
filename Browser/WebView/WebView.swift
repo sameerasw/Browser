@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WebView: View {
+
+    @Environment(\.modelContext) var modelContext
     
     @EnvironmentObject var browserWindowState: BrowserWindowState
     @EnvironmentObject var sidebarModel: SidebarModel

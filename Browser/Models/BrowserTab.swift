@@ -95,4 +95,8 @@ final class BrowserTab: Identifiable {
             }
         }
     }
+    
+    func stopObserving() {
+        cancellables.removeAll()
+    }
 }
