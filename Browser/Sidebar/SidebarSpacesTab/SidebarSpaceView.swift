@@ -14,20 +14,25 @@ struct SidebarSpaceView: View {
     @Bindable var browserSpace: BrowserSpace
     
     var body: some View {
-        LazyVStack {
+        VStack {
             Label(browserSpace.name, systemImage: browserSpace.systemImage)
                 .foregroundStyle(.secondary)
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, .sidebarPadding * 2)
             
             Divider()
             
-            Button("Add Tab", systemImage: "plus") {
-                modelContext.insert(BrowserTab(title: "Tab", url: URL(string: "https://www.google.com")!, browserSpace: browserSpace))
-                try? modelContext.save()
+            ScrollView {
+                SidebarTabNewButton(browserSpace: browserSpace)
+                    .padding(.bottom, -3)
+                
+                SidebarTabList(browserSpace: browserSpace)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .padding(.leading, .sidebarPadding)
+        .contextMenu {
+            SidebarSpaceContextMenu(browserSpace: browserSpace)
+        }
     }
 }

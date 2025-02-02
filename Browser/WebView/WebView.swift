@@ -18,6 +18,8 @@ struct WebView: View {
                 Rectangle()
                     .fill(.regularMaterial)
             } else {
+                Rectangle()
+                    .fill(.ultraThickMaterial)
 //                WKWebViewRepresentable(browserTab: browserWindowState.currentTab)
             }
         }

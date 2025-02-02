@@ -12,8 +12,7 @@ struct SidebarTab: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) var modelContext
     
-    @EnvironmentObject var browserWindowState: BrowserWindowState
-    
+    @Bindable var browserSpace: BrowserSpace
     @Bindable var browserTab: BrowserTab
     
     @State var backgroundColor: Color = .clear
@@ -21,38 +20,36 @@ struct SidebarTab: View {
     @State var isHoveringCloseButton: Bool = false
     
     var body: some View {
-        HStack {
-            faviconImage
-            
-            Text(browserTab.title)
-                .lineLimit(1)
-                .truncationMode(.tail)
-            
-            Spacer()
-            
-            if isHoveringTab {
-                closeTabButton
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .frame(height: 30)
-        .padding(3)
-        .background(
-            ZStack {
-                if let currentTab = browserWindowState.currentSpace?.currentTab {
-                    if currentTab as AnyHashable == browserTab as AnyHashable {
-                        Color.white.opacity(0.6)
-                    } else if isHoveringTab {
-                        Color.white.opacity(0.3)
-                    } else {
-                        Color.clear
-                    }
+        Button {
+            browserSpace.currentTab = browserTab
+        } label: {
+            HStack {
+                faviconImage
+                
+                Text(browserTab.title)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                
+                Spacer()
+                
+                if isHoveringTab {
+                    closeTabButton
                 }
             }
-        )
-        .clipShape(.rect(cornerRadius: 10))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(height: 30)
+            .padding(3)
+            .background(browserSpace.currentTab == browserTab ? .white.opacity(0.6) : isHoveringTab ? .white.opacity(0.3) : .clear)
+            .clipShape(.rect(cornerRadius: 10))
+        }
+        .buttonStyle(.plain)
         .onHover { hover in
             self.isHoveringTab = hover
+        }
+        .contextMenu {
+            Button("Print Tab") {
+                print(browserTab)
+            }
         }
     }
     
@@ -73,18 +70,19 @@ struct SidebarTab: View {
         .padding(.leading, 5)
     }
     
+   
     var closeTabButton: some View {
         Button("Close Tab", systemImage: "xmark", action: closeTab)
-        .font(.title3)
-        .buttonStyle(.plain)
-        .labelStyle(.iconOnly)
-        .padding(4)
-        .background(isHoveringCloseButton ? AnyShapeStyle(.ultraThinMaterial) : AnyShapeStyle(.clear))
-        .clipShape(.rect(cornerRadius: 6))
-        .onHover { hover in
-            self.isHoveringCloseButton = hover
-        }
-        .padding(.trailing, 5)
+            .font(.title3)
+            .buttonStyle(.plain)
+            .labelStyle(.iconOnly)
+            .padding(4)
+            .background(isHoveringCloseButton ? AnyShapeStyle(.ultraThinMaterial) : AnyShapeStyle(.clear))
+            .clipShape(.rect(cornerRadius: 6))
+            .onHover { hover in
+                self.isHoveringCloseButton = hover
+            }
+            .padding(.trailing, 5)
     }
     
     func closeTab() {

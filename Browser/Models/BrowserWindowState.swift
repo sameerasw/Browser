@@ -26,6 +26,7 @@ class BrowserWindowState: ObservableObject {
         
         if let space = browserSpaces.first(where: { $0.id == uuid }) {
             currentSpace = space
+            currentSpace?.currentTab = nil
             viewScrollState = uuid
             tabBarScrollState = uuid
         }
