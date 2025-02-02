@@ -82,7 +82,7 @@ final class BrowserTab: Identifiable {
                 let favicon = try await FaviconFinder(url: url)
                     .fetchFaviconURLs()
                     .download()
-                    .smallest()
+                    .largest()
                     .image?.data
                     
                 if let favicon = favicon {

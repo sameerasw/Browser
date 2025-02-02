@@ -83,6 +83,7 @@ struct WKWebViewRepresentable: NSViewRepresentable {
     }
     
     static func dismantleNSView(_ webView: WKWebView, coordinator: WKCoordinator) {
+        print("🔵 Dismantling webview")
         webView.stopLoading()
         webView.load(URLRequest(url: URL(string: "about:blank")!))
         webView.removeFromSuperview()
