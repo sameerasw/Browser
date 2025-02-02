@@ -8,6 +8,7 @@
 import SwiftData
 import WebKit
 import Combine
+import FaviconFinder
 
 @Model
 final class BrowserTab: Identifiable {
@@ -39,6 +40,7 @@ final class BrowserTab: Identifiable {
 
     private func observeWebView() {
         guard let webview else { return }
+        print("Observing")
         
         webview.publisher(for: \.canGoBack)
             .receive(on: DispatchQueue.main)
@@ -53,5 +55,44 @@ final class BrowserTab: Identifiable {
                 self?.canGoForward = canGoForward
             }
             .store(in: &cancellables)
+        
+        webview.publisher(for: \.url)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] url in
+                guard let url else { return }
+                self?.url = url
+            }
+            .store(in: &cancellables)
+        
+        webview.publisher(for: \.title)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] title in
+                if let title, !title.isEmpty {
+                    self?.title = title
+                } else {
+                    self?.title = self?.url.cleanHost ?? ""
+                }
+            }
+            .store(in: &cancellables)
+    }
+    
+    func updateFavicon(with url: URL) {
+        Task {
+            do {
+                let favicon = try await FaviconFinder(url: url)
+                    .fetchFaviconURLs()
+                    .download()
+                    .smallest()
+                    .image?.data
+                    
+                if let favicon = favicon {
+                    self.favicon = favicon
+                } else {
+                    print("Failed to find favicon for: \(url.cleanHost)")
+                }
+            } catch {
+                print("Error finding favicon: \(error.localizedDescription)")
+            }
+        }
     }
 }

@@ -18,7 +18,11 @@ class WKNavigationDelegateCoordinator: NSObject, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         guard let url = webView.url else { return }
         print("🔵 Loading \(url.absoluteString)")
-    
+        
+        if self.parent.tab.url.cleanHost != url.cleanHost {
+            print("🔵 New domain detected")
+            self.parent.tab.updateFavicon(with: url)
+        }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

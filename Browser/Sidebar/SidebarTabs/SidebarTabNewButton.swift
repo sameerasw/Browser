@@ -33,7 +33,7 @@ struct SidebarTabNewButton: View {
     
     func addTab() {
         withAnimation(.bouncy) {
-            let tab = BrowserTab(title: UUID().uuidString, url: URL(string: "https://www.google.com")!, browserSpace: browserSpace)
+            let tab = BrowserTab(title: "New Tab", url: URL(string: "https://www.google.com")!, browserSpace: browserSpace)
             modelContext.insert(tab)
             try? modelContext.save()
         }

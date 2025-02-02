@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4AE4E5912D4F677F0083FB2C /* FaviconFinder in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE4E5902D4F677F0083FB2C /* FaviconFinder */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		4AC596AD2D3C6DC400FF0326 /* Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AE4E5912D4F677F0083FB2C /* FaviconFinder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +91,7 @@
 			);
 			name = Browser;
 			packageProductDependencies = (
+				4AE4E5902D4F677F0083FB2C /* FaviconFinder */,
 			);
 			productName = Browser;
 			productReference = 4AC596AD2D3C6DC400FF0326 /* Browser.app */;
@@ -116,6 +122,7 @@
 			mainGroup = 4AC596A42D3C6DC400FF0326;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				4AE4E58F2D4F677F0083FB2C /* XCRemoteSwiftPackageReference "FaviconFinder" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4AC596AE2D3C6DC400FF0326 /* Products */;
@@ -354,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4AE4E58F2D4F677F0083FB2C /* XCRemoteSwiftPackageReference "FaviconFinder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/will-lumley/FaviconFinder";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4AE4E5902D4F677F0083FB2C /* FaviconFinder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AE4E58F2D4F677F0083FB2C /* XCRemoteSwiftPackageReference "FaviconFinder" */;
+			productName = FaviconFinder;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4AC596A52D3C6DC400FF0326 /* Project object */;
 }
