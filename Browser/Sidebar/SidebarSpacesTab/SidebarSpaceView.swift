@@ -11,28 +11,32 @@ struct SidebarSpaceView: View {
     
     @Environment(\.modelContext) var modelContext
     
+    let browserSpaces: [BrowserSpace]
     @Bindable var browserSpace: BrowserSpace
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Label(browserSpace.name, systemImage: browserSpace.systemImage)
+                .lineLimit(1)
                 .foregroundStyle(.secondary)
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, .sidebarPadding * 2)
             
             Divider()
+                .padding(.leading, .sidebarPadding * 2)
+                .padding(.trailing, .sidebarPadding)
+                .padding(.top)
             
             ScrollView {
                 SidebarTabNewButton(browserSpace: browserSpace)
+                    .padding(.top, 5)
                     .padding(.bottom, -3)
                 
                 SidebarTabList(browserSpace: browserSpace)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .contextMenu {
-            SidebarSpaceContextMenu(browserSpace: browserSpace)
-        }
+        .sidebarSpaceContextMenu(browserSpaces: browserSpaces, browserSpace: browserSpace)
     }
 }

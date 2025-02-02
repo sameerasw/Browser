@@ -18,10 +18,18 @@ struct SidebarTab: View {
     @State var backgroundColor: Color = .clear
     @State var isHoveringTab: Bool = false
     @State var isHoveringCloseButton: Bool = false
+    @State var isPressed: Bool = false
     
     var body: some View {
         Button {
             browserSpace.currentTab = browserTab
+            withAnimation(.bouncy(duration: 0.15, extraBounce: 0.0)) {
+                isPressed = true
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    isPressed = false
+                }
+            }
         } label: {
             HStack {
                 faviconImage
@@ -51,6 +59,7 @@ struct SidebarTab: View {
                 print(browserTab)
             }
         }
+        .scaleEffect(isPressed ? 0.98 : 1.0)
     }
     
     var faviconImage: some View {

@@ -7,19 +7,58 @@
 
 import SwiftUI
 
-struct SidebarSpaceContextMenu: View {
+struct SidebarSpaceContextMenu: ViewModifier {
+    
+    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Environment(\.modelContext) var modelContext
+    
+    let browserSpaces: [BrowserSpace]
     @Bindable var browserSpace: BrowserSpace
-    var body: some View {
-        Group {
-            Button("Print") {
-                print("Print")
+    
+    @State var showDeleteAlert = false
+    
+    func body(content: Content) -> some View {
+        content
+            .contextMenu {
+                Button("Print") {
+                    print("Print")
+                }
+                
+                Divider()
+                
+                Button("Delete Space") {
+                    showDeleteAlert.toggle()
+                }
             }
-            
-            Divider()
-            
-            Button("Delete Space") {
-                print("Delete")
+            .alert("Delete \"\(browserSpace.name)\"", isPresented: $showDeleteAlert) {
+                Button("Cancel", role: .cancel, action: {})
+                Button("Delete", role: .destructive, action: deleteSpace)
+            } message: {
+                Text("This action cannot be undone. All tabs in this space will be lost.")
+            }
+    }
+    
+    func deleteSpace() {
+        guard let index = browserSpaces.firstIndex(where: { $0.id == browserSpace.id }) else { return }
+        let newSpace = browserSpaces[safe: index == 0 ? 1 : index - 1]
+        
+        if let newSpace {
+            withAnimation(.bouncy) {
+                browserWindowState.currentSpace = newSpace
+                browserWindowState.viewScrollState = newSpace.id
+                browserWindowState.tabBarScrollState = newSpace.id
             }
         }
+        
+        withAnimation(.bouncy) {
+            modelContext.delete(browserSpace)
+            try? modelContext.save()
+        }
+    }
+}
+
+extension View {
+    func sidebarSpaceContextMenu(browserSpaces: [BrowserSpace], browserSpace: BrowserSpace) -> some View {
+        modifier(SidebarSpaceContextMenu(browserSpaces: browserSpaces, browserSpace: browserSpace))
     }
 }

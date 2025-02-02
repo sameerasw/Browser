@@ -16,7 +16,7 @@ final class BrowserTab: Identifiable {
     var favicon: Data?
     var url: URL
     
-    @Relationship var browserSpace: BrowserSpace
+    @Relationship var browserSpace: BrowserSpace?
     
     @Transient var webview: WKWebView? = nil
     

@@ -22,7 +22,7 @@ struct SidebarSpacesTabView: View {
             ScrollView(.horizontal) {
                 LazyHStack(spacing: .zero) {
                     ForEach(browserSpaces) { browserSpace in
-                        SidebarSpaceView(browserSpace: browserSpace)
+                        SidebarSpaceView(browserSpaces: browserSpaces, browserSpace: browserSpace)
                             .frame(width: size.width, height: size.height)
                     }
                 }

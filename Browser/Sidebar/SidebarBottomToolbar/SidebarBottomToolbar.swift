@@ -14,7 +14,7 @@ struct SidebarBottomToolbar: View {
     
     var body: some View {
         HStack {
-            Button("Downloads", systemImage: "arrow.down.circle.fill") {
+            Button("Downloads", systemImage: "arrow.down.circle") {
                 
             }
             .labelStyle(.iconOnly)
@@ -22,7 +22,7 @@ struct SidebarBottomToolbar: View {
             SidebarSpaceList(browserSpaces: browserSpaces)
             
             Button("New Space", systemImage: "plus.circle.dashed") {
-                modelContext.insert(BrowserSpace(name: "Space", systemImage: "pencil", colors: [], colorScheme: "Light"))
+                modelContext.insert(BrowserSpace(name: UUID().uuidString, systemImage: "pencil", colors: [], colorScheme: "Light"))
                 try? modelContext.save()
             }
             .labelStyle(.iconOnly)

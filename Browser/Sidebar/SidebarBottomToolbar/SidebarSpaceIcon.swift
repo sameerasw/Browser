@@ -12,16 +12,14 @@ struct SidebarSpaceIcon: View {
     @Environment(\.modelContext) var modelContext
     @EnvironmentObject var browserWindowState: BrowserWindowState
     
+    let browserSpaces: [BrowserSpace]
     @Bindable var browserSpace: BrowserSpace
     
     var body: some View {
         Button(browserSpace.name, systemImage: browserSpace.systemImage, action: setBrowserSpace)
         .buttonStyle(.sidebarHover())
         .foregroundStyle(browserWindowState.currentSpace == browserSpace ? .secondary : .tertiary)
-        .contextMenu {
-            Divider()
-            Button("Delete Space", action: deleteSpace)
-        }
+        .sidebarSpaceContextMenu(browserSpaces: browserSpaces, browserSpace: browserSpace)
     }
     
     func setBrowserSpace() {
@@ -31,15 +29,4 @@ struct SidebarSpaceIcon: View {
             browserWindowState.tabBarScrollState = browserSpace.id
         }
     }
-    
-    func deleteSpace() {
-        withAnimation(.bouncy) {
-            modelContext.delete(browserSpace)
-            try? modelContext.save()
-        }
-    }
-}
-
-#Preview {
-    SidebarSpaceIcon(browserSpace: BrowserSpace(name: "Space 1", systemImage: "pencil", colors: [.black, .blue], colorScheme: "light"))
 }
