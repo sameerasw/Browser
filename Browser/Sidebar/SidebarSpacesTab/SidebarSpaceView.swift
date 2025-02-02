@@ -12,7 +12,11 @@ struct SidebarSpaceView: View {
     @Environment(\.modelContext) var modelContext
     
     let browserSpaces: [BrowserSpace]
+    
     @Bindable var browserSpace: BrowserSpace
+    
+    @State var isHovering = false
+    @State var isHoveringClearButton = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -23,10 +27,8 @@ struct SidebarSpaceView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, .sidebarPadding * 2)
             
-            Divider()
-                .padding(.leading, .sidebarPadding * 2)
-                .padding(.trailing, .sidebarPadding)
-                .padding(.top)
+            
+            SidebarSpaceClearDivider(browserSpace: browserSpace, isHovering: isHovering)
             
             ScrollView {
                 SidebarTabNewButton(browserSpace: browserSpace)
@@ -38,5 +40,8 @@ struct SidebarSpaceView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .sidebarSpaceContextMenu(browserSpaces: browserSpaces, browserSpace: browserSpace)
+        .onHover { isHover in
+            self.isHovering = isHover
+        }
     }
 }
