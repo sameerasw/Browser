@@ -12,6 +12,8 @@ struct SidebarTab: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) var modelContext
     
+    @EnvironmentObject var browserWindowState: BrowserWindowState
+    
     @Bindable var browserSpace: BrowserSpace
     @Bindable var browserTab: BrowserTab
     
@@ -55,9 +57,7 @@ struct SidebarTab: View {
             self.isHoveringTab = hover
         }
         .contextMenu {
-            Button("Print Tab") {
-                print(browserTab)
-            }
+            SidebarTabContextMenu(browserTab: browserTab)
         }
         .scaleEffect(isPressed ? 0.98 : 1.0)
     }
@@ -78,7 +78,6 @@ struct SidebarTab: View {
         }
         .padding(.leading, 5)
     }
-    
    
     var closeTabButton: some View {
         Button("Close Tab", systemImage: "xmark", action: closeTab)
@@ -95,7 +94,16 @@ struct SidebarTab: View {
     }
     
     func closeTab() {
-        withAnimation(.bouncy(duration: 0.01, extraBounce: 0.9)) {
+        guard let currentSpace = browserWindowState.currentSpace,
+                let index = currentSpace.tabs.firstIndex(where: { $0.id == browserTab.id })
+        else { return }
+        let newTab = currentSpace.tabs[safe: index == 0 ? 1 : index - 1]
+        
+        withAnimation(.bouncy) {
+            if let newTab {
+                currentSpace.currentTab = newTab
+            }
+            
             modelContext.delete(browserTab)
             try? modelContext.save()
         }
