@@ -19,12 +19,11 @@ struct WebView: View {
                     .fill(.regularMaterial)
             } else {
                 Rectangle()
-                    .fill(.ultraThickMaterial)
+                    .fill(.black)
 //                WKWebViewRepresentable(browserTab: browserWindowState.currentTab)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
-        .layoutPriority(1)
         .overlay {
             Button("Sidebar", action: sidebarModel.toggleSidebar)
         }

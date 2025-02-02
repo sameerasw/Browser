@@ -13,8 +13,8 @@ struct SidebarSpacesTabView: View {
     @EnvironmentObject var browserWindowState: BrowserWindowState
     let browserSpaces: [BrowserSpace]
     
-    @State var viewScrollState: BrowserSpace?
-
+    @State var appeared = false
+    
     var body: some View {
         GeometryReader { geometry in
             let size = geometry.size
@@ -34,15 +34,29 @@ struct SidebarSpacesTabView: View {
             .scrollTargetBehavior(.paging)
             .onChange(of: browserWindowState.viewScrollState) { oldValue, newValue in
                 if let newValue {
-                    withAnimation(.bouncy) {
+                    withAnimation(appeared ? .bouncy : nil) {
                         browserWindowState.tabBarScrollState = newValue
                         browserWindowState.currentSpace = browserSpaces.first { $0.id == newValue }
                     }
                 }
             }
         }
-        .task {
-            browserWindowState.loadCurrentSpace(browserSpaces: browserSpaces)
+        // This is a workaround to prevent the animation when the view first appears
+        .transaction { transaction in
+            if !appeared {
+                transaction.animation = nil
+            }
+        }
+        .onAppear {
+            if browserWindowState.currentSpace == nil {
+                browserWindowState.loadCurrentSpace(browserSpaces: browserSpaces)
+            }
+            
+            browserWindowState.viewScrollState = browserWindowState.currentSpace?.id
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.appeared = true
+            }
         }
     }
 }
