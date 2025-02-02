@@ -25,6 +25,7 @@ class SharedWebViewConfiguration {
         
         // Configure shared preferences
         let preferences = WKPreferences()
+        preferences.isElementFullscreenEnabled = true
         preferences.setValue(true, forKey: "developerExtrasEnabled")
         
         configuration.preferences = preferences
@@ -37,29 +38,43 @@ class SharedWebViewConfiguration {
 
 struct WKWebViewRepresentable: NSViewRepresentable {
     
-    var browserTab: BrowserTab?
+    @Bindable var tab: BrowserTab
+    
+    let configuration: WKWebViewConfiguration
+    
+    init(tab: BrowserTab, incognito: Bool = false) {
+        self.tab = tab
+        self.configuration = SharedWebViewConfiguration.shared.configuration
+        if incognito {
+            self.configuration.websiteDataStore = .nonPersistent()
+        }
+    }
     
     func makeNSView(context: Context) -> WKWebView {
+        if tab.webview == nil {
+            let configuration = SharedWebViewConfiguration.shared.configuration
+            let webView = WKWebView(frame: .zero, configuration: configuration)
+            
+            webView.allowsBackForwardNavigationGestures = true
+            webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15"
+            webView.allowsLinkPreview = true
+            webView.allowsMagnification = true
+            webView.allowsLinkPreview = false // TODO: Implement my own preview later...
+            webView.isInspectable = true
+            
+            webView.navigationDelegate = context.coordinator.navigationDelegateCoordinator
+            webView.uiDelegate = context.coordinator.uiDelegateCoordinator
+            
+            tab.webview = webView
+        }
         
-        let webView = WKWebView(frame: .zero, configuration: SharedWebViewConfiguration.shared.configuration)
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        
-        webView.allowsBackForwardNavigationGestures = true
-        webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15"
-        webView.allowsLinkPreview = true
-        webView.allowsMagnification = true
-        webView.allowsLinkPreview = false // TODO: Implement my own preview later...
-        webView.isInspectable = true
-        
-        webView.navigationDelegate = context.coordinator.navigationDelegateCoordinator
-        webView.uiDelegate = context.coordinator.uiDelegateCoordinator
-        
-        return webView
+        return tab.webview!
     }
     
     func updateNSView(_ webView: WKWebView, context: Context) {
-        if browserTab?.webview?.url == webView.url {
-            print("equals")
+        if webView.url != tab.url {
+            let request = URLRequest(url: tab.url)
+            webView.load(request)
         }
     }
     

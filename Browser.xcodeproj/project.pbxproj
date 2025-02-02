@@ -6,17 +6,26 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		4AF6D5C12D4C811200DD64B4 /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4AF6D5C02D4C811200DD64B4 /* SymbolPicker */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		4AC596AD2D3C6DC400FF0326 /* Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4AE4E5882D4F54A90083FB2C /* Exceptions for "Browser" folder in "Browser" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4AC596AC2D3C6DC400FF0326 /* Browser */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4AC596AF2D3C6DC400FF0326 /* Browser */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4AE4E5882D4F54A90083FB2C /* Exceptions for "Browser" folder in "Browser" target */,
+			);
 			path = Browser;
 			sourceTree = "<group>";
 		};
@@ -27,7 +36,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AF6D5C12D4C811200DD64B4 /* SymbolPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +86,6 @@
 			);
 			name = Browser;
 			packageProductDependencies = (
-				4AF6D5C02D4C811200DD64B4 /* SymbolPicker */,
 			);
 			productName = Browser;
 			productReference = 4AC596AD2D3C6DC400FF0326 /* Browser.app */;
@@ -109,7 +116,6 @@
 			mainGroup = 4AC596A42D3C6DC400FF0326;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				4AF6D5BF2D4C811200DD64B4 /* XCRemoteSwiftPackageReference "SymbolPicker" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4AC596AE2D3C6DC400FF0326 /* Products */;
@@ -274,8 +280,11 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Browser/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Browser needs access to use your camera in websites.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Browser needs access to use your location in websites.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Browser needs access to use your location in websites.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Browser needs access to use your microphone on websites.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,8 +313,11 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Browser/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Browser needs access to use your camera in websites.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Browser needs access to use your location in websites.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Browser needs access to use your location in websites.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Browser needs access to use your microphone on websites.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -342,25 +354,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4AF6D5BF2D4C811200DD64B4 /* XCRemoteSwiftPackageReference "SymbolPicker" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/xnth97/SymbolPicker";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.6.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4AF6D5C02D4C811200DD64B4 /* SymbolPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4AF6D5BF2D4C811200DD64B4 /* XCRemoteSwiftPackageReference "SymbolPicker" */;
-			productName = SymbolPicker;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4AC596A52D3C6DC400FF0326 /* Project object */;
 }

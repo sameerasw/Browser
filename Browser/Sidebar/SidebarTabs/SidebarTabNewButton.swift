@@ -21,7 +21,7 @@ struct SidebarTabNewButton: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .frame(height: 30)
                 .padding(3)
-                .background(isHovering ? .white.opacity(0.3) : .clear)
+                .background(isHovering ? .white.opacity(0.1) : .clear)
                 .clipShape(.rect(cornerRadius: 10))
                 .padding(.leading, .sidebarPadding)
         }

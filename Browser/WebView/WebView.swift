@@ -13,14 +13,18 @@ struct WebView: View {
     @EnvironmentObject var sidebarModel: SidebarModel
     
     var body: some View {
-        Group {
-            if browserWindowState.currentSpace?.currentTab == nil {
-                Rectangle()
-                    .fill(.regularMaterial)
+        ZStack {
+            if let currentSpace = browserWindowState.currentSpace, let currentTab = currentSpace.currentTab {
+                ForEach(currentSpace.tabs.filter { currentSpace.loadedTabs.contains($0) || $0 == currentTab }) { tab in
+                    WKWebViewRepresentable(tab: tab)
+                        .zIndex(tab == currentTab ? 1 : 0)
+                        .onAppear {
+                            currentSpace.loadedTabs.append(tab)
+                        }
+                }
             } else {
                 Rectangle()
-                    .fill(.black)
-//                WKWebViewRepresentable(browserTab: browserWindowState.currentTab)
+                    .fill(.regularMaterial)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
