@@ -11,6 +11,7 @@ struct SidebarToolbar: View {
     
     @EnvironmentObject var userPreferences: UserPreferences
     @EnvironmentObject var sidebarModel: SidebarModel
+    @EnvironmentObject var browserWindowState: BrowserWindowState
     
     var body: some View {
         LazyVStack(alignment: .leading) {
@@ -24,16 +25,16 @@ struct SidebarToolbar: View {
                 
                 Spacer()
                 
-                SidebarToolbarButton("arrow.left") {
-                    print("Go back")
+                SidebarToolbarButton("arrow.left", disabled: (browserWindowState.currentSpace?.currentTab?.canGoBack ?? false) == false) {
+                    browserWindowState.currentSpace?.currentTab?.webview?.goBack()
                 }
                 
-                SidebarToolbarButton("arrow.right") {
-                    print("Go forward")
+                SidebarToolbarButton("arrow.right", disabled: (browserWindowState.currentSpace?.currentTab?.canGoForward ?? false) == false) {
+                    browserWindowState.currentSpace?.currentTab?.webview?.goForward()
                 }
                 
-                SidebarToolbarButton("arrow.trianglehead.clockwise") {
-                    print("refresh")
+                SidebarToolbarButton("arrow.trianglehead.clockwise", disabled: browserWindowState.currentSpace?.currentTab == nil) {
+                    browserWindowState.currentSpace?.currentTab?.webview?.reload()
                 }
             }
             .frame(alignment: .top)

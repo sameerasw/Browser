@@ -11,16 +11,18 @@ struct SidebarToolbarButton: View {
     
     let systemImage: String
     let action: () -> Void
+    let disabled: Bool
     
-    init(_ systemImage: String, action: @escaping () -> Void) {
+    init(_ systemImage: String, disabled: Bool = false, action: @escaping () -> Void) {
         self.systemImage = systemImage
         self.action = action
+        self.disabled = disabled
     }
     
     var body: some View {
         Button(action: action) {
             Image(systemName: systemImage)
         }
-        .buttonStyle(.sidebarHover())
+        .buttonStyle(.sidebarHover(disabled: disabled))
     }
 }
