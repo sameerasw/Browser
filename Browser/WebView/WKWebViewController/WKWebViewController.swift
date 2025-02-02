@@ -12,7 +12,7 @@ class WKWebViewController: NSViewController {
     
     @Bindable var tab: BrowserTab
     
-    var webView: WKWebView!
+    var webView: MyWKWebView!
     let configuration: WKWebViewConfiguration
     
     init(tab: BrowserTab, incognito: Bool = false) {
@@ -26,7 +26,7 @@ class WKWebViewController: NSViewController {
     }
     
     override func loadView() {
-        webView = WKWebView(frame: .zero, configuration: configuration)
+        webView = MyWKWebView(frame: .zero, configuration: configuration)
         view = webView
         
         webView.allowsBackForwardNavigationGestures = true
@@ -45,17 +45,17 @@ class WKWebViewController: NSViewController {
     }
     
     deinit {
+        webView.stopLoading()
+        webView.loadHTMLString("", baseURL: nil)
         webView.removeFromSuperview()
     }
     
-    override func viewWillDisappear() {
-        super.viewWillDisappear()
-        
-        webView.stopLoading()
-        webView.loadHTMLString("", baseURL: nil)
-        webView.navigationDelegate = nil
-        webView.uiDelegate = nil
-    }
+//    override func viewWillDisappear() {
+//        print("🔵 WKWebViewController viewWillDisappear")
+//        super.viewWillDisappear()
+//        webView.stopLoading()
+//        webView.loadHTMLString("", baseURL: nil)
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
