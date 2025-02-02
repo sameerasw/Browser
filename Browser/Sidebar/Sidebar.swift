@@ -29,6 +29,7 @@ struct Sidebar: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .gesture(WindowDragGesture()) // Move the browser window by dragging the sidebar
         .padding(.bottom, 10)
+        .opacity(sidebarModel.currentSidebarWidth == 0 ? 0 : 1)
     }
 }
 

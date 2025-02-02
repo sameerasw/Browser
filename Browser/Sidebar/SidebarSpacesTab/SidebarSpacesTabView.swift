@@ -14,30 +14,27 @@ struct SidebarSpacesTabView: View {
     let browserSpaces: [BrowserSpace]
     
     @State var appeared = false
+    @State var lastWidth = CGFloat.zero
     
     var body: some View {
-        GeometryReader { geometry in
-            let size = geometry.size
-            
-            ScrollView(.horizontal) {
-                LazyHStack(spacing: .zero) {
-                    ForEach(browserSpaces) { browserSpace in
-                        SidebarSpaceView(browserSpaces: browserSpaces, browserSpace: browserSpace)
-                            .frame(width: size.width, height: size.height)
-                    }
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: .zero) {
+                ForEach(browserSpaces) { browserSpace in
+                    SidebarSpaceView(browserSpaces: browserSpaces, browserSpace: browserSpace)
+                        .containerRelativeFrame(.horizontal, count: 1, spacing: 0)
                 }
-                .scrollTargetLayout()
             }
-            .scrollPosition(id: $browserWindowState.viewScrollState)
-            .scrollContentBackground(.hidden)
-            .scrollIndicators(.hidden)
-            .scrollTargetBehavior(.paging)
-            .onChange(of: browserWindowState.viewScrollState) { oldValue, newValue in
-                if let newValue {
-                    withAnimation(appeared ? .bouncy : nil) {
-                        browserWindowState.tabBarScrollState = newValue
-                        browserWindowState.currentSpace = browserSpaces.first { $0.id == newValue }
-                    }
+            .scrollTargetLayout()
+        }
+        .scrollPosition(id: $browserWindowState.viewScrollState, anchor: .center)
+        .scrollContentBackground(.hidden)
+        .scrollIndicators(.hidden)
+        .scrollTargetBehavior(.paging)
+        .onChange(of: browserWindowState.viewScrollState) { oldValue, newValue in
+            if let newValue {
+                withAnimation(appeared ? .bouncy : nil) {
+                    browserWindowState.tabBarScrollState = newValue
+                    browserWindowState.currentSpace = browserSpaces.first { $0.id == newValue }
                 }
             }
         }

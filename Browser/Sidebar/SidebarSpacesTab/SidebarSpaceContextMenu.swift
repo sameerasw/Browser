@@ -39,14 +39,16 @@ struct SidebarSpaceContextMenu: ViewModifier {
     }
     
     func deleteSpace() {
-        guard let index = browserSpaces.firstIndex(where: { $0.id == browserSpace.id }) else { return }
-        let newSpace = browserSpaces[safe: index == 0 ? 1 : index - 1]
-        
-        if let newSpace {
-            withAnimation(.bouncy) {
-                browserWindowState.currentSpace = newSpace
-                browserWindowState.viewScrollState = newSpace.id
-                browserWindowState.tabBarScrollState = newSpace.id
+        if browserWindowState.currentSpace == browserSpace {
+            guard let index = browserSpaces.firstIndex(where: { $0.id == browserSpace.id }) else { return }
+            let newSpace = browserSpaces[safe: index == 0 ? 1 : index - 1]
+            
+            if let newSpace {
+                withAnimation(.bouncy) {
+                    browserWindowState.currentSpace = newSpace
+                    browserWindowState.viewScrollState = newSpace.id
+                    browserWindowState.tabBarScrollState = newSpace.id
+                }
             }
         }
         
