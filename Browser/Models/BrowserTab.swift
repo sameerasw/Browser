@@ -40,7 +40,6 @@ final class BrowserTab: Identifiable {
 
     private func observeWebView() {
         guard let webview else { return }
-        print("Observing")
         
         webview.publisher(for: \.canGoBack)
             .receive(on: DispatchQueue.main)

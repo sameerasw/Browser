@@ -23,6 +23,7 @@ final class BrowserSpace: Identifiable {
     @Transient var loadedTabs: [BrowserTab] = []
     
     init(name: String, systemImage: String, colors: [Color], colorScheme: String) {
+        print("Creating space")
         self.id = UUID()
         self.name = name
         self.systemImage = systemImage
@@ -34,5 +35,9 @@ final class BrowserSpace: Identifiable {
     
     @Transient var getColors: [Color] {
         colors.map { Color(hex: $0) ?? .clear }
+    }
+    
+    func unloadTab(_ tab: BrowserTab) {
+        loadedTabs.removeAll(where: { $0.id == tab.id })
     }
 }

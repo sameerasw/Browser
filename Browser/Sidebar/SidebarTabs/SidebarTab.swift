@@ -100,6 +100,7 @@ struct SidebarTab: View {
         let newTab = currentSpace.tabs[safe: index == 0 ? 1 : index - 1]
         
         browserTab.stopObserving()
+        browserSpace.unloadTab(browserTab)
         modelContext.delete(browserTab)
         try? modelContext.save()
         

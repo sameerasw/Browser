@@ -12,15 +12,14 @@ import SwiftData
 struct BrowserApp: App {
     
     @NSApplicationDelegateAdaptor(BrowserAppDelegate.self) var appDelegate
-    @StateObject var userPreferences = UserPreferences()
     
     var body: some Scene {
         WindowGroup(id: "BrowserWindow") {
             ContentView()
-                .environmentObject(UserPreferences())
+                .environmentObject(appDelegate.userPreferences)
                 .environmentObject(BrowserWindowState())
                 .transaction { transaction in
-                    if userPreferences.disableAnimations {
+                    if appDelegate.userPreferences.disableAnimations {
                         transaction.animation = nil
                     }
                 }
@@ -33,7 +32,7 @@ struct BrowserApp: App {
         Settings {
             SettingsView()
                 .frame(width: 750, height: 550)
-                .environmentObject(userPreferences)
+                .environmentObject(appDelegate.userPreferences)
         }
     }
 }

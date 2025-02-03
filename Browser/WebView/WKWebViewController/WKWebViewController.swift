@@ -7,16 +7,22 @@
 
 import SwiftUI
 import WebKit
+import SwiftData
 
 class WKWebViewController: NSViewController {
     
+    var container: ModelContainer?
+    
     @Bindable var tab: BrowserTab
+    @Bindable var browserSpace: BrowserSpace
     
     var webView: MyWKWebView!
     let configuration: WKWebViewConfiguration
     
-    init(tab: BrowserTab, incognito: Bool = false) {
+    init(tab: BrowserTab, browserSpace: BrowserSpace, incognito: Bool = false) {
         self.tab = tab
+        self.browserSpace = browserSpace
+        
         self.configuration = SharedWebViewConfiguration.shared.configuration
         if incognito {
             self.configuration.websiteDataStore = .nonPersistent()
@@ -39,23 +45,21 @@ class WKWebViewController: NSViewController {
         webView.navigationDelegate = self
         webView.uiDelegate = self
         
-        webView.load(URLRequest(url: tab.url))
-        
-        tab.webview = webView
+        if webView != nil {
+            webView.load(URLRequest(url: tab.url))
+            tab.webview = webView
+        }
     }
     
     deinit {
-        webView.stopLoading()
-        webView.loadHTMLString("", baseURL: nil)
-        webView.removeFromSuperview()
+        // Only deinit if the tab is not loaded or was closed
+        if !browserSpace.loadedTabs.contains(tab) {
+            print("🔵 WKWebViewController deinit")
+            webView.stopLoading()
+            webView.loadHTMLString("", baseURL: nil)
+            webView.removeFromSuperview()
+        }
     }
-    
-//    override func viewWillDisappear() {
-//        print("🔵 WKWebViewController viewWillDisappear")
-//        super.viewWillDisappear()
-//        webView.stopLoading()
-//        webView.loadHTMLString("", baseURL: nil)
-//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

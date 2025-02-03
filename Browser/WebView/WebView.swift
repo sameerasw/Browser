@@ -18,7 +18,7 @@ struct WebView: View {
         ZStack {
             if let currentSpace = browserWindowState.currentSpace, let currentTab = currentSpace.currentTab {
                 ForEach(currentSpace.tabs.filter { currentSpace.loadedTabs.contains($0) || $0 == currentTab }) { tab in
-                    WKWebViewControllerRepresentable(tab: tab)
+                    WKWebViewControllerRepresentable(tab: tab, browserSpace: currentSpace)
                         .zIndex(tab == currentTab ? 1 : 0)
                         .onAppear {
                             currentSpace.loadedTabs.append(tab)

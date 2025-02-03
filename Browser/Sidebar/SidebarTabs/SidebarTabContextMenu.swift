@@ -36,6 +36,7 @@ struct SidebarTabContextMenu: View {
         let newTab = currentSpace.tabs[safe: index == 0 ? 1 : index - 1]
         
         browserTab.stopObserving()
+        currentSpace.unloadTab(browserTab)
         modelContext.delete(browserTab)
         try? modelContext.save()
         
@@ -54,6 +55,7 @@ struct SidebarTabContextMenu: View {
         withAnimation(.bouncy) {
             for tab in currentSpace.tabs.suffix(from: index + 1) {
                 tab.stopObserving()
+                currentSpace.unloadTab(tab)
                 modelContext.delete(tab)
             }
             try? modelContext.save()
@@ -68,6 +70,7 @@ struct SidebarTabContextMenu: View {
         withAnimation(.bouncy) {
             for tab in currentSpace.tabs.prefix(upTo: index) {
                 tab.stopObserving()
+                currentSpace.unloadTab(tab)
                 modelContext.delete(tab)
             }
             try? modelContext.save()

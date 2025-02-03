@@ -22,6 +22,7 @@ struct GeneralSettingsView: View {
             }
             
             Toggle("Disable Animations", isOn: $userPreferences.disableAnimations)
+            Toggle("Test", isOn: $userPreferences.test)
         }
     }
 }

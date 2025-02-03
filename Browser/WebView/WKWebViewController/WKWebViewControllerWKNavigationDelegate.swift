@@ -27,4 +27,9 @@ extension WKWebViewController: WKNavigationDelegate {
         guard let url = webView.url else { return }
         print("🔴 Failed loading \(url.absoluteString) with error: \(error.localizedDescription)")
     }
+    
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        print("🔵 Creating new")
+        return nil
+    }
 }

@@ -27,7 +27,6 @@ struct SidebarSpaceView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, .sidebarPadding * 2)
             
-            
             SidebarSpaceClearDivider(browserSpace: browserSpace, isHovering: isHovering)
             
             ScrollView {

@@ -18,7 +18,7 @@ struct SidebarSpaceIcon: View {
     var body: some View {
         Button(browserSpace.name, systemImage: browserSpace.systemImage, action: setBrowserSpace)
         .buttonStyle(.sidebarHover())
-        .foregroundStyle(browserWindowState.currentSpace == browserSpace ? .secondary : .tertiary)
+        .foregroundStyle(browserWindowState.currentSpace == browserSpace ? .gray : .gray.opacity(0.3))
         .sidebarSpaceContextMenu(browserSpaces: browserSpaces, browserSpace: browserSpace)
     }
     

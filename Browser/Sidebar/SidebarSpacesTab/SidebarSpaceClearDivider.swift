@@ -23,19 +23,17 @@ struct SidebarSpaceClearDivider: View {
             }
             
             if !browserSpace.tabs.isEmpty && isHovering {
-                Button {
+                Button("Clear") {
                     withAnimation(.bouncy) {
+                        browserSpace.loadedTabs.removeAll()
+                        
                         for tab in browserSpace.tabs {
                             modelContext.delete(tab)
                         }
                         try? modelContext.save()
                     }
-                } label: {
-                    HStack(spacing: 3) {
-                        Image(systemName: "xmark.circle")
-                        Text("Clear")
-                    }
                 }
+                .font(.caption.weight(.semibold))
                 .buttonStyle(.plain)
                 .foregroundStyle(isHoveringClearButton ? .primary : .secondary)
                 .onHover {

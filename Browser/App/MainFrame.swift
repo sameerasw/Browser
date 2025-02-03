@@ -18,14 +18,15 @@ struct MainFrame: View {
         HStack(spacing: 0) {
             if userPreferences.sidebarPosition == .leading {
                 if !sidebarModel.sidebarCollapsed {
-                    Sidebar()
-                        .frame(width: sidebarModel.currentSidebarWidth)
-                        .readingWidth(width: $sidebarModel.currentSidebarWidth)
+                    sidebar
                     SidebarResizer()
                 }
             }
             
             WebView()
+                .onAppear {
+                    print("Rendering webview")
+                }
                 .clipShape(.rect(cornerRadius: 8))
                 .frame(maxWidth: .infinity)
                 .shadow(radius: 3)
@@ -36,9 +37,7 @@ struct MainFrame: View {
             if userPreferences.sidebarPosition == .trailing {
                 if !sidebarModel.sidebarCollapsed {
                     SidebarResizer()
-                    Sidebar()
-                        .frame(width: sidebarModel.currentSidebarWidth)
-                        .readingWidth(width: $sidebarModel.currentSidebarWidth)
+                    sidebar
                 }
             }
         }
@@ -53,5 +52,14 @@ struct MainFrame: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
+    }
+    
+    var sidebar: some View {
+        Sidebar()
+            .frame(width: sidebarModel.currentSidebarWidth)
+            .readingWidth(width: $sidebarModel.currentSidebarWidth)
+            .onAppear {
+                print("Rendering sidebar")
+            }
     }
 }
