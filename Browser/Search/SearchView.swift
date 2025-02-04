@@ -10,6 +10,8 @@ import SwiftUI
 /// View that displays the search view with a text field and search suggestion results
 struct SearchView: View {
     
+    @Environment(\.modelContext) var modelContext
+    
     @EnvironmentObject var browserWindowState: BrowserWindowState
     
     @AppStorage("sidebar_position") var sidebarPosition = UserPreferences.SidebarPosition.leading
@@ -40,6 +42,10 @@ struct SearchView: View {
             .padding(.horizontal, 10)
             .onKeyPress(.escape) {
                 closeSearchView()
+                return .handled
+            }
+            .onKeyPress(.return) {
+                searchManager.openNewTab(searchManager.searchSuggestions[searchManager.highlightedSearchSuggestionIndex], browserWindowState: browserWindowState, modelContext: modelContext)
                 return .handled
             }
             .onKeyPress(.upArrow, action: searchManager.handleUpArrow)

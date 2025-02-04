@@ -73,7 +73,7 @@ class SearchManager {
         guard let string = String(data: data, encoding: .isoLatin1) else {
             return print("🔍👓 Error parsing search suggestions. Invalid string data. \"\(searchText)\". \(data)")
         }
-        
+    
         let components = string.components(separatedBy: ",")
         guard !components.isEmpty else {
             return print("🔍👓 Error parsing search suggestions. Empty components. \"\(searchText)\". \(data)")
@@ -139,6 +139,8 @@ class SearchManager {
         
         browserWindowState.currentSpace?.currentTab = newTab
         // Closes the search bar
-        browserWindowState.searchOpenLocation = .none
+        DispatchQueue.main.async {
+            browserWindowState.searchOpenLocation = .none
+        }
     }
 }
