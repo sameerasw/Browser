@@ -42,33 +42,11 @@ class MyWKWebView: WKWebView {
         }
         
         if contextMenuType == .unknown {
-            print(menuItemsIdentifiers)
+            print("🖥️📚 Unknown context menu type with identifiers:", menuItemsIdentifiers)
         } else {
-            print("🔵 Context menu type: \(contextMenuType.rawValue)")
+            print("🖥️📚 Context menu type: \(contextMenuType.rawValue)")
         }
     }
     
-    /// Custom context menu for frames (background, not an element)
-    func handleFrameContextMenu(_ menu: NSMenu) {
-        // Remove default back and forward items and add custom ones for consistency
-        menu.items.removeAll { $0.identifier?.rawValue == "WKMenuItemIdentifierGoBack" }
-        menu.items.removeAll { $0.identifier?.rawValue == "WKMenuItemIdentifierGoForward" }
-        
-        let backItem = NSMenuItem(title: "Back", action: #selector(goBackPage), keyEquivalent: "")
-        backItem.isEnabled = canGoBack
-        
-        let forwardItem = NSMenuItem(title: "Forward", action: #selector(goForward(_:)), keyEquivalent: "")
-        forwardItem.isEnabled = canGoForward
-        
-        menu.insertItem(backItem, at: 0)
-        menu.insertItem(forwardItem, at: 1)
-    }
-    
-    @objc func goBackPage() {
-        goBack()
-    }
-    
-    @objc func goForwardPage() {
-        goForward()
-    }
+    weak var currentNSSavePanel: NSSavePanel?
 }
