@@ -19,7 +19,7 @@ struct SidebarResizer: View {
             .frame(width: 0.1)
             .overlay(alignment: .top) {
                 // Visual dragger
-                Color.secondary.opacity(isDragging ? 0.2 : 0)
+                Color.secondary.opacity(isDragging && sidebarModel.currentSidebarWidth != 0 ? 0.2 : 0)
                     .animation(.bouncy, value: isDragging)
                     .clipShape(.rect(cornerRadius: 12))
                     .frame(width: 5)
