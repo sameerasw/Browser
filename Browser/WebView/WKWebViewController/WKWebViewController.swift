@@ -17,7 +17,7 @@ class WKWebViewController: NSViewController {
     @Bindable var tab: BrowserTab
     @Bindable var browserSpace: BrowserSpace
     
-    var webView: MyWKWebView!
+    var webView: MyWKWebView
     let configuration: WKWebViewConfiguration
     
     init(tab: BrowserTab, browserSpace: BrowserSpace, incognito: Bool = false) {
@@ -29,11 +29,12 @@ class WKWebViewController: NSViewController {
             self.configuration.websiteDataStore = .nonPersistent()
         }
         
+        self.webView = MyWKWebView(frame: .zero, configuration: self.configuration)
+        
         super.init(nibName: nil, bundle: nil)
     }
     
     override func loadView() {
-        webView = MyWKWebView(frame: .zero, configuration: configuration)
         view = webView
         
         webView.allowsBackForwardNavigationGestures = true
@@ -46,14 +47,13 @@ class WKWebViewController: NSViewController {
         webView.navigationDelegate = self
         webView.uiDelegate = self
         
-        if webView != nil {
-            webView.load(URLRequest(url: tab.url))
-            tab.webview = webView
-        }
+        webView.load(URLRequest(url: tab.url))
+        tab.webview = webView
     }
     
     deinit {
         // Only deinit if the tab is not loaded or was closed
+        print(tab.id)
         if !browserSpace.loadedTabs.contains(tab) {
             print("🔵 WKWebViewController deinit")
             webView.stopLoading()
