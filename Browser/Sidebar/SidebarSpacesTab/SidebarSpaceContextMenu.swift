@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Context menu for the sidebar space and space icon
 struct SidebarSpaceContextMenu: ViewModifier {
     
     @EnvironmentObject var browserWindowState: BrowserWindowState
@@ -38,6 +39,7 @@ struct SidebarSpaceContextMenu: ViewModifier {
             }
     }
     
+    /// Deletes the current space, selects a new space and scrolls to it
     func deleteSpace() {
         if browserWindowState.currentSpace == browserSpace {
             guard let index = browserSpaces.firstIndex(where: { $0.id == browserSpace.id }) else { return }
@@ -60,6 +62,7 @@ struct SidebarSpaceContextMenu: ViewModifier {
 }
 
 extension View {
+    /// Adds a context menu to the sidebar space and space icon
     func sidebarSpaceContextMenu(browserSpaces: [BrowserSpace], browserSpace: BrowserSpace) -> some View {
         modifier(SidebarSpaceContextMenu(browserSpaces: browserSpaces, browserSpace: browserSpace))
     }

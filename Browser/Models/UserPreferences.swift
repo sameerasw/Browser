@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// User preferences that are stored in AppStorage
 class UserPreferences: ObservableObject {
     
     enum SidebarPosition: String {
@@ -15,7 +16,6 @@ class UserPreferences: ObservableObject {
     }
     
     @AppStorage("disable_animations") var disableAnimations = false
-    
     @AppStorage("sidebar_position") var sidebarPosition = SidebarPosition.leading
     @AppStorage("sidebar_width") var sidebarWidth = 250.0
 }

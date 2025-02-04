@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Three circles that mimic the native macOS window traffic lights
 struct TrafficLights: View {
     
     @EnvironmentObject var preferences: UserPreferences

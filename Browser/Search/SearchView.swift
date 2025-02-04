@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// View that displays the search view with a text field and search suggestion results
 struct SearchView: View {
     
     @EnvironmentObject var browserWindowState: BrowserWindowState

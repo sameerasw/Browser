@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Button style for sidebar hover buttons
 struct SidebarHoverButtonStyle: ButtonStyle {
     
     let padding: CGFloat

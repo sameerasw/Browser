@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Divider with a clear button to remove all tabs from a space
 struct SidebarSpaceClearDivider: View {
     
     @Environment(\.modelContext) var modelContext

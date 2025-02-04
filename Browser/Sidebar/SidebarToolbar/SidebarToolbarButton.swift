@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A button that is used in the sidebar toolbar
 struct SidebarToolbarButton: View {
     
     let systemImage: String

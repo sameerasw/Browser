@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+/// `SearchManager` manages the search action and search suggestions
 @Observable
 class SearchManager {
     
@@ -21,6 +22,8 @@ class SearchManager {
     
     private var searchTask: Task<Void, Never>?
     
+    /// Sets the initial values from the `BrowserWindowState`
+    /// - Parameter browserWindowState: The `BrowserWindowState` to get the initial values from
     func setInitialValuesFromWindowState(_ browserWindowState: BrowserWindowState) {
         searchOpenLocation = browserWindowState.searchOpenLocation
         
@@ -35,9 +38,12 @@ class SearchManager {
         }
     }
     
+    /// Handles the search action
+    /// - Parameters: searchText: The autocomplete text to search
     func fetchSearchSuggestions(_ searchText: String) {
         searchTask?.cancel()
-//        highlightedSearchSuggestionIndex = 0
+        // Reset the highlighted search suggestion
+        highlightedSearchSuggestionIndex = 0
         
         guard !searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             searchSuggestions = []
@@ -62,6 +68,7 @@ class SearchManager {
         }
     }
     
+    /// Parses the search suggestions from the data
     private func parseSearchSuggestions(from data: Data) {
         guard let string = String(data: data, encoding: .isoLatin1) else {
             return print("🔍👓 Error parsing search suggestions. Invalid string data. \"\(searchText)\". \(data)")
@@ -81,6 +88,7 @@ class SearchManager {
                     var extracted = String(string[range])
                     // Process Unicode characters
                     extracted = extracted.applyingTransform(StringTransform("Hex-Any"), reverse: false) ?? extracted
+                    // Don't include empty strings
                     return extracted.isEmpty ? nil : extracted
                 }
                 return nil
@@ -94,6 +102,7 @@ class SearchManager {
         }
     }
     
+    /// Move the highlighted search suggestion index up
     func handleUpArrow() -> KeyPress.Result {
         guard !searchSuggestions.isEmpty else { return .ignored }
         
@@ -105,6 +114,7 @@ class SearchManager {
         return .handled
     }
     
+    /// Move the highlighted search suggestion index down
     func handleDownArrow() -> KeyPress.Result {
         guard !searchSuggestions.isEmpty else { return .ignored }
         
@@ -116,6 +126,10 @@ class SearchManager {
         return .handled
     }
     
+    /// Open a new tab with the selected search suggestion
+    /// - Parameters: searchSuggestion: The selected search suggestion
+    /// - Parameters: browserWindowState: The current `BrowserWindowState`
+    /// - Parameters: modelContext: The current `ModelContext`
     func openNewTab(_ searchSuggestion: SearchSuggestion, browserWindowState: BrowserWindowState, modelContext: ModelContext) {
         let url = URL(string: "https://www.google.com/search?q=\(searchSuggestion.title)")!
         let newTab = BrowserTab(title: searchSuggestion.title, url: url, browserSpace: browserWindowState.currentSpace)
@@ -124,6 +138,7 @@ class SearchManager {
         try? modelContext.save()
         
         browserWindowState.currentSpace?.currentTab = newTab
+        // Closes the search bar
         browserWindowState.searchOpenLocation = .none
     }
 }

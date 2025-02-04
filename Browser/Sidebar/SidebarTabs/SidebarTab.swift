@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Tab in the sidebar
 struct SidebarTab: View {
     
     @Environment(\.colorScheme) var colorScheme
@@ -25,6 +26,8 @@ struct SidebarTab: View {
     var body: some View {
         Button {
             browserSpace.currentTab = browserTab
+            
+            // Scale bounce effect
             withAnimation(.bouncy(duration: 0.15, extraBounce: 0.0)) {
                 isPressed = true
                 
@@ -93,6 +96,7 @@ struct SidebarTab: View {
             .padding(.trailing, 5)
     }
     
+    /// Close (delete) the tab
     func closeTab() {
         guard let currentSpace = browserWindowState.currentSpace,
                 let index = currentSpace.tabs.firstIndex(where: { $0.id == browserTab.id })

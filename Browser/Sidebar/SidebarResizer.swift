@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A made-from-scratch view that allows the user to resize the sidebar
 struct SidebarResizer: View {
     
     @EnvironmentObject var sidebarModel: SidebarModel
@@ -46,14 +47,19 @@ struct SidebarResizer: View {
             }
     }
     
+    /// Resize the sidebar depending on the drag gesture value
     private func resizeSidebar(with value: DragGesture.Value) {
+        // Save the last sidebar width before dragging
+        // This is used to animate the sidebar back to its original width
         if isDragging == false {
             sidebarModel.lastSidebarWidth = sidebarModel.currentSidebarWidth
         }
         
         isDragging = true
+        // Adjust the sidebar width
         let newWidth = sidebarModel.currentSidebarWidth + value.translation.width
         if newWidth >= .minimumSidebarWidth && newWidth <= .maximumSidebarWidth {
+            // Snap the sidebar width to the preferred width
             let fixedWidth = newWidth / .preferredSidebarWidth
             if fixedWidth > 0.95 && fixedWidth < 1.06 {
                 sidebarModel.currentSidebarWidth = .preferredSidebarWidth
@@ -61,12 +67,14 @@ struct SidebarResizer: View {
                 sidebarModel.currentSidebarWidth = newWidth
             }
         } else {
+            // Collapse the sidebar if the width is less than half of the minimum width
             if newWidth < .minimumSidebarWidth * 0.5 {
                 sidebarModel.currentSidebarWidth = 0
             }
         }
     }
     
+    /// End the dragging gesture
     private func endDragging(with value: DragGesture.Value) {
         isDragging = false
         setArrowNSCursor()
@@ -76,7 +84,9 @@ struct SidebarResizer: View {
         }
     }
     
+    /// Set the arrow NSCursor
     private func setArrowNSCursor() {
+        // Pop all the NSCursors until the arrow cursor is set
         while NSCursor.current != .arrow {
             NSCursor.pop()
         }

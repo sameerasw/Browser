@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Icon for a browser space in the sidebar space list
 struct SidebarSpaceIcon: View {
     
     @Environment(\.modelContext) var modelContext
@@ -22,6 +23,7 @@ struct SidebarSpaceIcon: View {
         .sidebarSpaceContextMenu(browserSpaces: browserSpaces, browserSpace: browserSpace)
     }
     
+    /// Set the current space to the selected space and scroll to the selected space
     func setBrowserSpace() {
         withAnimation(.bouncy) {
             browserWindowState.currentSpace = browserSpace

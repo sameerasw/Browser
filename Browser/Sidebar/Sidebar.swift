@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+/// The main sidebar view
 struct Sidebar: View {
     
     @Environment(\.modelContext) var modelContext

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// List of tabs of a space in the sidebar
 struct SidebarTabList: View {
     @Bindable var browserSpace: BrowserSpace
     var body: some View {

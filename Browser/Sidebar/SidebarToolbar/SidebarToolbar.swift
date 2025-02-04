@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Toolbar with buttons (traffic lights, web navigation) for the sidebar
 struct SidebarToolbar: View {
     
     @EnvironmentObject var userPreferences: UserPreferences
@@ -16,6 +17,7 @@ struct SidebarToolbar: View {
     var body: some View {
         LazyVStack(alignment: .leading) {
             HStack {
+                // Only show traffic lights if the sidebar is on the leading side
                 if userPreferences.sidebarPosition == .leading {
                     TrafficLights()
                 }

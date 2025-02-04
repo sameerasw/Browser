@@ -7,6 +7,7 @@
 
 import AppKit
 
+/// The app delegate is responsible for handling window events and saving the window position and size
 class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     var window: NSWindow!
@@ -14,6 +15,7 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     var userPreferences = UserPreferences()
     
+    /// Add window observers to save the window position and size
     func applicationWillFinishLaunching(_ notification: Notification) {
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidBecomeKey(_:)), name: NSWindow.didBecomeKeyNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(windowWillClose(_:)), name: NSWindow.willCloseNotification, object: nil)
@@ -21,6 +23,7 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidResizeOrMove(_:)), name: NSWindow.didResizeNotification, object: window)
     }
     
+    /// Restore the window position and size when the window becomes key
     @objc func windowDidBecomeKey(_ notification: Notification) {
         guard let window = notification.object as? NSWindow,
               let windowId = window.identifier?.rawValue,
@@ -65,6 +68,9 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         saveWindowPositionAndSize(window)
     }
     
+    /// Save the window position and size when the window is closed
+    /// - Parameter window: The window to save the position and size
+    /// - Note: Only save the window position and size if the window is a BrowserWindow
     func saveWindowPositionAndSize(_ window: NSWindow) {
         guard !windowWasClosed else { return }
         guard let windowId = window.identifier?.rawValue,

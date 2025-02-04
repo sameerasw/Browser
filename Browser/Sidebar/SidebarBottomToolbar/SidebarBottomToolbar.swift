@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Bottom toolbar for the sidebar
 struct SidebarBottomToolbar: View {
     
     @Environment(\.modelContext) var modelContext

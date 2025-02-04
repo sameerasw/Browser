@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+/// Horizontal scrollable collection of spaces in the sidebar
 struct SidebarSpacesTabView: View {
     
     @EnvironmentObject var browserWindowState: BrowserWindowState
@@ -30,6 +31,7 @@ struct SidebarSpacesTabView: View {
         .scrollContentBackground(.hidden)
         .scrollIndicators(.hidden)
         .scrollTargetBehavior(.paging)
+        // Scroll to the selected space when the viewScrollState changes
         .onChange(of: browserWindowState.viewScrollState) { oldValue, newValue in
             if let newValue {
                 withAnimation(appeared ? .bouncy : nil) {

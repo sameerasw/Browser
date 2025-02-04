@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A view that represents a search suggestion result item
 struct SearchSuggestionResultItem: View {
     
     @Environment(\.colorScheme) var colorScheme
@@ -27,6 +28,7 @@ struct SearchSuggestionResultItem: View {
         }
         .frame(height: 45)
         .frame(maxWidth: .infinity, alignment: .leading)
+        // Highlight the selected search suggestion item or the hovered item
         .background(searchManager.highlightedSearchSuggestionIndex == index ?
                     searchManager.accentColor :
                         isHovering ?

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// WKWebViewController wrapper for SwiftUI
 struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
     
     @Bindable var browserSpace: BrowserSpace

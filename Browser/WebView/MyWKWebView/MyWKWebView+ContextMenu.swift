@@ -7,6 +7,7 @@
 
 import WebKit
 
+/// Possible context menu types inside a WKWebView
 enum ContextMenuType: String {
     case frame = "WKMenuItemIdentifierReload"
     case text = "WKMenuItemIdentifierTranslate"
@@ -16,7 +17,7 @@ enum ContextMenuType: String {
     case unknown = "unknown"
 }
 
-
+/// Custom WKWebView subclass to handle context menus
 class MyWKWebView: WKWebView {
     override func willOpenMenu(_ menu: NSMenu, with event: NSEvent) {
         super.willOpenMenu(menu, with: event)
@@ -47,6 +48,7 @@ class MyWKWebView: WKWebView {
         }
     }
     
+    /// Custom context menu for frames (background, not an element)
     func handleFrameContextMenu(_ menu: NSMenu) {
         // Remove default back and forward items and add custom ones for consistency
         menu.items.removeAll { $0.identifier?.rawValue == "WKMenuItemIdentifierGoBack" }
@@ -61,7 +63,6 @@ class MyWKWebView: WKWebView {
         menu.insertItem(backItem, at: 0)
         menu.insertItem(forwardItem, at: 1)
     }
-    
     
     @objc func goBackPage() {
         goBack()

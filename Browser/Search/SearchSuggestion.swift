@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A search suggestion that can be displayed in the search suggestions list
 struct SearchSuggestion: Identifiable, Equatable {
     let id = UUID()
     let title: String
@@ -19,14 +20,7 @@ struct SearchSuggestion: Identifiable, Equatable {
         self.favicon = favicon
     }
     
-    var icon: Image {
-        if let favicon = favicon, let image = NSImage(data: favicon) {
-            return Image(nsImage: image)
-        } else {
-            return Image(systemName: "magnifyingglass")
-        }
-    }
-    
+    /// The icon of the search suggestion
     var searchIcon: some View {
         Group {
             if let favicon, let nsImage = NSImage(data: favicon) {
@@ -40,6 +34,7 @@ struct SearchSuggestion: Identifiable, Equatable {
         .frame(width: 15, height: 15)
     }
     
+    // MARK: - Equatable
     static func == (lhs: SearchSuggestion, rhs: SearchSuggestion) -> Bool {
         lhs.id == rhs.id
     }

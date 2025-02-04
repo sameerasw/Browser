@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+/// Search text field that shows the favicon of the search engine
 struct SearchTextField: View {
     
+    /// Enum to focus the search text field when it appears
     enum FocusedField {
         case search
     }

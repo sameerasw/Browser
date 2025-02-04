@@ -9,6 +9,7 @@ import SwiftUI
 import WebKit
 import SwiftData
 
+/// Main view controller that contains a WKWebView
 class WKWebViewController: NSViewController {
     
     var container: ModelContainer?

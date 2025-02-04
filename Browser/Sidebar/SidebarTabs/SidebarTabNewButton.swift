@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Button to open the search bar for a new tab
 struct SidebarTabNewButton: View {
     
     @Environment(\.modelContext) var modelContext

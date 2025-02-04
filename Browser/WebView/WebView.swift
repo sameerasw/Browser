@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// View that contains a stack for the loaded tabs in the current space
 struct WebView: View {
 
     @Environment(\.modelContext) var modelContext
@@ -25,6 +26,7 @@ struct WebView: View {
                         }
                 }
             } else {
+                // Show a blank page if there is no current space or tab
                 Rectangle()
                     .fill(.regularMaterial)
             }

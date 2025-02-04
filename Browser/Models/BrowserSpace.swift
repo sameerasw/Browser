@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+/// `BrowserSpace` represents a space in the browser that contains tabs.
 @Model
 final class BrowserSpace: Identifiable {
     
@@ -33,10 +34,12 @@ final class BrowserSpace: Identifiable {
         self.currentTab = nil
     }
     
+    /// This is a computed property that returns the colors of the space as `Color` objects
     @Transient var getColors: [Color] {
         colors.map { Color(hex: $0) ?? .clear }
     }
     
+    /// Removes a tab from the ZStack of WebViews of the space
     func unloadTab(_ tab: BrowserTab) {
         loadedTabs.removeAll(where: { $0.id == tab.id })
     }

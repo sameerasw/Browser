@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Main frame of the browser.
 struct MainFrame: View {
     
     @EnvironmentObject var userPreferences: UserPreferences
@@ -53,6 +54,7 @@ struct MainFrame: View {
                 SearchView()
             }
         }
+        // Show the sidebar by hovering the mouse on the edge of the screen
         .overlay(alignment: userPreferences.sidebarPosition == .leading ? .topLeading : .topTrailing) {
             if sidebarModel.sidebarCollapsed && sidebarModel.currentSidebarWidth > 0 {
                 sidebar

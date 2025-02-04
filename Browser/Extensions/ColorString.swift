@@ -8,6 +8,8 @@
 import SwiftUI
 
 extension Color {
+    /// Creates a new color from a hex string.
+    /// - Parameter hex: The hex string to create the color from.
     init?(hex: String) {
         let cleanHex = hex.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "#", with: "")
 
@@ -40,6 +42,7 @@ extension Color {
         self.init(.sRGB, red: Double(r), green: Double(g), blue: Double(b), opacity: Double(a))
     }
     
+    /// - Returns: The hex string representation of the color.
     func hexString() -> String {
         let nsColor = NSColor(self)
         guard let components = nsColor.cgColor.components, components.count >= 3 else {

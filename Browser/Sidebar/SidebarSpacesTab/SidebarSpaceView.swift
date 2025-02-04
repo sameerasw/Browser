@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// View that represents a space in the sidebar
 struct SidebarSpaceView: View {
     
     @Environment(\.modelContext) var modelContext

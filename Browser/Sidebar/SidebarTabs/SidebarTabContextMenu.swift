@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Context menu for a tab in the sidebar
 struct SidebarTabContextMenu: View {
     
     @Environment(\.modelContext) var modelContext
@@ -29,6 +30,7 @@ struct SidebarTabContextMenu: View {
         }
     }
     
+    /// Close (delete) the tab and selects the next tab
     func closeTab() {
         guard let currentSpace = browserWindowState.currentSpace,
                 let index = currentSpace.tabs.firstIndex(where: { $0.id == browserTab.id })
@@ -47,6 +49,7 @@ struct SidebarTabContextMenu: View {
         }
     }
     
+    /// Close (delete) the tabs below the current tab
     func closeTabsBelow() {
         guard let currentSpace = browserWindowState.currentSpace,
                 let index = currentSpace.tabs.firstIndex(where: { $0.id == browserTab.id })
@@ -62,6 +65,7 @@ struct SidebarTabContextMenu: View {
         }
     }
     
+    /// Close (delete) the tabs above the current tab
     func closeTabsAbove() {
         guard let currentSpace = browserWindowState.currentSpace,
                 let index = currentSpace.tabs.firstIndex(where: { $0.id == browserTab.id })

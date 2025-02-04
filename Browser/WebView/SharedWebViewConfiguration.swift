@@ -7,6 +7,7 @@
 
 import WebKit
 
+/// Shared configuration for WKWebView instances
 class SharedWebViewConfiguration {
     // Singleton to ensure a single shared configuration across tabs
     static let shared = SharedWebViewConfiguration()

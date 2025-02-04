@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// View that displays the search suggestions
 struct SearchSuggestionResultsView: View {
     
     @Environment(\.modelContext) var modelContext
@@ -19,6 +20,7 @@ struct SearchSuggestionResultsView: View {
         ScrollViewReader { proxy in
             ScrollView {
                 LazyVStack(spacing: 5) {
+                    // Based on index for the highlighted search suggestion
                     ForEach(Array(zip(searchManager.searchSuggestions.indices, searchManager.searchSuggestions)), id: \.0) { index, searchSuggestion in
                         SearchSuggestionResultItem(searchManager: searchManager, index: index, searchSuggestion: searchSuggestion)
                             .id(index)
@@ -29,6 +31,7 @@ struct SearchSuggestionResultsView: View {
                 }
                 .padding(.vertical, 5)
             }
+            // Scroll to the highlighted search suggestion
             .onChange(of: searchManager.highlightedSearchSuggestionIndex) { _, newValue in
                 withAnimation(.bouncy) {
                     proxy.scrollTo(newValue, anchor: .bottom)

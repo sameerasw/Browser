@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+/// List of spaces in the sidebar
 struct SidebarSpaceList: View {
     
     @EnvironmentObject var browserWindowState: BrowserWindowState

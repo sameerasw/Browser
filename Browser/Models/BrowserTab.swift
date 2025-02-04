@@ -10,6 +10,7 @@ import WebKit
 import Combine
 import FaviconFinder
 
+/// A model that represents a tab in the browser
 @Model
 final class BrowserTab: Identifiable {
     
@@ -38,6 +39,7 @@ final class BrowserTab: Identifiable {
     @Attribute(.ephemeral) private(set) var canGoForward: Bool = false
     @Transient private var cancellables = Set<AnyCancellable>()
 
+    /// Observes the webview to update the tab's properties, such as the title, favicon, url, and navigation buttons...
     private func observeWebView() {
         guard let webview else { return }
         
@@ -75,6 +77,8 @@ final class BrowserTab: Identifiable {
             .store(in: &cancellables)
     }
     
+    /// Updates the tab's favicon with the largest image found in the website
+    /// - Parameter url: The URL of the website to find the favicon
     func updateFavicon(with url: URL) {
         Task {
             do {
@@ -95,6 +99,7 @@ final class BrowserTab: Identifiable {
         }
     }
     
+    /// Stops observing the webview
     func stopObserving() {
         cancellables.removeAll()
     }
