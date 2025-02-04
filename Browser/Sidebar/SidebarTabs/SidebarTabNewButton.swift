@@ -11,11 +11,13 @@ struct SidebarTabNewButton: View {
     
     @Environment(\.modelContext) var modelContext
     
+    @EnvironmentObject var browserWindowState: BrowserWindowState
+    
     @Bindable var browserSpace: BrowserSpace
     @State var isHovering = false
     
     var body: some View {
-        Button(action: addTab) {
+        Button(action: openNewTabSearch) {
             Label("New Tab", systemImage: "plus")
                 .padding(.leading, .sidebarPadding)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -31,11 +33,7 @@ struct SidebarTabNewButton: View {
         }
     }
     
-    func addTab() {
-        withAnimation(.bouncy) {
-            let tab = BrowserTab(title: "New Tab", url: URL(string: "https://www.google.com")!, browserSpace: browserSpace)
-            modelContext.insert(tab)
-            try? modelContext.save()
-        }
+    func openNewTabSearch() {
+        browserWindowState.searchOpenLocation = .fromNewTab
     }
 }

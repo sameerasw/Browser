@@ -22,7 +22,9 @@ struct Sidebar: View {
         VStack {
             SidebarToolbar()
             
-            Text("Link goes here")
+            Button("Link Goes Here") {
+                browserWindowState.searchOpenLocation = .fromURLBar
+            }
             
             SidebarSpacesTabView(browserSpaces: browserSpaces)
             SidebarBottomToolbar(browserSpaces: browserSpaces)

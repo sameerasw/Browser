@@ -8,6 +8,7 @@
 import SwiftUI
 
 class UserPreferences: ObservableObject {
+    
     enum SidebarPosition: String {
         case leading
         case trailing
@@ -17,6 +18,4 @@ class UserPreferences: ObservableObject {
     
     @AppStorage("sidebar_position") var sidebarPosition = SidebarPosition.leading
     @AppStorage("sidebar_width") var sidebarWidth = 250.0
-    @AppStorage("test") var test = false
-    
 }

@@ -24,9 +24,6 @@ struct MainFrame: View {
             }
             
             WebView()
-                .onAppear {
-                    print("Rendering webview")
-                }
                 .clipShape(.rect(cornerRadius: 8))
                 .frame(maxWidth: .infinity)
                 .shadow(radius: 3)
@@ -52,14 +49,16 @@ struct MainFrame: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
+        .overlay {
+            if browserWindowState.searchOpenLocation != .none {
+                SearchView()
+            }
+        }
     }
     
     var sidebar: some View {
         Sidebar()
             .frame(width: sidebarModel.currentSidebarWidth)
             .readingWidth(width: $sidebarModel.currentSidebarWidth)
-            .onAppear {
-                print("Rendering sidebar")
-            }
     }
 }

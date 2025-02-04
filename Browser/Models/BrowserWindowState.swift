@@ -18,6 +18,7 @@ class BrowserWindowState: ObservableObject {
     }
     @Published var viewScrollState: UUID?
     @Published var tabBarScrollState: UUID?
+    @Published var searchOpenLocation: SearchOpenLocation? = .none
     
     @Sendable
     func loadCurrentSpace(browserSpaces: [BrowserSpace]) {

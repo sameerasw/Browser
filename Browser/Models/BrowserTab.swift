@@ -20,7 +20,7 @@ final class BrowserTab: Identifiable {
     
     @Relationship var browserSpace: BrowserSpace?
     
-    init(title: String, favicon: Data? = nil, url: URL, browserSpace: BrowserSpace) {
+    init(title: String, favicon: Data? = nil, url: URL, browserSpace: BrowserSpace?) {
         self.id = UUID()
         self.title = title
         self.favicon = favicon
