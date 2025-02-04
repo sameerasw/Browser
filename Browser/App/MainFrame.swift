@@ -11,7 +11,7 @@ struct MainFrame: View {
     
     @EnvironmentObject var userPreferences: UserPreferences
     @EnvironmentObject var browserWindowState: BrowserWindowState
-
+    
     @StateObject var sidebarModel = SidebarModel()
     
     var body: some View {
@@ -42,7 +42,6 @@ struct MainFrame: View {
         .frame(maxWidth: .infinity)
         .toolbar { Text("") }
         .toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
-        .environmentObject(sidebarModel)
         .background {
             if let color = browserWindowState.currentSpace?.colors.first {
                 Color(hex: color)
@@ -54,6 +53,21 @@ struct MainFrame: View {
                 SearchView()
             }
         }
+        .overlay(alignment: userPreferences.sidebarPosition == .leading ? .topLeading : .topTrailing) {
+            if sidebarModel.sidebarCollapsed && sidebarModel.currentSidebarWidth > 0 {
+                sidebar
+                    .padding(userPreferences.sidebarPosition == .leading ? .trailing : .leading, .sidebarPadding)
+                    .background(.ultraThinMaterial)
+                    .background {
+                        if let color = browserWindowState.currentSpace?.colors.first {
+                            Color(hex: color)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        }
+                    }
+                    .transition(.move(edge: userPreferences.sidebarPosition == .leading ? .leading : .trailing))
+            }
+        }
+        .environmentObject(sidebarModel)
     }
     
     var sidebar: some View {

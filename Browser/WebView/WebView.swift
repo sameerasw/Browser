@@ -12,7 +12,6 @@ struct WebView: View {
     @Environment(\.modelContext) var modelContext
     
     @EnvironmentObject var browserWindowState: BrowserWindowState
-    @EnvironmentObject var sidebarModel: SidebarModel
     
     var body: some View {
         ZStack {
@@ -29,10 +28,6 @@ struct WebView: View {
                 Rectangle()
                     .fill(.regularMaterial)
             }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
-        .overlay {
-            Button("Sidebar", action: sidebarModel.toggleSidebar)
         }
     }
 }

@@ -19,7 +19,7 @@ struct SidebarSpaceView: View {
     @State var isHoveringClearButton = false
     
     var body: some View {
-        VStack(spacing: 0) {
+        LazyVStack(spacing: 0) {
             Label(browserSpace.name, systemImage: browserSpace.systemImage)
                 .lineLimit(1)
                 .foregroundStyle(.secondary)
@@ -30,11 +30,13 @@ struct SidebarSpaceView: View {
             SidebarSpaceClearDivider(browserSpace: browserSpace, isHovering: isHovering)
             
             ScrollView {
-                SidebarTabNewButton(browserSpace: browserSpace)
-                    .padding(.top, 5)
-                    .padding(.bottom, -3)
-                
-                SidebarTabList(browserSpace: browserSpace)
+                VStack {
+                    SidebarTabNewButton(browserSpace: browserSpace)
+                        .padding(.top, 5)
+                        .padding(.bottom, -3)
+                    
+                    SidebarTabList(browserSpace: browserSpace)
+                }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)

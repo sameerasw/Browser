@@ -57,8 +57,6 @@ struct SearchView: View {
             browserWindowState.searchOpenLocation = .none
         }
     }
-    
-    
 }
 
 #Preview {
