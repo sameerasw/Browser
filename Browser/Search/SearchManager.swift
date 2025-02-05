@@ -132,7 +132,7 @@ class SearchManager {
     /// - Parameters: modelContext: The current `ModelContext`
     func openNewTab(_ searchSuggestion: SearchSuggestion, browserWindowState: BrowserWindowState, modelContext: ModelContext) {
         let url = URL(string: "https://www.google.com/search?q=\(searchSuggestion.title)")!
-        let newTab = BrowserTab(title: searchSuggestion.title, url: url, browserSpace: browserWindowState.currentSpace)
+        let newTab = BrowserTab(title: searchSuggestion.title, url: url, order: browserWindowState.currentSpace?.tabs.count ?? 0, browserSpace: browserWindowState.currentSpace)
         
         modelContext.insert(newTab)
         try? modelContext.save()

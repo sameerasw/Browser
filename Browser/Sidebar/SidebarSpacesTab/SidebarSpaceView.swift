@@ -20,20 +20,23 @@ struct SidebarSpaceView: View {
     @State var isHoveringClearButton = false
     
     var body: some View {
-        LazyVStack(spacing: 0) {
+        LazyVStack(alignment: .leading, spacing: 0) {
             Label(browserSpace.name, systemImage: browserSpace.systemImage)
                 .lineLimit(1)
                 .foregroundStyle(.secondary)
                 .fontWeight(.bold)
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, .sidebarPadding * 2)
+            // This is a workaround to prevent the label from appearing from the bottom
+                .transaction { transaction in
+                    transaction.animation = nil
+                }
+                .frame(height: 25)
             
             SidebarSpaceClearDivider(browserSpace: browserSpace, isHovering: isHovering)
             
             ScrollView {
                 VStack {
                     SidebarTabNewButton(browserSpace: browserSpace)
-                        .padding(.top, 5)
                         .padding(.bottom, -3)
                     
                     SidebarTabList(browserSpace: browserSpace)

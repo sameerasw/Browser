@@ -11,6 +11,8 @@ import SwiftData
 /// Horizontal scrollable collection of spaces in the sidebar
 struct SidebarSpacesTabView: View {
     
+    @Environment(\.modelContext) var modelContext
+    
     @EnvironmentObject var browserWindowState: BrowserWindowState
     let browserSpaces: [BrowserSpace]
     
@@ -21,8 +23,13 @@ struct SidebarSpacesTabView: View {
         ScrollView(.horizontal) {
             LazyHStack(spacing: .zero) {
                 ForEach(browserSpaces) { browserSpace in
-                    SidebarSpaceView(browserSpaces: browserSpaces, browserSpace: browserSpace)
-                        .containerRelativeFrame(.horizontal, count: 1, spacing: 0)
+                    if browserSpace.name.isEmpty {
+                        SidebarSpaceCreateView(browserSpaces: browserSpaces, browserSpace: browserSpace)
+                            .containerRelativeFrame(.horizontal, count: 1, spacing: 0)
+                    } else {
+                        SidebarSpaceView(browserSpaces: browserSpaces, browserSpace: browserSpace)
+                            .containerRelativeFrame(.horizontal, count: 1, spacing: 0)
+                    }
                 }
             }
             .scrollTargetLayout()
@@ -38,6 +45,19 @@ struct SidebarSpacesTabView: View {
                     browserWindowState.tabBarScrollState = newValue
                     browserWindowState.currentSpace = browserSpaces.first { $0.id == newValue }
                 }
+            }
+            
+            // Delete browserSpaces with empty names if they are not the one selected
+            if let currentSpace = browserWindowState.currentSpace, !currentSpace.name.isEmpty {
+                for space in browserSpaces where space.name.isEmpty {
+                    modelContext.delete(space)
+                }
+                
+                // Update order of spaces
+                for (index, space) in browserSpaces.enumerated() {
+                    space.order = index
+                }
+                try? modelContext.save()
             }
         }
         // This is a workaround to prevent the animation when the view first appears

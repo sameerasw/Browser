@@ -1,0 +1,100 @@
+//
+//  SidebarSpaceCreateView.swift
+//  Browser
+//
+//  Created by Leonardo Larrañaga on 2/4/25.
+//
+
+import SwiftUI
+import SymbolPicker
+
+struct SidebarSpaceCreateView: View {
+    
+    @Environment(\.modelContext) var modelContext
+    
+    @EnvironmentObject var browserWindowState: BrowserWindowState
+    
+    let browserSpaces: [BrowserSpace]
+    @Bindable var browserSpace: BrowserSpace
+    @State var name = ""
+    
+    @State var hoverCreateButton = false
+    @State var hoverIcon = false
+    
+    @State var showIconPicker = false
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            
+            Image(systemName: browserSpace.systemImage)
+                .padding()
+                .background(hoverIcon ? .gray.opacity(0.3) : .clear)
+                .macOSWindowBorderOverlay()
+                .onTapGesture {
+                    showIconPicker.toggle()
+                }
+                .onHover { hover in
+                    hoverIcon = hover
+                }
+                .sheet(isPresented: $showIconPicker) {
+                    SymbolPicker(symbol: $browserSpace.systemImage)
+                }
+            
+            TextField("Space Name", text: $name)
+                .frame(maxWidth: .infinity)
+                .textFieldStyle(.plain)
+                .padding(5)
+                .macOSWindowBorderOverlay()
+                .padding(.top, 5)
+            
+            Spacer()
+            
+            Button("Create Space") {
+                withAnimation(.bouncy) {
+                    browserSpace.name = name
+                }
+            }
+            .buttonStyle(.plain)
+            .frame(maxWidth: .infinity)
+            .padding(5)
+            .background(.blue, in: RoundedRectangle(cornerRadius: 8))
+            .disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            .onHover { isHover in
+                withAnimation(.bouncy) {
+                    if !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                        hoverCreateButton = isHover
+                    } else {
+                        hoverCreateButton = false
+                    }
+                }
+            }
+            .scaleEffect(hoverCreateButton ? 1.05 : 1)
+            .shadow(color: .blue.opacity(0.4), radius: hoverCreateButton ? 10 : 0)
+            
+            Button("Cancel") {
+                let newSelection = browserSpace.order > 0 ? browserSpaces[browserSpace.order - 1] : browserSpace.order < browserSpaces.count - 1 ? browserSpaces[browserSpace.order + 1] : nil
+                
+                withAnimation(.bouncy) {
+                    modelContext.delete(browserSpace)
+                    try? modelContext.save()
+                }
+                
+                // Update order
+                for (index, space) in browserSpaces.enumerated() {
+                    space.order = index
+                }
+                try? modelContext.save()
+                
+                browserWindowState.currentSpace = newSelection
+                browserWindowState.viewScrollState = newSelection?.id
+                browserWindowState.tabBarScrollState = newSelection?.id
+            }
+            .buttonStyle(.sidebarHover(font: .title3.weight(.semibold), padding: 5, fixedWidth: nil, alignment: .center, cornerRadius: 8))
+            .padding(.bottom, 25)
+            .padding(.top, 5)
+        }
+        .padding(.horizontal)
+        .font(.title3.weight(.semibold))
+    }
+}

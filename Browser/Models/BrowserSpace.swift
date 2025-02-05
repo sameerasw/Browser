@@ -15,6 +15,7 @@ final class BrowserSpace: Identifiable {
     @Attribute(.unique) var id: UUID
     var name: String
     var systemImage: String
+    var order: Int
     var colors: [String]
     var colorScheme: String
     
@@ -23,12 +24,12 @@ final class BrowserSpace: Identifiable {
     @Attribute(.ephemeral) var currentTab: BrowserTab? = nil
     @Transient var loadedTabs: [BrowserTab] = []
     
-    init(name: String, systemImage: String, colors: [Color], colorScheme: String) {
-        print("Creating space")
+    init(name: String, systemImage: String, order: Int, colors: [Color], colorScheme: String) {
         self.id = UUID()
         self.name = name
         self.systemImage = systemImage
         self.colors = colors.map { $0.hexString() }
+        self.order = order
         self.colorScheme = colorScheme
         self.tabs = []
         self.currentTab = nil

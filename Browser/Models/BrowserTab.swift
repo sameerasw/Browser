@@ -18,15 +18,17 @@ final class BrowserTab: Identifiable {
     var title: String
     var favicon: Data?
     var url: URL
+    var order: Int
     
     @Relationship var browserSpace: BrowserSpace?
     
-    init(title: String, favicon: Data? = nil, url: URL, browserSpace: BrowserSpace?) {
+    init(title: String, favicon: Data? = nil, url: URL, order: Int, browserSpace: BrowserSpace?) {
         self.id = UUID()
         self.title = title
         self.favicon = favicon
         self.url = url
         self.browserSpace = browserSpace
+        self.order = order
     }
     
     @Transient var webview: MyWKWebView? = nil {

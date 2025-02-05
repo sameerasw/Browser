@@ -7,30 +7,53 @@
 
 import SwiftUI
 
-/// Button style for sidebar hover buttons
+/// A ridiculously customizable button style for sidebar hover buttons
 struct SidebarHoverButtonStyle: ButtonStyle {
     
+    let font: Font
     let padding: CGFloat
     let colorScheme: String
+    let fixedWidth: CGFloat?
+    let alignment: Alignment
     let disabled: Bool
+    let rotationDegrees: Double
+    let showLabel: Bool
+    let cornerRadius: CGFloat
     
-    init(padding: CGFloat = .zero, colorScheme: String, disabled: Bool) {
+    init(
+        font: Font,
+        padding: CGFloat,
+        colorScheme: String,
+        fixedWidth: CGFloat?,
+        alignment: Alignment,
+        disabled: Bool,
+        rotationDegrees: Double,
+        showLabel: Bool,
+        cornerRadius: CGFloat
+    ) {
+        self.font = font
         self.padding = padding
         self.colorScheme = colorScheme
+        self.fixedWidth = fixedWidth
+        self.alignment = alignment
         self.disabled = disabled
+        self.rotationDegrees = rotationDegrees
+        self.showLabel = showLabel
+        self.cornerRadius = cornerRadius
     }
     
     @State private var hover = false
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .dynamicLabelStyle(showLabel: showLabel)
+            .rotationEffect(.degrees(rotationDegrees))
             .foregroundStyle(disabled ? .secondary : .primary)
-            .labelStyle(.iconOnly)
-            .font(.system(size: 17))
-            .frame(width: 25, height: 25, alignment: .center)
+            .font(font)
+            .fixedFrame(width: fixedWidth, alignment: alignment)
             .padding(padding)
             .background(hover ? AnyShapeStyle(.white.opacity(0.4)) : AnyShapeStyle(.clear))
-            .clipShape(.rect(cornerRadius: 4))
+            .clipShape(.rect(cornerRadius: cornerRadius))
             .onHover { hover in
                 self.hover = hover
             }
@@ -38,9 +61,49 @@ struct SidebarHoverButtonStyle: ButtonStyle {
     }
 }
 
+fileprivate extension View {
+    @ViewBuilder
+    func dynamicLabelStyle(showLabel: Bool) -> some View {
+        if showLabel {
+            self.labelStyle(.titleAndIcon)
+        } else {
+            self.labelStyle(.iconOnly)
+        }
+    }
+    
+    @ViewBuilder
+    func fixedFrame(width: CGFloat?, alignment: Alignment) -> some View {
+        if let width {
+            self.frame(width: width, height: width, alignment: .center)
+        } else {
+            self.frame(maxWidth: .infinity, alignment: alignment)
+        }
+    }
+}
+
 extension ButtonStyle where Self == SidebarHoverButtonStyle {
-    static func sidebarHover(padding: CGFloat = .zero, colorScheme: String = "Light", disabled: Bool = false) -> SidebarHoverButtonStyle {
-        SidebarHoverButtonStyle(padding: padding, colorScheme: colorScheme, disabled: disabled)
+    static func sidebarHover(
+        font: Font = .system(size: 17),
+        padding: CGFloat = .zero,
+        colorScheme: String = "Light",
+        fixedWidth: CGFloat? = 25,
+        alignment: Alignment = .leading,
+        disabled: Bool = false,
+        rotationDegrees: Double = 0,
+        showLabel: Bool = false,
+        cornerRadius: CGFloat = 4
+    ) -> SidebarHoverButtonStyle {
+        SidebarHoverButtonStyle(
+            font: font,
+            padding: padding,
+            colorScheme: colorScheme,
+            fixedWidth: fixedWidth,
+            alignment: alignment,
+            disabled: disabled,
+            rotationDegrees: rotationDegrees,
+            showLabel: showLabel,
+            cornerRadius: cornerRadius
+        )
     }
 }
 

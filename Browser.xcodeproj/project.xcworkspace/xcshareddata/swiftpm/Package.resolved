@@ -1,5 +1,5 @@
 {
-  "originHash" : "4a8f02fd451faadc3a76a827d5f316e8ac8c630391e7c74d0609f08b9aa4ceeb",
+  "originHash" : "65f4e9a33af9167bbab4c50b5b586ab3680ce99f4bd2e96eb9d5971259c6f51e",
   "pins" : [
     {
       "identity" : "faviconfinder",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "6b4930da67b462d3f200472c902dd016d37a554d",
         "version" : "2.7.7"
+      }
+    },
+    {
+      "identity" : "symbolpicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/xnth97/SymbolPicker",
+      "state" : {
+        "revision" : "e0c5e1c7aad1b8c97d6612cc76ce443178c728f0",
+        "version" : "1.6.1"
       }
     }
   ],

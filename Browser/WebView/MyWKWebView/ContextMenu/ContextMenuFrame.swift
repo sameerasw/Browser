@@ -232,7 +232,6 @@ extension MyWKWebView {
                 }
                 
                 pdfView.removeFromSuperview()
-                
             } catch {
                 NSAlert(error: error).runModal()
             }

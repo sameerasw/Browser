@@ -44,7 +44,6 @@ struct SidebarSpaceClearDivider: View {
         }
         .padding(.leading, .sidebarPadding * 2)
         .padding(.trailing, .sidebarPadding)
-        .padding(.top)
-        .frame(height: 30)
+        .frame(height: 20)
     }
 }

@@ -17,7 +17,7 @@ struct Sidebar: View {
     @EnvironmentObject var browserWindowState: BrowserWindowState
     @EnvironmentObject var sidebarModel: SidebarModel
     
-    @Query(animation: .bouncy) var browserSpaces: [BrowserSpace]
+    @Query(sort: \BrowserSpace.order) var browserSpaces: [BrowserSpace]
     
     var body: some View {
         VStack {
@@ -26,6 +26,7 @@ struct Sidebar: View {
             Button("Link Goes Here") {
                 browserWindowState.searchOpenLocation = .fromURLBar
             }
+            .opacity(browserWindowState.currentSpace?.name.isEmpty == false ? 1 : 0)
             
             SidebarSpacesTabView(browserSpaces: browserSpaces)
             SidebarBottomToolbar(browserSpaces: browserSpaces)
@@ -35,6 +36,11 @@ struct Sidebar: View {
         .opacity(sidebarModel.currentSidebarWidth == 0 ? 0 : 1)
         .padding(.trailing, userPreferences.sidebarPosition == .trailing ? .sidebarPadding * 2 : 0)
         .gesture(WindowDragGesture()) // Move the browser window by dragging the sidebar
+        .overlay(alignment: .bottomTrailing) {
+            if sidebarModel.showBottomNewMenu {
+                SidebarBottomAddMenu()
+            }
+        }
     }
 }
 

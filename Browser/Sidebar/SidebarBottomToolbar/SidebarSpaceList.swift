@@ -17,7 +17,7 @@ struct SidebarSpaceList: View {
     
     var body: some View {
         ScrollView(.horizontal) {
-            LazyHStack {
+            HStack {
                 ForEach(browserSpaces) { browserSpace in
                     SidebarSpaceIcon(browserSpaces: browserSpaces, browserSpace: browserSpace)
                 }

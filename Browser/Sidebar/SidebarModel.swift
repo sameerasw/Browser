@@ -22,6 +22,7 @@ class SidebarModel: ObservableObject {
             }
         }
     }
+    @Published var showBottomNewMenu = false
     
     /// Monitor for mouse movement
     private var mouseMonitor: Any?
@@ -97,5 +98,12 @@ class SidebarModel: ObservableObject {
     /// Stop the mouse monitor
     func stopMouseMonitor() {
         NSEvent.removeMonitor(mouseMonitor as Any)
+    }
+    
+    /// Dismiss the bottom new menu
+    func dismissBottomNewMenu() {
+        withAnimation(.bouncy) {
+            showBottomNewMenu = false
+        }
     }
 }

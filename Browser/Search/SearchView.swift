@@ -11,6 +11,7 @@ import SwiftUI
 struct SearchView: View {
     
     @Environment(\.modelContext) var modelContext
+    @Environment(\.colorScheme) var colorScheme
     
     @EnvironmentObject var browserWindowState: BrowserWindowState
     
@@ -37,6 +38,7 @@ struct SearchView: View {
             .background()
             .clipShape(.rect(cornerRadius: 10))
             .shadow(color: .black.opacity(0.15), radius: 12)
+            .macOSWindowBorderOverlay()
             .frame(maxWidth: 650, maxHeight: 305)
             .padding(.top, searchManager.searchOpenLocation == .fromURLBar ? .approximateTrafficLightsTopPadding + 33 : 0)
             .padding(.horizontal, 10)

@@ -13,22 +13,25 @@ struct SidebarBottomToolbar: View {
     @Environment(\.modelContext) var modelContext
     let browserSpaces: [BrowserSpace]
     
+    @EnvironmentObject var sidebarModel: SidebarModel
+        
     var body: some View {
         HStack {
             Button("Downloads", systemImage: "arrow.down.circle") {
                 
             }
-            .labelStyle(.iconOnly)
+            .buttonStyle(.sidebarHover(padding: 2))
             
             SidebarSpaceList(browserSpaces: browserSpaces)
             
             Button("New Space", systemImage: "plus.circle.dashed") {
-                modelContext.insert(BrowserSpace(name: UUID().uuidString, systemImage: "pencil", colors: [], colorScheme: "Light"))
-                try? modelContext.save()
+                withAnimation(.bouncy) {
+                    sidebarModel.showBottomNewMenu.toggle()
+                }
             }
-            .labelStyle(.iconOnly)
+            .buttonStyle(.sidebarHover(padding: 2, rotationDegrees: sidebarModel.showBottomNewMenu ? 45 : 0))
         }
-        .buttonStyle(.sidebarHover(padding: 2))
+        
         .padding(.leading, .sidebarPadding)
     }
 }
