@@ -6,10 +6,10 @@
 //
 
 import WebKit
+import PDFKit
 
 /// Custom context menu for frames (background, not an element)
 extension MyWKWebView {
-    
     /// Creates the custom context menu for frames
     /// - Parameter menu: The context menu to modify
     func handleFrameContextMenu(_ menu: NSMenu) {
@@ -30,6 +30,9 @@ extension MyWKWebView {
         
         let savePageAsItem = NSMenuItem(title: "Save Page As...", action: #selector(savePageAs), keyEquivalent: "")
         menu.insertItem(savePageAsItem, at: 4)
+        
+        let printItem = NSMenuItem(title: "Print...", action: #selector(printPage), keyEquivalent: "")
+        menu.insertItem(printItem, at: 5)
     }
     
     /// Opens an `NSSavePanel` to save the page as a solicited format
@@ -52,7 +55,8 @@ extension MyWKWebView {
         formatMenu.addItem(withTitle: "Safari Web Archive")
         formatMenu.addItem(withTitle: "Page Snapshot (PNG)")
         formatMenu.addItem(withTitle: "Full Page Image (PNG)")
-        formatMenu.addItem(withTitle: "PDF")
+        formatMenu.addItem(withTitle: "Single Page PDF")
+        formatMenu.addItem(withTitle: "Paginated Page PDF")
         formatMenu.action = #selector(changeFileFormat(_:))
         formatMenu.target = self
         
@@ -82,18 +86,16 @@ extension MyWKWebView {
             switch formatMenu.titleOfSelectedItem {
             case "Page Source (HTML)":
                 self.savePageAsHTML(url)
-                break
             case "Safari Web Archive":
                 self.savePageAsWebArchive(url)
-                break
             case "Page Snapshot (PNG)":
                 self.savePageAsPNG(url)
-                break
             case "Full Page Image (PNG)":
                 self.saveFullPageAsPNG(url)
-                break
-            case "PDF":
-                self.saveAsPDF(url)
+            case "Single Page PDF":
+                self.savePageAsPDF(url)
+            case "Paginated Page PDF":
+                self.savePageAsPDF(url, paginated: true)
             default:
                 break
             }
@@ -175,13 +177,62 @@ extension MyWKWebView {
         }
     }
     
-    /// Saves the page as a PDF
+    /// Saves the page as a single-page PDF
     /// - Parameter url: The URL to save the PDF
-    func saveAsPDF(_ url: URL) {
+    /// - Parameter paginated: If the PDF should be paginated
+    func savePageAsPDF(_ url: URL, paginated: Bool = false) {
         Task {
             do {
-                let data = try await self.pdf()
+                var data = try await self.pdf()
+                if paginated {
+                    data = try PDFDocument.splitLongDocument(pdfData: data)
+                }
                 try data.write(to: url)
+            } catch {
+                NSAlert(error: error).runModal()
+            }
+        }
+    }
+    
+    /// Prints the page
+    @objc func printPage() {
+        Task {
+            do {
+                let pdfData = try await self.pdf()
+                let pdfDocument = PDFDocument(data: try PDFDocument.splitLongDocument(pdfData: pdfData))
+                
+                let pdfView = PDFView()
+                pdfView.document = pdfDocument
+                pdfView.autoScales = true
+                pdfView.displaysPageBreaks = false
+                pdfView.isHidden = true
+                
+                let printInfo = NSPrintInfo.shared
+                printInfo.topMargin = 0
+                printInfo.bottomMargin = 0
+                printInfo.leftMargin = 0
+                printInfo.rightMargin = 0
+                printInfo.isVerticallyCentered = true
+                printInfo.isHorizontallyCentered = true
+                printInfo.verticalPagination = .automatic
+                printInfo.horizontalPagination = .automatic
+                
+                if let firstPage = pdfDocument?.page(at: 0) {
+                    let bounds = firstPage.bounds(for: .mediaBox)
+                    printInfo.orientation = bounds.width > bounds.height ? .landscape : .portrait
+                }
+                
+                guard let window = self.window else { return }
+                window.contentView?.addSubview(pdfView)
+                
+                let printOperation = pdfDocument?.printOperation(for: printInfo, scalingMode: .pageScaleToFit, autoRotate: false)
+                
+                DispatchQueue.main.async {
+                    printOperation?.run()
+                }
+                
+                pdfView.removeFromSuperview()
+                
             } catch {
                 NSAlert(error: error).runModal()
             }
@@ -203,7 +254,9 @@ extension MyWKWebView {
             fallthrough
         case "Full Page Image (PNG)":
             savePanel.allowedContentTypes = [.png]
-        case "PDF":
+        case "Single Page PDF":
+            fallthrough
+        case "Paginated Page PDF":
             savePanel.allowedContentTypes = [.pdf]
         default:
             break

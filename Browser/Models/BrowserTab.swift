@@ -29,7 +29,7 @@ final class BrowserTab: Identifiable {
         self.browserSpace = browserSpace
     }
     
-    @Transient var webview: WKWebView? = nil {
+    @Transient var webview: MyWKWebView? = nil {
         didSet {
             observeWebView()
         }
