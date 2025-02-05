@@ -52,6 +52,7 @@ extension MyWKWebView {
         formatMenu.addItem(withTitle: "Safari Web Archive")
         formatMenu.addItem(withTitle: "Page Snapshot (PNG)")
         formatMenu.addItem(withTitle: "Full Page Image (PNG)")
+        formatMenu.addItem(withTitle: "PDF")
         formatMenu.action = #selector(changeFileFormat(_:))
         formatMenu.target = self
         
@@ -91,6 +92,8 @@ extension MyWKWebView {
             case "Full Page Image (PNG)":
                 self.saveFullPageAsPNG(url)
                 break
+            case "PDF":
+                self.saveAsPDF(url)
             default:
                 break
             }
@@ -172,6 +175,19 @@ extension MyWKWebView {
         }
     }
     
+    /// Saves the page as a PDF
+    /// - Parameter url: The URL to save the PDF
+    func saveAsPDF(_ url: URL) {
+        Task {
+            do {
+                let data = try await self.pdf()
+                try data.write(to: url)
+            } catch {
+                NSAlert(error: error).runModal()
+            }
+        }
+    }
+    
     @objc func changeFileFormat(_ sender: Any?) {
         guard let formatMenu = sender as? NSPopUpButton else { return }
         guard let savePanel = self.currentNSSavePanel else { return }
@@ -187,6 +203,8 @@ extension MyWKWebView {
             fallthrough
         case "Full Page Image (PNG)":
             savePanel.allowedContentTypes = [.png]
+        case "PDF":
+            savePanel.allowedContentTypes = [.pdf]
         default:
             break
         }
