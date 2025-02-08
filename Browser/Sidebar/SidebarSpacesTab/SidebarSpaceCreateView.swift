@@ -8,6 +8,7 @@
 import SwiftUI
 import SymbolPicker
 
+/// A view to create a new space in the sidebar
 struct SidebarSpaceCreateView: View {
     
     @Environment(\.modelContext) var modelContext

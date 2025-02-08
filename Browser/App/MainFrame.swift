@@ -24,7 +24,7 @@ struct MainFrame: View {
                 }
             }
             
-            WebView()
+            PageWebView()
                 .clipShape(.rect(cornerRadius: 8))
                 .frame(maxWidth: .infinity)
                 .shadow(radius: 3)

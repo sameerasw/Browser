@@ -12,16 +12,16 @@ struct WebView: View {
 
     @Environment(\.modelContext) var modelContext
     
-    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Bindable var browserSpace: BrowserSpace
     
     var body: some View {
         ZStack {
-            if let currentSpace = browserWindowState.currentSpace, let currentTab = currentSpace.currentTab {
-                ForEach(currentSpace.tabs.filter { currentSpace.loadedTabs.contains($0) || $0 == currentTab }) { tab in
-                    WKWebViewControllerRepresentable(tab: tab, browserSpace: currentSpace)
+            if let currentTab = browserSpace.currentTab {
+                ForEach(browserSpace.tabs.filter { browserSpace.loadedTabs.contains($0) || $0 == currentTab }) { tab in
+                    WKWebViewControllerRepresentable(tab: tab, browserSpace: browserSpace)
                         .zIndex(tab == currentTab ? 1 : 0)
                         .onAppear {
-                            currentSpace.loadedTabs.append(tab)
+                            browserSpace.loadedTabs.append(tab)
                             tab.updateFavicon(with: tab.url)
                         }
                 }
@@ -32,8 +32,4 @@ struct WebView: View {
             }
         }
     }
-}
-
-#Preview {
-    WebView()
 }
