@@ -9,12 +9,13 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @StateObject var browserWindowState = BrowserWindowState()
     var body: some View {
-        ZStack {
-            MainFrame()
-        }
-        .ignoresSafeArea(.container, edges: .top)
-        .background(.ultraThinMaterial)
+        MainFrame()
+            .ignoresSafeArea(.container, edges: .top)
+            .background(.ultraThinMaterial)
+            .environmentObject(browserWindowState)
+            .focusedSceneValue(\.browserActiveWindowState, browserWindowState)
     }
 }
 

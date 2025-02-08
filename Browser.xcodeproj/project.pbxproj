@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A62F71A2D5349EE0084D3A2 /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4A62F7192D5349EE0084D3A2 /* SymbolPicker */; };
+		4AC77A862D573849005BEF25 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 4AC77A852D573849005BEF25 /* KeyboardShortcuts */; };
 		4AE4E5912D4F677F0083FB2C /* FaviconFinder in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE4E5902D4F677F0083FB2C /* FaviconFinder */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 			files = (
 				4A62F71A2D5349EE0084D3A2 /* SymbolPicker in Frameworks */,
 				4AE4E5912D4F677F0083FB2C /* FaviconFinder in Frameworks */,
+				4AC77A862D573849005BEF25 /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +97,7 @@
 			packageProductDependencies = (
 				4AE4E5902D4F677F0083FB2C /* FaviconFinder */,
 				4A62F7192D5349EE0084D3A2 /* SymbolPicker */,
+				4AC77A852D573849005BEF25 /* KeyboardShortcuts */,
 			);
 			productName = Browser;
 			productReference = 4AC596AD2D3C6DC400FF0326 /* Browser.app */;
@@ -127,6 +130,7 @@
 			packageReferences = (
 				4AE4E58F2D4F677F0083FB2C /* XCRemoteSwiftPackageReference "FaviconFinder" */,
 				4A62F7182D5349EE0084D3A2 /* XCRemoteSwiftPackageReference "SymbolPicker" */,
+				4AC77A842D573849005BEF25 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4AC596AE2D3C6DC400FF0326 /* Products */;
@@ -375,6 +379,14 @@
 				minimumVersion = 1.6.1;
 			};
 		};
+		4AC77A842D573849005BEF25 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.4;
+			};
+		};
 		4AE4E58F2D4F677F0083FB2C /* XCRemoteSwiftPackageReference "FaviconFinder" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/will-lumley/FaviconFinder";
@@ -390,6 +402,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4A62F7182D5349EE0084D3A2 /* XCRemoteSwiftPackageReference "SymbolPicker" */;
 			productName = SymbolPicker;
+		};
+		4AC77A852D573849005BEF25 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AC77A842D573849005BEF25 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
 		};
 		4AE4E5902D4F677F0083FB2C /* FaviconFinder */ = {
 			isa = XCSwiftPackageProductDependency;

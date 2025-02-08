@@ -12,12 +12,11 @@ import SwiftData
 struct BrowserApp: App {
     
     @NSApplicationDelegateAdaptor(BrowserAppDelegate.self) var appDelegate
-    
+        
     var body: some Scene {
-        WindowGroup(id: "BrowserWindow") {
+        WindowGroup(id: "BrowserWindow" + UUID().uuidString) {
             ContentView()
                 .environmentObject(appDelegate.userPreferences)
-                .environmentObject(BrowserWindowState())
                 .transaction {
                     $0.disablesAnimations = appDelegate.userPreferences.disableAnimations
                 }
@@ -26,6 +25,9 @@ struct BrowserApp: App {
         .modelContainer(for: [BrowserSpace.self, BrowserTab.self])
         .windowStyle(.hiddenTitleBar)
         .windowToolbarStyle(.unified(showsTitle: false))
+        .commands {
+            BrowserCommands()
+        }
         
         Settings {
             SettingsView()
