@@ -18,10 +18,8 @@ struct BrowserApp: App {
             ContentView()
                 .environmentObject(appDelegate.userPreferences)
                 .environmentObject(BrowserWindowState())
-                .transaction { transaction in
-                    if appDelegate.userPreferences.disableAnimations {
-                        transaction.animation = nil
-                    }
+                .transaction {
+                    $0.disablesAnimations = appDelegate.userPreferences.disableAnimations
                 }
                 .frame(minWidth: 400, minHeight: 200)
         }

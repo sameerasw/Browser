@@ -27,9 +27,7 @@ struct SidebarSpaceView: View {
                 .fontWeight(.bold)
                 .padding(.leading, .sidebarPadding * 2)
             // This is a workaround to prevent the label from appearing from the bottom
-                .transaction { transaction in
-                    transaction.animation = nil
-                }
+                .transaction { $0.animation = nil }
                 .frame(height: 25)
             
             SidebarSpaceClearDivider(browserSpace: browserSpace, isHovering: isHovering)

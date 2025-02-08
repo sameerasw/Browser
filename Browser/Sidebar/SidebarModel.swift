@@ -35,25 +35,20 @@ class SidebarModel: ObservableObject {
             if sidebarCollapsed {
                 lastSidebarWidth = currentSidebarWidth
                 currentSidebarWidth = 0
-                setTrafficLights(show: false)
+                if UserDefaults.standard.string(forKey: "sidebar_position") == "leading" {
+                    NSApp.setBrowserWindowControls(hidden: true)
+                }
             } else {
                 self.currentSidebarWidth = self.lastSidebarWidth
             }
         } completion: {
             // When finished, show the traffic lights if the sidebar is not collapsed
             if !self.sidebarCollapsed {
-                self.setTrafficLights(show: true)
+                if UserDefaults.standard.string(forKey: "sidebar_position") == "leading" {
+                    NSApp.setBrowserWindowControls(hidden: false)
+                }
             }
         }
-    }
-    
-    /// Set the visibility of the native window traffic lights
-    /// - Parameter show: Whether to show the traffic lights
-    func setTrafficLights(show: Bool) {
-        guard let keyWindow = NSApp.keyWindow else { return }
-        keyWindow.standardWindowButton(.closeButton)?.isHidden = !show
-        keyWindow.standardWindowButton(.miniaturizeButton)?.isHidden = !show
-        keyWindow.standardWindowButton(.zoomButton)?.isHidden = !show
     }
     
     /// Start the mouse monitor
@@ -82,11 +77,11 @@ class SidebarModel: ObservableObject {
             if inRange {
                 currentSidebarWidth = lastSidebarWidth
                 if sidebarPosition == "leading" {
-                    setTrafficLights(show: true)
+                    NSApp.setBrowserWindowControls(hidden: false)
                 }
             } else {
                 if sidebarPosition == "leading" {
-                    setTrafficLights(show: false)
+                    NSApp.setBrowserWindowControls(hidden: true)
                 }
                 currentSidebarWidth = 0
             }

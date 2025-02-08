@@ -61,11 +61,7 @@ struct SidebarSpacesTabView: View {
             }
         }
         // This is a workaround to prevent the animation when the view first appears
-        .transaction { transaction in
-            if !appeared {
-                transaction.animation = nil
-            }
-        }
+        .transaction { $0.disablesAnimations = !appeared }
         .onAppear {
             if browserWindowState.currentSpace == nil {
                 browserWindowState.loadCurrentSpace(browserSpaces: browserSpaces)

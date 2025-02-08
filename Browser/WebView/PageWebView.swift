@@ -24,7 +24,7 @@ struct PageWebView: View {
                 }
             }
         }
-        .scrollPosition(id: $browserWindowState.viewScrollState, anchor: .center)
+        .scrollPosition(id: $browserWindowState.tabBarScrollState, anchor: .center)
         .scrollDisabled(true)
         .scrollContentBackground(.hidden)
         .scrollIndicators(.hidden)

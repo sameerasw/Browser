@@ -53,9 +53,8 @@ class WKWebViewController: NSViewController {
     
     deinit {
         // Only deinit if the tab is not loaded or was closed
-        print(tab.id)
         if !browserSpace.loadedTabs.contains(tab) {
-            print("🔵 WKWebViewController deinit")
+            print("🔵 WKWebViewController deinit \(tab.title)")
             webView.stopLoading()
             webView.loadHTMLString("", baseURL: nil)
             webView.removeFromSuperview()

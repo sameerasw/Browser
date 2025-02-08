@@ -25,12 +25,16 @@ struct MainFrame: View {
             }
             
             PageWebView()
-                .clipShape(.rect(cornerRadius: 8))
+                .id("PageWebView")
                 .frame(maxWidth: .infinity)
-                .shadow(radius: 3)
-                .padding([.top, .bottom], 10)
-                .padding(userPreferences.sidebarPosition == .leading ? .leading : .trailing, sidebarModel.sidebarCollapsed ? 10 : 5)
-                .padding([userPreferences.sidebarPosition == .leading ? .trailing : .leading], 10)
+                .conditionalModifier(condition: userPreferences.roundedCorners) { $0.clipShape(RoundedRectangle(cornerRadius: 8)) }
+                .conditionalModifier(condition: userPreferences.enableShadow) { $0.shadow(radius: 3) }
+                .conditionalModifier(condition: userPreferences.enablePadding) {
+                    $0
+                        .padding([.top, .bottom], 10)
+                        .padding(userPreferences.sidebarPosition == .leading ? .leading : .trailing, sidebarModel.sidebarCollapsed ? 10 : 5)
+                        .padding([userPreferences.sidebarPosition == .leading ? .trailing : .leading], 10)
+                }
             
             if userPreferences.sidebarPosition == .trailing {
                 if !sidebarModel.sidebarCollapsed {

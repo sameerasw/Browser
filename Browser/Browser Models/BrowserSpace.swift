@@ -22,7 +22,7 @@ final class BrowserSpace: Identifiable {
     @Relationship(deleteRule: .cascade, inverse: \BrowserTab.browserSpace) var tabs: [BrowserTab]
     
     @Attribute(.ephemeral) var currentTab: BrowserTab? = nil
-    @Transient var loadedTabs: [BrowserTab] = []
+    @Attribute(.ephemeral) var loadedTabs: [BrowserTab] = []
     
     init(name: String, systemImage: String, order: Int, colors: [Color], colorScheme: String) {
         self.id = UUID()
