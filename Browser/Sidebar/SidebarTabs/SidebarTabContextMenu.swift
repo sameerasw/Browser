@@ -32,21 +32,7 @@ struct SidebarTabContextMenu: View {
     
     /// Close (delete) the tab and selects the next tab
     func closeTab() {
-        guard let currentSpace = browserWindowState.currentSpace,
-                let index = currentSpace.tabs.firstIndex(where: { $0.id == browserTab.id })
-        else { return }
-        let newTab = currentSpace.tabs[safe: index == 0 ? 1 : index - 1]
-        
-        browserTab.stopObserving()
-        currentSpace.unloadTab(browserTab)
-        modelContext.delete(browserTab)
-        try? modelContext.save()
-        
-        withAnimation(.bouncy) {
-            if let newTab {
-                currentSpace.currentTab = newTab
-            }
-        }
+        browserWindowState.closeTab(browserTab, modelContext: modelContext)
     }
     
     /// Close (delete) the tabs below the current tab

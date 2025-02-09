@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import KeyboardShortcuts
 
 struct ContentView: View {
     @StateObject var browserWindowState = BrowserWindowState()
@@ -14,8 +15,11 @@ struct ContentView: View {
         MainFrame()
             .ignoresSafeArea(.container, edges: .top)
             .background(.ultraThinMaterial)
-            .environmentObject(browserWindowState)
             .focusedSceneValue(\.browserActiveWindowState, browserWindowState)
+            .environmentObject(browserWindowState)
+            .sheet(isPresented: $browserWindowState.showURLQRCode) {
+                URLQRCodeView(browserTab: browserWindowState.currentSpace?.currentTab)
+            }
     }
 }
 

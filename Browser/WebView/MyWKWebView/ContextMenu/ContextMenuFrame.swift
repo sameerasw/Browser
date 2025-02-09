@@ -53,7 +53,7 @@ extension MyWKWebView {
         let formatMenu = NSPopUpButton(frame: NSRect(x: 0, y: 0, width: 150, height: 24))
         formatMenu.addItem(withTitle: "Page Source (HTML)")
         formatMenu.addItem(withTitle: "Safari Web Archive")
-        formatMenu.addItem(withTitle: "Page Snapshot (PNG)")
+        formatMenu.addItem(withTitle: "Current Page Portion Snapshot (PNG)")
         formatMenu.addItem(withTitle: "Full Page Image (PNG)")
         formatMenu.addItem(withTitle: "Single Page PDF")
         formatMenu.addItem(withTitle: "Paginated Page PDF")
@@ -88,7 +88,7 @@ extension MyWKWebView {
                 self.savePageAsHTML(url)
             case "Safari Web Archive":
                 self.savePageAsWebArchive(url)
-            case "Page Snapshot (PNG)":
+            case "Current Page Portion Snapshot (PNG)":
                 self.savePageAsPNG(url)
             case "Full Page Image (PNG)":
                 self.saveFullPageAsPNG(url)
@@ -249,7 +249,7 @@ extension MyWKWebView {
         case "Safari Web Archive":
             savePanel.allowedContentTypes = [.webArchive]
             break
-        case "Page Snapshot (PNG)":
+        case "Current Page Portion Snapshot (PNG)":
             fallthrough
         case "Full Page Image (PNG)":
             savePanel.allowedContentTypes = [.png]

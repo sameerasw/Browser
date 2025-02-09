@@ -82,23 +82,23 @@ final class BrowserTab: Identifiable {
     /// Updates the tab's favicon with the largest image found in the website
     /// - Parameter url: The URL of the website to find the favicon
     func updateFavicon(with url: URL) {
-        Task {
-            do {
-                let favicon = try await FaviconFinder(url: url)
-                    .fetchFaviconURLs()
-                    .download()
-                    .largest()
-                    .image?.data
-                    
-                if let favicon = favicon {
-                    self.favicon = favicon
-                } else {
-                    print("Failed to find favicon for: \(url.cleanHost)")
-                }
-            } catch {
-                print("Error finding favicon: \(error.localizedDescription)")
-            }
-        }
+//        Task {
+//            do {
+//                let favicon = try await FaviconFinder(url: url)
+//                    .fetchFaviconURLs()
+//                    .download()
+//                    .largest()
+//                    .image?.data
+//                    
+//                if let favicon = favicon {
+//                    self.favicon = favicon
+//                } else {
+//                    print("Failed to find favicon for: \(url.cleanHost)")
+//                }
+//            } catch {
+//                print("Error finding favicon: \(error.localizedDescription)")
+//            }
+//        }
     }
     
     /// Stops observing the webview

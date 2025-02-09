@@ -24,6 +24,7 @@ struct TrafficLights: View {
             }
         }
         .padding(.leading, .approximateTrafficLightsLeadingPadding)
+        .opacity(0)
     }
 }
 

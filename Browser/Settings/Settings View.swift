@@ -17,6 +17,10 @@ struct SettingsView: View {
             Tab("Appearance", systemImage: "paintpalette") {
                 SettingsAppearanceView()
             }
+            
+            Tab("Keyboard Shortcuts", systemImage: "command") {
+                SettingsShortcutsView()
+            }
         }
     }
 }

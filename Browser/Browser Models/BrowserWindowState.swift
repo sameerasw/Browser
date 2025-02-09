@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 /// The BrowserWindowState class is an ObservableObject that holds the current state of the browser window
 class BrowserWindowState: ObservableObject {
@@ -20,6 +21,8 @@ class BrowserWindowState: ObservableObject {
     @Published var viewScrollState: UUID?
     @Published var tabBarScrollState: UUID?
     @Published var searchOpenLocation: SearchOpenLocation? = .none
+    
+    @Published var showURLQRCode = false
         
     /// Loads the current space from the UserDefaults and sets it as the current space
     @Sendable
@@ -32,6 +35,36 @@ class BrowserWindowState: ObservableObject {
             currentSpace?.currentTab = nil
             viewScrollState = uuid
             tabBarScrollState = uuid
+        }
+    }
+    
+    func toggleNewTabSearch() {
+        if canSpaceOpenNewTab() {
+            searchOpenLocation = searchOpenLocation == .fromNewTab ? .none : .fromNewTab
+        } else {
+            searchOpenLocation = .none
+        }
+    }
+    
+    func canSpaceOpenNewTab() -> Bool {
+        !(currentSpace == nil || currentSpace?.name.isEmpty == true)
+    }
+    
+    func closeTab(_ browserTab: BrowserTab, modelContext: ModelContext) {
+        guard let currentSpace = currentSpace,
+                let index = currentSpace.tabs.firstIndex(where: { $0.id == browserTab.id })
+        else { return }
+        let newTab = currentSpace.tabs[safe: index == 0 ? 1 : index - 1]
+        
+        browserTab.stopObserving()
+        currentSpace.unloadTab(browserTab)
+        modelContext.delete(browserTab)
+        try? modelContext.save()
+        
+        withAnimation(.bouncy) {
+            if let newTab {
+                currentSpace.currentTab = newTab
+            }
         }
     }
 }

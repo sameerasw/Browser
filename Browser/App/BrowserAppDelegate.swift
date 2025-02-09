@@ -72,7 +72,7 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
     
     @objc func checkForNewWindows(_ sender: NSWindow) {
-        let currentWindows = NSApp.windows
+        let currentWindows = NSApp.windows.filter { $0.identifier?.rawValue.hasPrefix("BrowserWindow") == true }
         newWindowOpened = currentWindows.count > lastWindows.count || !lastWindows.compactMap { $0.identifier?.rawValue }.contains(sender.identifier?.rawValue)
         lastWindows = currentWindows
     }

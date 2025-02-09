@@ -14,7 +14,7 @@ struct BrowserApp: App {
     @NSApplicationDelegateAdaptor(BrowserAppDelegate.self) var appDelegate
         
     var body: some Scene {
-        WindowGroup(id: "BrowserWindow" + UUID().uuidString) {
+        WindowGroup(id: "BrowserWindow") {
             ContentView()
                 .environmentObject(appDelegate.userPreferences)
                 .transaction {
