@@ -12,7 +12,7 @@ import FaviconFinder
 
 /// A model that represents a tab in the browser
 @Model
-final class BrowserTab: Identifiable {
+final class BrowserTab: Identifiable, Comparable {
     
     @Attribute(.unique) var id: UUID
     var title: String
@@ -104,5 +104,10 @@ final class BrowserTab: Identifiable {
     /// Stops observing the webview
     func stopObserving() {
         cancellables.removeAll()
+    }
+    
+    // MARK: - Comparable
+    static func < (lhs: BrowserTab, rhs: BrowserTab) -> Bool {
+        lhs.order < rhs.order
     }
 }

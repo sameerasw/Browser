@@ -20,7 +20,7 @@ struct Sidebar: View {
     
     var body: some View {
         VStack {
-            SidebarToolbar()
+            SidebarToolbar(browserSpaces: browserSpaces)
             
             Button("Link Goes Here") {
                 browserWindowState.searchOpenLocation = .fromURLBar
@@ -38,6 +38,11 @@ struct Sidebar: View {
         .overlay(alignment: .bottomTrailing) {
             if sidebarModel.showBottomNewMenu {
                 SidebarBottomAddMenu(createSpace: createSpace, disableNewTabButton: browserSpaces.isEmpty)
+            }
+        }
+        .onAppear {
+            if browserSpaces.isEmpty {
+                createSpace()
             }
         }
     }

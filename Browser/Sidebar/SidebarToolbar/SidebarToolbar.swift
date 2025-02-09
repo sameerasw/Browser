@@ -16,6 +16,8 @@ struct SidebarToolbar: View {
     @EnvironmentObject var sidebarModel: SidebarModel
     @EnvironmentObject var browserWindowState: BrowserWindowState
     
+    let browserSpaces: [BrowserSpace]
+    
     var body: some View {
         LazyVStack(alignment: .leading) {
             HStack {
@@ -64,8 +66,4 @@ struct SidebarToolbar: View {
             browserWindowState.currentSpace?.currentTab?.webview?.reload()
         }
     }
-}
-
-#Preview {
-    SidebarToolbar()
 }

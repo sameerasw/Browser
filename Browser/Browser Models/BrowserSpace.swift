@@ -19,7 +19,18 @@ final class BrowserSpace: Identifiable {
     var colors: [String]
     var colorScheme: String
     
-    @Relationship(deleteRule: .cascade, inverse: \BrowserTab.browserSpace) var tabs: [BrowserTab]
+    @Relationship(deleteRule: .cascade, inverse: \BrowserTab.browserSpace) private var unorderedTabs: [BrowserTab]
+    
+    var tabs: [BrowserTab] {
+        get {
+            unorderedTabs.sorted()
+        } set {
+            newValue.enumerated().forEach { index, tab in
+                tab.order = index
+            }
+            unorderedTabs = newValue
+        }
+    }
     
     @Attribute(.ephemeral) var currentTab: BrowserTab? = nil
     @Attribute(.ephemeral) var loadedTabs: [BrowserTab] = []
@@ -31,7 +42,7 @@ final class BrowserSpace: Identifiable {
         self.colors = colors.map { $0.hexString() }
         self.order = order
         self.colorScheme = colorScheme
-        self.tabs = []
+        self.unorderedTabs = []
         self.currentTab = nil
     }
     
