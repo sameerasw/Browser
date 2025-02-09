@@ -13,6 +13,7 @@ struct SidebarTab: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) var modelContext
     
+    @EnvironmentObject var userPreferences: UserPreferences
     @EnvironmentObject var browserWindowState: BrowserWindowState
     
     @Bindable var browserSpace: BrowserSpace
@@ -27,12 +28,14 @@ struct SidebarTab: View {
         Button {
             browserSpace.currentTab = browserTab
             
-            // Scale bounce effect
-            withAnimation(.bouncy(duration: 0.15, extraBounce: 0.0)) {
-                isPressed = true
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    isPressed = false
+            if !userPreferences.disableAnimations {
+                // Scale bounce effect
+                withAnimation(.bouncy(duration: 0.15, extraBounce: 0.0)) {
+                    isPressed = true
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        isPressed = false
+                    }
                 }
             }
         } label: {

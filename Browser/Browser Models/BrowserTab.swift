@@ -21,7 +21,7 @@ final class BrowserTab: Identifiable, Comparable {
     
     @Relationship var browserSpace: BrowserSpace?
     
-    init(title: String, favicon: Data? = nil, url: URL, order: Int, browserSpace: BrowserSpace?) {
+    init(title: String, favicon: Data? = nil, url: URL, order: Int = 0, browserSpace: BrowserSpace?) {
         self.id = UUID()
         self.title = title
         self.favicon = favicon
