@@ -8,7 +8,6 @@
 import SwiftData
 import WebKit
 import Combine
-import FaviconFinder
 
 /// A model that represents a tab in the browser
 @Model
@@ -40,7 +39,7 @@ final class BrowserTab: Identifiable, Comparable {
     @Attribute(.ephemeral) private(set) var canGoBack: Bool = false
     @Attribute(.ephemeral) private(set) var canGoForward: Bool = false
     @Transient private var cancellables = Set<AnyCancellable>()
-
+    
     /// Observes the webview to update the tab's properties, such as the title, favicon, url, and navigation buttons...
     private func observeWebView() {
         guard let webview else { return }
@@ -82,23 +81,23 @@ final class BrowserTab: Identifiable, Comparable {
     /// Updates the tab's favicon with the largest image found in the website
     /// - Parameter url: The URL of the website to find the favicon
     func updateFavicon(with url: URL) {
-//        Task {
-//            do {
-//                let favicon = try await FaviconFinder(url: url)
-//                    .fetchFaviconURLs()
-//                    .download()
-//                    .largest()
-//                    .image?.data
-//                    
-//                if let favicon = favicon {
-//                    self.favicon = favicon
-//                } else {
-//                    print("Failed to find favicon for: \(url.cleanHost)")
-//                }
-//            } catch {
-//                print("Error finding favicon: \(error.localizedDescription)")
-//            }
-//        }
+        Task {
+            guard let host = url.host() else { return }
+            let size = 256
+            let url = URL(string: "https://www.google.com/s2/favicons?domain=\(host)&sz=\(size)")!
+            
+            do {
+                let favicon = try await URLSession.shared.data(from: url).0
+                print(url)
+                if NSImage(data: favicon) != nil {
+                    self.favicon = favicon
+                } else {
+                    print("Invalid favicon image for: \(url.cleanHost)")
+                }
+            } catch {
+                print("Error finding favicon: \(error.localizedDescription)")
+            }
+        }
     }
     
     /// Stops observing the webview

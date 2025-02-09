@@ -1,15 +1,6 @@
 {
-  "originHash" : "3f8437faaa514509e4f9588f3cb9cacf3e49b9265b3ae5af31a868008cf780fc",
+  "originHash" : "084dcea98ee3d5c20b4c7dc29bdb408316e719966e247c4a2ed718feea1987ac",
   "pins" : [
-    {
-      "identity" : "faviconfinder",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/will-lumley/FaviconFinder",
-      "state" : {
-        "revision" : "9279f4371f4877ca302ba3bf1015f3f58ae4a56c",
-        "version" : "5.1.4"
-      }
-    },
     {
       "identity" : "keyboardshortcuts",
       "kind" : "remoteSourceControl",
@@ -17,15 +8,6 @@
       "state" : {
         "revision" : "7ecc38bb6edf7d087d30e737057b8d8a9b7f51eb",
         "version" : "2.2.4"
-      }
-    },
-    {
-      "identity" : "swiftsoup",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/scinfu/SwiftSoup.git",
-      "state" : {
-        "revision" : "6b4930da67b462d3f200472c902dd016d37a554d",
-        "version" : "2.7.7"
       }
     },
     {

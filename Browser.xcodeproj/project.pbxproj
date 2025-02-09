@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4A62F71A2D5349EE0084D3A2 /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 4A62F7192D5349EE0084D3A2 /* SymbolPicker */; };
 		4AC77A862D573849005BEF25 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 4AC77A852D573849005BEF25 /* KeyboardShortcuts */; };
-		4AE4E5912D4F677F0083FB2C /* FaviconFinder in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE4E5902D4F677F0083FB2C /* FaviconFinder */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A62F71A2D5349EE0084D3A2 /* SymbolPicker in Frameworks */,
-				4AE4E5912D4F677F0083FB2C /* FaviconFinder in Frameworks */,
 				4AC77A862D573849005BEF25 /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,7 +93,6 @@
 			);
 			name = Browser;
 			packageProductDependencies = (
-				4AE4E5902D4F677F0083FB2C /* FaviconFinder */,
 				4A62F7192D5349EE0084D3A2 /* SymbolPicker */,
 				4AC77A852D573849005BEF25 /* KeyboardShortcuts */,
 			);
@@ -128,7 +125,6 @@
 			mainGroup = 4AC596A42D3C6DC400FF0326;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				4AE4E58F2D4F677F0083FB2C /* XCRemoteSwiftPackageReference "FaviconFinder" */,
 				4A62F7182D5349EE0084D3A2 /* XCRemoteSwiftPackageReference "SymbolPicker" */,
 				4AC77A842D573849005BEF25 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 			);
@@ -387,14 +383,6 @@
 				minimumVersion = 2.2.4;
 			};
 		};
-		4AE4E58F2D4F677F0083FB2C /* XCRemoteSwiftPackageReference "FaviconFinder" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/will-lumley/FaviconFinder";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.4;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -407,11 +395,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4AC77A842D573849005BEF25 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
 			productName = KeyboardShortcuts;
-		};
-		4AE4E5902D4F677F0083FB2C /* FaviconFinder */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4AE4E58F2D4F677F0083FB2C /* XCRemoteSwiftPackageReference "FaviconFinder" */;
-			productName = FaviconFinder;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

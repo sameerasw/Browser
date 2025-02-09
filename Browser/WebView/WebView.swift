@@ -22,7 +22,9 @@ struct WebView: View {
                         .zIndex(tab == currentTab ? 1 : 0)
                         .onAppear {
                             browserSpace.loadedTabs.append(tab)
-                            tab.updateFavicon(with: tab.url)
+                            if tab.favicon == nil {
+                                tab.updateFavicon(with: tab.url)
+                            }
                         }
                 }
             } else {

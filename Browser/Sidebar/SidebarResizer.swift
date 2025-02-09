@@ -32,7 +32,7 @@ struct SidebarResizer: View {
                     .frame(width: 15)
                     .onHover { hover in
                         if hover {
-                            NSCursor.resizeLeftRight.push()
+                            setResizeLeftRightNSCursor()
                         } else {
                             if !isDragging {
                                 setArrowNSCursor()
@@ -53,6 +53,8 @@ struct SidebarResizer: View {
         // This is used to animate the sidebar back to its original width
         if isDragging == false {
             sidebarModel.lastSidebarWidth = sidebarModel.currentSidebarWidth
+        } else {
+            setResizeLeftRightNSCursor()
         }
         
         isDragging = true
@@ -89,6 +91,12 @@ struct SidebarResizer: View {
         // Pop all the NSCursors until the arrow cursor is set
         while NSCursor.current != .arrow {
             NSCursor.pop()
+        }
+    }
+    
+    private func setResizeLeftRightNSCursor() {
+        while NSCursor.current != .resizeLeftRight {
+            NSCursor.resizeLeftRight.push()
         }
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct SidebarTabList: View {
     @Bindable var browserSpace: BrowserSpace
     var body: some View {
-        LazyVStack(alignment: .leading, spacing: 5) {
+        VStack(alignment: .leading, spacing: 5) {
             ForEach(browserSpace.tabs) { browserTab in
                 SidebarTab(browserSpace: browserSpace, browserTab: browserTab)
             }

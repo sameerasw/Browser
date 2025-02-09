@@ -33,7 +33,7 @@ final class BrowserSpace: Identifiable {
     }
     
     @Attribute(.ephemeral) var currentTab: BrowserTab? = nil
-    @Attribute(.ephemeral) var loadedTabs: [BrowserTab] = []
+    @Transient var loadedTabs: [BrowserTab] = []
     
     init(name: String, systemImage: String, order: Int, colors: [Color], colorScheme: String) {
         self.id = UUID()

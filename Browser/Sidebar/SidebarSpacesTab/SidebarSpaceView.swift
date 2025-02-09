@@ -20,7 +20,7 @@ struct SidebarSpaceView: View {
     @State var isHoveringClearButton = false
     
     var body: some View {
-        LazyVStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: 0) {
             Label(browserSpace.name, systemImage: browserSpace.systemImage)
                 .lineLimit(1)
                 .foregroundStyle(.secondary)
