@@ -13,7 +13,7 @@ struct PageWebView: View {
     
     @EnvironmentObject var browserWindowState: BrowserWindowState
     
-    @Query(sort: \BrowserSpace.order) var browserSpaces: [BrowserSpace]
+    let browserSpaces: [BrowserSpace]
     
     var body: some View {
         ScrollView(.horizontal) {

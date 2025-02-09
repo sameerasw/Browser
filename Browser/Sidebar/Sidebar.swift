@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftData
 
 /// The main sidebar view
 struct Sidebar: View {
@@ -17,7 +16,7 @@ struct Sidebar: View {
     @EnvironmentObject var browserWindowState: BrowserWindowState
     @EnvironmentObject var sidebarModel: SidebarModel
     
-    @Query(sort: \BrowserSpace.order) var browserSpaces: [BrowserSpace]
+    let browserSpaces: [BrowserSpace]
     
     var body: some View {
         VStack {
@@ -38,12 +37,32 @@ struct Sidebar: View {
         .gesture(WindowDragGesture()) // Move the browser window by dragging the sidebar
         .overlay(alignment: .bottomTrailing) {
             if sidebarModel.showBottomNewMenu {
-                SidebarBottomAddMenu()
+                SidebarBottomAddMenu(createSpace: createSpace, disableNewTabButton: browserSpaces.isEmpty)
             }
         }
     }
-}
-
-#Preview {
-    Sidebar()
+    
+    func createSpace() {
+        do {
+            let nextIndex = browserSpaces.firstIndex(where: { $0.id == browserWindowState.currentSpace?.id }) ?? -1 + 1
+            
+            let newSpace = BrowserSpace(name: "", systemImage: "circle.fill", order: nextIndex, colors: [], colorScheme: "system")
+            
+            modelContext.insert(newSpace)
+            try? modelContext.save()
+            
+            // Update all spaces order
+            for (index, space) in browserSpaces.enumerated() {
+                space.order = index
+            }
+            try modelContext.save()
+            
+            // Select the new space
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                browserWindowState.goToSpace(newSpace)
+            }
+        } catch {
+            NSAlert(error: error).runModal()
+        }
+    }
 }

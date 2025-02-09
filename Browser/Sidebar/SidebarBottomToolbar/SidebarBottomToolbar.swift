@@ -31,7 +31,6 @@ struct SidebarBottomToolbar: View {
             }
             .buttonStyle(.sidebarHover(padding: 2, rotationDegrees: sidebarModel.showBottomNewMenu ? 45 : 0))
         }
-        
         .padding(.leading, .sidebarPadding)
     }
 }

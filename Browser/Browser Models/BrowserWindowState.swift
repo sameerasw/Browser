@@ -23,6 +23,8 @@ class BrowserWindowState: ObservableObject {
     @Published var searchOpenLocation: SearchOpenLocation? = .none
     
     @Published var showURLQRCode = false
+    
+    @AppStorage("disable_animations") var disableAnimations = false
         
     /// Loads the current space from the UserDefaults and sets it as the current space
     @Sendable
@@ -31,10 +33,8 @@ class BrowserWindowState: ObservableObject {
               let uuid = UUID(uuidString: spaceId) else { return }
         
         if let space = browserSpaces.first(where: { $0.id == uuid }) {
-            currentSpace = space
             currentSpace?.currentTab = nil
-            viewScrollState = uuid
-            tabBarScrollState = uuid
+            goToSpace(space)
         }
     }
     
@@ -61,10 +61,18 @@ class BrowserWindowState: ObservableObject {
         modelContext.delete(browserTab)
         try? modelContext.save()
         
-        withAnimation(.bouncy) {
+        withAnimation(disableAnimations ? nil : .bouncy) {
             if let newTab {
                 currentSpace.currentTab = newTab
             }
+        }
+    }
+    
+    func goToSpace(_ space: BrowserSpace) {
+        withAnimation(disableAnimations ? nil : .bouncy) {
+            currentSpace = space
+            viewScrollState = space.id
+            tabBarScrollState = space.id
         }
     }
 }

@@ -46,11 +46,7 @@ struct SidebarSpaceContextMenu: ViewModifier {
             let newSpace = browserSpaces[safe: index == 0 ? 1 : index - 1]
             
             if let newSpace {
-                withAnimation(.bouncy) {
-                    browserWindowState.currentSpace = newSpace
-                    browserWindowState.viewScrollState = newSpace.id
-                    browserWindowState.tabBarScrollState = newSpace.id
-                }
+                browserWindowState.goToSpace(newSpace)
             }
         }
         

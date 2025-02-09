@@ -66,9 +66,7 @@ struct SidebarSpacesTabView: View {
             if browserWindowState.currentSpace == nil {
                 browserWindowState.loadCurrentSpace(browserSpaces: browserSpaces)
             }
-            
-            browserWindowState.viewScrollState = browserWindowState.currentSpace?.id
-            
+                        
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.appeared = true
             }

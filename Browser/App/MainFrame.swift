@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 /// Main frame of the browser.
 struct MainFrame: View {
@@ -14,6 +15,8 @@ struct MainFrame: View {
     @EnvironmentObject var browserWindowState: BrowserWindowState
     
     @StateObject var sidebarModel = SidebarModel()
+    
+    @Query(sort: \BrowserSpace.order) var browserSpaces: [BrowserSpace]
     
     var body: some View {
         HStack(spacing: 0) {
@@ -24,7 +27,7 @@ struct MainFrame: View {
                 }
             }
             
-            PageWebView()
+            PageWebView(browserSpaces: browserSpaces)
                 .id("PageWebView")
                 .frame(maxWidth: .infinity)
                 .conditionalModifier(condition: userPreferences.roundedCorners) { $0.clipShape(RoundedRectangle(cornerRadius: 8)) }
@@ -43,7 +46,6 @@ struct MainFrame: View {
                 }
             }
         }
-        .animation(userPreferences.disableAnimations ? nil : .bouncy, value: userPreferences.sidebarPosition)
         .frame(maxWidth: .infinity)
         .toolbar { Text("") }
         .toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
@@ -73,11 +75,16 @@ struct MainFrame: View {
                     .transition(.move(edge: userPreferences.sidebarPosition == .leading ? .leading : .trailing))
             }
         }
+        .transaction {
+            if userPreferences.disableAnimations {
+                $0.animation = nil
+            }
+        }
         .environmentObject(sidebarModel)
     }
     
     var sidebar: some View {
-        Sidebar()
+        Sidebar(browserSpaces: browserSpaces)
             .frame(width: sidebarModel.currentSidebarWidth)
             .readingWidth(width: $sidebarModel.currentSidebarWidth)
     }

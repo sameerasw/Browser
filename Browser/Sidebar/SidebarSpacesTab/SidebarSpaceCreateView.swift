@@ -87,9 +87,9 @@ struct SidebarSpaceCreateView: View {
                 }
                 try? modelContext.save()
                 
-                browserWindowState.currentSpace = newSelection
-                browserWindowState.viewScrollState = newSelection?.id
-                browserWindowState.tabBarScrollState = newSelection?.id
+                if let newSelection {
+                    browserWindowState.goToSpace(newSelection)
+                }
             }
             .buttonStyle(.sidebarHover(font: .title3.weight(.semibold), padding: 5, fixedWidth: nil, alignment: .center, cornerRadius: 8))
             .padding(.bottom, 25)

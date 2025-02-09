@@ -17,18 +17,9 @@ struct SidebarSpaceIcon: View {
     @Bindable var browserSpace: BrowserSpace
     
     var body: some View {
-        Button(browserSpace.name, systemImage: browserSpace.systemImage, action: setBrowserSpace)
+        Button(browserSpace.name, systemImage: browserSpace.systemImage) { browserWindowState.goToSpace(browserSpace) }
         .buttonStyle(.sidebarHover())
         .foregroundStyle(browserWindowState.currentSpace == browserSpace ? .gray : .gray.opacity(0.3))
         .sidebarSpaceContextMenu(browserSpaces: browserSpaces, browserSpace: browserSpace)
-    }
-    
-    /// Set the current space to the selected space and scroll to the selected space
-    func setBrowserSpace() {
-        withAnimation(.bouncy) {
-            browserWindowState.currentSpace = browserSpace
-            browserWindowState.viewScrollState = browserSpace.id
-            browserWindowState.tabBarScrollState = browserSpace.id
-        }
     }
 }

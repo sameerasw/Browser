@@ -67,7 +67,7 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
     
     func windowShouldClose(_ sender: NSWindow) -> Bool {
-        windowWasClosed = NSApp.windows.count - 1 == 0
+        windowWasClosed = NSApp.windows.filter { $0.identifier?.rawValue.hasPrefix("BrowserWindow") == true }.count - 1 == 0
         return true
     }
     
