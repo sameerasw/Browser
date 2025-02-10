@@ -11,12 +11,18 @@ import SwiftUI
 struct SearchSuggestion: Identifiable, Equatable {
     let id = UUID()
     let title: String
-    let url: URL?
     let favicon: Data?
     
-    init(_ title: String, url: URL? = nil, favicon: Data? = nil) {
+    var url: URL? {
+        URL(string: title.startsWithHTTP ? title : "https://\(title)")
+    }
+    
+    var isURLValid: Bool {
+        title.isValidURL
+    }
+    
+    init(_ title: String, favicon: Data? = nil) {
         self.title = title
-        self.url = url
         self.favicon = favicon
     }
     
@@ -28,7 +34,7 @@ struct SearchSuggestion: Identifiable, Equatable {
                     .resizable()
                     .scaledToFit()
             } else {
-                Image(systemName: "magnifyingglass")
+                Image(systemName: isURLValid ? "globe" : "magnifyingglass")
             }
         }
         .frame(width: 15, height: 15)

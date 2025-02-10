@@ -31,6 +31,7 @@ struct SearchSuggestionResultsView: View {
                 }
                 .padding(.vertical, 5)
             }
+            .scrollIndicators(.never)
             // Scroll to the highlighted search suggestion
             .onChange(of: searchManager.highlightedSearchSuggestionIndex) { _, newValue in
                 withAnimation(.bouncy) {
