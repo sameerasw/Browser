@@ -14,7 +14,6 @@ struct SidebarTab: View {
     @Environment(\.modelContext) var modelContext
     
     @EnvironmentObject var userPreferences: UserPreferences
-    @EnvironmentObject var browserWindowState: BrowserWindowState
         
     @Bindable var browserSpace: BrowserSpace
     @Bindable var browserTab: BrowserTab
@@ -101,6 +100,6 @@ struct SidebarTab: View {
     
     /// Close (delete) the tab
     func closeTab() {
-        browserWindowState.closeTab(browserTab, modelContext: modelContext)
+        browserSpace.closeTab(browserTab, using: modelContext)
     }
 }

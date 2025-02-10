@@ -50,24 +50,6 @@ class BrowserWindowState: ObservableObject {
         !(currentSpace == nil || currentSpace?.name.isEmpty == true)
     }
     
-    func closeTab(_ browserTab: BrowserTab, modelContext: ModelContext) {
-        guard let currentSpace = currentSpace,
-                let index = currentSpace.tabs.firstIndex(where: { $0.id == browserTab.id })
-        else { return }
-        let newTab = currentSpace.tabs[safe: index == 0 ? 1 : index - 1]
-        
-        browserTab.stopObserving()
-        currentSpace.unloadTab(browserTab)
-        modelContext.delete(browserTab)
-        try? modelContext.save()
-        
-        withAnimation(disableAnimations ? nil : .bouncy) {
-            if let newTab {
-                currentSpace.currentTab = newTab
-            }
-        }
-    }
-    
     func goToSpace(_ space: BrowserSpace) {
         withAnimation(disableAnimations ? nil : .bouncy) {
             currentSpace = space

@@ -55,4 +55,19 @@ final class BrowserSpace: Identifiable {
     func unloadTab(_ tab: BrowserTab) {
         loadedTabs.removeAll(where: { $0.id == tab.id })
     }
+    
+    /// Closes (deletes) a tab from the space and selects the next tab
+    func closeTab(_ tab: BrowserTab, using modelContext: ModelContext) {
+        let newTab = tabs[safe: tab.order == 0 ? 1 : tab.order - 1]
+        
+        tab.stopObserving()
+        unloadTab(tab)
+        
+        modelContext.delete(tab)
+        try? modelContext.save()
+        
+        withAnimation(.bouncy) {
+            currentTab = newTab
+        }
+    }
 }

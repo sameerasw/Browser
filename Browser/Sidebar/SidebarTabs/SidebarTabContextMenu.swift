@@ -55,7 +55,7 @@ struct SidebarTabContextMenu: View {
     
     /// Close (delete) the tab and selects the next tab
     func closeTab() {
-        browserWindowState.closeTab(browserTab, modelContext: modelContext)
+        browserWindowState.currentSpace?.closeTab(browserTab, using: modelContext)
     }
     
     /// Close (delete) the tabs below the current tab
