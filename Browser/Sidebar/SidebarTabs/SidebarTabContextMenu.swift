@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 /// Context menu for a tab in the sidebar
 struct SidebarTabContextMenu: View {
@@ -15,19 +16,41 @@ struct SidebarTabContextMenu: View {
     @EnvironmentObject var browserWindowState: BrowserWindowState
     
     @Bindable var browserTab: BrowserTab
-    
+        
     var body: some View {
         Group {
-            Button("Print") {
-                print("Print")
-            }
+            Button("Copy Link", action: browserTab.copyLink)
+            Button("Reload Tab", action: browserTab.reload)
+            
+            Divider()
+            
+            ShareLink("Share...", item: browserTab.url)
+            
+            Divider()
+            
+            Button("Duplicate Tab", action: duplicateTab)
             
             Divider()
             
             Button("Close Tab", action: closeTab)
-            Button("Close Tabs Below", action: closeTabsBelow)
-            Button("Close Tabs Above", action: closeTabsAbove)
+            
+            if let tabCount = browserWindowState.currentSpace?.tabs.count, tabCount > 1 {
+                if browserTab.order < tabCount - 1 {
+                    Button("Close Tabs Below", action: closeTabsBelow)
+                }
+                
+                if browserTab.order > 0 {
+                    Button("Close Tabs Above", action: closeTabsAbove)
+                }
+            }
         }
+    }
+    
+    /// Duplicate the tab and selects the new tab
+    func duplicateTab() {
+        let duplicateTab = BrowserTab(title: browserTab.title, favicon: browserTab.favicon, url: browserTab.url, order: browserTab.order + 1, browserSpace: browserTab.browserSpace)
+        browserWindowState.currentSpace?.tabs.insert(duplicateTab, at: browserTab.order + 1)
+        browserWindowState.currentSpace?.currentTab = duplicateTab
     }
     
     /// Close (delete) the tab and selects the next tab

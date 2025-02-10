@@ -105,6 +105,17 @@ final class BrowserTab: Identifiable, Comparable {
         cancellables.removeAll()
     }
     
+    /// Reloads the tab
+    func reload() {
+        webview?.reload()
+    }
+    
+    /// Copies the tab's URL to the clipboard
+    func copyLink() {
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(url.absoluteString, forType: .string)
+    }
+    
     // MARK: - Comparable
     static func < (lhs: BrowserTab, rhs: BrowserTab) -> Bool {
         lhs.order < rhs.order

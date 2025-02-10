@@ -15,7 +15,7 @@ struct SidebarTab: View {
     
     @EnvironmentObject var userPreferences: UserPreferences
     @EnvironmentObject var browserWindowState: BrowserWindowState
-    
+        
     @Bindable var browserSpace: BrowserSpace
     @Bindable var browserTab: BrowserTab
     

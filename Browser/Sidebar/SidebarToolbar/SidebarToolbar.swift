@@ -83,7 +83,7 @@ struct SidebarToolbar: View {
             currentSpace.tabs.insert(newTab, at: currentTab.order + 1)
             currentSpace.currentTab = newTab
         } else {
-            browserWindowState.currentSpace?.currentTab?.webview?.reload()
+            browserWindowState.currentSpace?.currentTab?.reload()
         }
     }
 }
