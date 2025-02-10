@@ -7,7 +7,6 @@
 
 import SwiftUI
 import SwiftData
-import KeyboardShortcuts
 
 struct ContentView: View {
     @StateObject var browserWindowState = BrowserWindowState()

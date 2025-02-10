@@ -25,6 +25,8 @@ extension WKWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         guard let url = webView.url else { return }
         print("🟢 Finished loading \(url.absoluteString)")
+        
+        self.webView.setZoomFactor(self.webView.savedZoomFactor())
     }
     
     /// Called when the web view fails loading a page
