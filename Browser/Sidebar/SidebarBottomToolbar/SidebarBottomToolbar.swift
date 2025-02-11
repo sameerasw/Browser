@@ -25,7 +25,7 @@ struct SidebarBottomToolbar: View {
             SidebarSpaceList(browserSpaces: browserSpaces)
             
             Button("New Space", systemImage: "plus.circle.dashed") {
-                withAnimation(.bouncy) {
+                withAnimation(.browserDefault) {
                     sidebarModel.showBottomNewMenu.toggle()
                 }
             }

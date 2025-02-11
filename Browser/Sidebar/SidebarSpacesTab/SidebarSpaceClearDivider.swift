@@ -25,14 +25,7 @@ struct SidebarSpaceClearDivider: View {
             
             if !browserSpace.tabs.isEmpty && isHovering {
                 Button("Clear") {
-                    withAnimation(.bouncy) {
-                        browserSpace.loadedTabs.removeAll()
-                        
-                        for tab in browserSpace.tabs {
-                            modelContext.delete(tab)
-                        }
-                        try? modelContext.save()
-                    }
+                    browserSpace.clear(using: modelContext)
                 }
                 .font(.caption.weight(.semibold))
                 .buttonStyle(.plain)

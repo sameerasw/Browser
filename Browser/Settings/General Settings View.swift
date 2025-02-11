@@ -13,8 +13,9 @@ struct GeneralSettingsView: View {
     
     var body: some View {
         Form {
-            
+            Toggle("Close Selected Tab When Clearing Space", systemImage: "xmark.square", isOn: $userPreferences.clearSelectedTab)
         }
+        .formStyle(.grouped)
     }
 }
 

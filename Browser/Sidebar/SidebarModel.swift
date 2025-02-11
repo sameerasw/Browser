@@ -97,7 +97,7 @@ class SidebarModel: ObservableObject {
     
     /// Dismiss the bottom new menu
     func dismissBottomNewMenu() {
-        withAnimation(.bouncy) {
+        withAnimation(.browserDefault) {
             showBottomNewMenu = false
         }
     }

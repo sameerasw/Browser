@@ -64,7 +64,7 @@ struct SidebarTabContextMenu: View {
                 let index = currentSpace.tabs.firstIndex(where: { $0.id == browserTab.id })
         else { return }
         
-        withAnimation(.bouncy) {
+        withAnimation(.browserDefault) {
             for tab in currentSpace.tabs.suffix(from: index + 1) {
                 tab.stopObserving()
                 currentSpace.unloadTab(tab)
@@ -80,7 +80,7 @@ struct SidebarTabContextMenu: View {
                 let index = currentSpace.tabs.firstIndex(where: { $0.id == browserTab.id })
         else { return }
         
-        withAnimation(.bouncy) {
+        withAnimation(.browserDefault) {
             for tab in currentSpace.tabs.prefix(upTo: index) {
                 tab.stopObserving()
                 currentSpace.unloadTab(tab)

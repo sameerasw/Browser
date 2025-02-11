@@ -50,7 +50,7 @@ struct SidebarSpaceContextMenu: ViewModifier {
             }
         }
         
-        withAnimation(.bouncy) {
+        withAnimation(.browserDefault) {
             modelContext.delete(browserSpace)
             try? modelContext.save()
         }

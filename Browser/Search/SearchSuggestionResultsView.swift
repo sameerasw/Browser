@@ -34,7 +34,7 @@ struct SearchSuggestionResultsView: View {
             .scrollIndicators(.never)
             // Scroll to the highlighted search suggestion
             .onChange(of: searchManager.highlightedSearchSuggestionIndex) { _, newValue in
-                withAnimation(.bouncy) {
+                withAnimation(.browserDefault) {
                     proxy.scrollTo(newValue, anchor: .bottom)
                 }
             }

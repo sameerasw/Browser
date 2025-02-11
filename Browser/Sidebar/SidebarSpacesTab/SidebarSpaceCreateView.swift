@@ -52,7 +52,7 @@ struct SidebarSpaceCreateView: View {
             Spacer()
             
             Button("Create Space") {
-                withAnimation(.bouncy) {
+                withAnimation(.browserDefault) {
                     browserSpace.name = name
                 }
             }
@@ -62,7 +62,7 @@ struct SidebarSpaceCreateView: View {
             .background(.blue, in: RoundedRectangle(cornerRadius: 8))
             .disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             .onHover { isHover in
-                withAnimation(.bouncy) {
+                withAnimation(.browserDefault) {
                     if !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                         hoverCreateButton = isHover
                     } else {
@@ -76,7 +76,7 @@ struct SidebarSpaceCreateView: View {
             Button("Cancel") {
                 let newSelection = browserSpace.order > 0 ? browserSpaces[browserSpace.order - 1] : browserSpace.order < browserSpaces.count - 1 ? browserSpaces[browserSpace.order + 1] : nil
                 
-                withAnimation(.bouncy) {
+                withAnimation(.browserDefault) {
                     modelContext.delete(browserSpace)
                     try? modelContext.save()
                 }

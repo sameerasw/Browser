@@ -19,11 +19,11 @@ final class BrowserSpace: Identifiable {
     var colors: [String]
     var colorScheme: String
     
-    @Relationship(deleteRule: .cascade, inverse: \BrowserTab.browserSpace) private var unorderedTabs: [BrowserTab]
+    @Relationship(deleteRule: .cascade, inverse: \BrowserTab.browserSpace) private var unorderedTabs: [BrowserTab]?
     
     var tabs: [BrowserTab] {
         get {
-            unorderedTabs.sorted()
+            (unorderedTabs ?? []).sorted()
         } set {
             newValue.enumerated().forEach { index, tab in
                 tab.order = index
@@ -66,8 +66,23 @@ final class BrowserSpace: Identifiable {
         modelContext.delete(tab)
         try? modelContext.save()
         
-        withAnimation(.bouncy) {
+        withAnimation(.browserDefault) {
             currentTab = newTab
+        }
+    }
+    
+    func clear(using modelContext: ModelContext) {
+        let deletedTabs = tabs.filter {
+            UserDefaults.standard.bool(forKey: "clear_selected_tab") ? true : $0 != currentTab
+        }
+        
+        withAnimation(.browserDefault) {
+            deletedTabs.forEach { unloadTab($0) }
+            let uuids = deletedTabs.map(\.id)
+            try? modelContext.delete(model: BrowserTab.self, where: #Predicate {
+                uuids.contains($0.id)
+            })
+            try? modelContext.save()
         }
     }
 }

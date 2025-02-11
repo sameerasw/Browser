@@ -41,7 +41,7 @@ struct SidebarSpacesTabView: View {
         // Scroll to the selected space when the viewScrollState changes
         .onChange(of: browserWindowState.viewScrollState) { oldValue, newValue in
             if let newValue {
-                withAnimation(appeared ? .bouncy : nil) {
+                withAnimation(appeared ? .browserDefault : nil) {
                     browserWindowState.tabBarScrollState = newValue
                     browserWindowState.currentSpace = browserSpaces.first { $0.id == newValue }
                 }

@@ -23,9 +23,7 @@ class BrowserWindowState: ObservableObject {
     @Published var searchOpenLocation: SearchOpenLocation? = .none
     
     @Published var showURLQRCode = false
-    
-    @AppStorage("disable_animations") var disableAnimations = false
-        
+            
     /// Loads the current space from the UserDefaults and sets it as the current space
     @Sendable
     func loadCurrentSpace(browserSpaces: [BrowserSpace]) {
@@ -51,7 +49,7 @@ class BrowserWindowState: ObservableObject {
     }
     
     func goToSpace(_ space: BrowserSpace) {
-        withAnimation(disableAnimations ? nil : .bouncy) {
+        withAnimation(.browserDefault) {
             currentSpace = space
             viewScrollState = space.id
             tabBarScrollState = space.id

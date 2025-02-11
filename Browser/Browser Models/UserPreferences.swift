@@ -32,6 +32,8 @@ class UserPreferences: ObservableObject {
     @AppStorage("enable_padding") var enablePadding = true
     @AppStorage("enable_shadow") var enableShadow = true
     
+    @AppStorage("clear_selected_tab") var clearSelectedTab = false
+    
     func changeTrafficLightsTrailingAppearance() {
         if sidebarPosition == .trailing {
             NSApp.setBrowserWindowControls(hidden: !showWindowControlsOnTrailingSidebar)
