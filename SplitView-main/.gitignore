@@ -1,6 +1,0 @@
-.DS_Store
-.build/
-.swiftpm/xcode/
-xcuserdata/
-Demo/SplitDemo.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
-SplitDemo.xcworkspace/
