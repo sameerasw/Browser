@@ -20,20 +20,39 @@ struct ViewCommands: Commands {
             
             Divider()
             
-            Button("Zoom Actual Size", action: browserWindowState?.currentSpace?.currentTab?.webview?.zoomActualSize)
-                .globalKeyboardShortcut(.zoomActualSize)
-            Button("Zoom In", action: browserWindowState?.currentSpace?.currentTab?.webview?.zoomIn)
-                .keyboardShortcut("+", modifiers: .command)
-            Button("Zoom Out", action: browserWindowState?.currentSpace?.currentTab?.webview?.zoomOut)
-                .globalKeyboardShortcut(.zoomOut)
-            
-            Divider()
+            if let webView = browserWindowState?.currentSpace?.currentTab?.webview {
+                Button("Stop Loading") { webView.stopLoading() }
+                    .globalKeyboardShortcut(.stopLoading)
+                    .disabled(!webView.isLoading)
+                Button("Reload This Page") { webView.reload() }
+                    .globalKeyboardShortcut(.reload)
+                Button("Clear Cookies And Reload", action: webView.clearCookiesAndReload)
+                    .globalKeyboardShortcut(.clearCookiesAndReload)
+                Button("Clear Cache And Reload", action: webView.clearCacheAndReload)
+                    .globalKeyboardShortcut(.clearCacheAndReload)
+                
+                Divider()
+                
+                Button("Zoom Actual Size", action: webView.zoomActualSize)
+                    .globalKeyboardShortcut(.zoomActualSize)
+                Button("Zoom In", action: webView.zoomIn)
+                    .keyboardShortcut("+", modifiers: .command)
+                Button("Zoom Out", action: webView.zoomOut)
+                    .globalKeyboardShortcut(.zoomOut)
+                
+                Divider()
+            }
         }
     }
 }
 
 extension KeyboardShortcuts.Name {
     static let toggleSidebar = Self("toggle_sidebar", default: .init(.s, modifiers: .command))
+    
+    static let stopLoading = Self("stop_loading", default: .init(.period, modifiers: .command))
+    static let reload = Self("reload", default: .init(.r, modifiers: .command))
+    static let clearCookiesAndReload = Self("clear_cookies_and_reload")
+    static let clearCacheAndReload = Self("clear_cache_and_reload")
     
     static let zoomActualSize = Self("zoom_actual_size", default: .init(.zero, modifiers: .command))
     static let zoomIn = Self("zoom_in", default: .init(.equal, modifiers: .command))

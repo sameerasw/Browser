@@ -13,24 +13,28 @@ struct SidebarSpaceBackground: View {
     
     var body: some View {
         TimelineView(.periodic(from: .now, by: 1/30)) { _ in
-            if !browserSpace.colors.isEmpty && browserSpace.colorOpacity > 0 && browserSpace.grainOpacity > 0 {
+            if !browserSpace.colors.isEmpty && browserSpace.colorOpacity > 0 {
                 let grainOpacity = browserSpace.grainOpacity
                 gradient
-                    .visualEffect { content, proxy in
-                        content
-                            .colorEffect(
-                                ShaderLibrary.noiseShader(
-                                    .float2(proxy.size),
-                                    .float(0)
-                                )
-                            )
-                            .opacity(grainOpacity)
+                    .conditionalModifier(condition: browserSpace.grainOpacity > 0) {
+                        $0
+                            .visualEffect { content, proxy in
+                                content
+                                    .colorEffect(
+                                        ShaderLibrary.noiseShader(
+                                            .float2(proxy.size),
+                                            .float(0)
+                                        )
+                                    )
+                                    .opacity(grainOpacity)
+                            }
+                            .background(gradient.opacity(browserSpace.colorOpacity))
                     }
-                    .drawingGroup(opaque: true)
-                    .background {
-                        gradient
+                    .conditionalModifier(condition: browserSpace.grainOpacity == 0) {
+                        $0
                             .opacity(browserSpace.colorOpacity)
                     }
+                    .drawingGroup(opaque: true)
             }
         }
     }

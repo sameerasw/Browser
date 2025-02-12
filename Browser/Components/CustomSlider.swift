@@ -74,7 +74,6 @@ struct CustomSlider<V: BinaryFloatingPoint>: View where V.Stride: BinaryFloating
             )
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                    print(value.wrappedValue)
                     let normalizedValue = (value.wrappedValue - range.lowerBound) / (range.upperBound - range.lowerBound)
                     sliderWidth = geometry.size.width * CGFloat(normalizedValue)
                     lastDragValue = sliderWidth

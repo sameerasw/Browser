@@ -7,26 +7,24 @@
 
 import WebKit
 
-/// Possible context menu types inside a WKWebView
-enum ContextMenuType: String {
-    case frame = "WKMenuItemIdentifierReload"
-    case text = "WKMenuItemIdentifierTranslate"
-    case link = "WKMenuItemIdentifierOpenLink"
-    case image = "WKMenuItemIdentifierCopyImage"
-    case media = "WKMenuItemIdentifierShowHideMediaControls"
-    case unknown = "unknown"
-}
-
 /// Custom WKWebView subclass to handle context menus
 class MyWKWebView: WKWebView {
     
     private let zoomFactors: [CGFloat] = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 4, 5, 6]
     var scaledZoomFactor: CGFloat? = nil
     
+    override var isEditable: Bool {
+        get {
+            return _isEditable
+        }
+        set {
+            _isEditable = newValue
+        }
+    }
+    
     override init(frame: CGRect, configuration: WKWebViewConfiguration) {
         super.init(frame: frame, configuration: configuration)
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -87,34 +85,32 @@ class MyWKWebView: WKWebView {
         UserDefaults.standard.set(savedZoomFactors, forKey: "zoom_factors")
     }
     
-    /// Handle the context menu
-    override func willOpenMenu(_ menu: NSMenu, with event: NSEvent) {
-        super.willOpenMenu(menu, with: event)
-        
-        // Detect menu type
-        var contextMenuType: ContextMenuType = .unknown
-        
-        let menuItemsIdentifiers = menu.items.map { $0.identifier?.rawValue }
-        
-        for identifier in menuItemsIdentifiers {
-            if let type = ContextMenuType(rawValue: identifier ?? "") {
-                contextMenuType = type
-                break
+    /// Toggles the page editable
+    func toggleEditable() {
+        isEditable.toggle()
+        print(isEditable)
+    }
+    
+    /// Clears the cookies of the specific host and reloads
+    func clearCookiesAndReload() {
+        let cookieStore = WKWebsiteDataStore.default().httpCookieStore
+        cookieStore.getAllCookies { cookies in
+            for cookie in cookies where self.url?.host()?.contains(cookie.domain) == true {
+                cookieStore.delete(cookie)
             }
         }
-        
-        switch contextMenuType {
-        case .frame:
-            handleFrameContextMenu(menu)
-        default:
-            break
+        reload()
+    }
+    
+    /// Clears the cache of the specific host and reloads
+    func clearCacheAndReload() {
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            for record in records where self.url?.host()?.contains(record.displayName) == true {
+                let types = record.dataTypes.filter { $0.contains("Cache") }
+                WKWebsiteDataStore.default().removeData(ofTypes: types, for: [record], completionHandler: {})
+            }
         }
-        
-        if contextMenuType == .unknown {
-            print("🖥️📚 Unknown context menu type with identifiers:", menuItemsIdentifiers)
-        } else {
-            print("🖥️📚 Context menu type: \(contextMenuType.rawValue)")
-        }
+        reload()
     }
     
     weak var currentNSSavePanel: NSSavePanel?
