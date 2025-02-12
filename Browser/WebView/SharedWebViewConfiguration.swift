@@ -28,6 +28,8 @@ class SharedWebViewConfiguration {
         preferences.isElementFullscreenEnabled = true
         preferences.setValue(true, forKey: "developerExtrasEnabled")
         
+        ExperimentalFeatures.toggleExperimentalFeature("PreferPageRenderingUpdatesNear60FPSEnabled", enabled: false, preferences: preferences)
+        
         configuration.preferences = preferences
         
         let webPagePreferences = WKWebpagePreferences()
