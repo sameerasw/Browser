@@ -23,6 +23,7 @@ struct SidebarSpaceCreateView: View {
     @State var hoverIcon = false
     
     @State var showIconPicker = false
+    @State var colorPopoverIndex: Int? = nil
     
     var body: some View {
         VStack {
@@ -47,9 +48,70 @@ struct SidebarSpaceCreateView: View {
                 .textFieldStyle(.plain)
                 .padding(5)
                 .macOSWindowBorderOverlay()
-                .padding(.top, 5)
+                .padding(.vertical, 5)
+            
+            HStack {
+                ScrollView(.horizontal) {
+                    HStack(spacing: 5) {
+                        ForEach(Array(zip(browserSpace.getColors.indices, browserSpace.getColors)), id: \.0) { index, color in
+                            Circle()
+                                .fill(color)
+                                .stroke(.gray)
+                                .frame(height: 20)
+                                .onTapGesture {
+                                    colorPopoverIndex = index
+                                }
+                                .popover(isPresented: Binding(get: {
+                                    colorPopoverIndex == index
+                                }, set: { newValue in
+                                    if !newValue { colorPopoverIndex = nil }
+                                })) {
+                                    VStack {
+                                        WheelColorPicker(radius: 75, hex: $browserSpace.colors[safe: index])
+                                        
+                                        Button("Delete", systemImage: "circle.slash.fill") {
+                                            withAnimation(.browserDefault) {
+                                                colorPopoverIndex = nil
+                                                browserSpace.colors.remove(at: index)
+                                            }
+                                        }
+                                    }
+                                    .padding(5)
+                                }
+                        }
+                    }
+                    .padding(.horizontal, 5)
+                    .frame(height: 25)
+                }
+                .scrollIndicators(.hidden)
+                
+                Button {
+                    withAnimation(.browserDefault) {
+                        browserSpace.colors.append(Color.blue.hexString())
+                        colorPopoverIndex = browserSpace.colors.count - 1
+                    }
+                } label: {
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .foregroundStyle(AngularGradient.colorfulAngularGradient)
+                        .background(.white, in: .circle)
+                }
+                .buttonStyle(.plain)
+                .frame(width: 20, height: 20)
+            }
             
             Spacer()
+            
+            VStack(alignment: .leading, spacing: 10) {
+                Label("Color Opacity", systemImage: "paintbrush")
+                CustomSlider(value: $browserSpace.colorOpacity, in: 0...1)
+                
+                Label("Grain Effect", systemImage: "circle.dotted.circle")
+                CustomSlider(value: $browserSpace.grainOpacity, in: 0...0.33)
+            }
+            .font(.body)
+            .padding(.bottom, 25)
+            .disabled(browserSpace.colors.isEmpty)
             
             Button("Create Space") {
                 withAnimation(.browserDefault) {

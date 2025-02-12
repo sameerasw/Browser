@@ -36,6 +36,7 @@ class BrowserWindowState: ObservableObject {
         }
     }
     
+    /// Toggles the search open location between the URL bar and the new tab
     func toggleNewTabSearch() {
         if canSpaceOpenNewTab() {
             searchOpenLocation = searchOpenLocation == .fromNewTab ? .none : .fromNewTab
@@ -44,15 +45,25 @@ class BrowserWindowState: ObservableObject {
         }
     }
     
+    /// Checks if the current space can open a new tab
     func canSpaceOpenNewTab() -> Bool {
         !(currentSpace == nil || currentSpace?.name.isEmpty == true)
     }
     
+    /// Goes to a space in the browser
     func goToSpace(_ space: BrowserSpace) {
         withAnimation(.browserDefault) {
             currentSpace = space
             viewScrollState = space.id
             tabBarScrollState = space.id
+        }
+    }
+    
+    /// Copies the URL of the current tab to the clipboard
+    func copyURLToClipboard() {
+        if let url = currentSpace?.currentTab?.url.absoluteString {
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(url, forType: .string)
         }
     }
 }

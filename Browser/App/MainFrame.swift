@@ -50,9 +50,8 @@ struct MainFrame: View {
         .toolbar { Text("") }
         .toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
         .background {
-            if let color = browserWindowState.currentSpace?.colors.first {
-                Color(hex: color)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            if let currentSpace = browserWindowState.currentSpace {
+                SidebarSpaceBackground(browserSpace: currentSpace)
             }
         }
         .overlay {
@@ -81,6 +80,7 @@ struct MainFrame: View {
             }
         }
         .environmentObject(sidebarModel)
+        .focusedSceneValue(\.sidebarModel, sidebarModel)
     }
     
     var sidebar: some View {

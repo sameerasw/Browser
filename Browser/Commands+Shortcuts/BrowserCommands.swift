@@ -10,6 +10,7 @@ import SwiftUI
 struct BrowserCommands: Commands {
     var body: some Commands {
         FileCommands()
+        EditCommands()
         ViewCommands()
     }
 }

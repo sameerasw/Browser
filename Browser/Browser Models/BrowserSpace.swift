@@ -17,6 +17,8 @@ final class BrowserSpace: Identifiable {
     var systemImage: String
     var order: Int
     var colors: [String]
+    var grainOpacity: Double
+    var colorOpacity: Double
     var colorScheme: String
     
     @Relationship(deleteRule: .cascade, inverse: \BrowserTab.browserSpace) private var unorderedTabs: [BrowserTab]?
@@ -35,11 +37,13 @@ final class BrowserSpace: Identifiable {
     @Attribute(.ephemeral) var currentTab: BrowserTab? = nil
     @Transient var loadedTabs: [BrowserTab] = []
     
-    init(name: String, systemImage: String, order: Int, colors: [Color], colorScheme: String) {
+    init(name: String, systemImage: String, order: Int, colors: [Color], grainOpacity: Double = 0.0, colorOpacity: Double = 1.0, colorScheme: String) {
         self.id = UUID()
         self.name = name
         self.systemImage = systemImage
         self.colors = colors.map { $0.hexString() }
+        self.grainOpacity = grainOpacity
+        self.colorOpacity = colorOpacity
         self.order = order
         self.colorScheme = colorScheme
         self.unorderedTabs = []

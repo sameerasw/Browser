@@ -12,9 +12,18 @@ struct BrowserActiveWindowKey: FocusedValueKey {
     typealias Value = BrowserWindowState
 }
 
+struct SidebarModelActiveWindowKey: FocusedValueKey {
+    typealias Value = SidebarModel
+}
+
 extension FocusedValues {
     var browserActiveWindowState: BrowserWindowState? {
         get { self[BrowserActiveWindowKey.self] }
         set { self[BrowserActiveWindowKey.self] = newValue }
+    }
+    
+    var sidebarModel: SidebarModel? {
+        get { self[SidebarModelActiveWindowKey.self] }
+        set { self[SidebarModelActiveWindowKey.self] = newValue }
     }
 }
