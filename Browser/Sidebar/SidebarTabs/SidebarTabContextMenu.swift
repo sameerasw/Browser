@@ -13,7 +13,7 @@ struct SidebarTabContextMenu: View {
     
     @Environment(\.modelContext) var modelContext
     
-    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     @Bindable var browserTab: BrowserTab
         

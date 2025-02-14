@@ -15,7 +15,7 @@ struct SidebarBottomAddMenu: View {
     
     @Environment(SidebarModel.self) var sidebarModel: SidebarModel
     
-    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     @EnvironmentObject var userPreferences: UserPreferences
     
     let createSpace: () -> Void

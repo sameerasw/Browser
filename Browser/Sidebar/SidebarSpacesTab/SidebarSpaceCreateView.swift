@@ -13,7 +13,7 @@ struct SidebarSpaceCreateView: View {
     
     @Environment(\.modelContext) var modelContext
     
-    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     let browserSpaces: [BrowserSpace]
     @Bindable var browserSpace: BrowserSpace

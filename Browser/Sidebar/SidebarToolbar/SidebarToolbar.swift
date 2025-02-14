@@ -15,7 +15,7 @@ struct SidebarToolbar: View {
     @Environment(SidebarModel.self) var sidebarModel: SidebarModel
     
     @EnvironmentObject var userPreferences: UserPreferences
-    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     let browserSpaces: [BrowserSpace]
     

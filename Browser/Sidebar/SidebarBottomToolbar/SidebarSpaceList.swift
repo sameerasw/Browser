@@ -11,7 +11,7 @@ import SwiftData
 /// List of spaces in the sidebar
 struct SidebarSpaceList: View {
     
-    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     let browserSpaces: [BrowserSpace]
     

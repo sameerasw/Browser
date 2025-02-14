@@ -10,7 +10,7 @@ import SwiftUI
 /// Context menu for the sidebar space and space icon
 struct SidebarSpaceContextMenu: ViewModifier {
     
-    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     @Environment(\.modelContext) var modelContext
     
     let browserSpaces: [BrowserSpace]

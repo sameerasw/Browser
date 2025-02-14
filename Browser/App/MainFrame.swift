@@ -12,7 +12,7 @@ import SwiftData
 struct MainFrame: View {
     
     @EnvironmentObject var userPreferences: UserPreferences
-    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     @State var sidebarModel = SidebarModel()
     
@@ -27,7 +27,7 @@ struct MainFrame: View {
                 }
             }
             
-            PageWebView(browserSpaces: browserSpaces)
+            PageWebView(browserSpaces: browserSpaces, browserWindowState: browserWindowState)
                 .id("PageWebView")
                 .frame(maxWidth: .infinity)
                 .conditionalModifier(condition: userPreferences.roundedCorners) { $0.clipShape(RoundedRectangle(cornerRadius: 8)) }

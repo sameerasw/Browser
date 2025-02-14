@@ -15,7 +15,7 @@ struct Sidebar: View {
     @Environment(SidebarModel.self) var sidebarModel: SidebarModel
     
     @EnvironmentObject var userPreferences: UserPreferences
-    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     let browserSpaces: [BrowserSpace]
     
@@ -28,7 +28,7 @@ struct Sidebar: View {
             }
             .opacity(browserWindowState.currentSpace?.name.isEmpty == false ? 1 : 0)
             
-            SidebarSpacesTabView(browserSpaces: browserSpaces)
+            SidebarSpacesTabView(browserSpaces: browserSpaces, browserWindowState: browserWindowState)
             SidebarBottomToolbar(browserSpaces: browserSpaces)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

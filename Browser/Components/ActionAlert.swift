@@ -10,7 +10,7 @@ import SwiftUI
 /// An alert that displays an action that was performed by the user
 struct ActionAlert: ViewModifier {
     
-    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     @State var dismissTimer: Timer?
     

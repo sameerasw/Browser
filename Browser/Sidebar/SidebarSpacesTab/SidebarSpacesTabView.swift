@@ -13,8 +13,8 @@ struct SidebarSpacesTabView: View {
     
     @Environment(\.modelContext) var modelContext
     
-    @EnvironmentObject var browserWindowState: BrowserWindowState
     let browserSpaces: [BrowserSpace]
+    @Bindable var browserWindowState: BrowserWindowState
     
     @State var appeared = false
     @State var lastWidth = CGFloat.zero
@@ -72,8 +72,4 @@ struct SidebarSpacesTabView: View {
             }
         }
     }
-}
-
-#Preview {
-    SidebarSpacesTabView(browserSpaces: [])
 }

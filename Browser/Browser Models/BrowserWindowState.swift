@@ -8,25 +8,25 @@
 import SwiftUI
 import SwiftData
 
-/// The BrowserWindowState class is an ObservableObject that holds the current state of the browser window
-class BrowserWindowState: ObservableObject {
+/// The BrowserWindowState is an Observable class that holds the current state of the browser window
+@Observable class BrowserWindowState {
     
-    @Published var currentSpace: BrowserSpace? = nil {
+    var currentSpace: BrowserSpace? = nil {
         willSet {
             if let newValue {
                 UserDefaults.standard.set(newValue.id.uuidString, forKey: "currentBrowserSpace")
             }
         }
     }
-    @Published var viewScrollState: UUID?
-    @Published var tabBarScrollState: UUID?
-    @Published var searchOpenLocation: SearchOpenLocation? = .none
+    var viewScrollState: UUID?
+    var tabBarScrollState: UUID?
+    var searchOpenLocation: SearchOpenLocation? = .none
     
-    @Published var showURLQRCode = false
+    var showURLQRCode = false
     
-    @Published var actionAlertMessage = ""
-    @Published var actionAlertSystemImage = ""
-    @Published var showActionAlert = false
+    var actionAlertMessage = ""
+    var actionAlertSystemImage = ""
+    var showActionAlert = false
             
     /// Loads the current space from the UserDefaults and sets it as the current space
     @Sendable

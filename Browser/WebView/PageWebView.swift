@@ -13,10 +13,10 @@ struct PageWebView: View {
     
     @Environment(\.scenePhase) var scenePhase
     
-    @EnvironmentObject var browserWindowState: BrowserWindowState
     @EnvironmentObject var userPreferences: UserPreferences
     
     let browserSpaces: [BrowserSpace]
+    @Bindable var browserWindowState: BrowserWindowState
     
     var body: some View {
         ScrollView(.horizontal) {

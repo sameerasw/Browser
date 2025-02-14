@@ -12,7 +12,7 @@ struct SearchSuggestionResultsView: View {
     
     @Environment(\.modelContext) var modelContext
     
-    @EnvironmentObject var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     var searchManager: SearchManager
     
