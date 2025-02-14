@@ -10,12 +10,13 @@ import SwiftUI
 struct SidebarSpaceBackground: View {
     
     let browserSpace: BrowserSpace
+    let isSidebarCollapsed: Bool
     
     var body: some View {
-        TimelineView(.periodic(from: .now, by: 1/30)) { _ in
+        TimelineView(.periodic(from: .now, by: 10)) { _ in
             if !browserSpace.colors.isEmpty && browserSpace.colorOpacity > 0 {
                 let grainOpacity = browserSpace.grainOpacity
-                gradient
+                background
                     .conditionalModifier(condition: browserSpace.grainOpacity > 0) {
                         $0
                             .visualEffect { content, proxy in
@@ -28,7 +29,7 @@ struct SidebarSpaceBackground: View {
                                     )
                                     .opacity(grainOpacity)
                             }
-                            .background(gradient.opacity(browserSpace.colorOpacity))
+                            .background(background)
                     }
                     .conditionalModifier(condition: browserSpace.grainOpacity == 0) {
                         $0
@@ -40,6 +41,20 @@ struct SidebarSpaceBackground: View {
     }
     
     var gradient: some View {
-        LinearGradient(colors: browserSpace.getColors, startPoint: .leading, endPoint: .trailing)
+        LinearGradient(colors: browserSpace.getColors, startPoint: .leading, endPoint: .trailing).opacity(browserSpace.colorOpacity)
+    }
+    
+    var color: some View {
+        browserSpace.getColors.first?.opacity(browserSpace.colorOpacity) ?? .clear
+    }
+    
+    var background: some View {
+        Group {
+            if isSidebarCollapsed {
+                color
+            } else {
+                gradient
+            }
+        }
     }
 }

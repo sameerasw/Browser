@@ -38,6 +38,7 @@ struct MainFrame: View {
                         .padding(userPreferences.sidebarPosition == .leading ? .leading : .trailing, sidebarModel.sidebarCollapsed ? 10 : 5)
                         .padding([userPreferences.sidebarPosition == .leading ? .trailing : .leading], 10)
                 }
+                .actionAlert()
             
             if userPreferences.sidebarPosition == .trailing {
                 if !sidebarModel.sidebarCollapsed {
@@ -51,7 +52,7 @@ struct MainFrame: View {
         .toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
         .background {
             if let currentSpace = browserWindowState.currentSpace {
-                SidebarSpaceBackground(browserSpace: currentSpace)
+                SidebarSpaceBackground(browserSpace: currentSpace, isSidebarCollapsed: false)
             }
         }
         .overlay {
@@ -63,14 +64,13 @@ struct MainFrame: View {
         .overlay(alignment: userPreferences.sidebarPosition == .leading ? .topLeading : .topTrailing) {
             if sidebarModel.sidebarCollapsed && sidebarModel.currentSidebarWidth > 0 {
                 sidebar
-                    .padding(userPreferences.sidebarPosition == .leading ? .trailing : .leading, .sidebarPadding)
-                    .background(.ultraThinMaterial)
                     .background {
-                        if let color = browserWindowState.currentSpace?.colors.first {
-                            Color(hex: color)
-                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        if let currentSpace = browserWindowState.currentSpace {
+                            SidebarSpaceBackground(browserSpace: currentSpace, isSidebarCollapsed: true)
                         }
                     }
+                    .background(.ultraThinMaterial)
+                    .padding(userPreferences.sidebarPosition == .leading ? .trailing : .leading, .sidebarPadding)
                     .transition(.move(edge: userPreferences.sidebarPosition == .leading ? .leading : .trailing))
             }
         }

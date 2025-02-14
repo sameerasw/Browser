@@ -29,6 +29,7 @@ class SharedWebViewConfiguration {
         preferences.setValue(true, forKey: "developerExtrasEnabled")
         
         ExperimentalFeatures.toggleExperimentalFeature("PreferPageRenderingUpdatesNear60FPSEnabled", enabled: false, preferences: preferences)
+        ExperimentalFeatures.toggleExperimentalFeature("ApplePayEnabled", enabled: true, preferences: preferences)
         
         configuration.preferences = preferences
         

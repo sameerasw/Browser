@@ -23,6 +23,10 @@ class BrowserWindowState: ObservableObject {
     @Published var searchOpenLocation: SearchOpenLocation? = .none
     
     @Published var showURLQRCode = false
+    
+    @Published var actionAlertMessage = ""
+    @Published var actionAlertSystemImage = ""
+    @Published var showActionAlert = false
             
     /// Loads the current space from the UserDefaults and sets it as the current space
     @Sendable
@@ -64,6 +68,16 @@ class BrowserWindowState: ObservableObject {
         if let url = currentSpace?.currentTab?.url.absoluteString {
             NSPasteboard.general.clearContents()
             NSPasteboard.general.setString(url, forType: .string)
+            presentActionAlert(message: "Copied Current URL", systemImage: "link")
+        }
+    }
+    
+    /// Presents an action alert with a message and a system image
+    func presentActionAlert(message: String, systemImage: String) {
+        actionAlertMessage = message
+        actionAlertSystemImage = systemImage
+        withAnimation(.browserDefault) {
+            showActionAlert = true
         }
     }
 }

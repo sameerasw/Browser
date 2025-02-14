@@ -31,6 +31,7 @@ struct EditCommands: Commands {
                 Button(isEditable ? "Stop Editing Text On Page" : "Edit Text On Page") {
                     isEditable.toggle()
                     webView.toggleEditable()
+                    browserWindowState?.presentActionAlert(message: isEditable ? "You Can Now Edit The Text On The Page" : "You Are No Longer Editing The Text On The Page", systemImage: isEditable ? "pencil.and.outline" : "pencil.slash")
                 }
                 .globalKeyboardShortcut(.toggleEditing)
             }
