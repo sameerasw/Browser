@@ -8,11 +8,11 @@
 import SwiftUI
 
 /// Model for the sidebar
-class SidebarModel: ObservableObject {
+@Observable class SidebarModel {
     
-    @Published var currentSidebarWidth: CGFloat = 220
-    @Published var lastSidebarWidth: CGFloat = 220
-    @Published var sidebarCollapsed: Bool = false {
+    var currentSidebarWidth: CGFloat = 220
+    var lastSidebarWidth: CGFloat = 220
+    var sidebarCollapsed: Bool = false {
         // Start or stop the mouse monitor when the sidebar is collapsed
         didSet {
             if sidebarCollapsed {
@@ -22,7 +22,7 @@ class SidebarModel: ObservableObject {
             }
         }
     }
-    @Published var showBottomNewMenu = false
+    var showBottomNewMenu = false
     
     /// Monitor for mouse movement
     private var mouseMonitor: Any?

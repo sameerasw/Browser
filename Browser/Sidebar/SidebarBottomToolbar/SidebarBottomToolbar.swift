@@ -11,10 +11,11 @@ import SwiftUI
 struct SidebarBottomToolbar: View {
     
     @Environment(\.modelContext) var modelContext
+    
+    @Environment(SidebarModel.self) var sidebarModel: SidebarModel
+    
     let browserSpaces: [BrowserSpace]
     
-    @EnvironmentObject var sidebarModel: SidebarModel
-        
     var body: some View {
         HStack {
             Button("Downloads", systemImage: "arrow.down.circle") {

@@ -14,7 +14,7 @@ struct MainFrame: View {
     @EnvironmentObject var userPreferences: UserPreferences
     @EnvironmentObject var browserWindowState: BrowserWindowState
     
-    @StateObject var sidebarModel = SidebarModel()
+    @State var sidebarModel = SidebarModel()
     
     @Query(sort: \BrowserSpace.order) var browserSpaces: [BrowserSpace]
     
@@ -79,7 +79,7 @@ struct MainFrame: View {
                 $0.animation = nil
             }
         }
-        .environmentObject(sidebarModel)
+        .environment(sidebarModel)
         .focusedSceneValue(\.sidebarModel, sidebarModel)
     }
     

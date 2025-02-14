@@ -10,7 +10,7 @@ import SwiftUI
 /// A made-from-scratch view that allows the user to resize the sidebar
 struct SidebarResizer: View {
     
-    @EnvironmentObject var sidebarModel: SidebarModel
+    @Environment(SidebarModel.self) var sidebarModel: SidebarModel
     
     @State var isDragging = false
     

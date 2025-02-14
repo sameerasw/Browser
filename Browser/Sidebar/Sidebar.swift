@@ -12,9 +12,10 @@ struct Sidebar: View {
     
     @Environment(\.modelContext) var modelContext
     
+    @Environment(SidebarModel.self) var sidebarModel: SidebarModel
+    
     @EnvironmentObject var userPreferences: UserPreferences
     @EnvironmentObject var browserWindowState: BrowserWindowState
-    @EnvironmentObject var sidebarModel: SidebarModel
     
     let browserSpaces: [BrowserSpace]
     
