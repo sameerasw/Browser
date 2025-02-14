@@ -26,7 +26,9 @@ class SharedWebViewConfiguration {
         // Configure shared preferences
         let preferences = WKPreferences()
         preferences.isElementFullscreenEnabled = true
-        preferences.setValue(true, forKey: "developerExtrasEnabled")
+        
+        preferences._developerExtrasEnabled = true
+        preferences._allowsPictureInPictureMediaPlayback = true
         
         ExperimentalFeatures.toggleExperimentalFeature("PreferPageRenderingUpdatesNear60FPSEnabled", enabled: false, preferences: preferences)
         ExperimentalFeatures.toggleExperimentalFeature("ApplePayEnabled", enabled: true, preferences: preferences)
