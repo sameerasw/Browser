@@ -28,10 +28,11 @@ class SharedWebViewConfiguration {
         preferences.isElementFullscreenEnabled = true
         
         preferences._developerExtrasEnabled = true
+        preferences._applePayEnabled = true
+        preferences._applePayCapabilityDisclosureAllowed = true
         preferences._allowsPictureInPictureMediaPlayback = true
         
         ExperimentalFeatures.toggleExperimentalFeature("PreferPageRenderingUpdatesNear60FPSEnabled", enabled: false, preferences: preferences)
-        ExperimentalFeatures.toggleExperimentalFeature("ApplePayEnabled", enabled: true, preferences: preferences)
         
         configuration.preferences = preferences
         

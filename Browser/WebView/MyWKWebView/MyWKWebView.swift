@@ -113,5 +113,46 @@ class MyWKWebView: WKWebView {
         reload()
     }
     
+    /// Toggles the developer tools
+    func toggleDeveloperTools() {
+        DeveloperFeatures.toggleWebInspector(for: self)
+    }
+    
+    func togglePictureInPicture() {
+        let jsCode = """
+        (async function() {
+            function findMediaElement() {
+                let video = document.querySelector('video');
+                if (video) return video;
+                
+                let iframe = document.querySelector('iframe');
+                if (iframe) {
+                    try {
+                        let innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        return innerDoc.querySelector('video');
+                    } catch (e) {
+                        console.error('No access to iframe content:', e);
+                        return null;
+                    }
+                }
+                return null;
+            }
+
+            let mediaElement = findMediaElement();
+            if (mediaElement && document.pictureInPictureEnabled && !mediaElement.paused && !mediaElement.ended) {
+                if (!document.pictureInPictureElement) {
+                    await mediaElement.requestPictureInPicture();
+                } else {
+                    await document.exitPictureInPicture();
+                }
+            } else {
+                console.error('No media element found or PiP not supported.');
+            }
+        })();
+        """
+
+        evaluateJavaScript(jsCode)
+    }
+    
     weak var currentNSSavePanel: NSSavePanel?
 }

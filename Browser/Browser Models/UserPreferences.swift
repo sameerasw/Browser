@@ -34,6 +34,8 @@ class UserPreferences: ObservableObject {
     
     @AppStorage("clear_selected_tab") var clearSelectedTab = false
     
+    @AppStorage("open_pip_on_tab_change") var openPipOnTabChange = true
+    
     func changeTrafficLightsTrailingAppearance() {
         if sidebarPosition == .trailing {
             NSApp.setBrowserWindowControls(hidden: !showWindowControlsOnTrailingSidebar)

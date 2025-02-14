@@ -33,12 +33,22 @@ struct ViewCommands: Commands {
                 
                 Divider()
                 
+                Button("Toggle Picture In Picture", action: webView.togglePictureInPicture)
+                    .globalKeyboardShortcut(.togglePictureInPicture)
+                
+                Divider()
+                
                 Button("Zoom Actual Size", action: webView.zoomActualSize)
                     .globalKeyboardShortcut(.zoomActualSize)
                 Button("Zoom In", action: webView.zoomIn)
                     .keyboardShortcut("+", modifiers: .command)
                 Button("Zoom Out", action: webView.zoomOut)
                     .globalKeyboardShortcut(.zoomOut)
+                
+                Divider()
+                
+                Button("Toggle Web Inspector", action: webView.toggleDeveloperTools)
+                    .globalKeyboardShortcut(.openDeveloperTools)
                 
                 Divider()
             }
@@ -53,6 +63,8 @@ extension KeyboardShortcuts.Name {
     static let reload = Self("reload", default: .init(.r, modifiers: .command))
     static let clearCookiesAndReload = Self("clear_cookies_and_reload")
     static let clearCacheAndReload = Self("clear_cache_and_reload")
+    
+    static let togglePictureInPicture = Self("toggle_picture_in_picture")
     
     static let zoomActualSize = Self("zoom_actual_size", default: .init(.zero, modifiers: .command))
     static let zoomIn = Self("zoom_in", default: .init(.equal, modifiers: .command))

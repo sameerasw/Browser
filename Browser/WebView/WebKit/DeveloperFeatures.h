@@ -8,5 +8,12 @@
 #ifndef DeveloperFeatures_h
 #define DeveloperFeatures_h
 
+#import <WebKit/WebKit.h>
+
+@interface DeveloperFeatures : NSObject
+
++ (void)toggleWebInspectorForWebView:(WKWebView *)webView;
+
+@end
 
 #endif /* DeveloperFeatures_h */
