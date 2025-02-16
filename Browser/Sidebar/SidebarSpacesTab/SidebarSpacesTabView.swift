@@ -23,7 +23,7 @@ struct SidebarSpacesTabView: View {
         ScrollView(.horizontal) {
             LazyHStack(spacing: .zero) {
                 ForEach(browserSpaces) { browserSpace in
-                    if browserSpace.name.isEmpty {
+                    if browserSpace.name.isEmpty || browserSpace.isEditing {
                         SidebarSpaceCreateView(browserSpaces: browserSpaces, browserSpace: browserSpace)
                             .containerRelativeFrame(.horizontal, count: 1, spacing: 0)
                     } else {

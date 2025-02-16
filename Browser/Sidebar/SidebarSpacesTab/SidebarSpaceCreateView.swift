@@ -25,6 +25,8 @@ struct SidebarSpaceCreateView: View {
     @State var showIconPicker = false
     @State var colorPopoverIndex: Int? = nil
     
+    @State var browserSpaceCopy: (name: String, systemImage: String, colors: [String], grainOpacity: Double, colorOpacity: Double, colorScheme: String)!
+    
     var body: some View {
         VStack {
             Spacer()
@@ -113,9 +115,10 @@ struct SidebarSpaceCreateView: View {
             .padding(.bottom, 25)
             .disabled(browserSpace.colors.isEmpty)
             
-            Button("Create Space") {
+            Button(browserSpace.isEditing ? "Save" : "Create Space") {
                 withAnimation(.browserDefault) {
                     browserSpace.name = name
+                    browserSpace.isEditing = false
                 }
             }
             .buttonStyle(.plain)
@@ -136,21 +139,33 @@ struct SidebarSpaceCreateView: View {
             .shadow(color: .blue.opacity(0.4), radius: hoverCreateButton ? 10 : 0)
             
             Button("Cancel") {
-                let newSelection = browserSpace.order > 0 ? browserSpaces[browserSpace.order - 1] : browserSpace.order < browserSpaces.count - 1 ? browserSpaces[browserSpace.order + 1] : nil
-                
-                withAnimation(.browserDefault) {
-                    modelContext.delete(browserSpace)
+                if !browserSpace.isEditing {
+                    let newSelection = browserSpace.order > 0 ? browserSpaces[browserSpace.order - 1] : browserSpace.order < browserSpaces.count - 1 ? browserSpaces[browserSpace.order + 1] : nil
+                    
+                    withAnimation(.browserDefault) {
+                        modelContext.delete(browserSpace)
+                        try? modelContext.save()
+                    }
+                    
+                    // Update order
+                    for (index, space) in browserSpaces.enumerated() {
+                        space.order = index
+                    }
                     try? modelContext.save()
-                }
-                
-                // Update order
-                for (index, space) in browserSpaces.enumerated() {
-                    space.order = index
-                }
-                try? modelContext.save()
-                
-                if let newSelection {
-                    browserWindowState.goToSpace(newSelection)
+                    
+                    if let newSelection {
+                        browserWindowState.goToSpace(newSelection)
+                    }
+                } else {
+                    withAnimation(.browserDefault) {
+                        browserSpace.isEditing = false
+                        browserSpace.name = browserSpaceCopy.name
+                        browserSpace.systemImage = browserSpaceCopy.systemImage
+                        browserSpace.colors = browserSpaceCopy.colors
+                        browserSpace.grainOpacity = browserSpaceCopy.grainOpacity
+                        browserSpace.colorOpacity = browserSpaceCopy.colorOpacity
+                        browserSpace.colorScheme = browserSpaceCopy.colorScheme
+                    }
                 }
             }
             .buttonStyle(.sidebarHover(font: .title3.weight(.semibold), padding: 5, fixedWidth: nil, alignment: .center, cornerRadius: 8))
@@ -159,5 +174,9 @@ struct SidebarSpaceCreateView: View {
         }
         .padding(.horizontal)
         .font(.title3.weight(.semibold))
+        .onAppear {
+            name = browserSpace.name
+            browserSpaceCopy = (name: browserSpace.name, systemImage: browserSpace.systemImage, colors: browserSpace.colors, grainOpacity: browserSpace.grainOpacity, colorOpacity: browserSpace.colorOpacity, colorScheme: browserSpace.colorScheme)
+        }
     }
 }

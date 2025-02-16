@@ -88,7 +88,6 @@ final class BrowserTab: Identifiable, Comparable {
             
             do {
                 let favicon = try await URLSession.shared.data(from: url).0
-                print(url)
                 if NSImage(data: favicon) != nil {
                     self.favicon = favicon
                 } else {

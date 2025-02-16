@@ -26,6 +26,7 @@ class UserPreferences: ObservableObject {
             changeTrafficLightsTrailingAppearance()
         }
     }
+    @AppStorage("reverse_colors_on_trailing_sidebar") var reverseColorsOnTrailingSidebar = true
     
     // Web appearance preferences
     @AppStorage("rounded_corners") var roundedCorners = true

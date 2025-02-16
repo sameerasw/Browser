@@ -21,8 +21,10 @@ struct SidebarSpaceContextMenu: ViewModifier {
     func body(content: Content) -> some View {
         content
             .contextMenu {
-                Button("Print") {
-                    print("Print")
+                Button("Edit Space") {
+                    withAnimation(.browserDefault) {
+                        browserSpace.isEditing = true
+                    }
                 }
                 
                 Divider()

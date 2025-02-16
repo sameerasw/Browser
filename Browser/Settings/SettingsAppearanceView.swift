@@ -20,6 +20,8 @@ struct SettingsAppearanceView: View {
                 Toggle("Disable Animations", systemImage: "figure.run", isOn: $userPreferences.disableAnimations)
                 
                 Toggle("Show Window Controls On Trailling Sidebar", systemImage: "macwindow", isOn: $userPreferences.showWindowControlsOnTrailingSidebar)
+                
+                Toggle("Reverse Colors on Trailing Sidebar", systemImage: "paintpalette", isOn: $userPreferences.reverseColorsOnTrailingSidebar)
             }
             
             Section {
@@ -37,8 +39,4 @@ struct SettingsAppearanceView: View {
         }
         .formStyle(.grouped)
     }
-}
-
-#Preview {
-    SettingsAppearanceView()
 }

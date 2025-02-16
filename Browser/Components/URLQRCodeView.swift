@@ -38,7 +38,7 @@ struct URLQRCodeView: View {
                 }
             }
         }
-        .task {
+        .onAppear {
             if browserTab == nil {
                 dismiss()
             } else {

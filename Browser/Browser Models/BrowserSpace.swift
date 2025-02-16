@@ -36,6 +36,7 @@ final class BrowserSpace: Identifiable {
     
     @Attribute(.ephemeral) var currentTab: BrowserTab? = nil
     @Transient var loadedTabs: [BrowserTab] = []
+    @Attribute(.ephemeral) var isEditing: Bool = false
     
     init(name: String, systemImage: String, order: Int, colors: [Color], grainOpacity: Double = 0.0, colorOpacity: Double = 1.0, colorScheme: String) {
         self.id = UUID()
@@ -67,8 +68,13 @@ final class BrowserSpace: Identifiable {
         tab.stopObserving()
         unloadTab(tab)
         
-        modelContext.delete(tab)
-        try? modelContext.save()
+        do {
+            tabs.removeAll(where: { $0.id == tab.id })
+            modelContext.delete(tab)
+            try modelContext.save()
+        } catch {
+            print("Error deleting tab: \(error)")
+        }
         
         withAnimation(.browserDefault) {
             currentTab = newTab
