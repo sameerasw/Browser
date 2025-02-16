@@ -29,9 +29,9 @@ class WKWebViewController: NSViewController {
             self.configuration.websiteDataStore = .nonPersistent()
         }
         
-        self.webView = MyWKWebView(frame: .zero, configuration: self.configuration)
-        
         self.modelContext = modelContext
+        
+        self.webView = MyWKWebView(frame: .zero, configuration: self.configuration)
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -49,6 +49,8 @@ class WKWebViewController: NSViewController {
         webView.navigationDelegate = self
         webView.uiDelegate = self
         
+        webView.searchWebAction = searchWebAction
+        
         webView.load(URLRequest(url: tab.url))
         tab.webview = webView
     }
@@ -65,5 +67,10 @@ class WKWebViewController: NSViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func searchWebAction(_ query: String) {
+        let newTab = BrowserTab(title: query, url: URL(string: "https://www.google.com/search?q=\(query)")!, order: tab.order + 1, browserSpace: browserSpace)
+        browserSpace.openNewTab(newTab, using: modelContext)
     }
 }

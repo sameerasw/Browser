@@ -27,6 +27,8 @@ extension MyWKWebView {
         switch contextMenuType {
         case .frame:
             handleFrameContextMenu(menu)
+        case .text:
+            handleTextContextMenu(menu)
         default:
             break
         }
