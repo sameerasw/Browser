@@ -1,5 +1,5 @@
 //
-//  HistoryEntryView.swift
+//  HistoryEntryRow.swift
 //  Browser
 //
 //  Created by Leonardo Larrañaga on 2/16/25.
@@ -7,10 +7,17 @@
 
 import SwiftUI
 
-struct HistoryEntryView: View {
-    let entry: BrowserHistoryEntry
+struct HistoryEntryRow: View {
+    
+    @Bindable var entry: BrowserHistoryEntry
+    
     var body: some View {
-        HStack {
+        HStack(spacing: 15) {
+            Text(entry.date.formatted(date: .omitted, time: .shortened))
+                .bold()
+                .frame(width: 44)
+                .multilineTextAlignment(.leading)
+            
             Group {
                 if let favicon = entry.favicon, let nsImage = NSImage(data: favicon) {
                     Image(nsImage: nsImage)
@@ -28,6 +35,14 @@ struct HistoryEntryView: View {
             Text(entry.title)
                 .lineLimit(1)
                 .truncationMode(.tail)
+            
+            Spacer()
+            
+            Text(entry.url.absoluteString)
+                .lineLimit(1)
+                .truncationMode(.tail)
+                .foregroundStyle(.secondary)
+                .font(.system(.callout, design: .monospaced))
         }
     }
 }

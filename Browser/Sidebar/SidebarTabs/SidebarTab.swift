@@ -54,7 +54,7 @@ struct SidebarTab: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .frame(height: 30)
             .padding(3)
-            .background(browserSpace.currentTab == browserTab ? .white.opacity(0.2) : isHoveringTab ? .white.opacity(0.1) : .clear)
+            .background(browserSpace.currentTab == browserTab ? browserSpace.textColor(in: colorScheme) == .black ? .white : .white.opacity(0.2) : isHoveringTab ? .white.opacity(0.1) : .clear)
             .clipShape(.rect(cornerRadius: 10))
         }
         .buttonStyle(.plain)

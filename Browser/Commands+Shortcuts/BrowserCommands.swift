@@ -12,5 +12,6 @@ struct BrowserCommands: Commands {
         FileCommands()
         EditCommands()
         ViewCommands()
+        HistoryCommands()
     }
 }

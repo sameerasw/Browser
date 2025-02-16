@@ -9,8 +9,6 @@ import SwiftUI
 
 /// View that contains a stack for the loaded tabs in the current space
 struct WebView: View {
-
-    @Environment(\.modelContext) var modelContext
     
     @Bindable var browserSpace: BrowserSpace
     
@@ -18,14 +16,23 @@ struct WebView: View {
         ZStack {
             if let currentTab = browserSpace.currentTab {
                 ForEach(browserSpace.tabs.filter { browserSpace.loadedTabs.contains($0) || $0 == currentTab }) { tab in
-                    WKWebViewControllerRepresentable(tab: tab, browserSpace: browserSpace)
-                        .zIndex(tab == currentTab ? 1 : 0)
-                        .onAppear {
-                            browserSpace.loadedTabs.append(tab)
-                            if tab.favicon == nil {
-                                tab.updateFavicon(with: tab.url)
-                            }
+                    Group {
+                        switch tab.type {
+                        case .web:
+                            WKWebViewControllerRepresentable(tab: tab, browserSpace: browserSpace)
+                                .onAppear {
+                                    if tab.favicon == nil {
+                                        tab.updateFavicon(with: tab.url)
+                                    }
+                                }
+                        case .history:
+                            HistoryView(browserTab: tab)
                         }
+                    }
+                    .zIndex(tab == currentTab ? 1 : 0)
+                    .onAppear {
+                        browserSpace.loadedTabs.append(tab)
+                    }
                 }
             } else {
                 // Show a blank page if there is no current space or tab
@@ -33,5 +40,6 @@ struct WebView: View {
                     .fill(.regularMaterial)
             }
         }
+        .transaction { $0.animation = nil }
     }
 }

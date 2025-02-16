@@ -62,7 +62,7 @@ final class BrowserSpace: Identifiable {
         
         let finalLuminance = sqrt((1 - a) * backgroundLuminance + a * luminance)
         
-        return finalLuminance > 0.5 ? .black : .white
+        return finalLuminance > 0.3 ? .black : .white
     }
 
     
@@ -121,6 +121,20 @@ final class BrowserSpace: Identifiable {
                 uuids.contains($0.id)
             })
             try? modelContext.save()
+        }
+    }
+    
+    /// Opens a new tab in the space
+    /// - Parameters:
+    ///  - browserTab: The tab to open
+    ///  - modelContext: The model context to save the changes
+    func openNewTab(_ browserTab: BrowserTab, using modelContext: ModelContext) {
+        do {
+            tabs.insert(browserTab, at: browserTab.order)
+            try modelContext.save()
+            currentTab = browserTab
+        } catch {
+            print("Error opening new tab: \(error)")
         }
     }
 }

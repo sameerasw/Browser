@@ -10,6 +10,8 @@ import SwiftUI
 /// WKWebViewController wrapper for SwiftUI
 struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
     
+    @Environment(\.modelContext) var modelContext
+        
     @Bindable var browserSpace: BrowserSpace
     @Bindable var tab: BrowserTab
     let incognito: Bool
@@ -21,8 +23,10 @@ struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
     }
     
     func makeNSViewController(context: Context) -> WKWebViewController {
-        WKWebViewController(tab: tab, browserSpace: browserSpace, incognito: incognito)
+        WKWebViewController(tab: tab, browserSpace: browserSpace, incognito: incognito, using: modelContext)
     }
     
-    func updateNSViewController(_ nsViewController: WKWebViewController, context: Context) {}
+    func updateNSViewController(_ nsViewController: WKWebViewController, context: Context) {
+        nsViewController.webView.isHidden = tab != browserSpace.currentTab
+    }
 }

@@ -9,6 +9,11 @@ import SwiftData
 import WebKit
 import Combine
 
+enum BrowserTabType: String, Codable {
+    case web
+    case history
+}
+
 /// A model that represents a tab in the browser
 @Model
 final class BrowserTab: Identifiable, Comparable {
@@ -18,16 +23,18 @@ final class BrowserTab: Identifiable, Comparable {
     var favicon: Data?
     var url: URL
     var order: Int
+    var type: BrowserTabType
     
     @Relationship var browserSpace: BrowserSpace?
     
-    init(title: String, favicon: Data? = nil, url: URL, order: Int = 0, browserSpace: BrowserSpace?) {
+    init(title: String, favicon: Data? = nil, url: URL, order: Int = 0, browserSpace: BrowserSpace?, type: BrowserTabType = .web) {
         self.id = UUID()
         self.title = title
         self.favicon = favicon
         self.url = url
         self.browserSpace = browserSpace
         self.order = order
+        self.type = type
     }
     
     @Transient var webview: MyWKWebView? = nil {

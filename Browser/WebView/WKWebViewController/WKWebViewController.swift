@@ -11,16 +11,16 @@ import SwiftData
 
 /// Main view controller that contains a WKWebView
 class WKWebViewController: NSViewController {
-    
-    var container: ModelContainer?
-    
+        
     @Bindable var tab: BrowserTab
     @Bindable var browserSpace: BrowserSpace
     
     var webView: MyWKWebView
     let configuration: WKWebViewConfiguration
     
-    init(tab: BrowserTab, browserSpace: BrowserSpace, incognito: Bool = false) {
+    let modelContext: ModelContext
+    
+    init(tab: BrowserTab, browserSpace: BrowserSpace, incognito: Bool = false, using modelContext: ModelContext) {
         self.tab = tab
         self.browserSpace = browserSpace
         
@@ -30,6 +30,8 @@ class WKWebViewController: NSViewController {
         }
         
         self.webView = MyWKWebView(frame: .zero, configuration: self.configuration)
+        
+        self.modelContext = modelContext
         
         super.init(nibName: nil, bundle: nil)
     }

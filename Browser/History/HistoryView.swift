@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HistoryView: View {
+    @Bindable var browserTab: BrowserTab
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            Tab("Closed Tabs", systemImage: "xmark.app.fill") {
+                Text("Not yet implemented")
+                    .foregroundColor(.secondary)
+            }
+            
+            Tab("All History", systemImage: "clock.fill") {
+                HistoryEntryList(browserTab: browserTab)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-}
-
-#Preview {
-    HistoryView()
 }

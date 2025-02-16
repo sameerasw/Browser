@@ -22,12 +22,12 @@ struct BrowserApp: App {
                 }
                 .frame(minWidth: 400, minHeight: 200)
         }
-        .modelContainer(for: [BrowserSpace.self, BrowserTab.self])
         .windowStyle(.hiddenTitleBar)
         .windowToolbarStyle(.unified(showsTitle: false))
         .commands {
             BrowserCommands()
         }
+        .modelContainer(for: [BrowserSpace.self, BrowserTab.self, BrowserHistoryEntry.self])
         
         Settings {
             SettingsView()
