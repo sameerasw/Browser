@@ -79,26 +79,30 @@ class SearchManager {
             return print("🔍👓 Error parsing search suggestions. Empty components. \"\(searchText)\". \(data)")
         }
         
-        let regex = try! NSRegularExpression(pattern: #""(.*?)""#)
-        
-        let extractedStrings = components.flatMap { string -> [String] in
-            let matches = regex.matches(in: string, range: NSRange(string.startIndex..., in: string))
-            return matches.compactMap { match -> String? in
-                if let range = Range(match.range(at: 1), in: string) {
-                    var extracted = String(string[range])
-                    // Process Unicode characters
-                    extracted = extracted.applyingTransform(StringTransform("Hex-Any"), reverse: false) ?? extracted
-                    // Don't include empty strings
-                    return extracted.isEmpty ? nil : extracted
+        do {
+            let regex = try NSRegularExpression(pattern: #""(.*?)""#)
+            
+            let extractedStrings = components.flatMap { string -> [String] in
+                let matches = regex.matches(in: string, range: NSRange(string.startIndex..., in: string))
+                return matches.compactMap { match -> String? in
+                    if let range = Range(match.range(at: 1), in: string) {
+                        var extracted = String(string[range])
+                        // Process Unicode characters
+                        extracted = extracted.applyingTransform(StringTransform("Hex-Any"), reverse: false) ?? extracted
+                        // Don't include empty strings
+                        return extracted.isEmpty ? nil : extracted
+                    }
+                    return nil
                 }
-                return nil
             }
-        }
-        
-        // Drop first suggestion because it's the same as the search text
-        // Drop last 3 suggestions because they are not search suggestions
-        searchSuggestions = [SearchSuggestion(searchText)] + extractedStrings.dropLast(3).dropFirst().map {
-            SearchSuggestion($0)
+            
+            // Drop first suggestion because it's the same as the search text
+            // Drop last 3 suggestions because they are not search suggestions
+            searchSuggestions = [SearchSuggestion(searchText)] + extractedStrings.dropLast(3).dropFirst().map {
+                SearchSuggestion($0)
+            }
+        } catch {
+            print("🔍👓 Error parsing search suggestions. Invalid regex. \"\(searchText)\". \(data)")
         }
     }
     

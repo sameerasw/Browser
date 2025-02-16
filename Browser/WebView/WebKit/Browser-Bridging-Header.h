@@ -5,3 +5,4 @@
 
 #import "ExperimentalFeatures.h"
 #import "DeveloperFeatures.h"
+#import "MediaControls.h"

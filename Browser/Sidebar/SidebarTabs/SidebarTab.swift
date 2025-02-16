@@ -41,6 +41,14 @@ struct SidebarTab: View {
             HStack {
                 faviconImage
                 
+                if browserTab.webview?.hasActiveNowPlayingSession == true {
+                    Button("Mute Tab", systemImage: browserTab.webview?.mediaMutedState != .audioMuted ? "speaker.wave.2" : "speaker.slash") {
+                        browserTab.webview?.toggleMute()
+                    }
+                    .buttonStyle(.sidebarHover())
+                    .transition(.move(edge: .leading))
+                }
+                
                 Text(browserTab.title)
                     .lineLimit(1)
                     .truncationMode(.tail)
