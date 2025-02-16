@@ -38,6 +38,34 @@ final class BrowserSpace: Identifiable {
     @Transient var loadedTabs: [BrowserTab] = []
     @Attribute(.ephemeral) var isEditing: Bool = false
     
+    /// Returns the text color of the space based on the colors of the space and the color scheme
+    func textColor(in colorScheme: ColorScheme) -> Color {
+        // If the space has no colors, return the primary color (black on light mode, white on dark mode)
+        if colors.isEmpty { return .primary }
+        
+        // Return white or black depending on the luminance of the first color
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        NSColor(getColors[0]).getRed(&r, green: &g, blue: &b, alpha: &a)
+        a = colorOpacity
+        
+        // Convert the color to sRGB
+        func sRGB(_ c: CGFloat) -> CGFloat {
+            c <= 0.04045 ? c / 12.92 : pow((c + 0.055) / 1.055, 2.4)
+        }
+        
+        r = sRGB(r)
+        g = sRGB(g)
+        b = sRGB(b)
+        
+        let luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+        let backgroundLuminance: CGFloat = colorScheme == .light ? 1 : 0
+        
+        let finalLuminance = sqrt((1 - a) * backgroundLuminance + a * luminance)
+        
+        return finalLuminance > 0.5 ? .black : .white
+    }
+
+    
     init(name: String, systemImage: String, order: Int, colors: [Color], grainOpacity: Double = 0.0, colorOpacity: Double = 1.0, colorScheme: String) {
         self.id = UUID()
         self.name = name

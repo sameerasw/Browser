@@ -85,7 +85,7 @@ struct FileCommands: Commands {
         browserWindowState?.currentSpace?.currentTab?.webview?.savePageAsPNG(temporaryURL)
         NSPasteboard.general.clearContents()
         NSPasteboard.general.writeObjects([temporaryURL as NSPasteboardWriting])
-        browserWindowState?.presentActionAlert(message: "Snapshot Copied!", systemImage: "camera.viewfinder")
+        browserWindowState?.presentActionAlert(message: "Current Page Portion Snapshot Copied!", systemImage: "camera.viewfinder")
     }
     
     private func copyFullPage() {
@@ -93,7 +93,7 @@ struct FileCommands: Commands {
         browserWindowState?.currentSpace?.currentTab?.webview?.saveFullPageAsPNG(temporaryURL)
         NSPasteboard.general.clearContents()
         NSPasteboard.general.writeObjects([temporaryURL as NSPasteboardWriting])
-        browserWindowState?.presentActionAlert(message: "Snapshot Copied!", systemImage: "camera.viewfinder")
+        browserWindowState?.presentActionAlert(message: "Full Page Snapshot Copied!", systemImage: "camera.viewfinder")
     }
 }
 

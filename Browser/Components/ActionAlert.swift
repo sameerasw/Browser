@@ -23,6 +23,7 @@ struct ActionAlert: ViewModifier {
                             HStack(spacing: 10) {
                                 Text(browserWindowState.actionAlertMessage)
                                     .lineLimit(1)
+                                    .fixedSize(horizontal: false, vertical: true)
                                 Image(systemName: browserWindowState.actionAlertSystemImage)
                                     .fontWeight(.bold)
                             }

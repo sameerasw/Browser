@@ -11,9 +11,11 @@ import SwiftData
 /// Main frame of the browser.
 struct MainFrame: View {
     
-    @EnvironmentObject var userPreferences: UserPreferences
     @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(\.colorScheme) var colorScheme
     
+    @EnvironmentObject var userPreferences: UserPreferences
+        
     @State var sidebarModel = SidebarModel()
     
     @Query(sort: \BrowserSpace.order) var browserSpaces: [BrowserSpace]
@@ -81,6 +83,7 @@ struct MainFrame: View {
         }
         .environment(sidebarModel)
         .focusedSceneValue(\.sidebarModel, sidebarModel)
+        .foregroundStyle(browserWindowState.currentSpace?.textColor(in: colorScheme) ?? .primary)
     }
     
     var sidebar: some View {

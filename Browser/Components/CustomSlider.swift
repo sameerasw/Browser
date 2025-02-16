@@ -17,6 +17,7 @@ struct CustomSlider<V: BinaryFloatingPoint>: View where V.Stride: BinaryFloating
     let scaleHeight: CGFloat
     let backgroundColor: Color
     let valueColor: Color
+    let disabled: Bool
     
     init(
         value: Binding<V>,
@@ -25,7 +26,8 @@ struct CustomSlider<V: BinaryFloatingPoint>: View where V.Stride: BinaryFloating
         scaleEffect: CGFloat = 1.05,
         scaleHeight: CGFloat = 1.1,
         backgroundColor: Color = .blue.opacity(0.2),
-        valueColor: Color = .blue
+        valueColor: Color = .blue,
+        disabled: Bool = false
     ) {
         self.value = value
         self.range = range
@@ -34,6 +36,7 @@ struct CustomSlider<V: BinaryFloatingPoint>: View where V.Stride: BinaryFloating
         self.scaleHeight = scaleHeight
         self.backgroundColor = backgroundColor
         self.valueColor = valueColor
+        self.disabled = disabled
     }
     
     @State private var sliderWidth: CGFloat = 0
@@ -44,10 +47,10 @@ struct CustomSlider<V: BinaryFloatingPoint>: View where V.Stride: BinaryFloating
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 Rectangle()
-                    .fill(backgroundColor)
+                    .fill(disabled ? .gray : backgroundColor)
                 
                 Rectangle()
-                    .fill(valueColor)
+                    .fill(disabled ? .gray.opacity(0.2) : valueColor)
                     .frame(width: sliderWidth)
             }
             .clipShape(.rect(cornerRadius: dragging ? 16 : 8))
@@ -72,6 +75,7 @@ struct CustomSlider<V: BinaryFloatingPoint>: View where V.Stride: BinaryFloating
                         lastDragValue = sliderWidth
                     }
             )
+            .disabled(disabled)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                     let normalizedValue = (value.wrappedValue - range.lowerBound) / (range.upperBound - range.lowerBound)

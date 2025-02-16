@@ -106,14 +106,13 @@ struct SidebarSpaceCreateView: View {
             
             VStack(alignment: .leading, spacing: 10) {
                 Label("Color Opacity", systemImage: "paintbrush")
-                CustomSlider(value: $browserSpace.colorOpacity, in: 0...1)
+                CustomSlider(value: $browserSpace.colorOpacity, in: 0...1, disabled: browserSpace.colors.isEmpty)
                 
                 Label("Grain Effect", systemImage: "circle.dotted.circle")
-                CustomSlider(value: $browserSpace.grainOpacity, in: 0...0.33)
+                CustomSlider(value: $browserSpace.grainOpacity, in: 0...0.33, disabled: browserSpace.colors.isEmpty)
             }
             .font(.body)
             .padding(.bottom, 25)
-            .disabled(browserSpace.colors.isEmpty)
             
             Button(browserSpace.isEditing ? "Save" : "Create Space") {
                 withAnimation(.browserDefault) {
