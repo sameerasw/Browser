@@ -18,6 +18,24 @@ extension URL {
             return host
         }
     }
+    
+    func uniqueFileURL() -> URL {
+        let fileManager = FileManager.default
+        var url = self
+        var count = 1
+        
+        let directory = deletingLastPathComponent()
+        let filename = deletingPathExtension().lastPathComponent
+        let fileExtension = pathExtension.isEmpty ? "" : ".\(pathExtension)"
+        
+        while fileManager.fileExists(atPath: url.path) {
+            let newFilename = "\(filename) (\(count))\(fileExtension)"
+            url = directory.appendingPathComponent(newFilename)
+            count += 1
+        }
+        
+        return url
+    }
 }
 
 extension String {
@@ -34,6 +52,6 @@ extension String {
     }
     
     var startsWithHTTP: Bool {
-        self.hasPrefix("http://") || self.hasPrefix("https://")
+        hasPrefix("http://") || hasPrefix("https://")
     }
 }

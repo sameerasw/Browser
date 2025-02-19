@@ -20,6 +20,8 @@ class WKWebViewController: NSViewController {
     
     let modelContext: ModelContext
     
+    var activeDownloads: [(download: WKDownload, bookmarkData: Data, fileName: String)] = []
+    
     init(tab: BrowserTab, browserSpace: BrowserSpace, incognito: Bool = false, using modelContext: ModelContext) {
         self.tab = tab
         self.browserSpace = browserSpace
@@ -41,7 +43,6 @@ class WKWebViewController: NSViewController {
         
         webView.allowsBackForwardNavigationGestures = true
         webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15 (Browser)"
-        webView.allowsLinkPreview = true
         webView.allowsMagnification = true
         webView.allowsLinkPreview = false // TODO: Implement my own preview later...
         webView.isInspectable = true

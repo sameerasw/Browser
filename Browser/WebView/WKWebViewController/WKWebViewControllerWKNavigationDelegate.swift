@@ -49,4 +49,18 @@ extension WKWebViewController: WKNavigationDelegate {
         print("🔵 Creating new")
         return nil
     }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping @MainActor (WKNavigationResponsePolicy) -> Void) {
+        guard navigationResponse.response.mimeType != nil else {
+            decisionHandler(.allow)
+            return
+        }
+        
+        if navigationResponse.canShowMIMEType {
+            decisionHandler(.allow)
+        } else {
+            print("🔵 Decision is of type download")
+            decisionHandler(.download)
+        }
+    }
 }
