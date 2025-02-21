@@ -8,6 +8,7 @@
 import SwiftData
 import WebKit
 import Combine
+import CoreTransferable
 
 enum BrowserTabType: String, Codable {
     case web

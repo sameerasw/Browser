@@ -29,6 +29,8 @@ extension MyWKWebView {
             handleFrameContextMenu(menu)
         case .text:
             handleTextContextMenu(menu)
+        case .link:
+            handleLinkContextMenu(menu)
         default:
             break
         }

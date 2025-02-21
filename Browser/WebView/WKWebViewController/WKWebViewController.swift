@@ -51,6 +51,7 @@ class WKWebViewController: NSViewController {
         webView.uiDelegate = self
         
         webView.searchWebAction = searchWebAction
+        webView.openLinkInNewTabAction = openLinkInNewTabAction
         
         webView.load(URLRequest(url: tab.url))
         tab.webview = webView
@@ -73,5 +74,10 @@ class WKWebViewController: NSViewController {
     func searchWebAction(_ query: String) {
         let newTab = BrowserTab(title: query, url: URL(string: "https://www.google.com/search?q=\(query)")!, order: tab.order + 1, browserSpace: browserSpace)
         browserSpace.openNewTab(newTab, using: modelContext)
+    }
+    
+    func openLinkInNewTabAction(_ url: URL) {
+        let newTab = BrowserTab(title: url.cleanHost, url: url, order: tab.order + 1, browserSpace: browserSpace)
+        browserSpace.openNewTab(newTab, using: modelContext, select: false)
     }
 }

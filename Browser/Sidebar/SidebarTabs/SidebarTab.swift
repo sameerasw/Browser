@@ -14,58 +14,45 @@ struct SidebarTab: View {
     @Environment(\.modelContext) var modelContext
     
     @EnvironmentObject var userPreferences: UserPreferences
-        
+    
     @Bindable var browserSpace: BrowserSpace
     @Bindable var browserTab: BrowserTab
+    
+    let dragging: Bool
     
     @State var backgroundColor: Color = .clear
     @State var isHoveringTab: Bool = false
     @State var isHoveringCloseButton: Bool = false
     @State var isPressed: Bool = false
-    
+        
     var body: some View {
-        Button {
-            browserSpace.currentTab = browserTab
+        HStack {
+            faviconImage
             
-            if !userPreferences.disableAnimations {
-                // Scale bounce effect
-                withAnimation(.bouncy(duration: 0.15, extraBounce: 0.0)) {
-                    isPressed = true
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        isPressed = false
-                    }
+            if browserTab.webview?.hasActiveNowPlayingSession == true {
+                Button("Mute Tab", systemImage: browserTab.webview?.mediaMutedState != .audioMuted ? "speaker.wave.2" : "speaker.slash") {
+                    browserTab.webview?.toggleMute()
                 }
+                .buttonStyle(.sidebarHover())
+                .transition(.move(edge: .leading))
             }
-        } label: {
-            HStack {
-                faviconImage
-                
-                if browserTab.webview?.hasActiveNowPlayingSession == true {
-                    Button("Mute Tab", systemImage: browserTab.webview?.mediaMutedState != .audioMuted ? "speaker.wave.2" : "speaker.slash") {
-                        browserTab.webview?.toggleMute()
-                    }
-                    .buttonStyle(.sidebarHover())
-                    .transition(.move(edge: .leading))
-                }
-                
-                Text(browserTab.title)
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                
-                Spacer()
-                
-                if isHoveringTab {
-                    closeTabButton
-                }
+            
+            Text(browserTab.title)
+                .lineLimit(1)
+                .truncationMode(.tail)
+            
+            Spacer()
+            
+            if isHoveringTab {
+                closeTabButton
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .frame(height: 30)
-            .padding(3)
-            .background(browserSpace.currentTab == browserTab ? browserSpace.textColor(in: colorScheme) == .black ? .white : .white.opacity(0.2) : isHoveringTab ? .white.opacity(0.1) : .clear)
-            .clipShape(.rect(cornerRadius: 10))
         }
-        .buttonStyle(.plain)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(height: 30)
+        .padding(3)
+        .background(dragging ? .white.opacity(0.1) : browserSpace.currentTab == browserTab ? browserSpace.textColor(in: colorScheme) == .black ? .white : .white.opacity(0.2) : isHoveringTab ? .white.opacity(0.1) : .clear)
+        .clipShape(.rect(cornerRadius: 10))
+        .onTapGesture(perform: selectTab)
         .onHover { hover in
             self.isHoveringTab = hover
         }
@@ -91,7 +78,7 @@ struct SidebarTab: View {
         }
         .padding(.leading, 5)
     }
-   
+    
     var closeTabButton: some View {
         Button("Close Tab", systemImage: "xmark", action: closeTab)
             .font(.title3)
@@ -104,6 +91,21 @@ struct SidebarTab: View {
                 self.isHoveringCloseButton = hover
             }
             .padding(.trailing, 5)
+    }
+    
+    func selectTab() {
+        browserSpace.currentTab = browserTab
+        
+        if !userPreferences.disableAnimations {
+            // Scale bounce effect
+            withAnimation(.bouncy(duration: 0.15, extraBounce: 0.0)) {
+                isPressed = true
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    isPressed = false
+                }
+            }
+        }
     }
     
     /// Close (delete) the tab

@@ -15,6 +15,8 @@ class MyWKWebView: WKWebView {
     
     /// The "Search With Google" action (passed from the WKWebViewController)
     var searchWebAction: ((String) -> Void)? = nil
+    /// The "Open Link In New Tab" action (passed from the WKWebViewController)
+    var openLinkInNewTabAction: ((URL) -> Void)? = nil
     
     override var isEditable: Bool {
         get {

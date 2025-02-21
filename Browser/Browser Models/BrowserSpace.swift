@@ -128,11 +128,15 @@ final class BrowserSpace: Identifiable {
     /// - Parameters:
     ///  - browserTab: The tab to open
     ///  - modelContext: The model context to save the changes
-    func openNewTab(_ browserTab: BrowserTab, using modelContext: ModelContext) {
+    func openNewTab(_ browserTab: BrowserTab, using modelContext: ModelContext, select: Bool = true) {
         do {
             tabs.insert(browserTab, at: browserTab.order)
             try modelContext.save()
-            currentTab = browserTab
+            if select {
+                currentTab = browserTab
+            } else {
+                loadedTabs.append(browserTab)
+            }
         } catch {
             print("Error opening new tab: \(error)")
         }
