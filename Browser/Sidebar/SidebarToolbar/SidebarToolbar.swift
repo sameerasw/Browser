@@ -20,7 +20,7 @@ struct SidebarToolbar: View {
     let browserSpaces: [BrowserSpace]
     
     var body: some View {
-        LazyVStack(alignment: .leading) {
+        VStack(alignment: .leading) {
             HStack {
                 // Only show traffic lights if the sidebar is on the leading side
                 if userPreferences.sidebarPosition == .leading {
@@ -41,6 +41,7 @@ struct SidebarToolbar: View {
             .frame(alignment: .top)
             .padding(.top, .approximateTrafficLightsTopPadding)
             .padding(.trailing, .sidebarPadding)
+            .frame(height: 44)
         }
     }
     

@@ -36,13 +36,13 @@ struct SearchView: View {
             }
             .foregroundStyle(colorScheme == .light ? .black : .white)
             .padding([.horizontal, .top], 15)
-            .background()
+            .background(.ultraThickMaterial)
             .clipShape(.rect(cornerRadius: 10))
             .shadow(color: .black.opacity(0.15), radius: 12)
             .macOSWindowBorderOverlay()
             .frame(maxWidth: 650, maxHeight: 305)
             .padding(.top, searchManager.searchOpenLocation == .fromURLBar ? .approximateTrafficLightsTopPadding + 33 : 0)
-            .padding(.horizontal, 10)
+            .padding(.horizontal, searchManager.searchOpenLocation == .fromURLBar ? .sidebarPadding : 10)
             .onKeyPress(.escape) {
                 closeSearchView()
                 return .handled

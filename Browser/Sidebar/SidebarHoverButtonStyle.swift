@@ -12,6 +12,7 @@ struct SidebarHoverButtonStyle: ButtonStyle {
     
     let font: Font
     let padding: CGFloat
+    let hoverStyle: AnyShapeStyle
     let colorScheme: String
     let fixedWidth: CGFloat?
     let alignment: Alignment
@@ -23,6 +24,7 @@ struct SidebarHoverButtonStyle: ButtonStyle {
     init(
         font: Font,
         padding: CGFloat,
+        hoverStyle: AnyShapeStyle,
         colorScheme: String,
         fixedWidth: CGFloat?,
         alignment: Alignment,
@@ -33,6 +35,7 @@ struct SidebarHoverButtonStyle: ButtonStyle {
     ) {
         self.font = font
         self.padding = padding
+        self.hoverStyle = hoverStyle
         self.colorScheme = colorScheme
         self.fixedWidth = fixedWidth
         self.alignment = alignment
@@ -52,7 +55,7 @@ struct SidebarHoverButtonStyle: ButtonStyle {
             .font(font)
             .fixedFrame(width: fixedWidth, alignment: alignment)
             .padding(padding)
-            .background(hover ? AnyShapeStyle(.white.opacity(0.4)) : AnyShapeStyle(.clear))
+            .background(hover ? hoverStyle : AnyShapeStyle(.clear))
             .clipShape(.rect(cornerRadius: cornerRadius))
             .onHover { hover in
                 self.hover = hover
@@ -85,6 +88,7 @@ extension ButtonStyle where Self == SidebarHoverButtonStyle {
     static func sidebarHover(
         font: Font = .system(size: 17),
         padding: CGFloat = .zero,
+        hoverStyle: AnyShapeStyle = AnyShapeStyle(.white.opacity(0.4)),
         colorScheme: String = "Light",
         fixedWidth: CGFloat? = 25,
         alignment: Alignment = .leading,
@@ -96,6 +100,7 @@ extension ButtonStyle where Self == SidebarHoverButtonStyle {
         SidebarHoverButtonStyle(
             font: font,
             padding: padding,
+            hoverStyle: hoverStyle,
             colorScheme: colorScheme,
             fixedWidth: fixedWidth,
             alignment: alignment,

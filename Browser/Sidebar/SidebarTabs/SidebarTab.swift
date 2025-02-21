@@ -85,7 +85,7 @@ struct SidebarTab: View {
             .buttonStyle(.plain)
             .labelStyle(.iconOnly)
             .padding(4)
-            .background(isHoveringCloseButton ? AnyShapeStyle(.ultraThinMaterial) : AnyShapeStyle(.clear))
+            .background(isHoveringCloseButton ? AnyShapeStyle(.ultraThinMaterial.opacity(0.4)) : AnyShapeStyle(.clear))
             .clipShape(.rect(cornerRadius: 6))
             .onHover { hover in
                 self.isHoveringCloseButton = hover

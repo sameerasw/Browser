@@ -22,12 +22,7 @@ struct Sidebar: View {
     var body: some View {
         VStack {
             SidebarToolbar(browserSpaces: browserSpaces)
-            
-            Button("Link Goes Here") {
-                browserWindowState.searchOpenLocation = .fromURLBar
-            }
-            .opacity(browserWindowState.currentSpace?.name.isEmpty == false ? 1 : 0)
-            
+            SidebarURL()
             SidebarSpacesTabView(browserSpaces: browserSpaces, browserWindowState: browserWindowState)
             SidebarBottomToolbar(browserSpaces: browserSpaces)
         }
