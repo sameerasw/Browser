@@ -14,10 +14,6 @@ struct WebViewStack: View {
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .fill(.ultraThinMaterial)
-                .opacity(0.2)
-            
             if let currentTab = browserSpace.currentTab {
                 ForEach(browserSpace.tabs.filter { browserSpace.loadedTabs.contains($0) || $0 == currentTab }) { tab in
                     WebView(tab: tab, browserSpace: browserSpace)
@@ -26,6 +22,10 @@ struct WebViewStack: View {
                         browserSpace.loadedTabs.append(tab)
                     }
                 }
+            } else {
+                Rectangle()
+                    .fill(.ultraThinMaterial)
+                    .opacity(0.2)
             }
         }
         .transaction { $0.animation = nil }

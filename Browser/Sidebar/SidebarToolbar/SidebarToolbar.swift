@@ -41,7 +41,6 @@ struct SidebarToolbar: View {
             .frame(alignment: .top)
             .padding(.top, .approximateTrafficLightsTopPadding)
             .padding(.trailing, .sidebarPadding)
-            .frame(height: 44)
         }
     }
     

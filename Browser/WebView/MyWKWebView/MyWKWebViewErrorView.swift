@@ -32,5 +32,11 @@ struct MyWKWebViewErrorView: View {
             
             Button("Reload", action: tab.reload)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            Rectangle()
+                .fill(.ultraThinMaterial)
+                .opacity(0.2)
+        }
     }
 }
