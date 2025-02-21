@@ -40,7 +40,7 @@ struct EditCommands: Commands {
 }
 
 extension KeyboardShortcuts.Name {
-    static let copyCurrentURL = Self("copyCurrentURL", default: .init(.c, modifiers: [.command, .shift]))
+    static let copyCurrentURL = Self("copy_current_url", default: .init(.c, modifiers: [.command, .shift]))
     
-    static let toggleEditing = Self("toggleEditing")
+    static let toggleEditing = Self("toggle_editing")
 }

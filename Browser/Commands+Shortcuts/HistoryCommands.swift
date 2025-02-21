@@ -30,6 +30,11 @@ struct HistoryCommands: Commands {
             
             Button("Show History", action: showHistory)
                 .globalKeyboardShortcut(.showHistory)
+            
+            Button("Clear History") {
+                BrowserHistoryEntry.deleteAllHistory(using: modelContext)
+            }
+            .globalKeyboardShortcut(.clearHistory)
         }
     }
     
@@ -48,8 +53,9 @@ struct HistoryCommands: Commands {
 }
 
 extension KeyboardShortcuts.Name {
-    static let goBack = Self("goBack", default: .init(.leftBracket, modifiers: .command))
-    static let goForward = Self("goForward", default: .init(.rightBracket, modifiers: .command))
+    static let goBack = Self("go_back", default: .init(.leftBracket, modifiers: .command))
+    static let goForward = Self("go_forward", default: .init(.rightBracket, modifiers: .command))
     
-    static let showHistory = Self("showHistory", default: .init(.y, modifiers: .command))
+    static let showHistory = Self("show_history", default: .init(.y, modifiers: .command))
+    static let clearHistory = Self("clear_history")
 }

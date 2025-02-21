@@ -24,7 +24,6 @@ struct HistoryEntryList: View {
     
     @Bindable var browserTab: BrowserTab
     
-    @State var showClearHistoryAlert = false
     @State var selectedHistoryEntries = Set<BrowserHistoryEntry>()
     
     var body: some View {
@@ -35,7 +34,7 @@ struct HistoryEntryList: View {
             } else {
                 List(selection: $selectedHistoryEntries) {
                     Button("Clear History") {
-                        showClearHistoryAlert.toggle()
+                        BrowserHistoryEntry.deleteAllHistory(using: modelContext)
                     }
                     
                     ForEach(groupedHistory.keys.sorted(), id: \.self) { date in
@@ -56,20 +55,6 @@ struct HistoryEntryList: View {
             }
         }
         .foregroundColor(colorScheme == .dark ? .white : .black)
-        .alert("Clear History", isPresented: $showClearHistoryAlert) {
-            Button("Cancel", role: .cancel, action: {})
-            Button("Clear", role: .destructive) {
-                do {
-                    try withAnimation(.browserDefault) {
-                        try modelContext.delete(model: BrowserHistoryEntry.self)
-                    }
-                } catch {
-                    print("Error deleting history: \(error.localizedDescription)")
-                }
-            }
-        } message: {
-            Text("Are you sure you want to clear your history? This action cannot be undone.")
-        }
     }
     
     @ViewBuilder
