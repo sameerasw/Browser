@@ -14,16 +14,16 @@ struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
         
     @Bindable var browserSpace: BrowserSpace
     @Bindable var tab: BrowserTab
-    let incognito: Bool
+    let noTrace: Bool
     
-    init(tab: BrowserTab, browserSpace: BrowserSpace, incognito: Bool = false) {
+    init(tab: BrowserTab, browserSpace: BrowserSpace, noTrace: Bool = false) {
         self.tab = tab
         self.browserSpace = browserSpace
-        self.incognito = incognito
+        self.noTrace = noTrace
     }
     
     func makeNSViewController(context: Context) -> WKWebViewController {
-        WKWebViewController(tab: tab, browserSpace: browserSpace, incognito: incognito, using: modelContext)
+        WKWebViewController(tab: tab, browserSpace: browserSpace, noTrace: noTrace, using: modelContext)
     }
     
     func updateNSViewController(_ nsViewController: WKWebViewController, context: Context) {

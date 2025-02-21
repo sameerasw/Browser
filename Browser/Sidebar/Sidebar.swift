@@ -36,9 +36,24 @@ struct Sidebar: View {
                 SidebarBottomAddMenu(createSpace: createSpace, disableNewTabButton: browserSpaces.isEmpty)
             }
         }
-        .onAppear {
+        .task {
             if browserSpaces.isEmpty {
                 createSpace()
+            } else {
+                print("Spaces already created")
+                print(browserSpaces.map { $0.name })
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)) { _ in
+            if !browserWindowState.isMainBrowserWindow {
+                do {
+                    try modelContext.delete(model: BrowserSpace.self)
+                    try modelContext.delete(model: BrowserTab.self)
+                    try modelContext.delete(model: BrowserHistoryEntry.self)
+                    try modelContext.save()
+                } catch {
+                    print("Error deleting temporary spaces: \(error)")
+                }
             }
         }
     }
@@ -48,25 +63,29 @@ struct Sidebar: View {
             let nextIndex = browserSpaces.firstIndex(where: { $0.id == browserWindowState.currentSpace?.id }) ?? -1 + 1
             
             var newSpace: BrowserSpace
-                        
+            
             if browserWindowState.isMainBrowserWindow {
                 newSpace = BrowserSpace(name: "", systemImage: "circle.fill", order: nextIndex, colors: [], colorScheme: "system")
+            } else if browserWindowState.isNoTraceWindow {
+                newSpace = BrowserSpace(name: "No-Trace Window", systemImage: "sunglasses.fill", order: nextIndex, colors: [.black], colorScheme: "system")
             } else {
                 newSpace = BrowserSpace(name: "Temporary Window", systemImage: "circle.fill", order: 0, colors: [], colorScheme: "system")
             }
             
             modelContext.insert(newSpace)
-            try? modelContext.save()
-            
-            // Update all spaces order
-            for (index, space) in browserSpaces.enumerated() {
-                space.order = index
-            }
             try modelContext.save()
             
             // Select the new space
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 browserWindowState.goToSpace(newSpace)
+            }
+            
+            if browserSpaces.count > 1 {
+                // Update all spaces order
+                for (index, space) in browserSpaces.enumerated() {
+                    space.order = index
+                }
+                try modelContext.save()
             }
         } catch {
             NSAlert(error: error).runModal()

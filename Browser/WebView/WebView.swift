@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WebView: View {
     
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    
     @Bindable var tab: BrowserTab
     @Bindable var browserSpace: BrowserSpace
     
@@ -16,7 +18,7 @@ struct WebView: View {
         Group {
             switch tab.type {
             case .web:
-                WKWebViewControllerRepresentable(tab: tab, browserSpace: browserSpace)
+                WKWebViewControllerRepresentable(tab: tab, browserSpace: browserSpace, noTrace: browserWindowState.isNoTraceWindow)
                     .opacity(tab.webviewErrorCode != nil ? 0 : 1)
                     .overlay {
                         if tab.webviewErrorDescription != nil && tab.webviewErrorCode != nil {

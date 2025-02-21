@@ -16,6 +16,7 @@ struct BrowserApp: App {
     var body: some Scene {
         BrowserWindow("BrowserWindow")
         BrowserWindow("BrowserTemporaryWindow", inMemory: true)
+        BrowserWindow("BrowserNoTraceWindow", inMemory: true)
         
         SettingsWindow()
     }

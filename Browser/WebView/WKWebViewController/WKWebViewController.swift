@@ -22,12 +22,12 @@ class WKWebViewController: NSViewController {
     
     var activeDownloads: [(download: WKDownload, bookmarkData: Data, fileName: String)] = []
     
-    init(tab: BrowserTab, browserSpace: BrowserSpace, incognito: Bool = false, using modelContext: ModelContext) {
+    init(tab: BrowserTab, browserSpace: BrowserSpace, noTrace: Bool = false, using modelContext: ModelContext) {
         self.tab = tab
         self.browserSpace = browserSpace
         
         self.configuration = SharedWebViewConfiguration.shared.configuration
-        if incognito {
+        if noTrace {
             self.configuration.websiteDataStore = .nonPersistent()
         }
         

@@ -24,9 +24,11 @@ struct SidebarBottomToolbar: View {
             }
             .buttonStyle(.sidebarHover(padding: 2))
             
-            SidebarSpaceList(browserSpaces: browserSpaces)
+            Spacer()
             
             if browserWindowState.isMainBrowserWindow {
+                SidebarSpaceList(browserSpaces: browserSpaces)
+                
                 Button("New Space", systemImage: "plus.circle.dashed") {
                     withAnimation(.browserDefault) {
                         sidebarModel.showBottomNewMenu.toggle()

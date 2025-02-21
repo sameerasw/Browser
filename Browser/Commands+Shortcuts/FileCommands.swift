@@ -24,8 +24,7 @@ struct FileCommands: Commands {
             .globalKeyboardShortcut(.newWindow)
             Button("New Temporary Window") { openWindow(id: "BrowserTemporaryWindow") }
                 .globalKeyboardShortcut(.newTemporaryWindow)
-            Button("New No-Trace Window", action: nil)
-                .disabled(true)
+            Button("New No-Trace Window") { openWindow(id: "BrowserNoTraceWindow") }
                 .globalKeyboardShortcut(.newNoTraceWindow)
             
             Divider()
