@@ -48,7 +48,7 @@ struct SearchView: View {
                 return .handled
             }
             .onKeyPress(.return) {
-                SearchManager.openNewTab(searchManager.searchSuggestions[searchManager.highlightedSearchSuggestionIndex], browserWindowState: browserWindowState, modelContext: modelContext)
+                searchManager.searchAction(searchManager.searchSuggestions[searchManager.highlightedSearchSuggestionIndex], browserWindowState: browserWindowState, using: modelContext)
                 return .handled
             }
             .onKeyPress(.upArrow, action: searchManager.handleUpArrow)

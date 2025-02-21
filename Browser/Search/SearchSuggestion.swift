@@ -21,6 +21,10 @@ struct SearchSuggestion: Identifiable, Equatable {
         title.isValidURL
     }
     
+    var suggestedURL: URL {
+        isURLValid ? url! : URL(string: "https://www.google.com/search?q=\(title)")!
+    }
+    
     init(_ title: String, favicon: Data? = nil) {
         self.title = title
         self.favicon = favicon

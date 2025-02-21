@@ -134,9 +134,8 @@ class SearchManager {
     /// - Parameters: searchSuggestion: The selected search suggestion
     /// - Parameters: browserWindowState: The current `BrowserWindowState`
     /// - Parameters: modelContext: The current `ModelContext`
-    static func openNewTab(_ searchSuggestion: SearchSuggestion, browserWindowState: BrowserWindowState, modelContext: ModelContext) {
-        let url = searchSuggestion.isURLValid ? searchSuggestion.url! : URL(string: "https://www.google.com/search?q=\(searchSuggestion.title)")!
-        let newTab = BrowserTab(title: searchSuggestion.title, url: url, order: 0, browserSpace: browserWindowState.currentSpace)
+    private func openNewTab(_ searchSuggestion: SearchSuggestion, browserWindowState: BrowserWindowState, using modelContext: ModelContext) {
+        let newTab = BrowserTab(title: searchSuggestion.title, url: searchSuggestion.suggestedURL, order: 0, browserSpace: browserWindowState.currentSpace)
         
         do {
             browserWindowState.currentSpace?.tabs.append(newTab)
@@ -145,8 +144,26 @@ class SearchManager {
             print("Error opening new tab: \(error)")
         }
         
-        
         browserWindowState.currentSpace?.currentTab = newTab
+    }
+    
+    /// Opens the search suggestion in the current tab
+    /// - Parameters: searchSuggestion: The selected search suggestion
+    /// - Parameters: browserWindowState: The current `BrowserWindowState`
+    /// - Parameters: modelContext: The current `ModelContext`
+    private func openInCurrentTab(_ searchSuggestion: SearchSuggestion, browserWindowState: BrowserWindowState, using modelContext: ModelContext) {
+        browserWindowState.currentSpace?.currentTab?.url = searchSuggestion.suggestedURL
+        browserWindowState.currentSpace?.currentTab?.webview?.load(URLRequest(url: searchSuggestion.suggestedURL))
+        browserWindowState.currentSpace?.currentTab?.updateFavicon(with: searchSuggestion.suggestedURL)
+    }
+    
+    func searchAction(_ searchSuggestion: SearchSuggestion, browserWindowState: BrowserWindowState, using modelContext: ModelContext) {
+        if searchOpenLocation == .fromNewTab {
+            openNewTab(searchSuggestion, browserWindowState: browserWindowState, using: modelContext)
+        } else {
+            openInCurrentTab(searchSuggestion, browserWindowState: browserWindowState, using: modelContext)
+        }
+        
         // Closes the search bar
         DispatchQueue.main.async {
             browserWindowState.searchOpenLocation = .none

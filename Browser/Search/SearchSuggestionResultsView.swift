@@ -25,7 +25,7 @@ struct SearchSuggestionResultsView: View {
                         SearchSuggestionResultItem(searchManager: searchManager, index: index, searchSuggestion: searchSuggestion)
                             .id(index)
                             .onTapGesture {
-                                SearchManager.openNewTab(searchSuggestion, browserWindowState: browserWindowState, modelContext: modelContext)
+                                searchManager.searchAction(searchSuggestion, browserWindowState: browserWindowState, using: modelContext)
                             }
                     }
                 }
