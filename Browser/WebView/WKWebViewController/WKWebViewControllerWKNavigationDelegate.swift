@@ -36,6 +36,9 @@ extension WKWebViewController: WKNavigationDelegate {
         }
         
         self.webView.setZoomFactor(self.webView.savedZoomFactor())
+        
+        tab.webviewErrorCode = nil
+        tab.webviewErrorDescription = nil
     }
     
     /// Called when the web view fails loading a page
@@ -50,6 +53,7 @@ extension WKWebViewController: WKNavigationDelegate {
         return nil
     }
     
+    /// Decided what type of navigation to allow (download, allow.)
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping @MainActor (WKNavigationResponsePolicy) -> Void) {
         guard navigationResponse.response.mimeType != nil else {
             decisionHandler(.allow)
@@ -62,5 +66,12 @@ extension WKWebViewController: WKNavigationDelegate {
             print("🔵 Decision is of type download")
             decisionHandler(.download)
         }
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: any Error) {
+        let error = error as NSError
+        tab.webviewErrorDescription = error.localizedDescription
+        tab.webviewErrorCode = error.code
+        print("🔴 Failed provisional navigation with error: \(error.localizedDescription) with code \(error.code)")
     }
 }

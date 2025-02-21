@@ -43,6 +43,8 @@ final class BrowserTab: Identifiable, Comparable {
             observeWebView()
         }
     }
+    @Attribute(.ephemeral) var webviewErrorDescription: String? = nil
+    @Attribute(.ephemeral) var webviewErrorCode: Int? = nil
     
     @Attribute(.ephemeral) private(set) var canGoBack: Bool = false
     @Attribute(.ephemeral) private(set) var canGoForward: Bool = false
@@ -114,7 +116,13 @@ final class BrowserTab: Identifiable, Comparable {
     
     /// Reloads the tab
     func reload() {
+        clearError()
         webview?.reload()
+    }
+    
+    func clearError() {
+        webviewErrorDescription = nil
+        webviewErrorCode = nil
     }
     
     /// Copies the tab's URL to the clipboard

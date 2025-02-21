@@ -12,7 +12,7 @@ class MyWKWebView: WKWebView {
     
     private let zoomFactors: [CGFloat] = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 4, 5, 6]
     var scaledZoomFactor: CGFloat? = nil
-    
+        
     /// The "Search With Google" action (passed from the WKWebViewController)
     var searchWebAction: ((String) -> Void)? = nil
     /// The "Open Link In New Tab" action (passed from the WKWebViewController)

@@ -20,16 +20,25 @@ struct ViewCommands: Commands {
             
             Divider()
             
-            if let webView = browserWindowState?.currentSpace?.currentTab?.webview {
+            if let tab = browserWindowState?.currentSpace?.currentTab, let webView = tab.webview {
                 Button("Stop Loading") { webView.stopLoading() }
                     .globalKeyboardShortcut(.stopLoading)
                     .disabled(!webView.isLoading)
-                Button("Reload This Page") { webView.reload() }
-                    .globalKeyboardShortcut(.reload)
-                Button("Clear Cookies And Reload", action: webView.clearCookiesAndReload)
-                    .globalKeyboardShortcut(.clearCookiesAndReload)
-                Button("Clear Cache And Reload", action: webView.clearCacheAndReload)
-                    .globalKeyboardShortcut(.clearCacheAndReload)
+                Button("Reload This Page") {
+                    tab.clearError()
+                    webView.reload()
+                }
+                .globalKeyboardShortcut(.reload)
+                Button("Clear Cookies And Reload") {
+                    tab.clearError()
+                    webView.clearCookiesAndReload()
+                }
+                .globalKeyboardShortcut(.clearCookiesAndReload)
+                Button("Clear Cache And Reload") {
+                    tab.clearError()
+                    webView.clearCacheAndReload()
+                }
+                .globalKeyboardShortcut(.clearCacheAndReload)
                 
                 Divider()
                 

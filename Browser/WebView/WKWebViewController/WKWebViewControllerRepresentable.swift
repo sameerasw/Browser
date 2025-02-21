@@ -28,5 +28,7 @@ struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
     
     func updateNSViewController(_ nsViewController: WKWebViewController, context: Context) {
         nsViewController.webView.isHidden = tab != browserSpace.currentTab
+                                            || tab.webviewErrorDescription != nil
+                                            || tab.webviewErrorCode != nil
     }
 }

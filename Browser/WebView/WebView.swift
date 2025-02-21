@@ -2,44 +2,35 @@
 //  WebView.swift
 //  Browser
 //
-//  Created by Leonardo Larrañaga on 1/23/25.
+//  Created by Leonardo Larrañaga on 2/20/25.
 //
 
 import SwiftUI
 
-/// View that contains a stack for the loaded tabs in the current space
 struct WebView: View {
     
+    @Bindable var tab: BrowserTab
     @Bindable var browserSpace: BrowserSpace
     
     var body: some View {
-        ZStack {
-            if let currentTab = browserSpace.currentTab {
-                ForEach(browserSpace.tabs.filter { browserSpace.loadedTabs.contains($0) || $0 == currentTab }) { tab in
-                    Group {
-                        switch tab.type {
-                        case .web:
-                            WKWebViewControllerRepresentable(tab: tab, browserSpace: browserSpace)
-                                .onAppear {
-                                    if tab.favicon == nil {
-                                        tab.updateFavicon(with: tab.url)
-                                    }
-                                }
-                        case .history:
-                            HistoryView(browserTab: tab)
+        Group {
+            switch tab.type {
+            case .web:
+                WKWebViewControllerRepresentable(tab: tab, browserSpace: browserSpace)
+                    .opacity(tab.webviewErrorCode != nil ? 0 : 1)
+                    .overlay {
+                        if tab.webviewErrorDescription != nil && tab.webviewErrorCode != nil {
+                            MyWKWebViewErrorView(tab: tab)
                         }
                     }
-                    .zIndex(tab == currentTab ? 1 : 0)
                     .onAppear {
-                        browserSpace.loadedTabs.append(tab)
+                        if tab.favicon == nil {
+                            tab.updateFavicon(with: tab.url)
+                        }
                     }
-                }
-            } else {
-                // Show a blank page if there is no current space or tab
-                Rectangle()
-                    .fill(.regularMaterial)
+            case .history:
+                HistoryView(browserTab: tab)
             }
         }
-        .transaction { $0.animation = nil }
     }
 }
