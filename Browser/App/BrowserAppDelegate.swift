@@ -17,7 +17,7 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     var userPreferences = UserPreferences()
     
     /// Add window observers to save the window position and size
-    func applicationWillFinishLaunching(_ notification: Notification) {
+    func applicationWillFinishLaunching(_ notification: Notification) {        
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidBecomeKey(_:)), name: NSWindow.didBecomeKeyNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidResizeOrMove(_:)), name: NSWindow.didResizeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidResizeOrMove(_:)), name: NSWindow.didMoveNotification, object: nil)
@@ -25,11 +25,19 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         NSWindow.allowsAutomaticWindowTabbing = false
     }
     
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        closeNotMainWindows()
+    }
+    
+    func applicationWillTerminate(_ notification: Notification) {
+        closeNotMainWindows()
+    }
+    
     /// Restore the window position and size when the window becomes key
     @objc func windowDidBecomeKey(_ notification: Notification) {
         guard let window = notification.object as? NSWindow,
               let windowId = window.identifier?.rawValue,
-              windowId.hasPrefix("BrowserWindow")
+              !windowId.contains("Settings")
         else { return }
         
         checkForNewWindows(window)
@@ -95,5 +103,11 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         UserDefaults.standard.set(windowFrame.origin.y, forKey: "windowOriginY")
         UserDefaults.standard.set(windowFrame.size.width, forKey: "windowWidth")
         UserDefaults.standard.set(windowFrame.size.height, forKey: "windowHeight")
+    }
+    
+    func closeNotMainWindows() {
+        NSApp.windows.filter { $0.identifier?.rawValue.hasPrefix("BrowserWindow") == false }.forEach {
+            $0.close()
+        }
     }
 }

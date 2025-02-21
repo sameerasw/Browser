@@ -14,7 +14,15 @@ struct BrowserApp: App {
     @NSApplicationDelegateAdaptor(BrowserAppDelegate.self) var appDelegate
         
     var body: some Scene {
-        WindowGroup(id: "BrowserWindow") {
+        BrowserWindow("BrowserWindow")
+        BrowserWindow("BrowserTemporaryWindow", inMemory: true)
+        
+        SettingsWindow()
+    }
+    
+    @SceneBuilder
+    func BrowserWindow(_ id: String, inMemory: Bool = false) -> some Scene {
+        WindowGroup(id: id) {
             ContentView()
                 .environmentObject(appDelegate.userPreferences)
                 .transaction {
@@ -27,8 +35,11 @@ struct BrowserApp: App {
         .commands {
             BrowserCommands()
         }
-        .modelContainer(for: [BrowserSpace.self, BrowserTab.self, BrowserHistoryEntry.self])
-        
+        .modelContainer(for: [BrowserSpace.self, BrowserTab.self, BrowserHistoryEntry.self], inMemory: inMemory)
+    }
+    
+    @SceneBuilder
+    func SettingsWindow() -> some Scene {
         Settings {
             SettingsView()
                 .frame(width: 750, height: 550)

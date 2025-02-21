@@ -21,16 +21,18 @@ struct SidebarSpaceContextMenu: ViewModifier {
     func body(content: Content) -> some View {
         content
             .contextMenu {
-                Button("Edit Space") {
-                    withAnimation(.browserDefault) {
-                        browserSpace.isEditing = true
+                if browserWindowState.isMainBrowserWindow {
+                    Button("Edit Space") {
+                        withAnimation(.browserDefault) {
+                            browserSpace.isEditing = true
+                        }
                     }
-                }
-                
-                Divider()
-                
-                Button("Delete Space") {
-                    showDeleteAlert.toggle()
+                    
+                    Divider()
+                    
+                    Button("Delete Space") {
+                        showDeleteAlert.toggle()
+                    }
                 }
             }
             .alert("Delete \"\(browserSpace.name)\"", isPresented: $showDeleteAlert) {

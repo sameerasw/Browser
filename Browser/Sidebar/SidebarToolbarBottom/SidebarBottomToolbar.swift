@@ -13,6 +13,7 @@ struct SidebarBottomToolbar: View {
     @Environment(\.modelContext) var modelContext
     
     @Environment(SidebarModel.self) var sidebarModel: SidebarModel
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     let browserSpaces: [BrowserSpace]
     
@@ -25,12 +26,14 @@ struct SidebarBottomToolbar: View {
             
             SidebarSpaceList(browserSpaces: browserSpaces)
             
-            Button("New Space", systemImage: "plus.circle.dashed") {
-                withAnimation(.browserDefault) {
-                    sidebarModel.showBottomNewMenu.toggle()
+            if browserWindowState.isMainBrowserWindow {
+                Button("New Space", systemImage: "plus.circle.dashed") {
+                    withAnimation(.browserDefault) {
+                        sidebarModel.showBottomNewMenu.toggle()
+                    }
                 }
+                .buttonStyle(.sidebarHover(padding: 2, rotationDegrees: sidebarModel.showBottomNewMenu ? 45 : 0))
             }
-            .buttonStyle(.sidebarHover(padding: 2, rotationDegrees: sidebarModel.showBottomNewMenu ? 45 : 0))
         }
         .padding(.leading, .sidebarPadding)
     }

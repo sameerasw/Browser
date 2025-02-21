@@ -32,9 +32,9 @@ struct SidebarToolbar: View {
                 
                 Spacer()
                 
-                SidebarToolbarButton("arrow.left", disabled: (browserWindowState.currentSpace?.currentTab?.canGoBack ?? false) == false, action: backButtonAction)
+                SidebarToolbarButton("arrow.left", disabled: browserWindowState.currentSpace?.currentTab?.canGoBack == false, action: backButtonAction)
                 
-                SidebarToolbarButton("arrow.right", disabled: (browserWindowState.currentSpace?.currentTab?.canGoForward ?? false) == false, action: forwardButtonAction)
+                SidebarToolbarButton("arrow.right", disabled: browserWindowState.currentSpace?.currentTab?.canGoForward == false, action: forwardButtonAction)
                 
                 SidebarToolbarButton("arrow.trianglehead.clockwise", disabled: browserWindowState.currentSpace?.currentTab == nil, action: refreshButtonAction)
             }

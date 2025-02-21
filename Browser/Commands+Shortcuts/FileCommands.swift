@@ -19,14 +19,10 @@ struct FileCommands: Commands {
         CommandGroup(replacing: .newItem) {
             Button("New Tab", action: browserWindowState?.toggleNewTabSearch)
                 .globalKeyboardShortcut(.newTab)
-            
-            Button("New Window") {
-                openWindow(id: "BrowserWindow")
-            }
+
+            Button("New Window") { openWindow(id: "BrowserWindow") }
             .globalKeyboardShortcut(.newWindow)
-            
-            Button("New Temporary Window", action: nil)
-                .disabled(true)
+            Button("New Temporary Window") { openWindow(id: "BrowserTemporaryWindow") }
                 .globalKeyboardShortcut(.newTemporaryWindow)
             Button("New No-Trace Window", action: nil)
                 .disabled(true)

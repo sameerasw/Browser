@@ -47,7 +47,13 @@ struct Sidebar: View {
         do {
             let nextIndex = browserSpaces.firstIndex(where: { $0.id == browserWindowState.currentSpace?.id }) ?? -1 + 1
             
-            let newSpace = BrowserSpace(name: "", systemImage: "circle.fill", order: nextIndex, colors: [], colorScheme: "system")
+            var newSpace: BrowserSpace
+                        
+            if browserWindowState.isMainBrowserWindow {
+                newSpace = BrowserSpace(name: "", systemImage: "circle.fill", order: nextIndex, colors: [], colorScheme: "system")
+            } else {
+                newSpace = BrowserSpace(name: "Temporary Window", systemImage: "circle.fill", order: 0, colors: [], colorScheme: "system")
+            }
             
             modelContext.insert(newSpace)
             try? modelContext.save()

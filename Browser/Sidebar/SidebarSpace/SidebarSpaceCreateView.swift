@@ -139,21 +139,23 @@ struct SidebarSpaceCreateView: View {
             
             Button("Cancel") {
                 if !browserSpace.isEditing {
-                    let newSelection = browserSpace.order > 0 ? browserSpaces[browserSpace.order - 1] : browserSpace.order < browserSpaces.count - 1 ? browserSpaces[browserSpace.order + 1] : nil
-                    
-                    withAnimation(.browserDefault) {
-                        modelContext.delete(browserSpace)
+                    if let currentIndex = browserSpaces.firstIndex(of: browserSpace) {
+                        let newSelection = currentIndex > 0 ? browserSpaces[currentIndex - 1] : currentIndex < browserSpaces.count - 1 ? browserSpaces[currentIndex + 1] : nil
+                        
+                        withAnimation(.browserDefault) {
+                            modelContext.delete(browserSpace)
+                            try? modelContext.save()
+                        }
+                        
+                        // Update order
+                        for (index, space) in browserSpaces.enumerated() {
+                            space.order = index
+                        }
                         try? modelContext.save()
-                    }
-                    
-                    // Update order
-                    for (index, space) in browserSpaces.enumerated() {
-                        space.order = index
-                    }
-                    try? modelContext.save()
-                    
-                    if let newSelection {
-                        browserWindowState.goToSpace(newSelection)
+                        
+                        if let newSelection {
+                            browserWindowState.goToSpace(newSelection)
+                        }
                     }
                 } else {
                     withAnimation(.browserDefault) {

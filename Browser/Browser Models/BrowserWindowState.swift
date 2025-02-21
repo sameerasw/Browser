@@ -13,7 +13,7 @@ import SwiftData
     
     var currentSpace: BrowserSpace? = nil {
         willSet {
-            if let newValue {
+            if let newValue, isMainBrowserWindow {
                 UserDefaults.standard.set(newValue.id.uuidString, forKey: "currentBrowserSpace")
             }
         }
@@ -27,6 +27,14 @@ import SwiftData
     var actionAlertMessage = ""
     var actionAlertSystemImage = ""
     var showActionAlert = false
+    
+    private(set) var isMainBrowserWindow: Bool = false
+    
+    init() {
+        DispatchQueue.main.async {
+            self.isMainBrowserWindow = NSApp.keyWindow?.identifier?.rawValue.hasPrefix("BrowserWindow") == true
+        }
+    }
             
     /// Loads the current space from the UserDefaults and sets it as the current space
     @Sendable

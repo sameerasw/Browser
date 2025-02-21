@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SidebarURL: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     @State var hover = false
@@ -32,7 +33,7 @@ struct SidebarURL: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .frame(height: 30)
         .padding(3)
-        .background(.ultraThinMaterial.opacity(hover ? 0.6 : 0.3))
+        .background(browserWindowState.currentSpace?.textColor(in: colorScheme) == .black ? AnyShapeStyle(.ultraThinMaterial).opacity(hover ? 0.6 : 0.3) : AnyShapeStyle(Color.white).opacity(hover ? 0.1 : 0.05))
         .clipShape(.rect(cornerRadius: 10))
         .padding(.leading, .sidebarPadding)
         .onTapGesture {
