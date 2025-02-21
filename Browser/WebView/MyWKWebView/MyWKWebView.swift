@@ -91,7 +91,6 @@ class MyWKWebView: WKWebView {
     /// Toggles the page editable
     func toggleEditable() {
         isEditable.toggle()
-        print(isEditable)
     }
     
     /// Clears the cookies of the specific host and reloads

@@ -11,6 +11,7 @@ import SwiftData
 struct HistoryEntryList: View {
     
     @Environment(\.modelContext) var modelContext
+    @Environment(\.colorScheme) var colorScheme
     @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     @Query(sort: \BrowserHistoryEntry.date, order: .reverse) var history: [BrowserHistoryEntry]
@@ -54,6 +55,7 @@ struct HistoryEntryList: View {
                 .listStyle(.sidebar)
             }
         }
+        .foregroundColor(colorScheme == .dark ? .white : .black)
         .alert("Clear History", isPresented: $showClearHistoryAlert) {
             Button("Cancel", role: .cancel, action: {})
             Button("Clear", role: .destructive) {

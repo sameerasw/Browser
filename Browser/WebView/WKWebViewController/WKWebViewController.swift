@@ -44,7 +44,7 @@ class WKWebViewController: NSViewController {
         webView.allowsBackForwardNavigationGestures = true
         webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15 (Browser)"
         webView.allowsMagnification = true
-        webView.allowsLinkPreview = false // TODO: Implement my own preview later...
+        webView.allowsLinkPreview = true // TODO: Implement my own preview later...
         webView.isInspectable = true
         
         webView.navigationDelegate = self

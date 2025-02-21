@@ -53,6 +53,7 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         window.backgroundColor = .clear
         window.isReleasedWhenClosed = true
         window.delegate = self
+        window.toolbar?.allowsDisplayModeCustomization = false
         
         if userPreferences.sidebarPosition == .trailing {
             NSApp.setBrowserWindowControls(hidden: !userPreferences.showWindowControlsOnTrailingSidebar)

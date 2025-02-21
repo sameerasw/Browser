@@ -34,6 +34,7 @@ struct SearchView: View {
                 
                 SearchSuggestionResultsView(searchManager: searchManager)
             }
+            .foregroundStyle(colorScheme == .light ? .black : .white)
             .padding([.horizontal, .top], 15)
             .background()
             .clipShape(.rect(cornerRadius: 10))
