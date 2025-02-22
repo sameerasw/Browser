@@ -19,9 +19,7 @@ struct SidebarBottomToolbar: View {
     
     let browserSpaces: [BrowserSpace]
     let createSpace: () -> Void
-    
-    @State var isAnimating = false
-    
+        
     var body: some View {
         HStack {
             Button("Downloads", systemImage: "circle") {
@@ -51,15 +49,15 @@ struct SidebarBottomToolbar: View {
                     .resizable()
                     .fontWeight(.bold)
                     .scaledToFit()
-                    .frame(width: isAnimating ? 125 : 7)
-                    .offset(y: isAnimating ? -125 : 0)
-                    .rotationEffect(.degrees(isAnimating ? 20 : 0))
-                    .animation(.interpolatingSpring(stiffness: 200, damping: 6), value: isAnimating)
-                    .onChange(of: isAnimating) { _, _ in
+                    .frame(width: sidebarModel.isAnimatingDownloads ? 125 : 7)
+                    .offset(y: sidebarModel.isAnimatingDownloads ? -125 : 0)
+                    .rotationEffect(.degrees(sidebarModel.isAnimatingDownloads ? 20 : 0))
+                    .animation(.interpolatingSpring(stiffness: 200, damping: 6), value: sidebarModel.isAnimatingDownloads)
+                    .onChange(of: sidebarModel.isAnimatingDownloads) { _, newValue in
                         // Reverse animation
-                        if isAnimating {
+                        if newValue {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                                isAnimating.toggle()
+                                sidebarModel.isAnimatingDownloads.toggle()
                             }
                         }
                     }
@@ -67,12 +65,6 @@ struct SidebarBottomToolbar: View {
             }
             
             Spacer()
-            
-            Button("Toggle animation") {
-                withAnimation(.interpolatingSpring(stiffness: 200, damping: 6)) {
-                    isAnimating.toggle()
-                }
-            }
             
             if browserWindowState.isMainBrowserWindow {
                 SidebarSpaceList(browserSpaces: browserSpaces)

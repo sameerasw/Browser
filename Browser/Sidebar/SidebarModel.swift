@@ -25,7 +25,7 @@ import SwiftUI
     
     var showDownloads: Bool = false
     var allowDownloadHover: Bool = false
-    var toggleAnimation: Bool = false
+    var isAnimatingDownloads: Bool = false
     
     /// Monitor for mouse movement
     private var mouseMonitor: Any?

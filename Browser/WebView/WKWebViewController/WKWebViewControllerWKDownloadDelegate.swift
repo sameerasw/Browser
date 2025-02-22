@@ -31,8 +31,7 @@ extension WKWebViewController: WKDownloadDelegate {
                         let destinationURL = downloadLocation.appendingPathComponent("\(suggestedFilename).browserdownload").uniqueFileURL()
                         activeDownloads.append((download: download, bookmarkData: bookmarkData, fileName: destinationURL.lastPathComponent))
                         completionHandler(destinationURL)
-                        toggleDownloadAnimation = true
-                        toggleDownloadAnimation = false
+                        coordinator.toggleDownloadAnimation()
                         downloadLocation.stopAccessingSecurityScopedResource()
                         return
                     }
@@ -53,8 +52,7 @@ extension WKWebViewController: WKDownloadDelegate {
         panel.begin { response in
             if response == .OK, let url = panel.url {
                 completionHandler(url.appendingPathComponent("\(suggestedFilename).browserdownload").uniqueFileURL())
-                self.toggleDownloadAnimation = true
-                self.toggleDownloadAnimation = false
+                self.coordinator.toggleDownloadAnimation()
             } else {
                 completionHandler(nil)
             }

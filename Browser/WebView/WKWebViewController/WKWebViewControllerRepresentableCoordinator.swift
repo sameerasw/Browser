@@ -47,6 +47,10 @@ extension WKWebViewControllerRepresentable {
             }
         }
         
+        func toggleDownloadAnimation() {
+            self.parent.sidebarModel.isAnimatingDownloads.toggle()
+        }
+        
         /// Observes the webview to update the tab's properties, such as the title, favicon, url, and navigation buttons...
         func observeWebView(_ webview: MyWKWebView) {
             self.parent.tab.webview = webview

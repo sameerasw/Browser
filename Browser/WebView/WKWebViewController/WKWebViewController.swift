@@ -20,7 +20,6 @@ class WKWebViewController: NSViewController {
     
     weak var coordinator: WKWebViewControllerRepresentable.Coordinator!
     
-    var toggleDownloadAnimation = false
     var activeDownloads: [(download: WKDownload, bookmarkData: Data, fileName: String)] = []
     
     init(tab: BrowserTab, browserSpace: BrowserSpace, noTrace: Bool = false, using modelContext: ModelContext) {
