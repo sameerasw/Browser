@@ -18,10 +18,9 @@ class WKWebViewController: NSViewController {
     var webView: MyWKWebView
     let configuration: WKWebViewConfiguration
     
-    let modelContext: ModelContext
+    weak var coordinator: WKWebViewControllerRepresentable.Coordinator!
     
-    weak var browserWindowState: BrowserWindowState!
-    
+    var toggleDownloadAnimation = false
     var activeDownloads: [(download: WKDownload, bookmarkData: Data, fileName: String)] = []
     
     init(tab: BrowserTab, browserSpace: BrowserSpace, noTrace: Bool = false, using modelContext: ModelContext) {
@@ -32,9 +31,7 @@ class WKWebViewController: NSViewController {
         if noTrace {
             self.configuration.websiteDataStore = .nonPersistent()
         }
-        
-        self.modelContext = modelContext
-        
+                
         self.webView = MyWKWebView(frame: .zero, configuration: self.configuration)
         
         super.init(nibName: nil, bundle: nil)
@@ -51,13 +48,14 @@ class WKWebViewController: NSViewController {
         
         webView.navigationDelegate = self
         webView.uiDelegate = self
+                
+        webView.searchWebAction = coordinator.searchWebAction(_:)
+        webView.openLinkInNewTabAction = coordinator.openLinkInNewTabAction(_:)
+        webView.presentActionAlert = coordinator.presentActionAlert(message:systemImage:)
         
-        webView.searchWebAction = searchWebAction
-        webView.openLinkInNewTabAction = openLinkInNewTabAction
-        webView.presentActionAlert = presentActionAlert(message:systemImage:)
+        coordinator.observeWebView(webView)
         
         webView.load(URLRequest(url: tab.url))
-        tab.webview = webView
     }
     
     deinit {
@@ -67,24 +65,11 @@ class WKWebViewController: NSViewController {
             webView.stopLoading()
             webView.loadHTMLString("", baseURL: nil)
             webView.removeFromSuperview()
+            coordinator.stopObservingWebView()
         }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func searchWebAction(_ query: String) {
-        let newTab = BrowserTab(title: query, url: URL(string: "https://www.google.com/search?q=\(query)")!, order: tab.order + 1, browserSpace: browserSpace)
-        browserSpace.openNewTab(newTab, using: modelContext)
-    }
-    
-    func openLinkInNewTabAction(_ url: URL) {
-        let newTab = BrowserTab(title: url.cleanHost, url: url, order: tab.order + 1, browserSpace: browserSpace)
-        browserSpace.openNewTab(newTab, using: modelContext, select: false)
-    }
-    
-    func presentActionAlert(message: String, systemImage: String) {
-        browserWindowState.presentActionAlert(message: message, systemImage: systemImage)
     }
 }

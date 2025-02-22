@@ -11,7 +11,9 @@ import SwiftUI
 struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
     
     @Environment(\.modelContext) var modelContext
+    
     @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(SidebarModel.self) var sidebarModel: SidebarModel
         
     @Bindable var browserSpace: BrowserSpace
     @Bindable var tab: BrowserTab
@@ -24,13 +26,18 @@ struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
     }
     
     func makeNSViewController(context: Context) -> WKWebViewController {
-        WKWebViewController(tab: tab, browserSpace: browserSpace, noTrace: noTrace, using: modelContext)
+        let wkWebViewController = WKWebViewController(tab: tab, browserSpace: browserSpace, noTrace: noTrace, using: modelContext)
+        wkWebViewController.coordinator = context.coordinator
+        return wkWebViewController
     }
     
     func updateNSViewController(_ nsViewController: WKWebViewController, context: Context) {
         nsViewController.webView.isHidden = tab != browserSpace.currentTab
                                             || tab.webviewErrorDescription != nil
                                             || tab.webviewErrorCode != nil
-        nsViewController.browserWindowState = browserWindowState
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
     }
 }

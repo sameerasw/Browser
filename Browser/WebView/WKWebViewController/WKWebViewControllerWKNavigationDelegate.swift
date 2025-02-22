@@ -26,14 +26,7 @@ extension WKWebViewController: WKNavigationDelegate {
         guard let url = webView.url else { return }
         print("🟢 Finished loading \(url.absoluteString)")
         
-        // Save to history
-        do {
-            let historyEntry = BrowserHistoryEntry(title: self.tab.title, url: url, favicon: self.tab.favicon)
-            self.modelContext.insert(historyEntry)
-            try self.modelContext.save()
-        } catch {
-            print("🔴 Failed saving history entry: \(error.localizedDescription)")
-        }
+        coordinator.addTabToHistory()
         
         self.webView.setZoomFactor(self.webView.savedZoomFactor())
         

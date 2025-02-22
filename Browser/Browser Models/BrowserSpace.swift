@@ -93,7 +93,6 @@ final class BrowserSpace: Identifiable {
     func closeTab(_ tab: BrowserTab, using modelContext: ModelContext) {
         let newTab = tabs[safe: tab.order == 0 ? 1 : tab.order - 1]
         
-        tab.stopObserving()
         unloadTab(tab)
         
         do {

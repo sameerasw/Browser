@@ -31,10 +31,10 @@ extension WKWebViewController: WKDownloadDelegate {
                         let destinationURL = downloadLocation.appendingPathComponent("\(suggestedFilename).browserdownload").uniqueFileURL()
                         activeDownloads.append((download: download, bookmarkData: bookmarkData, fileName: destinationURL.lastPathComponent))
                         completionHandler(destinationURL)
+                        toggleDownloadAnimation = true
+                        toggleDownloadAnimation = false
                         downloadLocation.stopAccessingSecurityScopedResource()
                         return
-                    } else {
-                        print("⬇️ 🔴 Could not access security-scoped resource.")
                     }
                 }
             } catch {
@@ -53,6 +53,8 @@ extension WKWebViewController: WKDownloadDelegate {
         panel.begin { response in
             if response == .OK, let url = panel.url {
                 completionHandler(url.appendingPathComponent("\(suggestedFilename).browserdownload").uniqueFileURL())
+                self.toggleDownloadAnimation = true
+                self.toggleDownloadAnimation = false
             } else {
                 completionHandler(nil)
             }

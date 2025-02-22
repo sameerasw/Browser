@@ -66,7 +66,6 @@ struct SidebarTabContextMenu: View {
         
         withAnimation(.browserDefault) {
             for tab in currentSpace.tabs.suffix(from: index + 1) {
-                tab.stopObserving()
                 currentSpace.unloadTab(tab)
                 modelContext.delete(tab)
             }
@@ -82,7 +81,6 @@ struct SidebarTabContextMenu: View {
         
         withAnimation(.browserDefault) {
             for tab in currentSpace.tabs.prefix(upTo: index) {
-                tab.stopObserving()
                 currentSpace.unloadTab(tab)
                 modelContext.delete(tab)
             }

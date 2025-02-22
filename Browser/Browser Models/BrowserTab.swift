@@ -6,9 +6,6 @@
 //
 
 import SwiftData
-import WebKit
-import Combine
-import CoreTransferable
 
 enum BrowserTabType: String, Codable {
     case web
@@ -38,55 +35,12 @@ final class BrowserTab: Identifiable, Comparable {
         self.type = type
     }
     
-    @Transient var webview: MyWKWebView? = nil {
-        didSet {
-            observeWebView()
-        }
-    }
+    @Transient var webview: MyWKWebView? = nil
     @Attribute(.ephemeral) var webviewErrorDescription: String? = nil
     @Attribute(.ephemeral) var webviewErrorCode: Int? = nil
     
-    @Attribute(.ephemeral) private(set) var canGoBack: Bool = false
-    @Attribute(.ephemeral) private(set) var canGoForward: Bool = false
-    @Transient private var cancellables = Set<AnyCancellable>()
-    
-    /// Observes the webview to update the tab's properties, such as the title, favicon, url, and navigation buttons...
-    private func observeWebView() {
-        guard let webview else { return }
-        
-        webview.publisher(for: \.canGoBack)
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] canGoBack in
-                self?.canGoBack = canGoBack
-            }
-            .store(in: &cancellables)
-        
-        webview.publisher(for: \.canGoForward)
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] canGoForward in
-                self?.canGoForward = canGoForward
-            }
-            .store(in: &cancellables)
-        
-        webview.publisher(for: \.url)
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] url in
-                guard let url else { return }
-                self?.url = url
-            }
-            .store(in: &cancellables)
-        
-        webview.publisher(for: \.title)
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] title in
-                if let title, !title.isEmpty {
-                    self?.title = title
-                } else {
-                    self?.title = self?.url.cleanHost ?? ""
-                }
-            }
-            .store(in: &cancellables)
-    }
+    @Attribute(.ephemeral) var canGoBack: Bool = false
+    @Attribute(.ephemeral) var canGoForward: Bool = false
     
     /// Updates the tab's favicon with the largest image found in the website
     /// - Parameter url: The URL of the website to find the favicon
@@ -107,11 +61,6 @@ final class BrowserTab: Identifiable, Comparable {
                 print("Error finding favicon: \(error.localizedDescription)")
             }
         }
-    }
-    
-    /// Stops observing the webview
-    func stopObserving() {
-        cancellables.removeAll()
     }
     
     /// Reloads the tab
