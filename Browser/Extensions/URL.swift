@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UniformTypeIdentifiers
 
 extension URL {
     /// Returns the host of a URL
@@ -35,6 +36,22 @@ extension URL {
         }
         
         return url
+    }
+    
+    /// Returns whether the URL is a directory
+    var isDirectory: Bool {
+        var isDirectory: ObjCBool = false
+        FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory)
+        return isDirectory.boolValue
+    }
+    
+    /// The URL's file types
+    var fileType: UTType? {
+        UTType(filenameExtension: pathExtension)
+    }
+    
+    func contains(_ type: UTType) -> Bool {
+        UTType(mimeType: UTType(filenameExtension: self.pathExtension)?.preferredMIMEType ?? "application/octet-stream")?.conforms(to: type) ?? false
     }
 }
 

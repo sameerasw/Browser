@@ -48,6 +48,13 @@ struct Sidebar: View {
                 }
             }
         }
+        .overlay(alignment: .bottomLeading) {
+            if sidebarModel.showDownloads {
+                DownloadsList()
+                    .padding(.leading, .sidebarPadding)
+                    .padding(.bottom, 44)
+            }
+        }
     }
     
     func createSpace() {
