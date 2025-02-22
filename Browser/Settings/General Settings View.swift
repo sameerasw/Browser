@@ -15,6 +15,7 @@ struct GeneralSettingsView: View {
         Form {
             Toggle("Close Selected Tab When Clearing Space", systemImage: "xmark.square", isOn: $userPreferences.clearSelectedTab)
             Toggle("Open Picture in Picture Automatically", systemImage: "inset.filled.topright.rectangle", isOn: $userPreferences.openPipOnTabChange)
+            Toggle("Warn Before Quitting", systemImage: "exclamationmark.triangle", isOn: $userPreferences.warnBeforeQuitting)
             
             Section {
                 HStack {

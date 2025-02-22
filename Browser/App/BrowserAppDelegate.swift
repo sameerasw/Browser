@@ -33,11 +33,33 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         closeNotMainWindows()
     }
     
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
+        if userPreferences.warnBeforeQuitting {
+            let alert = NSAlert()
+            alert.messageText = "Are you sure you want to quit?"
+            alert.addButton(withTitle: "Cancel")
+            alert.addButton(withTitle: "Quit").hasDestructiveAction = true
+            
+            let checkbox = NSButton(checkboxWithTitle: "Warn before quitting", target: self, action: #selector(setWarnBeforeQuitting(_:)))
+            checkbox.state = .on
+            
+            alert.accessoryView = checkbox
+                        
+            if alert.runModal() == .alertFirstButtonReturn {
+                return .terminateCancel
+            } else {
+                return .terminateNow
+            }
+        }
+        
+        return .terminateNow
+    }
+    
     /// Restore the window position and size when the window becomes key
     @objc func windowDidBecomeKey(_ notification: Notification) {
         guard let window = notification.object as? NSWindow,
               let windowId = window.identifier?.rawValue,
-              !windowId.contains("Settings")
+              windowId.contains("Browser")
         else { return }
         
         checkForNewWindows(window)
@@ -109,5 +131,9 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         NSApp.windows.filter { $0.identifier?.rawValue.hasPrefix("BrowserWindow") == false }.forEach {
             $0.close()
         }
+    }
+    
+    @objc func setWarnBeforeQuitting(_ sender: NSButton) {
+        userPreferences.warnBeforeQuitting = sender.state == .on
     }
 }

@@ -28,6 +28,8 @@ class UserPreferences: ObservableObject {
     }
     @AppStorage("reverse_colors_on_trailing_sidebar") var reverseColorsOnTrailingSidebar = true
     
+    @AppStorage("warn_before_quitting") var warnBeforeQuitting = true
+    
     // Web appearance preferences
     @AppStorage("rounded_corners") var roundedCorners = true
     @AppStorage("enable_padding") var enablePadding = true
