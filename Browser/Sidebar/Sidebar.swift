@@ -24,18 +24,13 @@ struct Sidebar: View {
             SidebarToolbar(browserSpaces: browserSpaces)
             SidebarURL()
             SidebarSpacesTabView(browserSpaces: browserSpaces, browserWindowState: browserWindowState)
-            SidebarBottomToolbar(browserSpaces: browserSpaces)
+            SidebarBottomToolbar(browserSpaces: browserSpaces, createSpace: createSpace)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding(.bottom, 10)
         .opacity(sidebarModel.currentSidebarWidth == 0 ? 0 : 1)
         .padding(.trailing, userPreferences.sidebarPosition == .trailing ? .sidebarPadding * 2 : 0)
         .gesture(WindowDragGesture()) // Move the browser window by dragging the sidebar
-        .overlay(alignment: .bottomTrailing) {
-            if sidebarModel.showBottomNewMenu {
-                SidebarBottomAddMenu(createSpace: createSpace, disableNewTabButton: browserSpaces.isEmpty)
-            }
-        }
         .task {
             if browserSpaces.isEmpty {
                 createSpace()

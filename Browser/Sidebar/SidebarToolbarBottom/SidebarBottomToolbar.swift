@@ -16,6 +16,7 @@ struct SidebarBottomToolbar: View {
     @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
     
     let browserSpaces: [BrowserSpace]
+    let createSpace: () -> Void
     
     var body: some View {
         HStack {
@@ -28,13 +29,9 @@ struct SidebarBottomToolbar: View {
             
             if browserWindowState.isMainBrowserWindow {
                 SidebarSpaceList(browserSpaces: browserSpaces)
-                
-                Button("New Space", systemImage: "plus.circle.dashed") {
-                    withAnimation(.browserDefault) {
-                        sidebarModel.showBottomNewMenu.toggle()
-                    }
-                }
-                .buttonStyle(.sidebarHover(padding: 2, rotationDegrees: sidebarModel.showBottomNewMenu ? 45 : 0))
+ 
+                Button("New Space", systemImage: "plus.circle.dashed", action: createSpace)
+                    .buttonStyle(.sidebarHover(padding: 2))
             }
         }
         .padding(.leading, .sidebarPadding)
@@ -42,5 +39,5 @@ struct SidebarBottomToolbar: View {
 }
 
 #Preview {
-    SidebarBottomToolbar(browserSpaces: [])
+    SidebarBottomToolbar(browserSpaces: [], createSpace: {})
 }

@@ -32,7 +32,7 @@ class UserPreferences: ObservableObject {
     @AppStorage("rounded_corners") var roundedCorners = true
     @AppStorage("enable_padding") var enablePadding = true
     @AppStorage("enable_shadow") var enableShadow = true
-    @AppStorage("immersive_view_on_fullscreen") var immersiveViewOnFullscreen = false
+    @AppStorage("immersive_view_on_fullscreen") var immersiveViewOnFullscreen = true
     
     @AppStorage("clear_selected_tab") var clearSelectedTab = false
     

@@ -22,7 +22,6 @@ import SwiftUI
             }
         }
     }
-    var showBottomNewMenu = false
     
     /// Monitor for mouse movement
     private var mouseMonitor: Any?
@@ -93,12 +92,5 @@ import SwiftUI
     /// Stop the mouse monitor
     func stopMouseMonitor() {
         NSEvent.removeMonitor(mouseMonitor as Any)
-    }
-    
-    /// Dismiss the bottom new menu
-    func dismissBottomNewMenu() {
-        withAnimation(.browserDefault) {
-            showBottomNewMenu = false
-        }
     }
 }
