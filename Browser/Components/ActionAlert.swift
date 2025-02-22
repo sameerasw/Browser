@@ -20,12 +20,13 @@ struct ActionAlert: ViewModifier {
                 if browserWindowState.showActionAlert {
                     LazyVStack {
                         ScrollView {
-                            HStack(spacing: 10) {
+                            LazyHStack(spacing: 10) {
                                 Text(browserWindowState.actionAlertMessage)
                                     .lineLimit(1)
                                     .fixedSize(horizontal: false, vertical: true)
                                 Image(systemName: browserWindowState.actionAlertSystemImage)
                                     .fontWeight(.bold)
+                                    .frame(width: 20)
                             }
                             .font(.system(size: 14, weight: .medium))
                             .padding()
