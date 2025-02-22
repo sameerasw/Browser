@@ -32,6 +32,8 @@ import SwiftData
     var actionAlertSystemImage = ""
     var showActionAlert = false
     
+    var isFullScreen = false
+    
     private(set) var isMainBrowserWindow: Bool = true
     private(set) var isNoTraceWindow: Bool = false
     

@@ -28,13 +28,15 @@ struct SettingsAppearanceView: View {
                 Toggle("Rounded Corners", systemImage: "button.roundedtop.horizontal", isOn: $userPreferences.roundedCorners)
                 Toggle("Enable Padding", systemImage: "inset.filled.rectangle", isOn: $userPreferences.enablePadding)
                 Toggle("Enable Shadow", systemImage: "shadow", isOn: $userPreferences.enableShadow)
+                Toggle("Immersive View On Full Screen", systemImage: "rectangle.fill", isOn: $userPreferences.immersiveViewOnFullscreen)
             } header: {
-                VStack(alignment: .leading) {
-                    Text("Web View")
-                    Label("Changing these settings will refresh all web views.", systemImage: "exclamationmark.triangle")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
+                Text("Web View")
+            } footer: {
+                Text("""
+                Immersive View On Full Screen: Removes padding, shadow, and rounded corners when in full screen and the sidebar is collapsed.
+                """)
+                .font(.footnote)
+                .foregroundStyle(.secondary)
             }
         }
         .formStyle(.grouped)

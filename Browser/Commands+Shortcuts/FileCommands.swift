@@ -38,7 +38,6 @@ struct FileCommands: Commands {
             if let currentTab = browserWindowState?.currentSpace?.currentTab {
                 Button("Close Tab") { browserWindowState?.currentSpace?.closeTab(currentTab, using: modelContext) }
                     .globalKeyboardShortcut(.closeTab)
-                    .disabled(true)
             }
             
             Button("Close Window", action: NSApp.keyWindow?.close)

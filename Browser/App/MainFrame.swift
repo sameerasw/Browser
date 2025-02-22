@@ -20,6 +20,10 @@ struct MainFrame: View {
     
     @Query(sort: \BrowserSpace.order) var browserSpaces: [BrowserSpace]
     
+    var isImmersive: Bool {
+        browserWindowState.isFullScreen && sidebarModel.sidebarCollapsed && userPreferences.immersiveViewOnFullscreen
+    }
+    
     var body: some View {
         HStack(spacing: 0) {
             if userPreferences.sidebarPosition == .leading {
@@ -30,15 +34,26 @@ struct MainFrame: View {
             }
             
             PageWebView(browserSpaces: browserSpaces, browserWindowState: browserWindowState)
-                .id("PageWebView")
-                .frame(maxWidth: .infinity)
-                .conditionalModifier(condition: userPreferences.roundedCorners) { $0.clipShape(RoundedRectangle(cornerRadius: 8)) }
-                .conditionalModifier(condition: userPreferences.enableShadow) { $0.shadow(radius: 3) }
-                .conditionalModifier(condition: userPreferences.enablePadding) {
-                    $0
-                        .padding([.top, .bottom], 10)
-                        .padding(userPreferences.sidebarPosition == .leading ? .leading : .trailing, sidebarModel.sidebarCollapsed ? 10 : 5)
-                        .padding([userPreferences.sidebarPosition == .leading ? .trailing : .leading], 10)
+                .clipShape(.rect(cornerRadius: isImmersive ? 0 : userPreferences.roundedCorners ? 8 : 0))
+                .shadow(radius: isImmersive ? 0 : userPreferences.enableShadow ? 3 : 0)
+                .padding([.top, .bottom], isImmersive ? 0 : userPreferences.enablePadding ? 10 : 0)
+                .padding(
+                    userPreferences.sidebarPosition == .leading ? .leading : .trailing,
+                    isImmersive ? 0 : !userPreferences.enablePadding ? 0 : sidebarModel.sidebarCollapsed ? 10 : 5
+                )
+                .padding(
+                    userPreferences.sidebarPosition == .leading ? .trailing : .leading,
+                    isImmersive ? 0 : userPreferences.enablePadding ? 10 : 0
+                )
+                .onReceive(NotificationCenter.default.publisher(for: NSWindow.willEnterFullScreenNotification)) { _ in
+                    withAnimation(.browserDefault) {
+                        browserWindowState.isFullScreen = true
+                    }
+                }
+                .onReceive(NotificationCenter.default.publisher(for: NSWindow.willExitFullScreenNotification)) { _ in
+                    withAnimation(.browserDefault) {
+                        browserWindowState.isFullScreen = false
+                    }
                 }
                 .actionAlert()
             
