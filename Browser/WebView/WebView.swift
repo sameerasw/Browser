@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// View that represents the webview of a tab, it can be a webview or a history view
 struct WebView: View {
     
     @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
@@ -32,6 +33,7 @@ struct WebView: View {
                     }
             case .history:
                 HistoryView(browserTab: tab)
+                    .opacity(browserWindowState.currentSpace?.currentTab == tab ? 1 : 0)
             }
         }
     }

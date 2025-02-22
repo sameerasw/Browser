@@ -37,7 +37,7 @@ struct HistoryEntryList: View {
                         BrowserHistoryEntry.deleteAllHistory(using: modelContext)
                     }
                     
-                    ForEach(groupedHistory.keys.sorted(), id: \.self) { date in
+                    ForEach(groupedHistory.keys.sorted { $1 < $0 }, id: \.self) { date in
                         Section {
                             ForEach(groupedHistory[date] ?? []) { entry in
                                 EntryRow(entry: entry)
@@ -45,6 +45,14 @@ struct HistoryEntryList: View {
                         } header: {
                             Text(date, style: .date)
                                 .font(.title.bold())
+                                .contextMenu {
+                                    Button("Delete Entries From This Date") {
+                                        for entry in groupedHistory[date] ?? [] {
+                                            modelContext.delete(entry)
+                                        }
+                                        try? modelContext.save()
+                                    }
+                                }
                         }
                         .collapsible(true)
                         .headerProminence(.increased)
