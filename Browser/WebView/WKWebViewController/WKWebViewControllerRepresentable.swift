@@ -11,6 +11,7 @@ import SwiftUI
 struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
     
     @Environment(\.modelContext) var modelContext
+    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
         
     @Bindable var browserSpace: BrowserSpace
     @Bindable var tab: BrowserTab
@@ -30,5 +31,6 @@ struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
         nsViewController.webView.isHidden = tab != browserSpace.currentTab
                                             || tab.webviewErrorDescription != nil
                                             || tab.webviewErrorCode != nil
+        nsViewController.browserWindowState = browserWindowState
     }
 }

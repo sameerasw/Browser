@@ -20,6 +20,8 @@ class WKWebViewController: NSViewController {
     
     let modelContext: ModelContext
     
+    weak var browserWindowState: BrowserWindowState!
+    
     var activeDownloads: [(download: WKDownload, bookmarkData: Data, fileName: String)] = []
     
     init(tab: BrowserTab, browserSpace: BrowserSpace, noTrace: Bool = false, using modelContext: ModelContext) {
@@ -52,6 +54,7 @@ class WKWebViewController: NSViewController {
         
         webView.searchWebAction = searchWebAction
         webView.openLinkInNewTabAction = openLinkInNewTabAction
+        webView.presentActionAlert = presentActionAlert(message:systemImage:)
         
         webView.load(URLRequest(url: tab.url))
         tab.webview = webView
@@ -79,5 +82,9 @@ class WKWebViewController: NSViewController {
     func openLinkInNewTabAction(_ url: URL) {
         let newTab = BrowserTab(title: url.cleanHost, url: url, order: tab.order + 1, browserSpace: browserSpace)
         browserSpace.openNewTab(newTab, using: modelContext, select: false)
+    }
+    
+    func presentActionAlert(message: String, systemImage: String) {
+        browserWindowState.presentActionAlert(message: message, systemImage: systemImage)
     }
 }

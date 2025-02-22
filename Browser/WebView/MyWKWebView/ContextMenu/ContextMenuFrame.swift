@@ -33,6 +33,10 @@ extension MyWKWebView {
         
         let printItem = NSMenuItem(title: "Print...", action: #selector(printPage), keyEquivalent: "")
         menu.insertItem(printItem, at: 5)
+        
+        
+        let translationMenu = translationMenuItem()
+        menu.insertItem(translationMenu, at: 6)
     }
     
     /// Opens an `NSSavePanel` to save the page as a solicited format
