@@ -39,9 +39,6 @@ struct Sidebar: View {
         .task {
             if browserSpaces.isEmpty {
                 createSpace()
-            } else {
-                print("Spaces already created")
-                print(browserSpaces.map { $0.name })
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)) { _ in
@@ -67,7 +64,7 @@ struct Sidebar: View {
             if browserWindowState.isMainBrowserWindow {
                 newSpace = BrowserSpace(name: "", systemImage: "circle.fill", order: nextIndex, colors: [], colorScheme: "system")
             } else if browserWindowState.isNoTraceWindow {
-                newSpace = BrowserSpace(name: "No-Trace Window", systemImage: "sunglasses.fill", order: nextIndex, colors: [.black], colorScheme: "system")
+                newSpace = BrowserSpace(name: "No-Trace Window", systemImage: "sunglasses.fill", order: 0, colors: [.black], colorScheme: "system")
             } else {
                 newSpace = BrowserSpace(name: "Temporary Window", systemImage: "circle.fill", order: 0, colors: [], colorScheme: "system")
             }

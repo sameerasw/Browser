@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/xnth97/SymbolPicker",
       "state" : {
-        "revision" : "e0c5e1c7aad1b8c97d6612cc76ce443178c728f0",
-        "version" : "1.6.1"
+        "revision" : "8bb08c982235b8e601bc500a41e770d7e198759b",
+        "version" : "1.6.2"
       }
     }
   ],

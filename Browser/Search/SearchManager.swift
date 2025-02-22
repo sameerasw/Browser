@@ -14,7 +14,6 @@ class SearchManager {
     
     var searchOpenLocation: SearchOpenLocation?
     var searchText = ""
-    var currentTab: BrowserTab?
     var searchSuggestions: [SearchSuggestion] = []
     var highlightedSearchSuggestionIndex: Int = 0
     var favicon: Data?
@@ -32,7 +31,6 @@ class SearchManager {
         }
         
         if searchOpenLocation == .fromURLBar {
-            currentTab = browserWindowState.currentSpace?.currentTab
             searchText = browserWindowState.currentSpace?.currentTab?.url.absoluteString ?? ""
             favicon = browserWindowState.currentSpace?.currentTab?.favicon
         }
@@ -152,9 +150,13 @@ class SearchManager {
     /// - Parameters: browserWindowState: The current `BrowserWindowState`
     /// - Parameters: modelContext: The current `ModelContext`
     private func openInCurrentTab(_ searchSuggestion: SearchSuggestion, browserWindowState: BrowserWindowState, using modelContext: ModelContext) {
-        browserWindowState.currentSpace?.currentTab?.url = searchSuggestion.suggestedURL
-        browserWindowState.currentSpace?.currentTab?.webview?.load(URLRequest(url: searchSuggestion.suggestedURL))
-        browserWindowState.currentSpace?.currentTab?.updateFavicon(with: searchSuggestion.suggestedURL)
+        if let currentTab = browserWindowState.currentSpace?.currentTab {
+            currentTab.url = searchSuggestion.suggestedURL
+            currentTab.webview?.load(URLRequest(url: searchSuggestion.suggestedURL))
+            currentTab.updateFavicon(with: searchSuggestion.suggestedURL)
+        } else {
+            openNewTab(searchSuggestion, browserWindowState: browserWindowState, using: modelContext)
+        }
     }
     
     func searchAction(_ searchSuggestion: SearchSuggestion, browserWindowState: BrowserWindowState, using modelContext: ModelContext) {
