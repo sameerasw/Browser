@@ -43,7 +43,7 @@ import SwiftData
             }
         }
     }
-            
+    
     /// Loads the current space from the UserDefaults and sets it as the current space
     @Sendable
     func loadCurrentSpace(browserSpaces: [BrowserSpace]) {
@@ -73,13 +73,11 @@ import SwiftData
     
     /// Goes to a space in the browser
     func goToSpace(_ space: BrowserSpace) {
-            withAnimation(.browserDefault) {
-                self.currentSpace = space
-                self.viewScrollState = space.id
-                self.tabBarScrollState = space.id
-            }
-        
-        print(self.currentSpace?.name ?? "No space")
+        withAnimation(.browserDefault) {
+            self.currentSpace = space
+            self.viewScrollState = space.id
+            self.tabBarScrollState = space.id
+        }
     }
     
     /// Copies the URL of the current tab to the clipboard

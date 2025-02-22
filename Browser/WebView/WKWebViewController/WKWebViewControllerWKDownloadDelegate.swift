@@ -15,6 +15,11 @@ extension WKWebViewController: WKDownloadDelegate {
         download.delegate = self
     }
     
+    func webView(_ webView: WKWebView, navigationAction: WKNavigationAction, didBecome download: WKDownload) {
+        print("⬇️ 🔵 Download started from a navigation action in \(navigationAction.request.url?.absoluteString ?? "Unknown link").")
+        download.delegate = self
+    }
+    
     /// Called when a download should decide where to save the file and start.
     func download(_ download: WKDownload, decideDestinationUsing response: URLResponse, suggestedFilename: String, completionHandler: @escaping @MainActor @Sendable (URL?) -> Void) {
         if let bookmarkData = UserDefaults.standard.data(forKey: "download_location_bookmark") {
