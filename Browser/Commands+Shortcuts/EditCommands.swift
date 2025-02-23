@@ -44,3 +44,7 @@ extension KeyboardShortcuts.Name {
     
     static let toggleEditing = Self("toggle_editing")
 }
+
+extension [KeyboardShortcuts.Name] {
+    static let allEditCommands: [KeyboardShortcuts.Name] = [.copyCurrentURL, .toggleEditing]
+}

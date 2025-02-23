@@ -81,3 +81,7 @@ extension KeyboardShortcuts.Name {
     
     static let openDeveloperTools = Self("open_developer_tools", default: .init(.i, modifiers: [.option, .command]))
 }
+
+extension [KeyboardShortcuts.Name] {
+    static let allViewCommands: [KeyboardShortcuts.Name] = [.toggleSidebar, .stopLoading, .reload, .clearCookiesAndReload, .clearCacheAndReload, .togglePictureInPicture, .zoomActualSize, .zoomIn, .zoomOut, .openDeveloperTools]
+}

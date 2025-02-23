@@ -59,3 +59,7 @@ extension KeyboardShortcuts.Name {
     static let showHistory = Self("show_history", default: .init(.y, modifiers: .command))
     static let clearHistory = Self("clear_history")
 }
+
+extension [KeyboardShortcuts.Name] {
+    static let allHistoryCommands: [KeyboardShortcuts.Name] = [.goBack, .goForward, .showHistory, .clearHistory]
+}

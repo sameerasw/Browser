@@ -112,3 +112,7 @@ extension KeyboardShortcuts.Name {
     
     static let print = Self("print", default: .init(.p, modifiers: .command))
 }
+
+extension [KeyboardShortcuts.Name] {
+    static let allFileCommands: [KeyboardShortcuts.Name] = [.newTab, .newWindow, .newTemporaryWindow, .newNoTraceWindow, .openFile, .closeTab, .closeWindow, .closeAllWindows, .createQRCode, .share, .snapshotCurrentPagePortion, .snapshotFullPage, .savePageAs, .print]
+}
