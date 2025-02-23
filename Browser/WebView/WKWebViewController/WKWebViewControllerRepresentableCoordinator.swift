@@ -10,7 +10,7 @@ import SwiftUI
 import WebKit
 
 extension WKWebViewControllerRepresentable {
-    /// Coordinator class to handle view controller events between SwiftUI and AppKit
+    /// Coordinator class to handle view controller events between SwiftUI and WebKit
     class Coordinator: NSObject {
         var parent: WKWebViewControllerRepresentable
         
@@ -49,6 +49,14 @@ extension WKWebViewControllerRepresentable {
         
         func toggleDownloadAnimation() {
             self.parent.sidebarModel.isAnimatingDownloads.toggle()
+        }
+        
+        func createNewTabFromAction(_ navigationAction: WKNavigationAction) {
+            if let url = navigationAction.request.url {
+                let newTab = BrowserTab(title: url.cleanHost, url: url, order: self.parent.tab.order + 1, browserSpace: self.parent.browserSpace)
+                self.parent.browserSpace.openNewTab(newTab, using: self.parent.modelContext, select: false)
+                self.parent.browserSpace.currentTab = newTab
+            }
         }
         
         /// Observes the webview to update the tab's properties, such as the title, favicon, url, and navigation buttons...
