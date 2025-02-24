@@ -20,6 +20,10 @@ class MyWKWebView: WKWebView {
     /// Present an action alert from the WKWebView (passed from the WKWebViewController)
     var presentActionAlert: ((String, String) -> Void)? = nil
     
+    var textFinder: WKWebViewTextFinder!
+    var textFindBarView: NSView?
+    var textFindBarVisible: Bool = false
+    
     override var isEditable: Bool {
         get {
             return _isEditable
@@ -31,6 +35,18 @@ class MyWKWebView: WKWebView {
     
     override init(frame: CGRect, configuration: WKWebViewConfiguration) {
         super.init(frame: frame, configuration: configuration)
+        
+        textFinder = WKWebViewTextFinder()
+        textFinder.isIncrementalSearchingEnabled = true
+        textFinder.incrementalSearchingShouldDimContentView = true
+        textFinder.client = self
+        textFinder.findBarContainer = self
+        
+        weak var wkwebview = self
+        textFinder.hideInterfaceCallback = {
+            let webView = wkwebview
+            webView?._hideFindUI()
+        }
     }
     
     required init?(coder: NSCoder) {

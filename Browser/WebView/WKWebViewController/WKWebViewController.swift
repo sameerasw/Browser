@@ -35,7 +35,7 @@ class WKWebViewController: NSViewController {
         
         super.init(nibName: nil, bundle: nil)
     }
-    
+        
     override func loadView() {
         view = webView
         
@@ -47,11 +47,13 @@ class WKWebViewController: NSViewController {
         
         webView.navigationDelegate = self
         webView.uiDelegate = self
-                
+        
         webView.searchWebAction = coordinator.searchWebAction(_:)
         webView.openLinkInNewTabAction = coordinator.openLinkInNewTabAction(_:)
         webView.presentActionAlert = coordinator.presentActionAlert(message:systemImage:)
         
+        webView._usePlatformFindUI = false
+                
         coordinator.observeWebView(webView)
         
         webView.load(URLRequest(url: tab.url))

@@ -17,6 +17,9 @@ struct BrowserApp: App {
         BrowserWindow("BrowserWindow")
         BrowserWindow("BrowserTemporaryWindow", inMemory: true)
         BrowserWindow("BrowserNoTraceWindow", inMemory: true)
+            .commands {
+                BrowserCommands()
+            }
         
         SettingsWindow()
     }
@@ -33,9 +36,6 @@ struct BrowserApp: App {
         }
         .windowStyle(.hiddenTitleBar)
         .windowToolbarStyle(.unified(showsTitle: false))
-        .commands {
-            BrowserCommands()
-        }
         .modelContainer(for: [BrowserSpace.self, BrowserTab.self, BrowserHistoryEntry.self], inMemory: inMemory)
     }
     

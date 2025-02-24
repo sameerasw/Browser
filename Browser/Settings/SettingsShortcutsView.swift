@@ -11,7 +11,7 @@ import KeyboardShortcuts
 struct SettingsShortcutsView: View {
     
     var allCommands: [[KeyboardShortcuts.Name]] {
-        [.allFileCommands, .allEditCommands, .allViewCommands, .allHistoryCommands, .allViewCommands]
+        [.allFileCommands, .allEditCommands, .allViewCommands, .allHistoryCommands]
     }
     
     var body: some View {

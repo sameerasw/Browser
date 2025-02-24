@@ -29,7 +29,7 @@ extension WKWebViewController: WKNavigationDelegate {
         coordinator.addTabToHistory()
         
         self.webView.setZoomFactor(self.webView.savedZoomFactor())
-        
+     
         tab.webviewErrorCode = nil
         tab.webviewErrorDescription = nil
     }

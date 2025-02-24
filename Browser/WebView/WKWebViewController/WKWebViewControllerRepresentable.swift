@@ -35,6 +35,7 @@ struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
         nsViewController.webView.isHidden = tab != browserSpace.currentTab
                                             || tab.webviewErrorDescription != nil
                                             || tab.webviewErrorCode != nil
+        nsViewController.webView.findBarView?.isHidden = nsViewController.webView.isHidden
     }
     
     func makeCoordinator() -> Coordinator {

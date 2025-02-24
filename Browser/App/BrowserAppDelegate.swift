@@ -17,7 +17,7 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     var userPreferences = UserPreferences()
     
     /// Add window observers to save the window position and size
-    func applicationWillFinishLaunching(_ notification: Notification) {        
+    func applicationWillFinishLaunching(_ notification: Notification) {
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidBecomeKey(_:)), name: NSWindow.didBecomeKeyNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidResizeOrMove(_:)), name: NSWindow.didResizeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidResizeOrMove(_:)), name: NSWindow.didMoveNotification, object: nil)
@@ -44,7 +44,7 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             checkbox.state = .on
             
             alert.accessoryView = checkbox
-                        
+            
             if alert.runModal() == .alertFirstButtonReturn {
                 return .terminateCancel
             } else {
