@@ -309,7 +309,7 @@
 				INFOPLIST_FILE = Browser/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Browser needs access to use your camera in websites.";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Leonardo Larrañaga";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Browser needs access to use your location in websites.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Browser needs access to use your location in websites.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Browser needs access to use your microphone on websites.";
@@ -319,7 +319,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.leonardolarranaga.Browser;
+				PRODUCT_BUNDLE_IDENTIFIER = swift.leonardolarranaga.Browser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Browser/WebView/WebKit/Browser-Bridging-Header.h";
@@ -351,7 +351,7 @@
 				INFOPLIST_FILE = Browser/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Browser needs access to use your camera in websites.";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Leonardo Larrañaga";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Browser needs access to use your location in websites.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Browser needs access to use your location in websites.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Browser needs access to use your microphone on websites.";
@@ -361,7 +361,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.leonardolarranaga.Browser;
+				PRODUCT_BUNDLE_IDENTIFIER = swift.leonardolarranaga.Browser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Browser/WebView/WebKit/Browser-Bridging-Header.h";
