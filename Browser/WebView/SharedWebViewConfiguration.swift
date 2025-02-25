@@ -23,6 +23,22 @@ class SharedWebViewConfiguration {
         configuration.websiteDataStore = .default()
         configuration.mediaTypesRequiringUserActionForPlayback = []
         
+        // Configure content blockers
+        do {
+            if let adawayURL = Bundle.main.url(forResource: "adaway", withExtension: "json") {
+                let contentBlockers = try String(contentsOf: adawayURL, encoding: .utf8)
+                WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "BrowserContentBlockers", encodedContentRuleList: contentBlockers) { list, error in
+                    if let error {
+                        print("🚫 Error compiling content blockers:", error)
+                    } else if let list {
+                         self.configuration.userContentController.add(list)
+                    }
+                }
+            }
+        } catch {
+            print("🚫 Error loading content blockers:", error)
+        }
+        
         // Configure shared preferences
         let preferences = WKPreferences()
         preferences.isElementFullscreenEnabled = true

@@ -36,6 +36,7 @@ struct SearchView: View {
             }
             .foregroundStyle(colorScheme == .light ? .black : .white)
             .padding([.horizontal, .top], 15)
+            .background(colorScheme == .light ? .white.opacity(0.3) : .clear)
             .background(.ultraThickMaterial)
             .clipShape(.rect(cornerRadius: 10))
             .shadow(color: .black.opacity(0.15), radius: 12)
