@@ -20,45 +20,32 @@ struct SearchView: View {
     @State var searchManager = SearchManager()
     
     var body: some View {
-        ZStack(alignment: searchManager.searchOpenLocation == .fromURLBar ? sidebarPosition == .leading ? .topLeading : .topTrailing : .center) {
-            // Dismiss when tapping outside the search view
-            Rectangle()
-                .opacity(.leastNonzeroMagnitude)
-                .onTapGesture(perform: closeSearchView)
+        VStack(spacing: 0) {
+            SearchTextField(searchManager: searchManager)
             
-            VStack(spacing: 0) {
-                SearchTextField(searchManager: searchManager)
-                
-                Divider()
-                    .padding(.top, 5)
-                
-                SearchSuggestionResultsView(searchManager: searchManager)
-            }
-            .foregroundStyle(colorScheme == .light ? .black : .white)
-            .padding([.horizontal, .top], 15)
-            .background(colorScheme == .light ? .white.opacity(0.3) : .clear)
-            .background(.ultraThickMaterial)
-            .clipShape(.rect(cornerRadius: 10))
-            .shadow(color: .black.opacity(0.15), radius: 12)
-            .macOSWindowBorderOverlay()
-            .frame(maxWidth: 650, maxHeight: 305)
-            .padding(.top, searchManager.searchOpenLocation == .fromURLBar ? .approximateTrafficLightsTopPadding + 33 : 0)
-            .padding(.horizontal, searchManager.searchOpenLocation == .fromURLBar ? .sidebarPadding : 10)
-            .onKeyPress(.escape) {
-                closeSearchView()
-                return .handled
-            }
-            .onKeyPress(.return) {
-                searchManager.searchAction(searchManager.searchSuggestions[searchManager.highlightedSearchSuggestionIndex], browserWindowState: browserWindowState, using: modelContext)
-                return .handled
-            }
-            .onKeyPress(.upArrow, action: searchManager.handleUpArrow)
-            .onKeyPress(.downArrow, action: searchManager.handleDownArrow)
-            .onAppear {
+            Divider()
+                .padding(.top, 5)
+            
+            SearchSuggestionResultsView(searchManager: searchManager)
+        }
+        .foregroundStyle(colorScheme == .light ? .black : .white)
+        .padding([.horizontal, .top], 15)
+        .onKeyPress(.escape) {
+            closeSearchView()
+            return .handled
+        }
+        .onKeyPress(.return) {
+            searchManager.searchAction(searchManager.searchSuggestions[searchManager.highlightedSearchSuggestionIndex], browserWindowState: browserWindowState, using: modelContext)
+            return .handled
+        }
+        .onKeyPress(.upArrow, action: searchManager.handleUpArrow)
+        .onKeyPress(.downArrow, action: searchManager.handleDownArrow)
+        .onChange(of: searchManager.searchText) { _, newValue in
+            searchManager.fetchSearchSuggestions(newValue)
+        }
+        .onChange(of: browserWindowState.searchOpenLocation) { oldValue, newValue in
+            if browserWindowState.searchOpenLocation != .none {
                 searchManager.setInitialValuesFromWindowState(browserWindowState)
-            }
-            .onChange(of: searchManager.searchText) { _, newValue in
-                searchManager.fetchSearchSuggestions(newValue)
             }
         }
     }

@@ -29,9 +29,10 @@ struct SearchSuggestionResultsView: View {
                             }
                     }
                 }
-                .padding(.vertical, 5)
+                .padding(.top, 5)
             }
             .scrollIndicators(.never)
+            .scrollContentBackground(.hidden)
             // Scroll to the highlighted search suggestion
             .onChange(of: searchManager.highlightedSearchSuggestionIndex) { _, newValue in
                 withAnimation(.browserDefault) {

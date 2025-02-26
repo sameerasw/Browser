@@ -13,6 +13,7 @@ struct SearchTextField: View {
     /// Enum to focus the search text field when it appears
     enum FocusedField {
         case search
+        case unfocused
     }
         
     @Bindable var searchManager: SearchManager
@@ -29,8 +30,12 @@ struct SearchTextField: View {
                 .textFieldStyle(.plain)
                 .font(searchManager.searchOpenLocation == .fromNewTab ? .title2.weight(.semibold) : .body)
         }
-        .onAppear {
-            focusedField = .search
+        .onChange(of: searchManager.searchOpenLocation) { oldValue, newValue in
+            if newValue == .none {
+                focusedField = .unfocused
+            } else {
+                focusedField = .search
+            }
         }
     }
     

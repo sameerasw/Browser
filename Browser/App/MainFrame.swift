@@ -72,10 +72,15 @@ struct MainFrame: View {
                 SidebarSpaceBackground(browserSpace: currentSpace, isSidebarCollapsed: false)
             }
         }
-        .overlay {
-            if browserWindowState.searchOpenLocation != .none {
-                SearchView()
+        .floatingPanel(isPresented: .init(get: {
+            browserWindowState.searchOpenLocation != .none
+        }, set: { newValue in
+            if !newValue {
+                browserWindowState.searchOpenLocation = .none
             }
+        }), origin: browserWindowState.searchOpenLocation == .fromNewTab ? .zero : CGPoint(x: 5, y: 50) , size: browserWindowState.searchOpenLocation == .fromNewTab ? CGSize(width: 700, height: 300) : CGSize(width: 400, height: 300), shouldCenter: browserWindowState.searchOpenLocation == .fromNewTab) {
+            SearchView()
+                .environment(browserWindowState)
         }
         // Show the sidebar by hovering the mouse on the edge of the screen
         .overlay(alignment: userPreferences.sidebarPosition == .leading ? .topLeading : .topTrailing) {
