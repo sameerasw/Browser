@@ -87,6 +87,27 @@ class UserPreferences: ObservableObject {
     }
     
     init() {
+        registerAllDefaults()
+        getDownloadsFolder()
+    }
+    
+    func registerAllDefaults() {
+        UserDefaults.standard.register(defaults: [
+            "disable_animations": false,
+            "sidebar_position": SidebarPosition.leading.rawValue,
+            "show_window_controls_trailing_sidebar": true,
+            "reverse_colors_on_trailing_sidebar": true,
+            "warn_before_quitting": true,
+            "rounded_corners": true,
+            "enable_padding": true,
+            "enable_shadow": true,
+            "immersive_view_on_fullscreen": true,
+            "clear_selected_tab": false,
+            "open_pip_on_tab_change": true
+        ])
+    }
+    
+    func getDownloadsFolder() {
         if let downloadLocationBookmark = UserDefaults.standard.data(forKey: "download_location_bookmark") {
             var isStale = false
             if (try? URL(resolvingBookmarkData: downloadLocationBookmark, options: .withSecurityScope, bookmarkDataIsStale: &isStale)) != nil {

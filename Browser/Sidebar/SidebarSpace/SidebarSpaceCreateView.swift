@@ -34,7 +34,7 @@ struct SidebarSpaceCreateView: View {
             Image(systemName: browserSpace.systemImage)
                 .padding()
                 .background(hoverIcon ? .gray.opacity(0.3) : .clear)
-                .macOSWindowBorderOverlay()
+                .background(RoundedRectangle(cornerRadius: 8).stroke(.gray))
                 .onTapGesture {
                     showIconPicker.toggle()
                 }
@@ -49,7 +49,7 @@ struct SidebarSpaceCreateView: View {
                 .frame(maxWidth: .infinity)
                 .textFieldStyle(.plain)
                 .padding(5)
-                .macOSWindowBorderOverlay()
+                .background(RoundedRectangle(cornerRadius: 8).stroke(.gray))
                 .padding(.vertical, 5)
             
             HStack {
