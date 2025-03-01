@@ -18,8 +18,8 @@ struct SidebarSpaceIcon: View {
     
     var body: some View {
         Button(browserSpace.name, systemImage: browserSpace.systemImage) { browserWindowState.goToSpace(browserSpace) }
-        .buttonStyle(.sidebarHover())
-        .opacity(browserWindowState.currentSpace == browserSpace ? 0.7 : 0.3)
-        .sidebarSpaceContextMenu(browserSpaces: browserSpaces, browserSpace: browserSpace)
+            .buttonStyle(.sidebarHover(hoverColor: browserSpace.getColors.first ?? .primary))
+            .opacity(browserWindowState.currentSpace == browserSpace ? 0.7 : 0.3)
+            .sidebarSpaceContextMenu(browserSpaces: browserSpaces, browserSpace: browserSpace)
     }
 }

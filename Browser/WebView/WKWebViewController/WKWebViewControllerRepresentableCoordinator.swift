@@ -38,6 +38,7 @@ extension WKWebViewControllerRepresentable {
         }
         
         func addTabToHistory() {
+            guard NSApp.isKeyWindowOfTypeMain else { return }
             do {
                 let historyEntry = BrowserHistoryEntry(title: self.parent.tab.title, url: self.parent.tab.url, favicon: self.parent.tab.favicon)
                 self.parent.modelContext.insert(historyEntry)

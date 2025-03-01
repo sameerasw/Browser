@@ -16,34 +16,12 @@ struct SidebarHoverButtonStyle: ButtonStyle {
     let colorScheme: String
     let fixedWidth: CGFloat?
     let alignment: Alignment
+    let enabledColor: Color
+    let hoverColor: Color
     let disabled: Bool
     let rotationDegrees: Double
     let showLabel: Bool
     let cornerRadius: CGFloat
-    
-    init(
-        font: Font,
-        padding: CGFloat,
-        hoverStyle: AnyShapeStyle,
-        colorScheme: String,
-        fixedWidth: CGFloat?,
-        alignment: Alignment,
-        disabled: Bool,
-        rotationDegrees: Double,
-        showLabel: Bool,
-        cornerRadius: CGFloat
-    ) {
-        self.font = font
-        self.padding = padding
-        self.hoverStyle = hoverStyle
-        self.colorScheme = colorScheme
-        self.fixedWidth = fixedWidth
-        self.alignment = alignment
-        self.disabled = disabled
-        self.rotationDegrees = rotationDegrees
-        self.showLabel = showLabel
-        self.cornerRadius = cornerRadius
-    }
     
     @State private var hover = false
     
@@ -51,7 +29,7 @@ struct SidebarHoverButtonStyle: ButtonStyle {
         configuration.label
             .dynamicLabelStyle(showLabel: showLabel)
             .rotationEffect(.degrees(rotationDegrees))
-            .foregroundStyle(disabled ? .secondary : .primary)
+            .foregroundStyle(disabled ? .secondary : hover ? hoverColor : enabledColor)
             .font(font)
             .fixedFrame(width: fixedWidth, alignment: alignment)
             .padding(padding)
@@ -92,6 +70,8 @@ extension ButtonStyle where Self == SidebarHoverButtonStyle {
         colorScheme: String = "Light",
         fixedWidth: CGFloat? = 25,
         alignment: Alignment = .leading,
+        enabledColor: Color = .primary,
+        hoverColor: Color = .primary,
         disabled: Bool = false,
         rotationDegrees: Double = 0,
         showLabel: Bool = false,
@@ -104,6 +84,8 @@ extension ButtonStyle where Self == SidebarHoverButtonStyle {
             colorScheme: colorScheme,
             fixedWidth: fixedWidth,
             alignment: alignment,
+            enabledColor: enabledColor,
+            hoverColor: hoverColor,
             disabled: disabled,
             rotationDegrees: rotationDegrees,
             showLabel: showLabel,

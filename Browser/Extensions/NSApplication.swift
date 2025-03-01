@@ -33,4 +33,8 @@ extension NSApplication {
     func closeAllWindows() {
         windows.forEach { $0.close() }
     }
+    
+    var isKeyWindowOfTypeMain: Bool {
+        keyWindow?.identifier?.rawValue.hasPrefix("BrowserWindow") == true
+    }
 }
