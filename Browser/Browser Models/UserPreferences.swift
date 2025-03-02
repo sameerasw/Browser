@@ -15,6 +15,7 @@ class UserPreferences: ObservableObject {
         case trailing
     }
     
+    // App appearance preferences
     @AppStorage("disable_animations") var disableAnimations = false
     @AppStorage("sidebar_position") var sidebarPosition = SidebarPosition.leading {
         didSet {
@@ -28,17 +29,16 @@ class UserPreferences: ObservableObject {
     }
     @AppStorage("reverse_colors_on_trailing_sidebar") var reverseColorsOnTrailingSidebar = true
     
-    @AppStorage("warn_before_quitting") var warnBeforeQuitting = true
-    
     // Web appearance preferences
     @AppStorage("rounded_corners") var roundedCorners = true
     @AppStorage("enable_padding") var enablePadding = true
     @AppStorage("enable_shadow") var enableShadow = true
     @AppStorage("immersive_view_on_fullscreen") var immersiveViewOnFullscreen = true
     
+    // General preferences
     @AppStorage("clear_selected_tab") var clearSelectedTab = false
-    
     @AppStorage("open_pip_on_tab_change") var openPipOnTabChange = true
+    @AppStorage("warn_before_quitting") var warnBeforeQuitting = true
     
     // Download preferences
     @Published var downloadLocationBookmark: Data? = nil {

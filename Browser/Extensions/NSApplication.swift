@@ -16,25 +16,15 @@ extension NSApplication {
         }
     }
     
-    func removeMenuItem(_ item: String, from menu: String) {
-        if let menu = mainMenu?.item(withTitle: menu)?.submenu {
-            if let item = menu.item(withTitle: item) {
-                print("Hiding item \(item) from menu \(menu)")
-                item.isHidden = true
-                menu.removeItem(item)
-            } else {
-                print("Item \(item) not found in menu \(menu)")
-            }
-        } else {
-            print("Menu \(menu) not found")
-        }
-    }
-    
     func closeAllWindows() {
         windows.forEach { $0.close() }
     }
     
     var isKeyWindowOfTypeMain: Bool {
         keyWindow?.identifier?.rawValue.hasPrefix("BrowserWindow") == true
+    }
+    
+    var isKeyWindowSettings: Bool {
+        keyWindow?.identifier?.rawValue == "com_apple_SwiftUI_Settings_window"
     }
 }

@@ -21,6 +21,5 @@ struct HistoryView: View {
                 HistoryEntryList(browserTab: browserTab)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

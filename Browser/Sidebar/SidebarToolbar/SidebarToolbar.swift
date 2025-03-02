@@ -12,19 +12,19 @@ struct SidebarToolbar: View {
     
     @Environment(\.modelContext) var modelContext
     
-    @Environment(SidebarModel.self) var sidebarModel: SidebarModel
+    @Environment(SidebarModel.self) var sidebarModel
     
     @EnvironmentObject var userPreferences: UserPreferences
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     let browserSpaces: [BrowserSpace]
     
     var body: some View {
         LazyVStack(alignment: .leading) {
             HStack {
-                // Only show traffic lights if the sidebar is on the leading side
+                // Only add padding if the sidebar is on the leading side
                 if userPreferences.sidebarPosition == .leading {
-                    TrafficLights()
+                    Spacer(minLength: 85)
                 }
                 
                 SidebarToolbarButton(userPreferences.sidebarPosition == .leading ? "sidebar.left" : "sidebar.right", action: sidebarModel.toggleSidebar)

@@ -12,8 +12,7 @@ struct SearchView: View {
     
     @Environment(\.modelContext) var modelContext
     @Environment(\.colorScheme) var colorScheme
-    
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     @AppStorage("sidebar_position") var sidebarPosition = UserPreferences.SidebarPosition.leading
     

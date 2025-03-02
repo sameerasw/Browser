@@ -11,7 +11,7 @@ import SwiftData
 /// Main frame of the browser.
 struct MainFrame: View {
     
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState
     @Environment(\.colorScheme) var colorScheme
     
     @EnvironmentObject var userPreferences: UserPreferences

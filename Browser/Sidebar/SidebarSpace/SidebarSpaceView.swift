@@ -44,7 +44,9 @@ struct SidebarSpaceView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .sidebarSpaceContextMenu(browserSpaces: browserSpaces, browserSpace: browserSpace)
         .onHover { isHover in
-            self.isHovering = isHover
+            withAnimation(.browserDefault) {
+                self.isHovering = isHover
+            }
         }
     }
 }

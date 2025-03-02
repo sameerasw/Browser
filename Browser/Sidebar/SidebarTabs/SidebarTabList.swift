@@ -10,7 +10,7 @@ import SwiftUI
 /// List of tabs of a space in the sidebar
 struct SidebarTabList: View {
     
-    @Environment(SidebarModel.self) var sidebarModel: SidebarModel
+    @Environment(SidebarModel.self) var sidebarModel
     @EnvironmentObject var userPreferences: UserPreferences
     
     @Bindable var browserSpace: BrowserSpace

@@ -12,7 +12,7 @@ struct URLQRCodeView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    let browserTab: BrowserTab?
+    let browserTab: BrowserTab
     
     @State var nsImage = NSImage()
     
@@ -26,7 +26,7 @@ struct URLQRCodeView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .padding()
             }
-            .navigationTitle(browserTab?.title ?? "")
+            .navigationTitle(browserTab.title)
             .toolbar {
                 ToolbarItemGroup(placement: .automatic) {
                     Button("Copy", action: copyToClipboard)
@@ -38,18 +38,11 @@ struct URLQRCodeView: View {
                 }
             }
         }
-        .onAppear {
-            if browserTab == nil {
-                dismiss()
-            } else {
-                generateQRImage()
-            }
-        }
+        .onAppear(perform: generateQRImage)
     }
     
     private func generateQRImage() {
-        guard let url = browserTab?.url,
-              let data = url.absoluteString.data(using: .utf8)
+        guard let data = browserTab.url.absoluteString.data(using: .utf8)
         else { return dismiss() }
         
         let context = CIContext()
@@ -74,7 +67,7 @@ struct URLQRCodeView: View {
     private func saveImage() {
         let savePanel = NSSavePanel()
         savePanel.allowedContentTypes = [.png]
-        savePanel.nameFieldStringValue = browserTab?.title ?? "QR Code"
+        savePanel.nameFieldStringValue = browserTab.title
         savePanel.canCreateDirectories = true
         savePanel.begin { response in
             if response == .OK, let url = savePanel.url {

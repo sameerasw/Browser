@@ -12,7 +12,7 @@ struct HistoryEntryList: View {
     
     @Environment(\.modelContext) var modelContext
     @Environment(\.colorScheme) var colorScheme
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     @Query(sort: \BrowserHistoryEntry.date, order: .reverse) var history: [BrowserHistoryEntry]
     var groupedHistory: [Date: [BrowserHistoryEntry]] {
@@ -40,7 +40,8 @@ struct HistoryEntryList: View {
                     ForEach(groupedHistory.keys.sorted { $1 < $0 }, id: \.self) { date in
                         Section {
                             ForEach(groupedHistory[date] ?? []) { entry in
-                                EntryRow(entry: entry)
+                                HistoryEntryRow(entry: entry)
+                                    .modifier(HistoryEntryRowContextMenu(entry: entry, browserTab: browserTab))
                             }
                         } header: {
                             Text(date, style: .date)
@@ -63,31 +64,5 @@ struct HistoryEntryList: View {
             }
         }
         .foregroundColor(colorScheme == .dark ? .white : .black)
-    }
-    
-    @ViewBuilder
-    func EntryRow(entry: BrowserHistoryEntry) -> some View {
-        HistoryEntryRow(entry: entry)
-            .contextMenu {
-                Button("Open") {
-                    browserTab.title = entry.title
-                    browserTab.url = entry.url
-                    browserTab.favicon = entry.favicon
-                    browserTab.type = .web
-                }
-                
-                Button("Open in New Tab") {
-                    if let currentSpace = browserWindowState.currentSpace {
-                        currentSpace.openNewTab(BrowserTab(title: entry.title, favicon: entry.favicon, url: entry.url, order: browserTab.order + 1, browserSpace: currentSpace, type: .web), using: modelContext)
-                    }
-                }
-
-                Divider()
-                
-                Button("Delete Entry") {
-                    modelContext.delete(entry)
-                    try? modelContext.save()
-                }
-            }
     }
 }

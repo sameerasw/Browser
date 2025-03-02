@@ -10,7 +10,7 @@ import SwiftUI
 /// View that represents the webview of a tab, it can be a webview or a history view
 struct WebView: View {
     
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     @Bindable var tab: BrowserTab
     @Bindable var browserSpace: BrowserSpace

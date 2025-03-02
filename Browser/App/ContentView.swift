@@ -17,7 +17,9 @@ struct ContentView: View {
             .focusedSceneValue(\.browserActiveWindowState, browserWindowState)
             .environment(browserWindowState)
             .sheet(isPresented: $browserWindowState.showURLQRCode) {
-                URLQRCodeView(browserTab: browserWindowState.currentSpace?.currentTab)
+                if let currentTab = browserWindowState.currentSpace?.currentTab {
+                    URLQRCodeView(browserTab: currentTab)
+                }
             }
     }
 }

@@ -10,7 +10,7 @@ import UniformTypeIdentifiers
 
 struct DownloadRow: View {
     
-    @Environment(SidebarModel.self) var sidebarModel: SidebarModel
+    @Environment(SidebarModel.self) var sidebarModel
     let download: Download
     
     @State var hover = false

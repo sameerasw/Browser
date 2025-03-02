@@ -12,14 +12,16 @@ import SwiftData
 struct SidebarSpacesTabView: View {
     
     @Environment(\.modelContext) var modelContext
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     let browserSpaces: [BrowserSpace]
-    @Bindable var browserWindowState: BrowserWindowState
+    
     
     @State var appeared = false
     @State var lastWidth = CGFloat.zero
     
     var body: some View {
+        @Bindable var browserWindowState = self.browserWindowState
         ScrollView(.horizontal) {
             LazyHStack(spacing: .zero) {
                 ForEach(browserSpaces) { browserSpace in
@@ -42,7 +44,7 @@ struct SidebarSpacesTabView: View {
         .onChange(of: browserWindowState.viewScrollState) { oldValue, newValue in
             if let newValue {
                 withAnimation(appeared ? .browserDefault : nil) {
-                    browserWindowState.tabBarScrollState = newValue
+                    browserWindowState.viewScrollState = newValue
                     browserWindowState.currentSpace = browserSpaces.first { $0.id == newValue }
                 }
             }

@@ -10,7 +10,7 @@ import SwiftUI
 struct SidebarURL: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     @State var hover = false
         

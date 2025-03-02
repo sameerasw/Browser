@@ -18,13 +18,16 @@ struct HistoryCommands: Commands {
     
     var body: some Commands {
         CommandMenu("History") {
-            Button("Go Back") { browserWindowState?.currentSpace?.currentTab?.webview?.goBack() }
-                .disabled(!(browserWindowState?.currentSpace?.currentTab?.webview?.canGoBack ?? false))
-                .globalKeyboardShortcut(.goBack)
-            
-            Button("Go Forward") { browserWindowState?.currentSpace?.currentTab?.webview?.goForward() }
-                .disabled(!(browserWindowState?.currentSpace?.currentTab?.webview?.canGoForward ?? false))
-                .globalKeyboardShortcut(.goForward)
+            if let webView = browserWindowState?.currentSpace?.currentTab?.webview {
+                
+                Button("Go Back") { webView.goBack() }
+                    .disabled(!webView.canGoBack)
+                    .globalKeyboardShortcut(.goBack)
+                
+                Button("Go Forward") { webView.goForward() }
+                    .disabled(!webView.canGoForward)
+                    .globalKeyboardShortcut(.goForward)
+            }
             
             Divider()
             

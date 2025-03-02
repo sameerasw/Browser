@@ -9,9 +9,7 @@ import SwiftUI
 
 /// View that contains a stack for the loaded tabs in the current space
 struct WebViewStack: View {
-    
     @Bindable var browserSpace: BrowserSpace
-    
     var body: some View {
         ZStack {
             if let currentTab = browserSpace.currentTab {
@@ -23,9 +21,7 @@ struct WebViewStack: View {
                     }
                 }
             } else {
-                Rectangle()
-                    .fill(.ultraThinMaterial)
-                    .opacity(0.2)
+                VisualEffectView(material: .fullScreenUI, blendingMode: .withinWindow)
             }
         }
         .transaction { $0.animation = nil }

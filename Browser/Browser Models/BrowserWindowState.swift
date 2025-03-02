@@ -23,7 +23,6 @@ import SwiftData
         }
     }
     var viewScrollState: UUID?
-    var tabBarScrollState: UUID?
     var searchOpenLocation: SearchOpenLocation? = .none
     
     var showURLQRCode = false
@@ -33,7 +32,7 @@ import SwiftData
     var showActionAlert = false
     
     var isFullScreen = false
-    
+
     private(set) var isMainBrowserWindow: Bool = true
     private(set) var isNoTraceWindow: Bool = false
     
@@ -61,7 +60,7 @@ import SwiftData
     
     /// Toggles the search open location between the URL bar and the new tab
     func toggleNewTabSearch() {
-        if canSpaceOpenNewTab() {
+        if spaceCanOpenNewTab() {
             searchOpenLocation = searchOpenLocation == .fromNewTab ? .none : .fromNewTab
         } else {
             searchOpenLocation = .none
@@ -69,24 +68,22 @@ import SwiftData
     }
     
     /// Checks if the current space can open a new tab
-    func canSpaceOpenNewTab() -> Bool {
+    func spaceCanOpenNewTab() -> Bool {
         !(currentSpace == nil || currentSpace?.name.isEmpty == true)
     }
     
     /// Goes to a space in the browser
-    func goToSpace(_ space: BrowserSpace) {
+    func goToSpace(_ space: BrowserSpace?) {
         withAnimation(.browserDefault) {
             self.currentSpace = space
-            self.viewScrollState = space.id
-            self.tabBarScrollState = space.id
+            self.viewScrollState = space?.id
         }
     }
     
     /// Copies the URL of the current tab to the clipboard
     func copyURLToClipboard() {
-        if let url = currentSpace?.currentTab?.url.absoluteString {
-            NSPasteboard.general.clearContents()
-            NSPasteboard.general.setString(url, forType: .string)
+        if let currentTab = currentSpace?.currentTab {
+            currentTab.copyLink()
             presentActionAlert(message: "Copied Current URL", systemImage: "link")
         }
     }

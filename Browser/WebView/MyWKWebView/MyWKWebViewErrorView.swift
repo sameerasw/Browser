@@ -34,9 +34,7 @@ struct MyWKWebViewErrorView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
-            Rectangle()
-                .fill(.ultraThinMaterial)
-                .opacity(0.2)
+            VisualEffectView(material: .fullScreenUI, blendingMode: .withinWindow)
         }
     }
 }

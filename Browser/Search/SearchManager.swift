@@ -12,7 +12,6 @@ import SwiftData
 @Observable
 class SearchManager {
     
-    var searchOpenLocation: SearchOpenLocation?
     var searchText = ""
     var searchSuggestions: [SearchSuggestion] = []
     var highlightedSearchSuggestionIndex: Int = 0
@@ -24,13 +23,11 @@ class SearchManager {
     /// Sets the initial values from the `BrowserWindowState`
     /// - Parameter browserWindowState: The `BrowserWindowState` to get the initial values from
     func setInitialValuesFromWindowState(_ browserWindowState: BrowserWindowState) {
-        searchOpenLocation = browserWindowState.searchOpenLocation
-        
         if let accentColor = Color(hex: browserWindowState.currentSpace?.colors.first ?? "") {
             self.accentColor = AnyShapeStyle(accentColor)
         }
         
-        if searchOpenLocation == .fromURLBar {
+        if browserWindowState.searchOpenLocation == .fromURLBar {
             searchText = browserWindowState.currentSpace?.currentTab?.url.absoluteString ?? ""
             favicon = browserWindowState.currentSpace?.currentTab?.favicon
         }
@@ -84,11 +81,10 @@ class SearchManager {
                 let matches = regex.matches(in: string, range: NSRange(string.startIndex..., in: string))
                 return matches.compactMap { match -> String? in
                     if let range = Range(match.range(at: 1), in: string) {
-                        var extracted = String(string[range])
+                        let extracted = String(string[range])
+                        return extracted.isEmpty ? nil :
                         // Process Unicode characters
-                        extracted = extracted.applyingTransform(StringTransform("Hex-Any"), reverse: false) ?? extracted
-                        // Don't include empty strings
-                        return extracted.isEmpty ? nil : extracted
+                        extracted.applyingTransform(StringTransform("Hex-Any"), reverse: false) ?? extracted
                     }
                     return nil
                 }
@@ -160,7 +156,7 @@ class SearchManager {
     }
     
     func searchAction(_ searchSuggestion: SearchSuggestion, browserWindowState: BrowserWindowState, using modelContext: ModelContext) {
-        if searchOpenLocation == .fromNewTab {
+        if browserWindowState.searchOpenLocation == .fromNewTab {
             openNewTab(searchSuggestion, browserWindowState: browserWindowState, using: modelContext)
         } else {
             openInCurrentTab(searchSuggestion, browserWindowState: browserWindowState, using: modelContext)

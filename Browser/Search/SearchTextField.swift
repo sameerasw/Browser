@@ -10,12 +10,14 @@ import SwiftUI
 /// Search text field that shows the favicon of the search engine
 struct SearchTextField: View {
     
+    @Environment(BrowserWindowState.self) var browserWindowState
+    
     /// Enum to focus the search text field when it appears
     enum FocusedField {
         case search
         case unfocused
     }
-        
+    
     @Bindable var searchManager: SearchManager
     
     @FocusState private var focusedField: FocusedField?
@@ -28,13 +30,16 @@ struct SearchTextField: View {
             TextField("Where to?", text: $searchManager.searchText)
                 .focused($focusedField, equals: .search)
                 .textFieldStyle(.plain)
-                .font(searchManager.searchOpenLocation == .fromNewTab ? .title2.weight(.semibold) : .body)
+                .font(browserWindowState.searchOpenLocation == .fromNewTab ? .title2.weight(.semibold) : .body)
         }
-        .onChange(of: searchManager.searchOpenLocation) { oldValue, newValue in
-            if newValue == .none {
-                focusedField = .unfocused
+        .onChange(of: browserWindowState.searchOpenLocation) { _, newValue in
+            focusedField = newValue != .none ? .search : .unfocused
+            if newValue == .fromURLBar {
+                DispatchQueue.main.async {
+                    NSApplication.shared.sendAction(#selector(NSResponder.selectAll(_:)), to: nil, from: nil)
+                }
             } else {
-                focusedField = .search
+                searchManager.searchText = ""
             }
         }
     }

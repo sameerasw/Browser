@@ -15,6 +15,7 @@ struct SearchSuggestionResultItem: View {
     @Bindable var searchManager: SearchManager
     let index: Int
     let searchSuggestion: SearchSuggestion
+    let searchOpenLocation: SearchOpenLocation?
     
     @State var isHovering = false
     
@@ -24,7 +25,7 @@ struct SearchSuggestionResultItem: View {
                 .padding(.leading, .sidebarPadding)
             
             Text(searchSuggestion.title)
-                .font(searchManager.searchOpenLocation == .fromNewTab ? .title3 : .body)
+                .font(searchOpenLocation == .fromNewTab ? .title3 : .body)
         }
         .frame(height: 45)
         .frame(maxWidth: .infinity, alignment: .leading)

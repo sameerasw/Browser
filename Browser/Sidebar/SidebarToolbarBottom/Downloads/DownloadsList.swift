@@ -10,7 +10,7 @@ import SwiftUI
 struct DownloadsList: View {
     
     @EnvironmentObject var userPreferences: UserPreferences
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     @State private var downloads: [Download] = []
     
@@ -36,14 +36,13 @@ struct DownloadsList: View {
                         let resourceValues2 = try? $1.resourceValues(forKeys: [.creationDateKey, .contentModificationDateKey])
                         
                         // Take the most recent date
-                        let date1 = max(resourceValues1?.creationDate ?? .distantPast, resourceValues1?.contentModificationDate ?? .distantPast)
-                        let date2 = max(resourceValues2?.creationDate ?? .distantPast, resourceValues2?.contentModificationDate ?? .distantPast)
+                        let date1 = max(resourceValues1?.creationDate ?? .now, resourceValues1?.contentModificationDate ?? .now)
+                        let date2 = max(resourceValues2?.creationDate ?? .now, resourceValues2?.contentModificationDate ?? .now)
                                                 
-                        return date1 > date2
+                        return date1 < date2
                     }
                     .prefix(5)
                     .map { Download(url: $0) }
-                    .reversed()
             } catch {
                 print("Failed to get downloads: \(error.localizedDescription)")
             }

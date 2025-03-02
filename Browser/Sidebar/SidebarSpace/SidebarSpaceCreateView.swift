@@ -13,14 +13,13 @@ struct SidebarSpaceCreateView: View {
     
     @Environment(\.modelContext) var modelContext
     
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     let browserSpaces: [BrowserSpace]
     @Bindable var browserSpace: BrowserSpace
     @State var name = ""
     
     @State var hoverCreateButton = false
-    @State var hoverIcon = false
     
     @State var showIconPicker = false
     @State var colorPopoverIndex: Int? = nil
@@ -31,22 +30,16 @@ struct SidebarSpaceCreateView: View {
         VStack {
             Spacer()
             
-            Image(systemName: browserSpace.systemImage)
-                .padding()
-                .background(hoverIcon ? .gray.opacity(0.3) : .clear)
-                .background(RoundedRectangle(cornerRadius: 8).stroke(.gray))
-                .onTapGesture {
-                    showIconPicker.toggle()
-                }
-                .onHover { hover in
-                    hoverIcon = hover
-                }
-                .sheet(isPresented: $showIconPicker) {
-                    SymbolPicker(symbol: $browserSpace.systemImage)
-                }
+            Button("Select Icon", systemImage: browserSpace.systemImage) {
+                showIconPicker.toggle()
+            }
+            .buttonStyle(.sidebarHover(padding: 8, cornerRadius: 8))
+            .background(RoundedRectangle(cornerRadius: 8).stroke(.gray))
+            .sheet(isPresented: $showIconPicker) {
+                SymbolPicker(symbol: $browserSpace.systemImage)
+            }
             
             TextField("Space Name", text: $name)
-                .frame(maxWidth: .infinity)
                 .textFieldStyle(.plain)
                 .padding(5)
                 .background(RoundedRectangle(cornerRadius: 8).stroke(.gray))

@@ -12,8 +12,8 @@ struct SidebarBottomToolbar: View {
     
     @Environment(\.modelContext) var modelContext
     
-    @Environment(SidebarModel.self) var sidebarModel: SidebarModel
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(SidebarModel.self) var sidebarModel
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     @EnvironmentObject var userPreferences: UserPreferences
     

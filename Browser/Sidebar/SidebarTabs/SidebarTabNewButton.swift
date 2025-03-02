@@ -12,7 +12,7 @@ struct SidebarTabNewButton: View {
     
     @Environment(\.modelContext) var modelContext
     
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     @Bindable var browserSpace: BrowserSpace
     @State var isHovering = false

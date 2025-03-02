@@ -10,7 +10,7 @@ import SwiftUI
 /// An alert that displays an action that was performed by the user
 struct ActionAlert: ViewModifier {
     
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     @State var dismissTimer: Timer?
     
@@ -31,9 +31,11 @@ struct ActionAlert: ViewModifier {
                             .font(.system(size: 14, weight: .medium))
                             .padding()
                             .background {
-                                if let currentSpace = browserWindowState.currentSpace {
+                                if let currentSpace = browserWindowState.currentSpace, !currentSpace.colors.isEmpty {
                                     SidebarSpaceBackground(browserSpace: currentSpace, isSidebarCollapsed: true)
                                         .background(.ultraThinMaterial)
+                                } else {
+                                    VisualEffectView(material: .fullScreenUI, blendingMode: .withinWindow)
                                 }
                             }
                             .clipShape(.rect(cornerRadius: 12))

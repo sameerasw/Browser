@@ -7,22 +7,10 @@
 
 import AppKit
 
-// Helpers to convert NSImages to PNG data
-
-fileprivate extension NSBitmapImageRep {
-    var png: Data? {
-        representation(using: .png, properties: [:])
-    }
-}
-
-fileprivate extension Data {
-    var bitmap: NSBitmapImageRep? {
-        NSBitmapImageRep(data: self)
-    }
-}
-
 extension NSImage {
+    /// Convert an NSImage to PNG data
     var pngData: Data? {
-        tiffRepresentation?.bitmap?.png
+        guard let tiffRepresentation = tiffRepresentation else { return nil }
+        return NSBitmapImageRep(data: tiffRepresentation)?.representation(using: .png, properties: [:])
     }
 }

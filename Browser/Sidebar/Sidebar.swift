@@ -12,10 +12,10 @@ struct Sidebar: View {
     
     @Environment(\.modelContext) var modelContext
     
-    @Environment(SidebarModel.self) var sidebarModel: SidebarModel
+    @Environment(SidebarModel.self) var sidebarModel
     
     @EnvironmentObject var userPreferences: UserPreferences
-    @Environment(BrowserWindowState.self) var browserWindowState: BrowserWindowState
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     let browserSpaces: [BrowserSpace]
     
@@ -23,7 +23,7 @@ struct Sidebar: View {
         VStack {
             SidebarToolbar(browserSpaces: browserSpaces)
             SidebarURL()
-            SidebarSpacesTabView(browserSpaces: browserSpaces, browserWindowState: browserWindowState)
+            SidebarSpacesTabView(browserSpaces: browserSpaces)
             SidebarBottomToolbar(browserSpaces: browserSpaces, createSpace: createSpace)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -32,7 +32,7 @@ struct Sidebar: View {
         .padding(.trailing, userPreferences.sidebarPosition == .trailing ? .sidebarPadding * 2 : 0)
         .gesture(WindowDragGesture()) // Move the browser window by dragging the sidebar
         .task {
-            if browserSpaces.isEmpty || !NSApp.isKeyWindowOfTypeMain {
+            if browserSpaces.isEmpty || (!NSApp.isKeyWindowOfTypeMain && !NSApp.isKeyWindowSettings) {
                 createSpace()
             }
         }
