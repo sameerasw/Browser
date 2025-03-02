@@ -36,6 +36,7 @@ class FloatingPanel<Content: View>: NSPanel {
         // Allow the panel to be on top of other windows
         isFloatingPanel = true
         level = .floating
+        backgroundColor = .clear
         
         // Allow the pannel to be overlaid in a fullscreen space
         collectionBehavior.insert(.fullScreenAuxiliary)

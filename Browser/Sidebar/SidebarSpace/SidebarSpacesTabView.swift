@@ -16,12 +16,10 @@ struct SidebarSpacesTabView: View {
     
     let browserSpaces: [BrowserSpace]
     
-    
     @State var appeared = false
     @State var lastWidth = CGFloat.zero
     
     var body: some View {
-        @Bindable var browserWindowState = self.browserWindowState
         ScrollView(.horizontal) {
             LazyHStack(spacing: .zero) {
                 ForEach(browserSpaces) { browserSpace in
@@ -36,7 +34,13 @@ struct SidebarSpacesTabView: View {
             }
             .scrollTargetLayout()
         }
-        .scrollPosition(id: $browserWindowState.viewScrollState, anchor: .center)
+        .scrollPosition(id: .init(get: {
+            browserWindowState.viewScrollState
+        }, set: { position in
+            if browserWindowState.viewScrollState != position {   
+                browserWindowState.goToSpace(browserSpaces.first { $0.id == position })
+            }
+        }), anchor: .center)
         .scrollContentBackground(.hidden)
         .scrollIndicators(.hidden)
         .scrollTargetBehavior(.paging)

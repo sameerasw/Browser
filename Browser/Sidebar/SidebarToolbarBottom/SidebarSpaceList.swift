@@ -26,8 +26,7 @@ struct SidebarSpaceList: View {
         }
         .scrollPosition(id: .init(get: {
             browserWindowState.viewScrollState
-        }, set: { _ in
-        }), anchor: .center)
+        }, set: { _ in }), anchor: .center)
         .scrollIndicators(.hidden)
         .frame(height: 25)
     }

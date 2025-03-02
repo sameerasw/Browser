@@ -33,7 +33,7 @@ struct MainFrame: View {
                 }
             }
             
-            PageWebView(browserSpaces: browserSpaces, browserWindowState: browserWindowState)
+            PageWebView(browserSpaces: browserSpaces)
                 .clipShape(.rect(cornerRadius: isImmersive ? 0 : userPreferences.roundedCorners ? 8 : 0))
                 .shadow(radius: isImmersive ? 0 : userPreferences.enableShadow ? 3 : 0)
                 .padding([.top, .bottom], isImmersive ? 0 : userPreferences.enablePadding ? 10 : 0)

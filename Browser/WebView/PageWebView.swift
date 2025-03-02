@@ -12,11 +12,14 @@ import SwiftData
 struct PageWebView: View {
     
     @Environment(\.scenePhase) var scenePhase
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     @EnvironmentObject var userPreferences: UserPreferences
     
     let browserSpaces: [BrowserSpace]
-    @Bindable var browserWindowState: BrowserWindowState
+    
+    // UUID to scroll to the current space (using browserWindowState.viewScrollState doesn't work)
+    @State var scrollState: UUID?
     
     var body: some View {
         ScrollView(.horizontal) {
@@ -26,12 +29,16 @@ struct PageWebView: View {
                         .containerRelativeFrame(.horizontal, count: 1, spacing: 0)
                 }
             }
+            .scrollTargetLayout()
         }
-        .scrollPosition(id: $browserWindowState.viewScrollState, anchor: .center)
+        .scrollPosition(id: $scrollState, anchor: .center)
         .scrollDisabled(true)
         .scrollContentBackground(.hidden)
         .scrollIndicators(.hidden)
         .scrollTargetBehavior(.paging)
+        .onChange(of: browserWindowState.currentSpace) { _, newValue in
+            scrollState = newValue?.id
+        }
         .transaction { $0.disablesAnimations = true }
         // Try to enter Picture in Picture of current tab when tab changes or app goes to background
         .onChange(of: browserWindowState.currentSpace?.currentTab) { oldValue, newValue in
