@@ -205,5 +205,6 @@ class MyWKWebView: WKWebView {
         evaluateJavaScript(jsCode)
     }
     
+    //MARK: - Variables for Context Menus
     weak var currentNSSavePanel: NSSavePanel?
 }
