@@ -38,9 +38,13 @@ struct SidebarToolbar: View {
                 
                 SidebarToolbarButton("arrow.trianglehead.clockwise", disabled: browserWindowState.currentSpace?.currentTab == nil, action: refreshButtonAction)
             }
-            .frame(alignment: .top)
             .padding(.top, .approximateTrafficLightsTopPadding)
             .padding(.trailing, .sidebarPadding)
+        }
+        .frame(height: 38)
+        .background {
+            Rectangle()
+                .fill(.black.opacity(0.0001))
         }
     }
     

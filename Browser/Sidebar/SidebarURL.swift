@@ -30,7 +30,7 @@ struct SidebarURL: View {
                 }
             }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity)
         .frame(height: 30)
         .padding(3)
         .background(browserWindowState.currentSpace?.textColor(in: colorScheme) == .black ? AnyShapeStyle(.ultraThinMaterial).opacity(hover ? 0.6 : 0.3) : AnyShapeStyle(Color.white).opacity(hover ? 0.1 : 0.05))
