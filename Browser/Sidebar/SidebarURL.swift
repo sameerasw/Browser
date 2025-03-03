@@ -13,7 +13,7 @@ struct SidebarURL: View {
     @Environment(BrowserWindowState.self) var browserWindowState
     
     @State var hover = false
-        
+    
     var body: some View {
         HStack {
             if let currentTab = browserWindowState.currentSpace?.currentTab {
@@ -33,7 +33,13 @@ struct SidebarURL: View {
         .frame(maxWidth: .infinity)
         .frame(height: 30)
         .padding(3)
-        .background(browserWindowState.currentSpace?.textColor(in: colorScheme) == .black ? AnyShapeStyle(.ultraThinMaterial).opacity(hover ? 0.6 : 0.3) : AnyShapeStyle(Color.white).opacity(hover ? 0.1 : 0.05))
+        .background(
+            browserWindowState.currentSpace?.textColor(in: colorScheme) == .black ?
+            AnyShapeStyle(.ultraThinMaterial).opacity(hover ? 0.6 : 0.3) :
+                browserWindowState.currentSpace?.colors.isEmpty == true && colorScheme == .light ?
+            AnyShapeStyle(.gray).opacity(hover ? 0.3 : 0.2) :
+                AnyShapeStyle(Color.white).opacity(hover ? 0.1 : 0.05)
+        )
         .clipShape(.rect(cornerRadius: 10))
         .padding(.leading, .sidebarPadding)
         .onTapGesture {
