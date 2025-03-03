@@ -7,6 +7,7 @@
 
 import Combine
 import SwiftUI
+import SwiftData
 import WebKit
 
 extension WKWebViewControllerRepresentable {
@@ -40,8 +41,20 @@ extension WKWebViewControllerRepresentable {
         func addTabToHistory() {
             guard NSApp.isKeyWindowOfTypeMain else { return }
             do {
-                let historyEntry = BrowserHistoryEntry(title: self.parent.tab.title, url: self.parent.tab.url, favicon: self.parent.tab.favicon)
-                self.parent.modelContext.insert(historyEntry)
+                var fetchDescriptor = FetchDescriptor<BrowserHistoryEntry>(
+                    sortBy: [.init(\.date, order: .reverse)],
+                )
+                fetchDescriptor.fetchLimit = 1
+                
+                let lastHistoryEntry = try self.parent.modelContext.fetch(fetchDescriptor).first
+                
+                if let lastHistoryEntry, lastHistoryEntry.url == self.parent.tab.url {
+                    lastHistoryEntry.date = Date()
+                } else {
+                    let historyEntry = BrowserHistoryEntry(title: self.parent.tab.title, url: self.parent.tab.url, favicon: self.parent.tab.favicon)
+                    self.parent.modelContext.insert(historyEntry)
+                }
+                
                 try self.parent.modelContext.save()
             } catch {
                 print("Error saving history tab: \(error)")

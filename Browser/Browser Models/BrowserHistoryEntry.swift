@@ -15,7 +15,7 @@ final class BrowserHistoryEntry: Identifiable {
     private(set) var title: String
     private(set) var url: URL
     private(set) var favicon: Data?
-    private(set) var date: Date
+    var date: Date
     
     init(id: UUID = UUID(), title: String, url: URL, favicon: Data?, date: Date = .now) {
         self.id = id
