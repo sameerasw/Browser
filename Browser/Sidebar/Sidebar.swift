@@ -32,13 +32,16 @@ struct Sidebar: View {
         .padding(.trailing, userPreferences.sidebarPosition == .trailing ? .sidebarPadding * 2 : 0)
         .gesture(WindowDragGesture()) // Move the browser window by dragging the sidebar
         .task {
-            if browserSpaces.isEmpty || (!NSApp.isKeyWindowOfTypeMain && !NSApp.isKeyWindowSettings) {
+            if browserSpaces.isEmpty {
+                createSpace()
+            } else if !NSApp.isKeyWindowOfTypeMain && !NSApp.isKeyWindowSettings && browserSpaces.isEmpty {
                 createSpace()
             }
         }
-        .onReceive(NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)) { _ in
+        .onReceive(NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)) { notification in
             // If the window is not the main browser window, delete the window temporary space
             if !browserWindowState.isMainBrowserWindow {
+                guard NSWindow.hasPrefix("Browser", in: notification.object as? NSWindow) else { return }
                 do {
                     guard let space = browserWindowState.currentSpace else { return }
                     space.tabs.forEach { modelContext.delete($0) }

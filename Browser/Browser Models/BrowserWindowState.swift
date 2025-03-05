@@ -19,11 +19,20 @@ import SwiftData
                 } else {
                     UserDefaults.standard.removeObject(forKey: "currentBrowserSpace")
                 }
+            } else if isNoTraceWindow {
+                print("No Trace Window", currentSpace?.name as Any)
             }
         }
     }
     var viewScrollState: UUID?
+    
     var searchOpenLocation: SearchOpenLocation? = .none
+    var searchPanelOrigin: CGPoint {
+        searchOpenLocation == .fromNewTab ? .zero : CGPoint(x: 5, y: 50)
+    }
+    var searchPanelSize: CGSize {
+        searchOpenLocation == .fromNewTab ? CGSize(width: 700, height: 300) : CGSize(width: 400, height: 300)
+    }
     
     var showURLQRCode = false
     
@@ -52,9 +61,9 @@ import SwiftData
               let uuid = UUID(uuidString: spaceId) else { return }
         
         if let space = browserSpaces.first(where: { $0.id == uuid }) {
+            goToSpace(space)
             currentSpace?.currentTab = nil
             currentSpace?.loadedTabs.removeAll()
-            goToSpace(space)
         }
     }
     
@@ -75,6 +84,7 @@ import SwiftData
     /// Goes to a space in the browser
     func goToSpace(_ space: BrowserSpace?) {
         withAnimation(.browserDefault) {
+            print("Go to space", space?.name as Any)
             self.currentSpace = space
             self.viewScrollState = space?.id
         }

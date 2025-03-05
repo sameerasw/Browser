@@ -58,8 +58,7 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     /// Restore the window position and size when the window becomes key
     @objc func windowDidBecomeKey(_ notification: Notification) {
         guard let window = notification.object as? NSWindow,
-              let windowId = window.identifier?.rawValue,
-              windowId.contains("Browser")
+                NSWindow.hasPrefix("Browser", in: window)
         else { return }
         
         checkForNewWindows(window)
@@ -92,20 +91,18 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     @objc func windowDidResizeOrMove(_ notification: Notification) {
         guard let window = notification.object as? NSWindow,
-              let windowId = window.identifier?.rawValue,
-              windowId.hasPrefix("BrowserWindow")
+                NSWindow.hasPrefix("BrowserWindow", in: window)
         else { return }
-        
         saveWindowPositionAndSize(window)
     }
     
     func windowShouldClose(_ sender: NSWindow) -> Bool {
-        windowWasClosed = NSApp.windows.filter { $0.identifier?.rawValue.hasPrefix("BrowserWindow") == true }.count - 1 == 0
+        windowWasClosed = NSApp.windows.filter { $0.identifier?.rawValue.hasPrefix("Browser") == true }.count - 1 == 0
         return true
     }
     
     @objc func checkForNewWindows(_ sender: NSWindow) {
-        let currentWindows = NSApp.windows.filter { $0.identifier?.rawValue.hasPrefix("BrowserWindow") == true }
+        let currentWindows = NSApp.windows.filter { $0.identifier?.rawValue.hasPrefix("Browser") == true }
         newWindowOpened = currentWindows.count > lastWindows.count || !lastWindows.compactMap { $0.identifier?.rawValue }.contains(sender.identifier?.rawValue)
         lastWindows = currentWindows
     }
@@ -115,10 +112,7 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     /// - Note: Only save the window position and size if the window is a BrowserWindow
     func saveWindowPositionAndSize(_ window: NSWindow) {
         guard !windowWasClosed || !newWindowOpened else { return }
-        guard let windowId = window.identifier?.rawValue,
-              windowId.hasPrefix("BrowserWindow") else {
-            return
-        }
+        guard NSWindow.hasPrefix("BrowserWindow", in: window) else { return }
         
         let windowFrame = window.frame
         UserDefaults.standard.set(windowFrame.origin.x, forKey: "windowOriginX")

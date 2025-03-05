@@ -78,7 +78,7 @@ struct MainFrame: View {
             if !newValue {
                 browserWindowState.searchOpenLocation = .none
             }
-        }), origin: browserWindowState.searchOpenLocation == .fromNewTab ? .zero : CGPoint(x: 5, y: 50) , size: browserWindowState.searchOpenLocation == .fromNewTab ? CGSize(width: 700, height: 300) : CGSize(width: 400, height: 300), shouldCenter: browserWindowState.searchOpenLocation == .fromNewTab) {
+        }), origin: browserWindowState.searchPanelOrigin, size: browserWindowState.searchPanelSize, shouldCenter: browserWindowState.searchOpenLocation == .fromNewTab) {
             SearchView()
                 .environment(browserWindowState)
         }
