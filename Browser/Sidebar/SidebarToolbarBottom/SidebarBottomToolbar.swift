@@ -19,6 +19,10 @@ struct SidebarBottomToolbar: View {
     
     let browserSpaces: [BrowserSpace]
     let createSpace: () -> Void
+    
+    var foregroundColor: Color {
+        browserWindowState.currentSpace?.textColor(in: colorScheme) ?? .primary
+    }
         
     var body: some View {
         HStack {
@@ -34,7 +38,7 @@ struct SidebarBottomToolbar: View {
                     }
                 }
             }
-            .buttonStyle(.sidebarHover(padding: 2))
+            .buttonStyle(.sidebarHover(padding: 2, enabledColor: foregroundColor))
             .contextMenu {
                 Button("Open Downloads Folder") {
                     if let downloadURL = userPreferences.downloadURL {
@@ -49,7 +53,7 @@ struct SidebarBottomToolbar: View {
                     .resizable()
                     .fontWeight(.bold)
                     .scaledToFit()
-                    .foregroundStyle(browserWindowState.currentSpace?.textColor(in: colorScheme) ?? .primary)
+                    .foregroundStyle(foregroundColor)
                     .frame(width: sidebarModel.isAnimatingDownloads ? 125 : 7)
                     .offset(y: sidebarModel.isAnimatingDownloads ? -125 : 0)
                     .rotationEffect(.degrees(sidebarModel.isAnimatingDownloads ? 20 : 0))

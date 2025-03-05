@@ -11,6 +11,7 @@ import SwiftUI
 struct SearchSuggestionResultItem: View {
     
     @Environment(\.colorScheme) var colorScheme
+    @Environment(BrowserWindowState.self) var browserWindowState
     
     @Bindable var searchManager: SearchManager
     let index: Int
@@ -27,6 +28,7 @@ struct SearchSuggestionResultItem: View {
             Text(searchSuggestion.title)
                 .font(searchOpenLocation == .fromNewTab ? .title3 : .body)
         }
+        .foregroundStyle(searchManager.highlightedSearchSuggestionIndex == index ? browserWindowState.currentSpace?.textColor(in: colorScheme) ?? .primary : .primary)
         .frame(height: 45)
         .frame(maxWidth: .infinity, alignment: .leading)
         // Highlight the selected search suggestion item or the hovered item
