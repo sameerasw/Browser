@@ -11,7 +11,7 @@ import SwiftUI
 struct SidebarBottomToolbar: View {
     
     @Environment(\.modelContext) var modelContext
-    
+    @Environment(\.colorScheme) var colorScheme
     @Environment(SidebarModel.self) var sidebarModel
     @Environment(BrowserWindowState.self) var browserWindowState
     
@@ -49,6 +49,7 @@ struct SidebarBottomToolbar: View {
                     .resizable()
                     .fontWeight(.bold)
                     .scaledToFit()
+                    .foregroundStyle(browserWindowState.currentSpace?.textColor(in: colorScheme) ?? .primary)
                     .frame(width: sidebarModel.isAnimatingDownloads ? 125 : 7)
                     .offset(y: sidebarModel.isAnimatingDownloads ? -125 : 0)
                     .rotationEffect(.degrees(sidebarModel.isAnimatingDownloads ? 20 : 0))

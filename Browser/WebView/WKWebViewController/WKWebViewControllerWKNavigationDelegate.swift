@@ -6,6 +6,7 @@
 //
 
 import WebKit
+import UniformTypeIdentifiers
 
 /// WKNavigationDelegate implementation for WKWebViewController
 extension WKWebViewController: WKNavigationDelegate {
@@ -29,9 +30,9 @@ extension WKWebViewController: WKNavigationDelegate {
         coordinator.addTabToHistory()
         
         self.webView.setZoomFactor(self.webView.savedZoomFactor())
-     
-        tab.webviewErrorCode = nil
-        tab.webviewErrorDescription = nil
+        
+        self.tab.webviewErrorCode = nil
+        self.tab.webviewErrorDescription = nil
     }
     
     /// Called when the web view fails loading a page
@@ -48,23 +49,31 @@ extension WKWebViewController: WKNavigationDelegate {
     
     /// Decided what type of navigation to allow (download, allow.)
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping @MainActor (WKNavigationResponsePolicy) -> Void) {
-        guard navigationResponse.response.mimeType != nil else {
+        guard let mimeType = navigationResponse.response.mimeType, let type = UTType(mimeType: mimeType)  else {
             decisionHandler(.allow)
             return
         }
         
-        if navigationResponse.canShowMIMEType {
-            decisionHandler(.allow)
-        } else {
-            print("🔵 Decision is of type download")
+        if !navigationResponse.canShowMIMEType {
             decisionHandler(.download)
+        } else {
+            if type.conforms(toAny: [.image, .video, .audio]) {
+                decisionHandler(.download)
+            } else {
+                decisionHandler(.allow)
+            }
         }
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
+        print("🔵 Deciding policy for navigation action")
+        decisionHandler(.allow)
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: any Error) {
         let error = error as NSError
-        tab.webviewErrorDescription = error.localizedDescription
-        tab.webviewErrorCode = error.code
+        self.tab.webviewErrorDescription = error.localizedDescription
+        self.tab.webviewErrorCode = error.code
         print("🔴 Failed provisional navigation with error: \(error.localizedDescription) with code \(error.code)")
     }
 }

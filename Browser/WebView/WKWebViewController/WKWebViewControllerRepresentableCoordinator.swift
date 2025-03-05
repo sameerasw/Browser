@@ -61,6 +61,7 @@ extension WKWebViewControllerRepresentable {
             }
         }
         
+        
         func toggleDownloadAnimation() {
             self.parent.sidebarModel.isAnimatingDownloads.toggle()
         }

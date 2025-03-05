@@ -33,6 +33,7 @@ struct DownloadRow: View {
             VStack(alignment: .leading) {
                 Text(download.name)
                     .font(.headline)
+                    .lineLimit(2)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
