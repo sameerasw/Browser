@@ -12,7 +12,7 @@ extension MyWKWebView {
         let item = NSMenuItem(title: "Translate Using Google", action: nil, keyEquivalent: "")
         let menu = NSMenu(title: "Translate Using Google")
         item.submenu = menu
-        
+                
         let languages = [
             ("Acehnese", "ace"),
             ("Acholi", "ach"),
@@ -209,9 +209,19 @@ extension MyWKWebView {
             ("Zulu", "zu")
         ]
         
+        if let recentTranslatedLanguages = UserDefaults.standard.array(forKey: "RecentTranslatedLanguages") as? [[String: String]], !recentTranslatedLanguages.isEmpty {
+            menu.addItem(NSMenuItem(title: "Recent", action: nil, keyEquivalent: ""))
+            for recentTranslatedLanguage in recentTranslatedLanguages {
+                let item = NSMenuItem(title: recentTranslatedLanguage["name"] ?? "", action: #selector(translate(_:)), keyEquivalent: "")
+                item.representedObject = (recentTranslatedLanguage["name"], recentTranslatedLanguage["code"])
+                menu.addItem(item)
+            }
+            menu.addItem(.separator())
+        }
+        
         for language in languages {
             let item = NSMenuItem(title: language.0, action: #selector(translate(_:)), keyEquivalent: "")
-            item.representedObject = language.1
+            item.representedObject = language
             menu.addItem(item)
         }
         
@@ -219,7 +229,13 @@ extension MyWKWebView {
     }
     
     @objc func translate(_ sender: NSMenuItem) {
-        guard let languageCode = sender.representedObject as? String else { return }
+        guard let language = sender.representedObject as? (String, String) else { return }
+        let languageCode = language.1
+        
+        var recentTranslatedLanguages = UserDefaults.standard.array(forKey: "RecentTranslatedLanguages") as? [[String: String]] ?? []
+        recentTranslatedLanguages.removeAll { $0["code"] == languageCode }
+        recentTranslatedLanguages.insert(["name": language.0, "code": languageCode], at: 0)
+        UserDefaults.standard.set(recentTranslatedLanguages, forKey: "RecentTranslatedLanguages")
         
         let getTextScript = """
             function getText() {
