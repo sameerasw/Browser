@@ -1,7 +1,7 @@
 # Browser
 ### A very work-in-progress Arc-inspired browser for macOS.
 
-![Browser Hero](https://i.ibb.co/svPN1BMZ/Browser-Hero-2.png)
+<img width="1512" alt="Browser Hero" src="https://github.com/user-attachments/assets/effe72a5-b0c4-40f6-83f1-fcc199e85369" />
 
 ## Motivation
 
@@ -12,7 +12,7 @@ This browser **—still without a name or icon—** is just a fun side project t
 - _SwiftData_: Persists data such as Spaces and Tabs.
 - _WebKit_: The Browser's Engine.
 
-![Browser with No-Trace Window](https://i.ibb.co/Nnd6JHLX/Browser-Hero.png)
+<img width="1512" alt="Browser with No-Trace Window" src="https://github.com/user-attachments/assets/a761c164-ece6-4f6d-bba6-e012d307a670" />
 
 ## Features
 
