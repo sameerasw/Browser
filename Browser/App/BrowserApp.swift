@@ -35,7 +35,6 @@ struct BrowserApp: App {
                 .frame(minWidth: 400, minHeight: 200)
         }
         .windowStyle(.hiddenTitleBar)
-        .windowToolbarStyle(.unified(showsTitle: false))
         .modelContainer(for: [BrowserSpace.self, BrowserTab.self, BrowserHistoryEntry.self], inMemory: inMemory)
     }
     

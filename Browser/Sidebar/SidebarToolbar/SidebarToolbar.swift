@@ -19,24 +19,25 @@ struct SidebarToolbar: View {
     
     let browserSpaces: [BrowserSpace]
     
+    var currentTab: BrowserTab? {
+        browserWindowState.currentSpace?.currentTab
+    }
+    
     var body: some View {
         LazyVStack(alignment: .leading) {
             HStack {
-                // Only add padding if the sidebar is on the leading side
-                if userPreferences.sidebarPosition == .leading {
-                    Spacer(minLength: 85)
-                }
-                
                 SidebarToolbarButton(userPreferences.sidebarPosition == .leading ? "sidebar.left" : "sidebar.right", action: sidebarModel.toggleSidebar)
                     .padding(.leading, userPreferences.sidebarPosition == .trailing ? 5 : 0)
+                // Only add padding if the sidebar is on the leading side
+                    .padding(.leading, userPreferences.sidebarPosition == .leading ? 85 : 0)
                 
                 Spacer()
                 
-                SidebarToolbarButton("arrow.left", disabled: browserWindowState.currentSpace?.currentTab?.canGoBack == false, action: backButtonAction)
+                SidebarToolbarButton("arrow.left", disabled: currentTab == nil || currentTab?.canGoBack == false, action: backButtonAction)
                 
-                SidebarToolbarButton("arrow.right", disabled: browserWindowState.currentSpace?.currentTab?.canGoForward == false, action: forwardButtonAction)
+                SidebarToolbarButton("arrow.right", disabled: currentTab == nil || currentTab?.canGoForward == false, action: forwardButtonAction)
                 
-                SidebarToolbarButton("arrow.trianglehead.clockwise", disabled: browserWindowState.currentSpace?.currentTab == nil, action: refreshButtonAction)
+                SidebarToolbarButton("arrow.trianglehead.clockwise", disabled: currentTab == nil, action: refreshButtonAction)
             }
             .padding(.top, .approximateTrafficLightsTopPadding)
             .padding(.trailing, .sidebarPadding)
@@ -65,8 +66,8 @@ struct SidebarToolbar: View {
     
     private func forwardButtonAction() {
         guard let currentSpace = browserWindowState.currentSpace,
-                let currentTab = browserWindowState.currentSpace?.currentTab,
-                let forwardItem = currentTab.webview?.backForwardList.forwardItem
+              let currentTab = browserWindowState.currentSpace?.currentTab,
+              let forwardItem = currentTab.webview?.backForwardList.forwardItem
         else { return }
         
         if NSEvent.modifierFlags.contains(.command) {
@@ -80,7 +81,7 @@ struct SidebarToolbar: View {
     
     private func refreshButtonAction() {
         guard let currentSpace = browserWindowState.currentSpace,
-                let currentTab = browserWindowState.currentSpace?.currentTab
+              let currentTab = browserWindowState.currentSpace?.currentTab
         else { return }
         
         if NSEvent.modifierFlags.contains(.command) {

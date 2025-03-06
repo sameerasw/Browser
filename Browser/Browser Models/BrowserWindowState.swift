@@ -35,6 +35,7 @@ import SwiftData
     }
     
     var showURLQRCode = false
+    var showAcknowledgements = false
     
     var actionAlertMessage = ""
     var actionAlertSystemImage = ""
@@ -84,7 +85,6 @@ import SwiftData
     /// Goes to a space in the browser
     func goToSpace(_ space: BrowserSpace?) {
         withAnimation(.browserDefault) {
-            print("Go to space", space?.name as Any)
             self.currentSpace = space
             self.viewScrollState = space?.id
         }

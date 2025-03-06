@@ -8,7 +8,17 @@
 import SwiftUI
 
 struct BrowserCommands: Commands {
+    
+    @FocusedValue(\.browserActiveWindowState) var browserActiveWindowState
+    
     var body: some Commands {
+        
+        CommandGroup(after: .appInfo) {
+            Button("Acknowledgements") {
+                browserActiveWindowState?.showAcknowledgements.toggle()
+            }
+        }
+        
         FileCommands()
         EditCommands()
         ViewCommands()

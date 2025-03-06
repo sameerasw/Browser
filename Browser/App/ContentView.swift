@@ -21,5 +21,9 @@ struct ContentView: View {
                     URLQRCodeView(browserTab: currentTab)
                 }
             }
+            .floatingPanel(isPresented: $browserWindowState.showAcknowledgements, size: CGSize(width: 500, height: 300)) {
+                Acknowledgments()
+                    .environment(browserWindowState)
+            }
     }
 }
