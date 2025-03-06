@@ -1,18 +1,13 @@
 [
     {
         "trigger": {
+            "action": {
+                "type": "block"
+            },
             "url-filter": ".*",
+            "load-type": ["third-party"],
             "resource-type": ["script"],
-            "load-type": ["third-party"]
-        },
-        "action": {
-            "type": "block"
-        }
-    },
-    {
-        "trigger":{
-            "url-filter":".*",
-            "if-domain":[
+            "if-domain": [
                 "analytics.163.com",
                 "crash.163.com",
                 "iad.g.163.com",
@@ -6554,9 +6549,6 @@
                 "zucks.net",
                 "log-collector.svctr.zynga.com"
             ]
-        },
-        "action":{
-            "type":"block"
         }
     }
 ]
