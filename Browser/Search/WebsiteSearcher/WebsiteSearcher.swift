@@ -25,7 +25,10 @@ extension WebsiteSearcher {
         searchManager.searchTask?.cancel()
         searchManager.highlightedSearchSuggestionIndex = 0
         
-        guard !query.isEmpty else { return }
+        guard !query.isEmpty else {
+            searchManager.searchSuggestions = []
+            return
+        }
         
         if !searchManager.searchSuggestions.isEmpty {
             searchManager.searchSuggestions.remove(at: 0)

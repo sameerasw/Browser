@@ -21,6 +21,7 @@ struct SearchView: View {
     var body: some View {
         VStack(spacing: 0) {
             SearchTextField(searchManager: searchManager)
+                .frame(height: 25)
             
             Divider()
                 .padding(.top, 5)
@@ -40,7 +41,6 @@ struct SearchView: View {
         .onKeyPress(.upArrow, action: searchManager.handleUpArrow)
         .onKeyPress(.downArrow, action: searchManager.handleDownArrow)
         .onKeyPress(.tab, action: searchManager.handleTab)
-        .onKeyPress(.delete, action: searchManager.handleDelete)
         .onChange(of: searchManager.searchText) { _, newValue in
             searchManager.fetchSearchSuggestions(newValue)
         }

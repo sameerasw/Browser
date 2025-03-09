@@ -8,12 +8,17 @@
 import Foundation
 
 enum SearchEngine: CaseIterable {
+    
     case google
+    case bing
     
     /// The search engine to use
     var searcher: WebsiteSearcher {
         switch self {
-        case .google: GoogleSearcher()
+        case .google:
+            GoogleSearcher()
+        case .bing:
+            BingSearcher()
         }
     }
     

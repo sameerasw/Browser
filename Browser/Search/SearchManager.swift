@@ -16,12 +16,21 @@ class SearchManager {
     var searchSuggestions: [SearchSuggestion] = []
     var highlightedSearchSuggestionIndex: Int = 0
     var favicon: Data?
-    var accentColor = AnyShapeStyle(.blue.gradient)
+    
+    private var _accentColor = Color.blue
+    var accentColor: Color {
+        if isUsingWebsiteSearcher {
+            return activeWebsiteSearcher.color
+        } else {
+            return _accentColor
+        }
+    }
     
     var matchedWebsiteSearcher: SearchEngine {
         SearchEngine.allCases.first(where: { $0.title.lowercased().hasPrefix(searchText.lowercased()) }) ?? .google
     }
     var isUsingWebsiteSearcher: Bool = false
+    var activeWebsiteSearcher = SearchEngine.google.searcher
     
     var searchTask: Task<Void, Never>?
     
@@ -29,7 +38,7 @@ class SearchManager {
     /// - Parameter browserWindowState: The `BrowserWindowState` to get the initial values from
     func setInitialValuesFromWindowState(_ browserWindowState: BrowserWindowState) {
         if let accentColor = Color(hex: browserWindowState.currentSpace?.colors.first ?? "") {
-            self.accentColor = AnyShapeStyle(accentColor)
+            self._accentColor = accentColor
         }
         
         if browserWindowState.searchOpenLocation == .fromURLBar {
@@ -41,7 +50,7 @@ class SearchManager {
     /// Handles the search action
     /// - Parameters: searchText: The autocomplete text to search
     func fetchSearchSuggestions(_ searchText: String) {
-        matchedWebsiteSearcher.searcher.fetchSearchSuggestions(for: searchText, in: self)
+        activeWebsiteSearcher.fetchSearchSuggestions(for: searchText, in: self)
     }
     
     /// Move the highlighted search suggestion index up
@@ -72,23 +81,15 @@ class SearchManager {
     func handleTab() -> KeyPress.Result {
         withAnimation(.browserDefault) {
             if isUsingWebsiteSearcher {
-                isUsingWebsiteSearcher = false
+                resetWebsiteSearcher()
             } else if matchedWebsiteSearcher != .google {
                 isUsingWebsiteSearcher = true
+                activeWebsiteSearcher = matchedWebsiteSearcher.searcher
+                searchText = ""
             }
         }
         
         return .handled
-    }
-    
-    /// Handle the delete key press, if the search text is empty, removes the search engine
-    func handleDelete() -> KeyPress.Result {
-        if searchText.isEmpty {
-            withAnimation(.browserDefault) {
-                isUsingWebsiteSearcher = false
-            }
-        }
-        return .ignored
     }
     
     /// Open a new tab with the selected search suggestion
@@ -133,5 +134,10 @@ class SearchManager {
         DispatchQueue.main.async {
             browserWindowState.searchOpenLocation = .none
         }
+    }
+    
+    func resetWebsiteSearcher() {
+        isUsingWebsiteSearcher = false
+        activeWebsiteSearcher = SearchEngine.google.searcher
     }
 }

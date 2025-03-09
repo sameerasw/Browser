@@ -33,7 +33,7 @@ struct SearchSuggestionResultItem: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         // Highlight the selected search suggestion item or the hovered item
         .background(searchManager.highlightedSearchSuggestionIndex == index ?
-                    searchManager.accentColor :
+                    AnyShapeStyle(searchManager.accentColor) :
                         isHovering ?
                     colorScheme == .light ? AnyShapeStyle(.ultraThinMaterial) :
                         AnyShapeStyle(.gray.opacity(0.5)) :

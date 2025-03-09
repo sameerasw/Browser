@@ -28,9 +28,9 @@ struct SearchTextField: View {
                 .padding(.leading, 5)
             
             if searchManager.isUsingWebsiteSearcher {
-                Text(searchManager.matchedWebsiteSearcher.title)
+                Text(searchManager.activeWebsiteSearcher.title)
                     .padding(5)
-                    .background(searchManager.matchedWebsiteSearcher.searcher.color)
+                    .background(searchManager.activeWebsiteSearcher.color)
                     .clipShape(.rect(cornerRadius: 8))
             }
             
