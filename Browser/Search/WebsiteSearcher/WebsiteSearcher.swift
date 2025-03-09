@@ -24,18 +24,17 @@ protocol WebsiteSearcher {
 }
 
 extension WebsiteSearcher {
+    /// Empty implementation for searches without suggestions.
     func queryURL(for query: String) -> URL? {
         nil
     }
     
-    func itemURL(for query: String) -> URL {
-        URL(string: "")!
-    }
-    
+    /// Empty implementation for searches without suggestions.
     func parseSearchSuggestions(from result: String) throws -> [SearchSuggestion] {
         []
     }
     
+    /// General implementation of the search suggestions parser.
     func parseSearchSuggestions(from result: String, droppingFirst: Int, droppingLast: Int) throws -> [SearchSuggestion] {
         let components = result.components(separatedBy: ",")
         guard !components.isEmpty else {

@@ -41,7 +41,7 @@ struct SearchSuggestion: Identifiable, Equatable {
                         .resizable()
                         .scaledToFill()
                 } placeholder: {
-                    Image(systemName: isURLValid ? "globe" : "magnifyingglass")
+                    Image(systemName: "globe")
                 }
             } else {
                 Image(systemName: isURLValid ? "globe" : "magnifyingglass")

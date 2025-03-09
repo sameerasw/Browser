@@ -13,6 +13,7 @@ enum SearchEngine: CaseIterable {
     case bing
     case chatGPT
     case claudeAI
+    case wikipedia
     case youtube
     
     /// The search engine to use
@@ -26,6 +27,8 @@ enum SearchEngine: CaseIterable {
             ChatGPTSearcher()
         case .claudeAI:
             ClaudeAISearcher()
+        case .wikipedia:
+            WikipediaSearcher()
         case .youtube:
             YouTubeSearcher()
         }
