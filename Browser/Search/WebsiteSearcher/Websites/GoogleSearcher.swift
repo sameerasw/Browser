@@ -12,11 +12,15 @@ struct GoogleSearcher: WebsiteSearcher {
     
     var title = "Google"
         
+    var color = Color(hex: "#5383EC")!
+    
     func queryURL(for query: String) -> URL {
         URL(string: "https://suggestqueries.google.com/complete/search?client=safari&q=\(query)")!
     }
     
-    var color = Color(hex: "#5383EC")!
+    func itemURL(for query: String) -> URL {
+        URL(string: "https://www.google.com/search?q=\(query)")!
+    }
     
     func parseSearchSuggestions(from result: String) throws -> [SearchSuggestion] {
         let components = result.components(separatedBy: ",")
@@ -42,8 +46,8 @@ struct GoogleSearcher: WebsiteSearcher {
         
         // Drop first suggestion because it's the same as the search text
         // Drop last 3 suggestions because they are not search suggestions
-        return extractedStrings.dropLast(3).dropFirst().map {
-            SearchSuggestion($0)
+        return extractedStrings.dropFirst(2).dropLast(3).map {
+            SearchSuggestion($0, itemURL: itemURL(for: $0))
         }
     }
 }

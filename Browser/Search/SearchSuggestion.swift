@@ -11,9 +11,10 @@ import SwiftUI
 struct SearchSuggestion: Identifiable, Equatable {
     let id = UUID()
     let title: String
+    let itemURL: URL
     let favicon: Data?
     
-    var url: URL? {
+    private var url: URL? {
         URL(string: title.startsWithHTTP ? title : "https://\(title)")
     }
     
@@ -22,11 +23,12 @@ struct SearchSuggestion: Identifiable, Equatable {
     }
     
     var suggestedURL: URL {
-        isURLValid ? url! : URL(string: "https://www.google.com/search?q=\(title)")!
+        isURLValid ? url! : itemURL
     }
     
-    init(_ title: String, favicon: Data? = nil) {
+    init(_ title: String, itemURL: URL, favicon: Data? = nil) {
         self.title = title
+        self.itemURL = itemURL
         self.favicon = favicon
     }
     
