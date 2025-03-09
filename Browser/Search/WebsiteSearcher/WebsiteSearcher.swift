@@ -14,7 +14,7 @@ protocol WebsiteSearcher {
     /// The color of the website searcher, used to display the search suggestions
     var color: Color { get }
     /// The URL to query the search suggestions, example: "https://suggestqueries.google.com/complete/search?client=safari&q="
-    func queryURL(for query: String) -> URL
+    func queryURL(for query: String) -> URL?
     /// An optional URL to fetch the item, example: "https://www.google.com/search?q="
     func itemURL(for query: String) -> URL
     /// Parses the search suggestions from the string data fetched from the website
@@ -24,8 +24,16 @@ protocol WebsiteSearcher {
 }
 
 extension WebsiteSearcher {
+    func queryURL(for query: String) -> URL? {
+        nil
+    }
+    
     func itemURL(for query: String) -> URL {
         URL(string: "")!
+    }
+    
+    func parseSearchSuggestions(from result: String) throws -> [SearchSuggestion] {
+        []
     }
     
     func parseSearchSuggestions(from result: String, droppingFirst: Int, droppingLast: Int) throws -> [SearchSuggestion] {
@@ -67,10 +75,12 @@ extension WebsiteSearcher {
         
         if !searchManager.searchSuggestions.isEmpty {
             searchManager.searchSuggestions.removeFirst()
-            searchManager.searchSuggestions.insert(SearchSuggestion(query, itemURL: itemURL(for: query)), at: 0)
         }
+        
+        searchManager.searchSuggestions.insert(SearchSuggestion(query, itemURL: itemURL(for: query)), at: 0)
                
-        searchManager.searchTask = URLSession.shared.dataTask(with: queryURL(for: query)) { data, response, error in
+        guard let queryURL = queryURL(for: query) else { return }
+        searchManager.searchTask = URLSession.shared.dataTask(with: queryURL) { data, response, error in
             guard let data = data, error == nil else {
                 print("🔍📡 Error fetching search \"\(query)\" suggestions: \(error?.localizedDescription ?? "Unknown error")")
                 return

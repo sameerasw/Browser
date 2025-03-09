@@ -12,8 +12,8 @@ struct YouTubeSearcher: WebsiteSearcher {
     var title = "Youtube"
     var color = Color.red
     
-    func queryURL(for query: String) -> URL {
-        URL(string: "https://suggestqueries-clients6.youtube.com/complete/search?ds=yt&client=youtube&q=\(query)")!
+    func queryURL(for query: String) -> URL? {
+        URL(string: "https://suggestqueries-clients6.youtube.com/complete/search?ds=yt&client=youtube&q=\(query)")
     }
     
     func itemURL(for query: String) -> URL {

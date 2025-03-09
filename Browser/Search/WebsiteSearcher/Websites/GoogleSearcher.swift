@@ -12,8 +12,8 @@ struct GoogleSearcher: WebsiteSearcher {
     var title = "Google"
     var color = Color(hex: "#5383EC")!
     
-    func queryURL(for query: String) -> URL {
-        URL(string: "https://suggestqueries.google.com/complete/search?client=safari&q=\(query)")!
+    func queryURL(for query: String) -> URL? {
+        URL(string: "https://suggestqueries.google.com/complete/search?client=safari&q=\(query)")
     }
     
     func itemURL(for query: String) -> URL {
