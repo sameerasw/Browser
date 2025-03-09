@@ -19,11 +19,40 @@ protocol WebsiteSearcher {
     func itemURL(for query: String) -> URL
     /// Parses the search suggestions from the string data fetched from the website
     func parseSearchSuggestions(from result: String) throws -> [SearchSuggestion]
+    /// General implementation of the search suggestions fetcher
+    func parseSearchSuggestions(from result: String, droppingFirst: Int, droppingLast: Int) throws -> [SearchSuggestion]
 }
 
 extension WebsiteSearcher {
     func itemURL(for query: String) -> URL {
         URL(string: "")!
+    }
+    
+    func parseSearchSuggestions(from result: String, droppingFirst: Int, droppingLast: Int) throws -> [SearchSuggestion] {
+        let components = result.components(separatedBy: ",")
+        guard !components.isEmpty else {
+            print("🔍👓 Error parsing search suggestions. Empty components.")
+            return []
+        }
+        
+        let regex = try NSRegularExpression(pattern: #""(.*?)""#)
+        
+        let extractedStrings = components.flatMap { string -> [String] in
+            let matches = regex.matches(in: string, range: NSRange(string.startIndex..., in: string))
+            return matches.compactMap { match -> String? in
+                if let range = Range(match.range(at: 1), in: string) {
+                    let extracted = String(string[range])
+                    return extracted.isEmpty ? nil :
+                    // Process Unicode characters
+                    extracted.applyingTransform(StringTransform("Hex-Any"), reverse: false) ?? extracted
+                }
+                return nil
+            }
+        }
+        
+        return extractedStrings.dropFirst(droppingFirst).dropLast(droppingLast).map {
+            SearchSuggestion($0, itemURL: itemURL(for: $0))
+        }
     }
     
     /// General implementation of the search suggestions fetcher.
