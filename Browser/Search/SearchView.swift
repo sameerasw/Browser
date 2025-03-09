@@ -39,6 +39,8 @@ struct SearchView: View {
         }
         .onKeyPress(.upArrow, action: searchManager.handleUpArrow)
         .onKeyPress(.downArrow, action: searchManager.handleDownArrow)
+        .onKeyPress(.tab, action: searchManager.handleTab)
+        .onKeyPress(.delete, action: searchManager.handleDelete)
         .onChange(of: searchManager.searchText) { _, newValue in
             searchManager.fetchSearchSuggestions(newValue)
         }

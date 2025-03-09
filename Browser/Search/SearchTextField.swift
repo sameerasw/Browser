@@ -27,10 +27,32 @@ struct SearchTextField: View {
             searchIcon
                 .padding(.leading, 5)
             
+            if searchManager.isUsingWebsiteSearcher {
+                Text(searchManager.matchedWebsiteSearcher.title)
+                    .padding(5)
+                    .background(searchManager.matchedWebsiteSearcher.searcher.color)
+                    .clipShape(.rect(cornerRadius: 8))
+            }
+            
             TextField("Where to?", text: $searchManager.searchText)
                 .focused($focusedField, equals: .search)
                 .textFieldStyle(.plain)
                 .font(browserWindowState.searchOpenLocation == .fromNewTab ? .title2.weight(.semibold) : .body)
+            
+            Spacer()
+            
+            Group {
+                if !searchManager.isUsingWebsiteSearcher && searchManager.matchedWebsiteSearcher != .google {
+                    Text("Search with \(searchManager.matchedWebsiteSearcher.title)")
+                    
+                    Text("Tab")
+                        .padding(5)
+                        .background(.secondary.opacity(0.2))
+                        .clipShape(.rect(cornerRadius: 8))
+                }
+            }
+            .foregroundStyle(.secondary)
+            .padding(.trailing, 5)
         }
         .onChange(of: browserWindowState.searchOpenLocation) { _, newValue in
             focusedField = newValue != .none ? .search : .unfocused

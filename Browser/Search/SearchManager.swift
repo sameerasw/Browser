@@ -18,7 +18,12 @@ class SearchManager {
     var favicon: Data?
     var accentColor = AnyShapeStyle(.blue.gradient)
     
-    private var searchTask: Task<Void, Never>?
+    var matchedWebsiteSearcher: SearchEngine {
+        SearchEngine.allCases.first(where: { $0.title.lowercased().hasPrefix(searchText.lowercased()) }) ?? .google
+    }
+    var isUsingWebsiteSearcher: Bool = false
+    
+    var searchTask: Task<Void, Never>?
     
     /// Sets the initial values from the `BrowserWindowState`
     /// - Parameter browserWindowState: The `BrowserWindowState` to get the initial values from
@@ -36,68 +41,7 @@ class SearchManager {
     /// Handles the search action
     /// - Parameters: searchText: The autocomplete text to search
     func fetchSearchSuggestions(_ searchText: String) {
-        searchTask?.cancel()
-        // Reset the highlighted search suggestion
-        highlightedSearchSuggestionIndex = 0
-        
-        guard !searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
-            searchSuggestions = []
-            return
-        }
-        
-        if !searchSuggestions.isEmpty {
-            searchSuggestions.remove(at: 0)
-        }
-        
-        searchSuggestions.insert(SearchSuggestion(searchText), at: 0)
-        
-        searchTask = Task {
-            do {
-                if Task.isCancelled { return }
-                let url = URL(string: "https://suggestqueries.google.com/complete/search?client=safari&q=\(searchText)")!
-                let (data, _) = try await URLSession.shared.data(from: url)
-                parseSearchSuggestions(from: data)
-            } catch {
-                print("🔍📡 Error fetching search \"\(searchText)\" suggestions: \(error.localizedDescription)")
-            }
-        }
-    }
-    
-    /// Parses the search suggestions from the data
-    private func parseSearchSuggestions(from data: Data) {
-        guard let string = String(data: data, encoding: .isoLatin1) else {
-            return print("🔍👓 Error parsing search suggestions. Invalid string data. \"\(searchText)\". \(data)")
-        }
-    
-        let components = string.components(separatedBy: ",")
-        guard !components.isEmpty else {
-            return print("🔍👓 Error parsing search suggestions. Empty components. \"\(searchText)\". \(data)")
-        }
-        
-        do {
-            let regex = try NSRegularExpression(pattern: #""(.*?)""#)
-            
-            let extractedStrings = components.flatMap { string -> [String] in
-                let matches = regex.matches(in: string, range: NSRange(string.startIndex..., in: string))
-                return matches.compactMap { match -> String? in
-                    if let range = Range(match.range(at: 1), in: string) {
-                        let extracted = String(string[range])
-                        return extracted.isEmpty ? nil :
-                        // Process Unicode characters
-                        extracted.applyingTransform(StringTransform("Hex-Any"), reverse: false) ?? extracted
-                    }
-                    return nil
-                }
-            }
-            
-            // Drop first suggestion because it's the same as the search text
-            // Drop last 3 suggestions because they are not search suggestions
-            searchSuggestions = [SearchSuggestion(searchText)] + extractedStrings.dropLast(3).dropFirst().map {
-                SearchSuggestion($0)
-            }
-        } catch {
-            print("🔍👓 Error parsing search suggestions. Invalid regex. \"\(searchText)\". \(data)")
-        }
+        matchedWebsiteSearcher.searcher.fetchSearchSuggestions(for: searchText, in: self)
     }
     
     /// Move the highlighted search suggestion index up
@@ -122,6 +66,29 @@ class SearchManager {
             highlightedSearchSuggestionIndex = 0
         }
         return .handled
+    }
+    
+    /// Handle the tab key press, switches the search engine
+    func handleTab() -> KeyPress.Result {
+        withAnimation(.browserDefault) {
+            if isUsingWebsiteSearcher {
+                isUsingWebsiteSearcher = false
+            } else if matchedWebsiteSearcher != .google {
+                isUsingWebsiteSearcher = true
+            }
+        }
+        
+        return .handled
+    }
+    
+    /// Handle the delete key press, if the search text is empty, removes the search engine
+    func handleDelete() -> KeyPress.Result {
+        if searchText.isEmpty {
+            withAnimation(.browserDefault) {
+                isUsingWebsiteSearcher = false
+            }
+        }
+        return .ignored
     }
     
     /// Open a new tab with the selected search suggestion
