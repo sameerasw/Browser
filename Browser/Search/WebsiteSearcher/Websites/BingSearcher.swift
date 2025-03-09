@@ -10,7 +10,6 @@ import SwiftUI
 /// Searcher for Bing
 struct BingSearcher: WebsiteSearcher {
     var title = "Bing"
-        
     var color = Color(hex: "02B7E9")!
     
     func queryURL(for query: String) -> URL {

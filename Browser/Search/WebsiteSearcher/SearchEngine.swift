@@ -11,14 +11,17 @@ enum SearchEngine: CaseIterable {
     
     case google
     case bing
+    case youtube
     
     /// The search engine to use
     var searcher: WebsiteSearcher {
         switch self {
-        case .google:
-            GoogleSearcher()
         case .bing:
             BingSearcher()
+        case .google:
+            GoogleSearcher()
+        case .youtube:
+            YouTubeSearcher()
         }
     }
     

@@ -9,9 +9,7 @@ import SwiftUI
 
 /// Searcher for Google
 struct GoogleSearcher: WebsiteSearcher {
-    
     var title = "Google"
-        
     var color = Color(hex: "#5383EC")!
     
     func queryURL(for query: String) -> URL {
@@ -23,7 +21,7 @@ struct GoogleSearcher: WebsiteSearcher {
     }
     
     func parseSearchSuggestions(from result: String) throws -> [SearchSuggestion] {
-        try parseSearchSuggestions(from: result, droppingFirst: 2, droppingLast: 3)
+        return try parseSearchSuggestions(from: result, droppingFirst: 1, droppingLast: 3)
     }
 }
     

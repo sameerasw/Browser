@@ -32,7 +32,7 @@ class SearchManager {
     var isUsingWebsiteSearcher: Bool = false
     var activeWebsiteSearcher = SearchEngine.google.searcher
     
-    var searchTask: Task<Void, Never>?
+    var searchTask: URLSessionDataTask?
     
     /// Sets the initial values from the `BrowserWindowState`
     /// - Parameter browserWindowState: The `BrowserWindowState` to get the initial values from

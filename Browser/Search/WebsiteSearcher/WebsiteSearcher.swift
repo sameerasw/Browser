@@ -42,7 +42,7 @@ extension WebsiteSearcher {
             return matches.compactMap { match -> String? in
                 if let range = Range(match.range(at: 1), in: string) {
                     let extracted = String(string[range])
-                    return extracted.isEmpty ? nil :
+                    return extracted.isEmpty || extracted.count == 1 ? nil :
                     // Process Unicode characters
                     extracted.applyingTransform(StringTransform("Hex-Any"), reverse: false) ?? extracted
                 }
@@ -65,21 +65,33 @@ extension WebsiteSearcher {
             return
         }
         
-        searchManager.searchSuggestions.removeAll()
-        searchManager.searchSuggestions.insert(SearchSuggestion(query, itemURL: itemURL(for: query)), at: 0)
-                
-        searchManager.searchTask = Task {
+        if !searchManager.searchSuggestions.isEmpty {
+            searchManager.searchSuggestions.removeFirst()
+            searchManager.searchSuggestions.insert(SearchSuggestion(query, itemURL: itemURL(for: query)), at: 0)
+        }
+               
+        searchManager.searchTask = URLSession.shared.dataTask(with: queryURL(for: query)) { data, response, error in
+            guard let data = data, error == nil else {
+                print("🔍📡 Error fetching search \"\(query)\" suggestions: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            
+            guard let resultString = String(data: data, encoding: .isoLatin1) else {
+                print("🔍📡 Error parsing search suggestions. Invalid string data.")
+                return
+            }
+            
             do {
-                if Task.isCancelled { return }
-                let url = queryURL(for: query)
-                let (data, _) = try await URLSession.shared.data(from: url)
+                let suggestions = try parseSearchSuggestions(from: resultString)
+                if !suggestions.isEmpty && !searchManager.searchSuggestions.isEmpty {
+                    searchManager.searchSuggestions.removeSubrange(1..<searchManager.searchSuggestions.count)
+                }
                 
-                guard let resultString = String(data: data, encoding: .utf8) else { return }
-                
-                searchManager.searchSuggestions.append(contentsOf: try parseSearchSuggestions(from: resultString))
+                searchManager.searchSuggestions.append(contentsOf: suggestions)
             } catch {
-                print("🔍📡 Error fetching search \"\(query)\" suggestions: \(error.localizedDescription)")
+                print("🔍📡 Error parsing search suggestions: \(error.localizedDescription)")
             }
         }
+        searchManager.searchTask?.resume()
     }
 }

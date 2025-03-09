@@ -42,7 +42,9 @@ struct SearchView: View {
         .onKeyPress(.downArrow, action: searchManager.handleDownArrow)
         .onKeyPress(.tab, action: searchManager.handleTab)
         .onChange(of: searchManager.searchText) { _, newValue in
-            searchManager.fetchSearchSuggestions(newValue)
+            if newValue.last != " " {
+                searchManager.fetchSearchSuggestions(newValue)
+            }
         }
         .onChange(of: browserWindowState.searchOpenLocation) { oldValue, newValue in
             if browserWindowState.searchOpenLocation != .none {
