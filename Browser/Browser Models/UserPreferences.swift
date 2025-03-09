@@ -40,6 +40,8 @@ class UserPreferences: ObservableObject {
     @AppStorage("open_pip_on_tab_change") var openPipOnTabChange = true
     @AppStorage("warn_before_quitting") var warnBeforeQuitting = true
     
+    @AppStorage("custom_website_searchers") var customWebsiteSearchers = [BrowserCustomSearcher]()
+    
     // Download preferences
     @Published var downloadLocationBookmark: Data? = nil {
         didSet {
@@ -59,24 +61,6 @@ class UserPreferences: ObservableObject {
             return url
         } catch {
             return nil
-        }
-    }
-    
-    func chooseDownloadLocation() {
-        let panel = NSOpenPanel()
-        panel.canChooseFiles = false
-        panel.canChooseDirectories = true
-        panel.canCreateDirectories = true
-        panel.prompt = "Select Download Location"
-        panel.begin { response in
-            if response == .OK, let url = panel.url {
-                do {
-                    self.downloadLocationBookmark = try url.bookmarkData(options: .withSecurityScope)
-                } catch {
-                    print("🔴 Error saving download location bookmark. \(error)")
-                    self.downloadLocationBookmark = nil
-                }
-            }
         }
     }
     

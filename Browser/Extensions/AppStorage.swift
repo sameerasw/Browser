@@ -19,3 +19,24 @@ extension Optional: @retroactive RawRepresentable where Wrapped: Codable {
         self = value
     }
 }
+
+/// An array that can be encoded and decoded to be stored in AppStorage
+extension Array: @retroactive RawRepresentable where Element: Codable {
+    public var rawValue: String {
+        guard let data = try? JSONEncoder().encode(self),
+              let result = String(data: data, encoding: .utf8)
+        else {
+            return "[]"
+        }
+        return result
+    }
+    
+    public init?(rawValue: String) {
+        guard let data = rawValue.data(using: .utf8),
+              let result = try? JSONDecoder().decode([Element].self, from: data)
+        else {
+            return nil
+        }
+        self = result
+    }
+}
