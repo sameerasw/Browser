@@ -24,7 +24,7 @@ This browser **—still without a name or icon—** is just a fun side project t
 - [x] History
 - [x] Keyboard Shortcuts
 - [x] Ad Blocker
-- [x] Built-in Google Search
+- [x] **Site search with site autocompletion _on some websistes_**
 - [x] Picture-in-Picutre
 - [x] Search in Page
 - [x] Reorder Tabs By Dragging
