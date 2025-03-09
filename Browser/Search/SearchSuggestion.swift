@@ -12,7 +12,7 @@ struct SearchSuggestion: Identifiable, Equatable {
     let id = UUID()
     let title: String
     let itemURL: URL
-    let favicon: Data?
+    let favicon: URL?
     
     private var url: URL? {
         URL(string: title.startsWithHTTP ? title : "https://\(title)")
@@ -26,7 +26,7 @@ struct SearchSuggestion: Identifiable, Equatable {
         isURLValid ? url! : itemURL
     }
     
-    init(_ title: String, itemURL: URL, favicon: Data? = nil) {
+    init(_ title: String, itemURL: URL, favicon: URL? = nil) {
         self.title = title
         self.itemURL = itemURL
         self.favicon = favicon
@@ -35,10 +35,14 @@ struct SearchSuggestion: Identifiable, Equatable {
     /// The icon of the search suggestion
     var searchIcon: some View {
         Group {
-            if let favicon, let nsImage = NSImage(data: favicon) {
-                Image(nsImage: nsImage)
-                    .resizable()
-                    .scaledToFit()
+            if let favicon {
+                AsyncImage(url: favicon) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } placeholder: {
+                    Image(systemName: isURLValid ? "globe" : "magnifyingglass")
+                }
             } else {
                 Image(systemName: isURLValid ? "globe" : "magnifyingglass")
             }
