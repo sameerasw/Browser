@@ -106,7 +106,8 @@ final class BrowserSpace: Identifiable {
     
     /// Closes (deletes) a tab from the space and selects the next tab
     func closeTab(_ tab: BrowserTab, using modelContext: ModelContext) {
-        let newTab = tabs[safe: tab.order == 0 ? 1 : tab.order - 1]
+        let index = loadedTabs.firstIndex(of: tab) ?? 0
+        let newTab = loadedTabs[safe: index == 0 ? 1 : index - 1]
         
         unloadTab(tab)
         

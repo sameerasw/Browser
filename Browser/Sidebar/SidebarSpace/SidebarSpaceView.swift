@@ -39,7 +39,7 @@ struct SidebarSpaceView: View {
                     SidebarSpaceClearDivider(browserSpace: browserSpace, isHovering: isHovering)
                     
                     SidebarTabNewButton(browserSpace: browserSpace)
-                        .padding(.bottom, -3)
+                        .padding(.vertical, -3)
                     
                     SidebarTabList(browserSpace: browserSpace, tabs: $browserSpace.tabs)
                 }
