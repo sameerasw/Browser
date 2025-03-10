@@ -28,6 +28,8 @@ struct SidebarTabContextMenu: View {
             
             Divider()
             
+            Button("Pin Tab", action: pinTab)
+            
             Button("Duplicate Tab", action: duplicateTab)
             
             Divider()
@@ -43,6 +45,13 @@ struct SidebarTabContextMenu: View {
                     Button("Close Tabs Above", action: closeTabsAbove)
                 }
             }
+        }
+    }
+    
+    /// Pin the tab
+    func pinTab() {
+        withAnimation(.browserDefault) {
+            browserTab.browserSpace?.pinTab(browserTab, using: modelContext)
         }
     }
     

@@ -30,14 +30,18 @@ struct SidebarSpaceView: View {
                 .transaction { $0.animation = nil }
                 .frame(height: 25)
             
-            SidebarSpaceClearDivider(browserSpace: browserSpace, isHovering: isHovering)
-            
             ScrollView {
                 VStack {
+                    SidebarTabList(browserSpace: browserSpace, tabs: $browserSpace.pinnedTabs)
+                        .padding(.top, 5)
+                        .padding(.bottom, -5)
+                    
+                    SidebarSpaceClearDivider(browserSpace: browserSpace, isHovering: isHovering)
+                    
                     SidebarTabNewButton(browserSpace: browserSpace)
                         .padding(.bottom, -3)
                     
-                    SidebarTabList(browserSpace: browserSpace)
+                    SidebarTabList(browserSpace: browserSpace, tabs: $browserSpace.tabs)
                 }
             }
         }

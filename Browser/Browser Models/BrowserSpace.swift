@@ -22,6 +22,7 @@ final class BrowserSpace: Identifiable {
     var colorScheme: String
     
     @Relationship(deleteRule: .cascade, inverse: \BrowserTab.browserSpace) private var unorderedTabs: [BrowserTab]?
+    @Relationship(deleteRule: .cascade) private var unorderedPinnedTabs: [BrowserTab]?
     
     var tabs: [BrowserTab] {
         get {
@@ -34,9 +35,37 @@ final class BrowserSpace: Identifiable {
         }
     }
     
+    var pinnedTabs: [BrowserTab] {
+        get {
+            (unorderedPinnedTabs ?? []).sorted()
+        } set {
+            newValue.enumerated().forEach { index, tab in
+                tab.order = index
+            }
+            unorderedPinnedTabs = newValue
+        }
+    }
+    
+    var allTabs: [BrowserTab] {
+        tabs + pinnedTabs
+    }
+    
     @Attribute(.ephemeral) var currentTab: BrowserTab? = nil
     @Transient var loadedTabs: [BrowserTab] = []
     @Attribute(.ephemeral) var isEditing: Bool = false
+    
+    init(name: String, systemImage: String, order: Int, colors: [Color], grainOpacity: Double = 0.0, colorOpacity: Double = 1.0, colorScheme: String) {
+        self.id = UUID()
+        self.name = name
+        self.systemImage = systemImage
+        self.colors = colors.map { $0.hexString() }
+        self.grainOpacity = grainOpacity
+        self.colorOpacity = colorOpacity
+        self.order = order
+        self.colorScheme = colorScheme
+        self.unorderedTabs = []
+        self.currentTab = nil
+    }
     
     /// Returns the text color of the space based on the colors of the space and the color scheme
     func textColor(in colorScheme: ColorScheme) -> Color {
@@ -63,20 +92,6 @@ final class BrowserSpace: Identifiable {
         let finalLuminance = sqrt((1 - a) * backgroundLuminance + a * luminance)
         
         return finalLuminance > 0.3 ? .black : .white
-    }
-
-    
-    init(name: String, systemImage: String, order: Int, colors: [Color], grainOpacity: Double = 0.0, colorOpacity: Double = 1.0, colorScheme: String) {
-        self.id = UUID()
-        self.name = name
-        self.systemImage = systemImage
-        self.colors = colors.map { $0.hexString() }
-        self.grainOpacity = grainOpacity
-        self.colorOpacity = colorOpacity
-        self.order = order
-        self.colorScheme = colorScheme
-        self.unorderedTabs = []
-        self.currentTab = nil
     }
     
     /// This is a computed property that returns the colors of the space as `Color` objects
@@ -138,6 +153,16 @@ final class BrowserSpace: Identifiable {
             }
         } catch {
             print("Error opening new tab: \(error)")
+        }
+    }
+    
+    func pinTab(_ browserTab: BrowserTab, using modelContext: ModelContext) {
+        do {
+            guard let index = tabs.firstIndex(of: browserTab) else { return }
+            pinnedTabs.append(tabs.remove(at: index))
+            try modelContext.save()
+        } catch {
+            print("Error pinning tab: \(error)")
         }
     }
 }

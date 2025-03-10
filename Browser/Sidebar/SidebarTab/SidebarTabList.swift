@@ -14,12 +14,13 @@ struct SidebarTabList: View {
     @EnvironmentObject var userPreferences: UserPreferences
     
     @Bindable var browserSpace: BrowserSpace
+    @Binding var tabs: [BrowserTab]
     
     @State var draggingTab: BrowserTab?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            ForEach(browserSpace.tabs) { browserTab in
+            ForEach(tabs) { browserTab in
                 SidebarTab(browserSpace: browserSpace, browserTab: browserTab, dragging: false)
                     .draggable(browserSpace.id.uuidString) {
                        SidebarTab(browserSpace: browserSpace, browserTab: browserTab, dragging: true)
@@ -54,11 +55,11 @@ struct SidebarTabList: View {
     
     func moveTab(to destination: BrowserTab) {
         if let draggingTab, draggingTab != destination {
-            if let sourceIndex = browserSpace.tabs.firstIndex(of: draggingTab),
-               let destinationIndex = browserSpace.tabs.firstIndex(of: destination) {
+            if let sourceIndex = tabs.firstIndex(of: draggingTab),
+               let destinationIndex = tabs.firstIndex(of: destination) {
                 withAnimation(.browserDefault) {
-                    let sourceItems = browserSpace.tabs.remove(at: sourceIndex)
-                    browserSpace.tabs.insert(sourceItems, at: destinationIndex)
+                    let sourceItems = tabs.remove(at: sourceIndex)
+                    tabs.insert(sourceItems, at: destinationIndex)
                 }
             }
         }
