@@ -24,7 +24,10 @@ This browser **—still without a name or icon—** is just a fun side project t
 - [x] History
 - [x] Keyboard Shortcuts
 - [x] Ad Blocker
-- [x] **Site search with site autocompletion _on some websistes_**
+- [x] **Website search with autosuggestions _on some websistes_**
+
+https://github.com/user-attachments/assets/90738982-651a-4991-8580-866325d1d128
+
 - [x] Picture-in-Picutre
 - [x] Search in Page
 - [x] Reorder Tabs By Dragging
