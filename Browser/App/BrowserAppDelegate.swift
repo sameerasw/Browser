@@ -33,6 +33,12 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         closeNotMainWindows()
     }
     
+    func application(_ application: NSApplication, open urls: [URL]) {
+        urls.forEach { url in
+            print(url)
+        }
+    }
+    
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         if userPreferences.warnBeforeQuitting {
             let alert = NSAlert()

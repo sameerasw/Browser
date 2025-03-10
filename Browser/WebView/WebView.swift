@@ -22,7 +22,7 @@ struct WebView: View {
                 WKWebViewControllerRepresentable(tab: tab, browserSpace: browserSpace, noTrace: browserWindowState.isNoTraceWindow)
                     .opacity(tab.webviewErrorCode != nil ? 0 : 1)
                     .overlay {
-                        if tab.webviewErrorDescription != nil && tab.webviewErrorCode != nil {
+                        if tab.webviewErrorDescription != nil, let errorCode = tab.webviewErrorCode, errorCode != -999 {
                             MyWKWebViewErrorView(tab: tab)
                         }
                     }

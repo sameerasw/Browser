@@ -11,12 +11,24 @@ struct BrowserCommands: Commands {
     
     @FocusedValue(\.browserActiveWindowState) var browserActiveWindowState
     
+    var isDefaultBrowser: Bool {
+        NSWorkspace.shared.urlForDefaultBrowser == Bundle.main.bundleURL
+    }
+    
     var body: some Commands {
-        
         CommandGroup(after: .appInfo) {
-            Button("Acknowledgements") {
+            Button("Acknowledgements...") {
                 browserActiveWindowState?.showAcknowledgements.toggle()
             }
+            
+            Button("Set as Default Browser") {
+                let appURL = Bundle.main.bundleURL
+                let schemes = ["http", "https", "html"]
+                for scheme in schemes {
+                    NSWorkspace.shared.setDefaultApplication(at: appURL, toOpenURLsWithScheme: scheme)
+                }
+            }
+            .disabled(isDefaultBrowser)
         }
         
         FileCommands()
