@@ -64,7 +64,7 @@ struct SidebarTab: View {
     
     var faviconImage: some View {
         Group {
-            if browserTab.isLoading {
+            if userPreferences.loadingIndicatorPosition == .onTab && browserTab.isLoading {
                 ProgressView()
                     .controlSize(.small)
             } else if let favicon = browserTab.favicon, let nsImage = NSImage(data: favicon) {
