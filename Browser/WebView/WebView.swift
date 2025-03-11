@@ -36,5 +36,15 @@ struct WebView: View {
                     .opacity(browserWindowState.currentSpace?.currentTab == tab ? 1 : 0)
             }
         }
+        .overlay(alignment: .top) {
+            if browserWindowState.currentSpace?.currentTab == tab {
+                if tab.isLoading {
+                    ProgressView(value: tab.estimatedProgress)
+                        .progressViewStyle(.linear)
+                        .frame(height: 3)
+                        .tint(tab.browserSpace?.getColors.first ?? .primary)
+                }
+            }
+        }
     }
 }

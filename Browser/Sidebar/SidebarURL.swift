@@ -40,6 +40,14 @@ struct SidebarURL: View {
             AnyShapeStyle(.gray).opacity(hover ? 0.3 : 0.2) :
                 AnyShapeStyle(Color.white).opacity(hover ? 0.1 : 0.05)
         )
+        .overlay(alignment: .bottom) {
+            if browserWindowState.currentSpace?.currentTab?.isLoading == true {
+                ProgressView(value: browserWindowState.currentSpace?.currentTab?.estimatedProgress ?? 0)
+                    .progressViewStyle(.linear)
+                    .frame(height: 2)
+                    .tint(browserWindowState.currentSpace?.getColors.first ?? .accentColor)
+            }
+        }
         .clipShape(.rect(cornerRadius: 10))
         .padding(.leading, .sidebarPadding)
         .onTapGesture {

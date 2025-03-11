@@ -22,6 +22,8 @@ struct SettingsAppearanceView: View {
                 Toggle("Show Window Controls On Trailling Sidebar", systemImage: "macwindow", isOn: $userPreferences.showWindowControlsOnTrailingSidebar)
                 
                 Toggle("Reverse Background Colors on Trailing Sidebar", systemImage: "paintpalette", isOn: $userPreferences.reverseColorsOnTrailingSidebar)
+                
+                LoadingPlacePicker()
             }
             
             Section {

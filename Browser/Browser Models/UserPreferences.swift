@@ -29,6 +29,13 @@ class UserPreferences: ObservableObject {
     }
     @AppStorage("reverse_colors_on_trailing_sidebar") var reverseColorsOnTrailingSidebar = true
     
+    enum LoadingIndicatorPosition: Int {
+        case onURL
+        case onTab
+        case onWebView
+    }
+    @AppStorage("loading_indicator_position") var loadingIndicatorPosition = LoadingIndicatorPosition.onURL
+    
     // Web appearance preferences
     @AppStorage("rounded_corners") var roundedCorners = true
     @AppStorage("enable_padding") var enablePadding = true
@@ -87,7 +94,8 @@ class UserPreferences: ObservableObject {
             "enable_shadow": true,
             "immersive_view_on_fullscreen": true,
             "clear_selected_tab": false,
-            "open_pip_on_tab_change": true
+            "open_pip_on_tab_change": true,
+            "loading_indicator_position": LoadingIndicatorPosition.onURL.rawValue,
         ])
     }
     

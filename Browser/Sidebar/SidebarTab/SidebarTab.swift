@@ -64,18 +64,20 @@ struct SidebarTab: View {
     
     var faviconImage: some View {
         Group {
-            if let favicon = browserTab.favicon, let nsImage = NSImage(data: favicon) {
+            if browserTab.isLoading {
+                ProgressView()
+                    .controlSize(.small)
+            } else if let favicon = browserTab.favicon, let nsImage = NSImage(data: favicon) {
                 Image(nsImage: nsImage)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 16, height: 16)
                     .clipShape(.rect(cornerRadius: 4))
             } else {
                 RoundedRectangle(cornerRadius: 4)
                     .fill(Color(.systemGray))
-                    .frame(width: 16, height: 16)
             }
         }
+        .frame(width: 16, height: 16)
         .padding(.leading, 5)
     }
     

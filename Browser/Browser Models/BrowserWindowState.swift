@@ -63,7 +63,6 @@ import SwiftData
         
         if let space = browserSpaces.first(where: { $0.id == uuid }) {
             goToSpace(space)
-            currentSpace?.currentTab = nil
             currentSpace?.loadedTabs.removeAll()
         }
     }

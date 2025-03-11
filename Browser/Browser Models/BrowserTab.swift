@@ -41,6 +41,8 @@ final class BrowserTab: Identifiable, Comparable {
     
     @Attribute(.ephemeral) var canGoBack: Bool = false
     @Attribute(.ephemeral) var canGoForward: Bool = false
+    @Attribute(.ephemeral) var estimatedProgress: Double = 0.0
+    @Attribute(.ephemeral) var isLoading: Bool = false
     
     /// Updates the tab's favicon with the largest image found in the website
     /// - Parameter url: The URL of the website to find the favicon

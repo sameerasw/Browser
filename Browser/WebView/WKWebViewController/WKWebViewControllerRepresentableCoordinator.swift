@@ -110,6 +110,19 @@ extension WKWebViewControllerRepresentable {
                     }
                 }
                 .store(in: &cancellables)
+            
+            webview.publisher(for: \.estimatedProgress)
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] estimatedProgress in
+                    self?.parent.tab.estimatedProgress = estimatedProgress
+                }
+                .store(in: &cancellables)
+            webview.publisher(for: \.isLoading)
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] isLoading in
+                    self?.parent.tab.isLoading = isLoading
+                }
+                .store(in: &cancellables)
         }
         
         func stopObservingWebView() {
