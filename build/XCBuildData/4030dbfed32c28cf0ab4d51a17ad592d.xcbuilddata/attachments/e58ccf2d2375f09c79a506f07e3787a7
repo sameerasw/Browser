@@ -1,0 +1,4 @@
+module SymbolPicker {
+header "SymbolPicker-Swift.h"
+export *
+}

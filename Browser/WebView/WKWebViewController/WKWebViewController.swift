@@ -66,11 +66,15 @@ class WKWebViewController: NSViewController {
             webView.stopLoading()
             webView.loadHTMLString("", baseURL: nil)
             webView.removeFromSuperview()
+            webView._stopMediaCapture()
             coordinator.stopObservingWebView()
         }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func stopCameraAndMicrophone() {
     }
 }

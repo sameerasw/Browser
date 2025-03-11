@@ -1,0 +1,1108 @@
+{
+  "" : {
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Browser-master.dia",
+    "emit-module-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Browser-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Browser-master-emit-module.dia",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Browser-master.swiftdeps"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/App/Acknowledgments.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Acknowledgments.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Acknowledgments.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Acknowledgments.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/Acknowledgments.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Acknowledgments.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Acknowledgments.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Acknowledgments.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Acknowledgments~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/App/BrowserActiveWindowKey.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserActiveWindowKey.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserActiveWindowKey.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserActiveWindowKey.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserActiveWindowKey.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserActiveWindowKey.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserActiveWindowKey.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserActiveWindowKey.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserActiveWindowKey~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/App/BrowserApp.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserApp.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserApp.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserApp.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserApp.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserApp.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserApp.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserApp.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserApp~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/App/BrowserAppDelegate.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserAppDelegate.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserAppDelegate.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserAppDelegate.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserAppDelegate.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserAppDelegate.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserAppDelegate.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserAppDelegate.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserAppDelegate~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/App/ContentView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/App/MainFrame.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MainFrame.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MainFrame.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MainFrame.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/MainFrame.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MainFrame.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MainFrame.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MainFrame.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MainFrame~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Browser Models/BrowserCustomSearcher.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCustomSearcher.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCustomSearcher.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCustomSearcher.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCustomSearcher.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCustomSearcher.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCustomSearcher.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCustomSearcher.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCustomSearcher~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Browser Models/BrowserHistoryEntry.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserHistoryEntry.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserHistoryEntry.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserHistoryEntry.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserHistoryEntry.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserHistoryEntry.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserHistoryEntry.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserHistoryEntry.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserHistoryEntry~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Browser Models/BrowserSpace.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserSpace.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserSpace.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserSpace.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserSpace.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserSpace.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserSpace.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserSpace.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserSpace~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Browser Models/BrowserTab.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserTab.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserTab.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserTab.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserTab.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserTab.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserTab.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserTab.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserTab~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Browser Models/BrowserWindowState.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserWindowState.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserWindowState.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserWindowState.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserWindowState.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserWindowState.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserWindowState.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserWindowState.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserWindowState~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Browser Models/UserPreferences.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UserPreferences.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UserPreferences.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UserPreferences.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/UserPreferences.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UserPreferences.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UserPreferences.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UserPreferences.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UserPreferences~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Commands+Shortcuts/BrowserCommands.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCommands.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCommands.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCommands.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCommands.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCommands.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCommands.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCommands.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BrowserCommands~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Commands+Shortcuts/EditCommands.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/EditCommands.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/EditCommands.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/EditCommands.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/EditCommands.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/EditCommands.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/EditCommands.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/EditCommands.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/EditCommands~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Commands+Shortcuts/FileCommands.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FileCommands.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FileCommands.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FileCommands.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/FileCommands.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FileCommands.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FileCommands.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FileCommands.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FileCommands~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Commands+Shortcuts/HistoryCommands.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryCommands.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryCommands.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryCommands.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryCommands.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryCommands.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryCommands.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryCommands.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryCommands~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Commands+Shortcuts/ViewCommands.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ViewCommands.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ViewCommands.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ViewCommands.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/ViewCommands.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ViewCommands.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ViewCommands.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ViewCommands.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ViewCommands~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Components/ActionAlert.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ActionAlert.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ActionAlert.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ActionAlert.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/ActionAlert.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ActionAlert.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ActionAlert.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ActionAlert.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ActionAlert~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Components/CustomSlider.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomSlider.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomSlider.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomSlider.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomSlider.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomSlider.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomSlider.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomSlider.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomSlider~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Components/FloatingPanel.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FloatingPanel.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FloatingPanel.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FloatingPanel.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/FloatingPanel.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FloatingPanel.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FloatingPanel.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FloatingPanel.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/FloatingPanel~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Components/URLQRCodeView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URLQRCodeView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URLQRCodeView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URLQRCodeView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/URLQRCodeView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URLQRCodeView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URLQRCodeView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URLQRCodeView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URLQRCodeView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Components/VisualEffectView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/VisualEffectView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/VisualEffectView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/VisualEffectView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/VisualEffectView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/VisualEffectView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/VisualEffectView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/VisualEffectView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/VisualEffectView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Components/WheelColorPicker.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WheelColorPicker.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WheelColorPicker.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WheelColorPicker.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WheelColorPicker.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WheelColorPicker.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WheelColorPicker.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WheelColorPicker.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WheelColorPicker~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/Animation.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Animation.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Animation.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Animation.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/Animation.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Animation.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Animation.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Animation.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Animation~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/AppStorage.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AppStorage.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AppStorage.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AppStorage.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/AppStorage.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AppStorage.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AppStorage.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AppStorage.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AppStorage~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/Button.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Button.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Button.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Button.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/Button.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Button.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Button.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Button.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Button~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/Collection.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Collection.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Collection.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Collection.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/Collection.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Collection.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Collection.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Collection.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Collection~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/ColorString.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ColorString.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ColorString.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ColorString.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/ColorString.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ColorString.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ColorString.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ColorString.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ColorString~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/Error.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Error.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Error.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Error.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/Error.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Error.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Error.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Error.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Error~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/Gradient.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Gradient.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Gradient.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Gradient.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/Gradient.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Gradient.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Gradient.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Gradient.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Gradient~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/NSApplication.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSApplication.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSApplication.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSApplication.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSApplication.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSApplication.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSApplication.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSApplication.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSApplication~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/NSImage.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSImage.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSImage.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSImage.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSImage.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSImage.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSImage.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSImage.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSImage~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/NSWindow.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWindow.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWindow.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWindow.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWindow.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWindow.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWindow.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWindow.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWindow~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/NSWorkspace.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWorkspace.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWorkspace.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWorkspace.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWorkspace.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWorkspace.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWorkspace.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWorkspace.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/NSWorkspace~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/Numbers.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Numbers.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Numbers.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Numbers.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/Numbers.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Numbers.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Numbers.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Numbers.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Numbers~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/PDF.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PDF.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PDF.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PDF.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/PDF.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PDF.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PDF.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PDF.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PDF~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/URL.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URL.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URL.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URL.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/URL.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URL.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URL.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URL.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/URL~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/UTType.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UTType.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UTType.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UTType.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/UTType.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UTType.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UTType.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UTType.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/UTType~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Extensions/View.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/View.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/View.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/View.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/View.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/View.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/View.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/View.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/View~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/History/HistoryEntryList.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryList.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryList.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryList.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryList.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryList.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryList.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryList.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryList~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/History/HistoryEntryRow.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRow.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRow.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRow.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRow.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRow.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRow.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRow.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRow~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/History/HistoryEntryRowContextMenu.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRowContextMenu.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRowContextMenu.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRowContextMenu.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRowContextMenu.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRowContextMenu.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRowContextMenu.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRowContextMenu.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryEntryRowContextMenu~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/History/HistoryView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HistoryView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/SearchManager.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchManager.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchManager.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchManager.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchManager.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchManager.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchManager.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchManager.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchManager~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/SearchOpenLocation.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchOpenLocation.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchOpenLocation.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchOpenLocation.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchOpenLocation.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchOpenLocation.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchOpenLocation.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchOpenLocation.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchOpenLocation~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/SearchSuggestion.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestion.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestion.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestion.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestion.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestion.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestion.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestion.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestion~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/SearchSuggestionResultItem.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultItem.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultItem.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultItem.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultItem.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultItem.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultItem.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultItem.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultItem~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/SearchSuggestionResultsView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultsView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultsView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultsView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultsView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultsView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultsView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultsView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchSuggestionResultsView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/SearchTextField.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchTextField.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchTextField.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchTextField.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchTextField.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchTextField.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchTextField.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchTextField.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchTextField~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/SearchView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/WebsiteSearcher/SearchEngine.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchEngine.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchEngine.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchEngine.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchEngine.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchEngine.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchEngine.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchEngine.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SearchEngine~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/WebsiteSearcher/WebsiteSearcher.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebsiteSearcher.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebsiteSearcher.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebsiteSearcher.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebsiteSearcher.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebsiteSearcher.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebsiteSearcher.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebsiteSearcher.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebsiteSearcher~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/WebsiteSearcher/Websites/BingSearcher.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BingSearcher.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BingSearcher.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BingSearcher.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/BingSearcher.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BingSearcher.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BingSearcher.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BingSearcher.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/BingSearcher~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/WebsiteSearcher/Websites/ChatGPTSearcher.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ChatGPTSearcher.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ChatGPTSearcher.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ChatGPTSearcher.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/ChatGPTSearcher.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ChatGPTSearcher.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ChatGPTSearcher.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ChatGPTSearcher.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ChatGPTSearcher~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/WebsiteSearcher/Websites/ClaudeAISearcher.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ClaudeAISearcher.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ClaudeAISearcher.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ClaudeAISearcher.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/ClaudeAISearcher.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ClaudeAISearcher.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ClaudeAISearcher.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ClaudeAISearcher.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ClaudeAISearcher~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/WebsiteSearcher/Websites/GoogleSearcher.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GoogleSearcher.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GoogleSearcher.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GoogleSearcher.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/GoogleSearcher.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GoogleSearcher.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GoogleSearcher.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GoogleSearcher.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GoogleSearcher~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/WebsiteSearcher/Websites/WikipediaSearcher.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WikipediaSearcher.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WikipediaSearcher.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WikipediaSearcher.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WikipediaSearcher.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WikipediaSearcher.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WikipediaSearcher.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WikipediaSearcher.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WikipediaSearcher~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Search/WebsiteSearcher/Websites/YoutubeSearcher.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/YoutubeSearcher.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/YoutubeSearcher.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/YoutubeSearcher.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/YoutubeSearcher.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/YoutubeSearcher.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/YoutubeSearcher.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/YoutubeSearcher.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/YoutubeSearcher~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Settings/General Settings View.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/General Settings View.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/General Settings View.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/General Settings View.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/General Settings View.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/General Settings View.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/General Settings View.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/General Settings View.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/General Settings View~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Settings/General/CustomWebsiteSearchersSection.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomWebsiteSearchersSection.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomWebsiteSearchersSection.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomWebsiteSearchersSection.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomWebsiteSearchersSection.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomWebsiteSearchersSection.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomWebsiteSearchersSection.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomWebsiteSearchersSection.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/CustomWebsiteSearchersSection~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Settings/General/DownloadFolderSection.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadFolderSection.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadFolderSection.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadFolderSection.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadFolderSection.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadFolderSection.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadFolderSection.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadFolderSection.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadFolderSection~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Settings/Settings View.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Settings View.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Settings View.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Settings View.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/Settings View.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Settings View.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Settings View.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Settings View.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Settings View~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Settings/SettingsAppearanceView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsAppearanceView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsAppearanceView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsAppearanceView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsAppearanceView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsAppearanceView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsAppearanceView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsAppearanceView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsAppearanceView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Settings/SettingsShortcutsView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsShortcutsView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsShortcutsView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsShortcutsView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsShortcutsView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsShortcutsView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsShortcutsView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsShortcutsView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SettingsShortcutsView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/Sidebar.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Sidebar.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Sidebar.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Sidebar.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/Sidebar.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Sidebar.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Sidebar.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Sidebar.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Sidebar~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarHoverButtonStyle.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarHoverButtonStyle.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarHoverButtonStyle.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarHoverButtonStyle.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarHoverButtonStyle.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarHoverButtonStyle.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarHoverButtonStyle.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarHoverButtonStyle.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarHoverButtonStyle~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarModel.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarModel.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarModel.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarModel.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarModel.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarModel.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarModel.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarModel.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarModel~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarResizer.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarResizer.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarResizer.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarResizer.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarResizer.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarResizer.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarResizer.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarResizer.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarResizer~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarSpace/SidebarSpaceBackground.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceBackground.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceBackground.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceBackground.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceBackground.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceBackground.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceBackground.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceBackground.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceBackground~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarSpace/SidebarSpaceClearDivider.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceClearDivider.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceClearDivider.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceClearDivider.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceClearDivider.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceClearDivider.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceClearDivider.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceClearDivider.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceClearDivider~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarSpace/SidebarSpaceContextMenu.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceContextMenu.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceContextMenu.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceContextMenu.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceContextMenu.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceContextMenu.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceContextMenu.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceContextMenu.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceContextMenu~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarSpace/SidebarSpaceCreateView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceCreateView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceCreateView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceCreateView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceCreateView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceCreateView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceCreateView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceCreateView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceCreateView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarSpace/SidebarSpaceView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarSpace/SidebarSpacesTabView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpacesTabView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpacesTabView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpacesTabView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpacesTabView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpacesTabView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpacesTabView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpacesTabView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpacesTabView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarTab/SidebarTab.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTab.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTab.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTab.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTab.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTab.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTab.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTab.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTab~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarTab/SidebarTabContextMenu.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabContextMenu.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabContextMenu.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabContextMenu.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabContextMenu.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabContextMenu.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabContextMenu.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabContextMenu.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabContextMenu~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarTab/SidebarTabList.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabList.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabList.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabList.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabList.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabList.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabList.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabList.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabList~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarTab/SidebarTabNewButton.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabNewButton.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabNewButton.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabNewButton.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabNewButton.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabNewButton.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabNewButton.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabNewButton.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarTabNewButton~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarToolbar/SidebarToolbar.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbar.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbar.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbar.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbar.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbar.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbar.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbar.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbar~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarToolbar/SidebarToolbarButton.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbarButton.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbarButton.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbarButton.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbarButton.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbarButton.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbarButton.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbarButton.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarToolbarButton~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarToolbarBottom/Downloads/Download.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Download.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Download.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Download.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/Download.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Download.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Download.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Download.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/Download~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarToolbarBottom/Downloads/DownloadRow.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadRow.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadRow.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadRow.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadRow.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadRow.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadRow.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadRow.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadRow~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarToolbarBottom/Downloads/DownloadsList.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadsList.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadsList.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadsList.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadsList.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadsList.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadsList.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadsList.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/DownloadsList~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarToolbarBottom/SidebarBottomToolbar.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarBottomToolbar.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarBottomToolbar.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarBottomToolbar.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarBottomToolbar.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarBottomToolbar.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarBottomToolbar.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarBottomToolbar.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarBottomToolbar~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarToolbarBottom/SidebarSpaceIcon.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceIcon.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceIcon.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceIcon.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceIcon.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceIcon.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceIcon.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceIcon.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceIcon~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarToolbarBottom/SidebarSpaceList.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceList.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceList.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceList.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceList.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceList.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceList.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceList.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarSpaceList~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/Sidebar/SidebarURL.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarURL.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarURL.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarURL.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarURL.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarURL.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarURL.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarURL.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SidebarURL~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/AuthenticationHandler.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AuthenticationHandler.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AuthenticationHandler.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AuthenticationHandler.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/AuthenticationHandler.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AuthenticationHandler.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AuthenticationHandler.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AuthenticationHandler.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/AuthenticationHandler~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/MyWKWebView/ContextMenu/ContextMenuFrame.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrame.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrame.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrame.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrame.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrame.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrame.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrame.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrame~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/MyWKWebView/ContextMenu/ContextMenuFrameTranslation.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrameTranslation.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrameTranslation.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrameTranslation.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrameTranslation.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrameTranslation.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrameTranslation.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrameTranslation.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuFrameTranslation~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/MyWKWebView/ContextMenu/ContextMenuLink.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuLink.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuLink.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuLink.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuLink.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuLink.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuLink.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuLink.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuLink~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/MyWKWebView/ContextMenu/ContextMenuText.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuText.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuText.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuText.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuText.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuText.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuText.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuText.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuText~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/MyWKWebView/ContextMenu/ContextMenuType.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuType.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuType.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuType.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuType.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuType.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuType.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuType.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/ContextMenuType~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/MyWKWebView/ContextMenu/HandleContextMenu.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HandleContextMenu.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HandleContextMenu.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HandleContextMenu.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/HandleContextMenu.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HandleContextMenu.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HandleContextMenu.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HandleContextMenu.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/HandleContextMenu~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/MyWKWebView/MyWKWebView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/MyWKWebView/MyWKWebViewErrorView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewErrorView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewErrorView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewErrorView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewErrorView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewErrorView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewErrorView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewErrorView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewErrorView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/MyWKWebView/Text Finder/MyWKWebViewNSTextFinderBarContainer.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewNSTextFinderBarContainer.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewNSTextFinderBarContainer.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewNSTextFinderBarContainer.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewNSTextFinderBarContainer.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewNSTextFinderBarContainer.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewNSTextFinderBarContainer.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewNSTextFinderBarContainer.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewNSTextFinderBarContainer~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/MyWKWebView/Text Finder/MyWKWebViewTextFinder.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewTextFinder.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewTextFinder.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewTextFinder.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewTextFinder.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewTextFinder.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewTextFinder.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewTextFinder.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/MyWKWebViewTextFinder~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/PageWebView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PageWebView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PageWebView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PageWebView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/PageWebView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PageWebView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PageWebView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PageWebView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/PageWebView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/SharedWebViewConfiguration.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SharedWebViewConfiguration.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SharedWebViewConfiguration.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SharedWebViewConfiguration.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/SharedWebViewConfiguration.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SharedWebViewConfiguration.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SharedWebViewConfiguration.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SharedWebViewConfiguration.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/SharedWebViewConfiguration~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/WKWebViewController/WKWebViewController.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewController.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewController.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewController.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewController.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewController.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewController.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewController.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewController~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/WKWebViewController/WKWebViewControllerASAuthorization.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerASAuthorization.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerASAuthorization.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerASAuthorization.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerASAuthorization.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerASAuthorization.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerASAuthorization.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerASAuthorization.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerASAuthorization~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/WKWebViewController/WKWebViewControllerRepresentable.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentable.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentable.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentable.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentable.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentable.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentable.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentable.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentable~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/WKWebViewController/WKWebViewControllerRepresentableCoordinator.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentableCoordinator.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentableCoordinator.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentableCoordinator.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentableCoordinator.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentableCoordinator.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentableCoordinator.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentableCoordinator.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerRepresentableCoordinator~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/WKWebViewController/WKWebViewControllerWKDownloadDelegate.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKDownloadDelegate.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKDownloadDelegate.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKDownloadDelegate.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKDownloadDelegate.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKDownloadDelegate.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKDownloadDelegate.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKDownloadDelegate.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKDownloadDelegate~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/WKWebViewController/WKWebViewControllerWKNavigationDelegate.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKNavigationDelegate.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKNavigationDelegate.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKNavigationDelegate.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKNavigationDelegate.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKNavigationDelegate.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKNavigationDelegate.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKNavigationDelegate.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKNavigationDelegate~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/WKWebViewController/WKWebViewControllerWKUIDelegate.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKUIDelegate.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKUIDelegate.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKUIDelegate.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKUIDelegate.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKUIDelegate.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKUIDelegate.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKUIDelegate.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WKWebViewControllerWKUIDelegate~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/WebView.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebView.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebView.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebView.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebView.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebView.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebView.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebView.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebView~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/Browser/WebView/WebViewStack.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebViewStack.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebViewStack.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebViewStack.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebViewStack.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebViewStack.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebViewStack.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebViewStack.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/WebViewStack~partial.swiftmodule"
+  },
+  "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Browser.build/Debug/Browser.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/leonardolarranaga/Library/Mobile Documents/com~apple~CloudDocs/Xcode/Browser/build/Browser.build/Debug/Browser.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}
