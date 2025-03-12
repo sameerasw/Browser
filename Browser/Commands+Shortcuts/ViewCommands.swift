@@ -20,6 +20,13 @@ struct ViewCommands: Commands {
             
             Divider()
             
+            Button("Show Tab Switcher") {
+                browserWindowState?.showTabSwitcher = true
+            }
+            .globalKeyboardShortcut(.showTabSwitcher)
+            
+            Divider()
+            
             if let tab = browserWindowState?.currentSpace?.currentTab, let webView = tab.webview {
                 Button("Stop Loading") { webView.stopLoading() }
                     .globalKeyboardShortcut(.stopLoading)
@@ -68,6 +75,8 @@ struct ViewCommands: Commands {
 extension KeyboardShortcuts.Name {
     static let toggleSidebar = Self("toggle_sidebar", default: .init(.s, modifiers: .command))
     
+    static let showTabSwitcher = Self("show_tab_switcher", default: .init(.tab, modifiers: .control))
+    
     static let stopLoading = Self("stop_loading", default: .init(.period, modifiers: .command))
     static let reload = Self("reload", default: .init(.r, modifiers: .command))
     static let clearCookiesAndReload = Self("clear_cookies_and_reload")
@@ -83,5 +92,5 @@ extension KeyboardShortcuts.Name {
 }
 
 extension [KeyboardShortcuts.Name] {
-    static let allViewCommands: [KeyboardShortcuts.Name] = [.toggleSidebar, .stopLoading, .reload, .clearCookiesAndReload, .clearCacheAndReload, .togglePictureInPicture, .zoomActualSize, .zoomIn, .zoomOut, .openDeveloperTools]
+    static let allViewCommands: [KeyboardShortcuts.Name] = [.toggleSidebar, .showTabSwitcher, .stopLoading, .reload, .clearCookiesAndReload, .clearCacheAndReload, .togglePictureInPicture, .zoomActualSize, .zoomIn, .zoomOut, .openDeveloperTools]
 }

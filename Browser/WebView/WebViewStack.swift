@@ -17,7 +17,9 @@ struct WebViewStack: View {
                     WebView(tab: tab, browserSpace: browserSpace)
                     .zIndex(tab == currentTab ? 1 : 0)
                     .onAppear {
-                        browserSpace.loadedTabs.append(tab)
+                        if !browserSpace.loadedTabs.contains(tab) {
+                            browserSpace.loadedTabs.append(tab)
+                        }
                     }
                 }
             } else {

@@ -15,7 +15,7 @@ struct MainFrame: View {
     @Environment(\.colorScheme) var colorScheme
     
     @EnvironmentObject var userPreferences: UserPreferences
-        
+    
     @State var sidebarModel = SidebarModel()
     
     @Query(sort: \BrowserSpace.order) var browserSpaces: [BrowserSpace]
@@ -25,6 +25,8 @@ struct MainFrame: View {
     }
     
     var body: some View {
+        @Bindable var browserWindowState = browserWindowState
+        
         HStack(spacing: 0) {
             if userPreferences.sidebarPosition == .leading {
                 if !sidebarModel.sidebarCollapsed {
@@ -39,7 +41,7 @@ struct MainFrame: View {
                 .padding([.top, .bottom], isImmersive ? 0 : userPreferences.enablePadding ? 10 : 0)
                 .padding(
                     userPreferences.sidebarPosition == .leading ? .leading : .trailing,
-                    isImmersive ? 0 : !userPreferences.enablePadding ? 0 : sidebarModel.sidebarCollapsed ? 10 : 5
+                    isImmersive ? 0 : sidebarModel.sidebarCollapsed ? 10 : 5
                 )
                 .padding(
                     userPreferences.sidebarPosition == .leading ? .trailing : .leading,
@@ -72,6 +74,7 @@ struct MainFrame: View {
                 SidebarSpaceBackground(browserSpace: currentSpace, isSidebarCollapsed: false)
             }
         }
+        // Show the search view
         .floatingPanel(isPresented: .init(get: {
             browserWindowState.searchOpenLocation != .none
         }, set: { newValue in
@@ -80,6 +83,11 @@ struct MainFrame: View {
             }
         }), origin: browserWindowState.searchPanelOrigin, size: browserWindowState.searchPanelSize, shouldCenter: browserWindowState.searchOpenLocation == .fromNewTab) {
             SearchView()
+                .environment(browserWindowState)
+        }
+        // Show the tab switcher
+        .floatingPanel(isPresented: $browserWindowState.showTabSwitcher, size: CGSize(width: 700, height: 200)) {
+            TabSwitcher(browserSpaces: browserSpaces)
                 .environment(browserWindowState)
         }
         // Show the sidebar by hovering the mouse on the edge of the screen

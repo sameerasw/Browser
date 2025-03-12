@@ -42,6 +42,8 @@ import SwiftData
     var showActionAlert = false
     
     var isFullScreen = false
+    
+    var showTabSwitcher = false
 
     private(set) var isMainBrowserWindow: Bool = true
     private(set) var isNoTraceWindow: Bool = false
@@ -63,7 +65,6 @@ import SwiftData
         
         if let space = browserSpaces.first(where: { $0.id == uuid }) {
             goToSpace(space)
-            currentSpace?.loadedTabs.removeAll()
         }
     }
     
