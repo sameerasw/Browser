@@ -166,4 +166,15 @@ final class BrowserSpace: Identifiable {
             print("Error pinning tab: \(error)")
         }
     }
+    
+    func unpinTab(_ browserTab: BrowserTab, using modelContext: ModelContext) {
+        do {
+            guard let index = pinnedTabs.firstIndex(of: browserTab) else { return }
+            tabs.append(pinnedTabs.remove(at: index))
+            tabs.last?.browserSpace = self
+            try modelContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

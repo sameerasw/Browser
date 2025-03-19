@@ -28,7 +28,11 @@ struct SidebarTabContextMenu: View {
             
             Divider()
             
-            Button("Pin Tab", action: pinTab)
+            if browserTab.browserSpace?.pinnedTabs.contains(browserTab) == false {
+                Button("Pin Tab", action: pinTab)
+            } else {
+                Button("Unpin Tab", action: unpinTab)
+            }
             
             Button("Duplicate Tab", action: duplicateTab)
             
@@ -52,6 +56,13 @@ struct SidebarTabContextMenu: View {
     func pinTab() {
         withAnimation(.browserDefault) {
             browserTab.browserSpace?.pinTab(browserTab, using: modelContext)
+        }
+    }
+    
+    /// Unpin the tab
+    func unpinTab() {
+        withAnimation(.browserDefault) {
+            browserWindowState.currentSpace?.unpinTab(browserTab, using: modelContext)
         }
     }
     
