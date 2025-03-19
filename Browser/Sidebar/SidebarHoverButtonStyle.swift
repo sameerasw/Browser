@@ -19,6 +19,7 @@ struct SidebarHoverButtonStyle: ButtonStyle {
     let enabledColor: Color
     let hoverColor: Color
     let disabled: Bool
+    let disabledColor: Color
     let rotationDegrees: Double
     let showLabel: Bool
     let cornerRadius: CGFloat
@@ -29,7 +30,7 @@ struct SidebarHoverButtonStyle: ButtonStyle {
         configuration.label
             .dynamicLabelStyle(showLabel: showLabel)
             .rotationEffect(.degrees(rotationDegrees))
-            .foregroundStyle(disabled ? .secondary : hover ? hoverColor : enabledColor)
+            .foregroundStyle(disabled ? disabledColor : hover ? hoverColor : enabledColor)
             .font(font)
             .fixedFrame(width: fixedWidth, alignment: alignment)
             .padding(padding)
@@ -63,6 +64,7 @@ fileprivate extension View {
 }
 
 extension ButtonStyle where Self == SidebarHoverButtonStyle {
+    /// A ridiculously customizable button style for sidebar hover buttons
     static func sidebarHover(
         font: Font = .system(size: 17),
         padding: CGFloat = .zero,
@@ -73,6 +75,7 @@ extension ButtonStyle where Self == SidebarHoverButtonStyle {
         enabledColor: Color = .primary,
         hoverColor: Color = .primary,
         disabled: Bool = false,
+        disabledColor: Color = .secondary,
         rotationDegrees: Double = 0,
         showLabel: Bool = false,
         cornerRadius: CGFloat = 4
@@ -87,6 +90,7 @@ extension ButtonStyle where Self == SidebarHoverButtonStyle {
             enabledColor: enabledColor,
             hoverColor: hoverColor,
             disabled: disabled,
+            disabledColor: disabledColor,
             rotationDegrees: rotationDegrees,
             showLabel: showLabel,
             cornerRadius: cornerRadius

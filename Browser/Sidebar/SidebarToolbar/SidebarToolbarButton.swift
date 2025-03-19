@@ -23,10 +23,14 @@ struct SidebarToolbarButton: View {
         self.disabled = disabled
     }
     
+    var color: Color {
+        browserWindowState.currentSpace?.textColor(in: colorScheme) ?? .primary
+    }
+    
     var body: some View {
         Button(action: action) {
             Image(systemName: systemImage)
         }
-        .buttonStyle(.sidebarHover(enabledColor: browserWindowState.currentSpace?.textColor(in: colorScheme) ?? .primary, disabled: disabled))
+        .buttonStyle(.sidebarHover(enabledColor: color, disabled: disabled, disabledColor: color))
     }
 }
