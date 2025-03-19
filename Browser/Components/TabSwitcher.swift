@@ -11,6 +11,7 @@ import KeyboardShortcuts
 /// A floating panel tht shows a tab switcher with the current loaded tabs
 struct TabSwitcher: View {
     
+    @Environment(\.modelContext) var modelContext
     @Environment(BrowserWindowState.self) var browserWindowState
     
     var browserSpaces: [BrowserSpace]
@@ -21,6 +22,7 @@ struct TabSwitcher: View {
     @State var selectedTabIndex = 0
     @State var downEvent: Any?
     @State var upEvent: Any?
+    @State var closeEvent: Any?
     
     var body: some View {
         ScrollView(.horizontal) {
@@ -41,8 +43,7 @@ struct TabSwitcher: View {
                     // On key down, change the selected tab
                     downEvent = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
                         if event.keyCode == key && event.modifierFlags.contains(modifiers) {
-                            guard !allLoadedTabs.isEmpty else { return event }
-                            selectedTabIndex = (selectedTabIndex + 1) % allLoadedTabs.count
+                            selectNextTab()
                         }
                         return event
                     }
@@ -58,11 +59,25 @@ struct TabSwitcher: View {
                         }
                         return event
                     }
+                    
+                    // Add close tab shortcut
+                    guard let closeKey = KeyboardShortcuts.Name.closeTab.shortcut?.carbonKeyCode else { return }
+                    
+                    closeEvent = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+                        if event.keyCode == closeKey {
+                            if let selectedTab = allLoadedTabs[safe: selectedTabIndex] {
+                                selectedTab.browserSpace?.closeTab(selectedTab, using: modelContext)
+                                selectNextTab()
+                            }
+                        }
+                        return event
+                    }
                 }
                 // Remove the event monitors when the view disappears
                 .onDisappear {
                     NSEvent.removeMonitor(downEvent as Any)
                     NSEvent.removeMonitor(upEvent as Any)
+                    NSEvent.removeMonitor(closeEvent as Any)
                 }
             }
         }
@@ -70,6 +85,11 @@ struct TabSwitcher: View {
         .scrollPosition(id: .init(get: {
             selectedTabIndex
         }, set: { _ in } ))
+    }
+    
+    func selectNextTab() {
+        guard !allLoadedTabs.isEmpty else { return }
+        selectedTabIndex = (selectedTabIndex + 1) % allLoadedTabs.count
     }
     
     @ViewBuilder
