@@ -43,7 +43,7 @@ struct ActionAlert: ViewModifier {
                             .padding()
                         }
                     }
-                    .transition(.scale.combined(with: .move(edge: .top)))
+                    .browserTransition(.scale.combined(with: .move(edge: .top)))
                     .onScrollPhaseChange { oldPhase, newPhase in
                         withAnimation(.browserDefault) {
                             if newPhase == .interacting {

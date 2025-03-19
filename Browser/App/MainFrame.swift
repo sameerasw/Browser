@@ -101,7 +101,7 @@ struct MainFrame: View {
                     }
                     .background(.ultraThinMaterial)
                     .padding(userPreferences.sidebarPosition == .leading ? .trailing : .leading, .sidebarPadding)
-                    .transition(.move(edge: userPreferences.sidebarPosition == .leading ? .leading : .trailing))
+                    .browserTransition(.move(edge: userPreferences.sidebarPosition == .leading ? .leading : .trailing))
             }
         }
         .transaction {

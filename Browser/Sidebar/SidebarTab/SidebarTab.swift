@@ -34,7 +34,7 @@ struct SidebarTab: View {
                     browserTab.webview?.toggleMute()
                 }
                 .buttonStyle(.sidebarHover())
-                .transition(.move(edge: .leading))
+                .browserTransition(.move(edge: .leading))
             }
             
             Text(browserTab.title)

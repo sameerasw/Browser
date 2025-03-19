@@ -27,7 +27,7 @@ struct SidebarURL: View {
                     Button("Copy URL To Clipboard", systemImage: "link", action: browserWindowState.copyURLToClipboard)
                         .buttonStyle(.sidebarHover(hoverStyle: AnyShapeStyle(.ultraThinMaterial) ,cornerRadius: 7))
                         .padding(.trailing, .sidebarPadding)
-                        .transition(.opacity)
+                        .browserTransition(.opacity)
                 }
             }
         }

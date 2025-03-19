@@ -51,7 +51,7 @@ struct SidebarSpaceView: View {
                         SidebarTabList(browserSpace: browserSpace, tabs: $browserSpace.pinnedTabs)
                             .padding(.top, 5)
                             .padding(.bottom, -5)
-                            .transition(.move(edge: .top).combined(with: .opacity))
+                            .browserTransition(.move(edge: .top).combined(with: .opacity))
                     }
                     
                     SidebarSpaceClearDivider(browserSpace: browserSpace, isHovering: isHovering)

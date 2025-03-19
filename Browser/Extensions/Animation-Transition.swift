@@ -15,3 +15,10 @@ extension Animation {
         UserDefaults.standard.bool(forKey: "disable_animations") ? nil : .bouncy
     }
 }
+
+extension View {
+    /// Apply a transition to the view depending of the `disable_animations` key saved in `UserDefaults`
+    func browserTransition(_ transition: AnyTransition) -> some View {
+        self.transition(UserDefaults.standard.bool(forKey: "disable_animations") ? .identity : transition)
+    }
+}

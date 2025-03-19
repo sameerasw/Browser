@@ -20,7 +20,7 @@ struct DownloadsList: View {
                 DownloadRow(download: download)
             }
         }
-        .transition(.move(edge: .bottom).combined(with: .opacity))
+        .browserTransition(.move(edge: .bottom).combined(with: .opacity))
         .onAppear {
             guard let downloadURL = userPreferences.downloadURL, downloadURL.startAccessingSecurityScopedResource() else {
                 return browserWindowState.presentActionAlert(message: "Select a Downloads Folder in Settings", systemImage: "arrow.down.app.dashed.trianglebadge.exclamationmark")
