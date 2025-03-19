@@ -50,6 +50,8 @@ final class BrowserSpace: Identifiable {
         tabs + pinnedTabs
     }
     
+    var pinnedTabsVisible: Bool = true
+    
     @Attribute(.ephemeral) var currentTab: BrowserTab? = nil
     @Transient var loadedTabs: [BrowserTab] = []
     @Attribute(.ephemeral) var isEditing: Bool = false
