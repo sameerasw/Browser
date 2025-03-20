@@ -28,9 +28,7 @@ extension WKWebViewController: WKNavigationDelegate {
         print("🟢 Finished loading \(url.absoluteString)")
         
         coordinator.addTabToHistory()
-        
-        self.webView.setZoomFactor(self.webView.savedZoomFactor())
-        
+                
         self.tab.webviewErrorCode = nil
         self.tab.webviewErrorDescription = nil
     }
@@ -49,6 +47,7 @@ extension WKWebViewController: WKNavigationDelegate {
     
     /// Decided what type of navigation to allow (download, allow.)
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping @MainActor (WKNavigationResponsePolicy) -> Void) {
+        resetSuspendTimer()
         guard let mimeType = navigationResponse.response.mimeType, let type = UTType(mimeType: mimeType)  else {
             decisionHandler(.allow)
             return
@@ -66,6 +65,7 @@ extension WKWebViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
+        resetSuspendTimer()
         decisionHandler(.allow)
     }
     

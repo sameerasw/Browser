@@ -47,6 +47,8 @@ class UserPreferences: ObservableObject {
     @AppStorage("open_pip_on_tab_change") var openPipOnTabChange = true
     @AppStorage("warn_before_quitting") var warnBeforeQuitting = true
     
+    @AppStorage("automatic_page_suspension") var automaticPageSuspension = true
+    
     @AppStorage("custom_website_searchers") var customWebsiteSearchers = [BrowserCustomSearcher]()
     
     // Download preferences
@@ -96,6 +98,7 @@ class UserPreferences: ObservableObject {
             "clear_selected_tab": false,
             "open_pip_on_tab_change": true,
             "loading_indicator_position": LoadingIndicatorPosition.onURL.rawValue,
+            "automatic_page_suspension": true
         ])
     }
     

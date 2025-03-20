@@ -93,7 +93,9 @@ extension WebsiteSearcher {
             do {
                 let suggestions = try parseSearchSuggestions(from: resultString)
                 if !suggestions.isEmpty && !searchManager.searchSuggestions.isEmpty {
-                    searchManager.searchSuggestions = [searchManager.searchSuggestions.removeFirst()]
+                    if let first = searchManager.searchSuggestions.first {
+                        searchManager.searchSuggestions = [first]
+                    }
                 }
                 
                 searchManager.searchSuggestions.append(contentsOf: suggestions)
