@@ -65,7 +65,7 @@ struct WheelColorPicker: View {
                         angle.degrees += direction.x < 0 ? 180 : direction.x > 0 && direction.y > 0 ? 360 : 0
                         
                         let hue = angle.degrees / 360
-                        let saturation = distance / radius
+                        let saturation = min(distance / radius, 1.0)
                         let color = Color(hue: hue, saturation: saturation, brightness: 0.9)
                         self.color?.wrappedValue = color
                         self.hex?.wrappedValue = color.hexString()
