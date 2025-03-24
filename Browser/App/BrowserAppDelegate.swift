@@ -27,6 +27,7 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         closeNotMainWindows()
+        deleteTemporaryImages()
     }
     
     func applicationWillTerminate(_ notification: Notification) {
@@ -135,5 +136,18 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     @objc func setWarnBeforeQuitting(_ sender: NSButton) {
         userPreferences.warnBeforeQuitting = sender.state == .on
+    }
+    
+    func deleteTemporaryImages() {
+        let temporaryDirectory = URL(fileURLWithPath: NSTemporaryDirectory())
+        let fileManager = FileManager.default
+        do {
+            let files = try fileManager.contentsOfDirectory(at: temporaryDirectory, includingPropertiesForKeys: nil, options: [])
+            for file in files {
+                try fileManager.removeItem(at: file)
+            }
+        } catch {
+            print("Error deleting temporary files: \(error)")
+        }
     }
 }
