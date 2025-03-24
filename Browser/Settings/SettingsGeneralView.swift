@@ -15,6 +15,7 @@ struct GeneralSettingsView: View {
             Toggle("Open Picture in Picture Automatically", systemImage: "inset.filled.topright.rectangle", isOn: $userPreferences.openPipOnTabChange)
             Toggle("Warn Before Quitting", systemImage: "exclamationmark.triangle", isOn: $userPreferences.warnBeforeQuitting)
             Toggle("Automatic Page Suspension", systemImage: "hand.raised.fill", isOn: $userPreferences.automaticPageSuspension)
+            Toggle("Show Hover URL", systemImage: "dot.circle.and.cursorarrow", isOn: $userPreferences.showHoverURL)
             
             DownloadFolderSection()
             

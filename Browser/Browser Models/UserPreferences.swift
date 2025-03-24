@@ -51,6 +51,8 @@ class UserPreferences: ObservableObject {
     
     @AppStorage("custom_website_searchers") var customWebsiteSearchers = [BrowserCustomSearcher]()
     
+    @AppStorage("show_hover_url") var showHoverURL = true
+    
     // Download preferences
     @Published var downloadLocationBookmark: Data? = nil {
         didSet {
@@ -98,7 +100,8 @@ class UserPreferences: ObservableObject {
             "clear_selected_tab": false,
             "open_pip_on_tab_change": true,
             "loading_indicator_position": LoadingIndicatorPosition.onURL.rawValue,
-            "automatic_page_suspension": true
+            "automatic_page_suspension": true,
+            "show_hover_url": true
         ])
     }
     

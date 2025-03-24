@@ -128,5 +128,9 @@ extension WKWebViewControllerRepresentable {
             cancellables.forEach { $0.cancel() }
             cancellables.removeAll()
         }
+        
+        func setHoverURL(to url: String) {
+            self.parent.hoverURL.wrappedValue = url
+        }
     }
 }

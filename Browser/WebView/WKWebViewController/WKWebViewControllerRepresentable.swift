@@ -18,11 +18,13 @@ struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
     @Bindable var browserSpace: BrowserSpace
     @Bindable var tab: BrowserTab
     let noTrace: Bool
+    var hoverURL: Binding<String>
     
-    init(tab: BrowserTab, browserSpace: BrowserSpace, noTrace: Bool = false) {
+    init(tab: BrowserTab, browserSpace: BrowserSpace, noTrace: Bool = false, hoverURL: Binding<String>) {
         self.tab = tab
         self.browserSpace = browserSpace
         self.noTrace = noTrace
+        self.hoverURL = hoverURL
     }
     
     func makeNSViewController(context: Context) -> WKWebViewController {

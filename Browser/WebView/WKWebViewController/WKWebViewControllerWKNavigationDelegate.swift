@@ -17,8 +17,11 @@ extension WKWebViewController: WKNavigationDelegate {
         print("🔵 Loading \(url.absoluteString)")
         
         if self.tab.url.cleanHost != url.cleanHost {
-            print("🔵 New domain detected")
             self.tab.updateFavicon(with: url)
+        }
+        
+        if UserDefaults.standard.bool(forKey: "show_hover_url") {
+            addHoverURLListener()
         }
     }
     

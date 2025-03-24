@@ -16,20 +16,50 @@ struct WebView: View {
     @Bindable var tab: BrowserTab
     @Bindable var browserSpace: BrowserSpace
     
+    @State var hoverURL = ""
+    @State var showHoverURL = false
+    @State var hoverURLTimer: Timer?
+    
     var body: some View {
         Group {
             switch tab.type {
             case .web:
-                WKWebViewControllerRepresentable(tab: tab, browserSpace: browserSpace, noTrace: browserWindowState.isNoTraceWindow)
+                WKWebViewControllerRepresentable(tab: tab, browserSpace: browserSpace, noTrace: browserWindowState.isNoTraceWindow, hoverURL: $hoverURL)
                     .opacity(tab.webviewErrorCode != nil ? 0 : 1)
                     .overlay {
                         if tab.webviewErrorDescription != nil, let errorCode = tab.webviewErrorCode, errorCode != -999 {
                             MyWKWebViewErrorView(tab: tab)
                         }
                     }
+                    .overlay(alignment: .bottomLeading) {
+                        if showHoverURL {
+                            Text(hoverURL)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .padding(5)
+                                .background(.ultraThinMaterial)
+                                .clipShape(.rect(cornerRadius: 6))
+                                .padding(5)
+                        }
+                    }
                     .onAppear {
                         if tab.favicon == nil {
                             tab.updateFavicon(with: tab.url)
+                        }
+                    }
+                    .onChange(of: hoverURL) {
+                        guard !hoverURL.isEmpty else { return }
+                        hoverURLTimer?.invalidate()
+                        
+                        withAnimation(.browserDefault) {
+                            showHoverURL = true
+                        }
+                        
+                        hoverURLTimer = Timer.scheduledTimer(withTimeInterval: 3.5, repeats: false) { _ in
+                            withAnimation(.browserDefault) {
+                                showHoverURL = false
+                                hoverURL = ""
+                            }
                         }
                     }
             case .history:
