@@ -237,52 +237,9 @@ extension MyWKWebView {
         recentTranslatedLanguages.insert(["name": language.0, "code": languageCode], at: 0)
         UserDefaults.standard.set(recentTranslatedLanguages, forKey: "RecentTranslatedLanguages")
         
-        let getTextScript = """
-            function getText() {
-                const texts = [];
-                const walker = document.createTreeWalker(
-                    document.body,
-                    NodeFilter.SHOW_TEXT,
-                    {
-                        acceptNode: function(node) {
-                            // Skip if node is within a script, style, meta, or other technical tags
-                            let parent = node.parentNode;
-                            while (parent) {
-                                const tag = parent.tagName ? parent.tagName.toLowerCase() : '';
-                                if (['script', 'style', 'meta', 'link', 'noscript'].includes(tag)) {
-                                    return NodeFilter.FILTER_REJECT;
-                                }
-                                parent = parent.parentNode;
-                            }
-                            
-                            const trimmedText = node.textContent.trim();
-                            
-                            // Skip if text is empty, too short, or looks like HTML/CSS
-                            if (!trimmedText || 
-                                trimmedText.length <= 1 || 
-                                trimmedText.startsWith('<') || 
-                                trimmedText.includes('{') ||
-                                trimmedText.includes('}') ||
-                                /^[\\s<>{}\\/]+$/.test(trimmedText)) {
-                                return NodeFilter.FILTER_REJECT;
-                            }
-                            
-                            return NodeFilter.FILTER_ACCEPT;
-                        }
-                    },
-                    false
-                );
-                
-                let node;
-                while (node = walker.nextNode()) {
-                    const text = node.textContent.trim();
-                    texts.push(text);
-                }
-                
-                return texts;
-            }
-            getText();
-        """
+        guard let getPageTextScriptURL = Bundle.main.url(forResource: "GetPageText", withExtension: "js"),
+              let getTextScript = try? String(contentsOf: getPageTextScriptURL, encoding: .utf8)
+        else { return }
         
         evaluateJavaScript(getTextScript) { result, error in
             guard let texts = result as? [String] else { return }
