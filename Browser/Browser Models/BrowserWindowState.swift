@@ -28,10 +28,10 @@ import SwiftData
     
     var searchOpenLocation: SearchOpenLocation? = .none
     var searchPanelOrigin: CGPoint {
-        searchOpenLocation == .fromNewTab ? .zero : CGPoint(x: 5, y: 50)
+        searchOpenLocation == .fromNewTab || UserDefaults.standard.integer(forKey: "url_bar_position") == UserPreferences.URLBarPosition.onToolbar.rawValue ? .zero : CGPoint(x: 5, y: 50)
     }
     var searchPanelSize: CGSize {
-        searchOpenLocation == .fromNewTab ? CGSize(width: 700, height: 300) : CGSize(width: 400, height: 300)
+        searchOpenLocation == .fromNewTab || UserDefaults.standard.integer(forKey: "url_bar_position")  == UserPreferences.URLBarPosition.onToolbar.rawValue ? CGSize(width: 700, height: 300) : CGSize(width: 400, height: 300)
     }
     
     var showURLQRCode = false
@@ -104,6 +104,50 @@ import SwiftData
         actionAlertSystemImage = systemImage
         withAnimation(.browserDefault) {
             showActionAlert = true
+        }
+    }
+    
+    func backButtonAction() {
+        guard let currentSpace = currentSpace,
+              let currentTab = currentSpace.currentTab,
+              let backItem = currentTab.webview?.backForwardList.backItem
+        else { return }
+        
+        if NSEvent.modifierFlags.contains(.command) {
+            let newTab = BrowserTab(title: backItem.title ?? "", favicon: nil, url: backItem.url, browserSpace: currentSpace)
+            currentSpace.tabs.insert(newTab, at: currentTab.order + 1)
+            currentSpace.currentTab = newTab
+        } else {
+            currentTab.webview?.goBack()
+        }
+    }
+    
+    func forwardButtonAction() {
+        guard let currentSpace = currentSpace,
+              let currentTab = currentSpace.currentTab,
+              let forwardItem = currentTab.webview?.backForwardList.forwardItem
+        else { return }
+        
+        if NSEvent.modifierFlags.contains(.command) {
+            let newTab = BrowserTab(title: forwardItem.title ?? "", favicon: nil, url: forwardItem.url, browserSpace: currentSpace)
+            currentSpace.tabs.insert(newTab, at: currentTab.order + 1)
+            currentSpace.currentTab = newTab
+        } else {
+            currentTab.webview?.goForward()
+        }
+    }
+    
+    func refreshButtonAction() {
+        guard let currentSpace = currentSpace,
+              let currentTab = currentSpace.currentTab
+        else { return }
+        
+        if NSEvent.modifierFlags.contains(.command) {
+            let newTab = BrowserTab(title: currentTab.title, favicon: currentTab.favicon, url: currentTab.url, browserSpace: currentSpace)
+            currentSpace.tabs.insert(newTab, at: currentTab.order + 1)
+            currentSpace.currentTab = newTab
+        } else {
+            currentTab.reload()
         }
     }
 }

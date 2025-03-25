@@ -36,6 +36,13 @@ class UserPreferences: ObservableObject {
     }
     @AppStorage("loading_indicator_position") var loadingIndicatorPosition = LoadingIndicatorPosition.onURL
     
+    enum URLBarPosition: Int {
+        case onSidebar
+        case onToolbar
+    }
+    @AppStorage("url_bar_position") var urlBarPosition = URLBarPosition.onSidebar
+    @AppStorage("show_full_url_on_toolbar") var showFullURLOnToolbar = false
+    
     // Web appearance preferences
     @AppStorage("rounded_corners") var roundedCorners = true
     @AppStorage("enable_padding") var enablePadding = true
@@ -101,7 +108,9 @@ class UserPreferences: ObservableObject {
             "open_pip_on_tab_change": true,
             "loading_indicator_position": LoadingIndicatorPosition.onURL.rawValue,
             "automatic_page_suspension": true,
-            "show_hover_url": true
+            "show_hover_url": true,
+            "url_bar_position": URLBarPosition.onSidebar.rawValue,
+            "show_full_url_on_toolbar": false
         ])
     }
     

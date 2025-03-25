@@ -53,6 +53,12 @@ extension URL {
     func contains(_ type: UTType) -> Bool {
         UTType(mimeType: UTType(filenameExtension: self.pathExtension)?.preferredMIMEType ?? "application/octet-stream")?.conforms(to: type) ?? false
     }
+    
+    var route: String {
+        let components = self.absoluteString.components(separatedBy: "/")
+        guard components.count > 3 else { return "" }
+        return components.dropFirst(3).joined(separator: "/")
+    }
 }
 
 extension String {

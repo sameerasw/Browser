@@ -20,6 +20,8 @@ extension WKWebViewController: WKScriptMessageHandler {
               let script = try? String(contentsOf: hoverURLListenerScriptURL, encoding: .utf8) else { return }
         
         let controller = configuration.userContentController
+        
+        controller.removeScriptMessageHandler(forName: "hoverURL")
         controller.add(self, name: "hoverURL")
 
         let scriptMessage = WKUserScript(source: script, injectionTime: .atDocumentEnd, forMainFrameOnly: true)

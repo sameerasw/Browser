@@ -22,7 +22,9 @@ struct Sidebar: View {
     var body: some View {
         VStack {
             SidebarToolbar(browserSpaces: browserSpaces)
-            SidebarURL()
+            if userPreferences.urlBarPosition == .onSidebar {
+                SidebarURL()
+            }
             SidebarSpacesTabView(browserSpaces: browserSpaces)
             SidebarBottomToolbar(browserSpaces: browserSpaces, createSpace: createSpace)
         }

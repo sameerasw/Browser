@@ -24,6 +24,15 @@ struct SettingsAppearanceView: View {
                 Toggle("Reverse Background Colors on Trailing Sidebar", systemImage: "paintpalette", isOn: $userPreferences.reverseColorsOnTrailingSidebar)
                 
                 LoadingPlacePicker()
+                
+                Picker("URL Bar Position", systemImage: "link", selection: $userPreferences.urlBarPosition) {
+                    Label("On Sidebar", systemImage: "sidebar.left").tag(UserPreferences.URLBarPosition.onSidebar)
+                    Label("On Toolbar", systemImage: "menubar.rectangle").tag(UserPreferences.URLBarPosition.onToolbar)
+                }
+                
+                if userPreferences.urlBarPosition == .onToolbar {
+                    Toggle("Show Full URL on Toolbar", systemImage: "menubar.arrow.up.rectangle", isOn: $userPreferences.showFullURLOnToolbar)
+                }
             }
             
             Section {

@@ -22,14 +22,20 @@ struct PageWebView: View {
     @State var scrollState: UUID?
     
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHStack(spacing: .zero) {
-                ForEach(browserSpaces) { browserSpace in
-                    WebViewStack(browserSpace: browserSpace)
-                        .containerRelativeFrame(.horizontal, count: 1, spacing: 0)
-                }
+        VStack(spacing: 0) {
+            if userPreferences.urlBarPosition == .onToolbar {
+                SidebarURLToolbar()
             }
-            .scrollTargetLayout()
+            
+            ScrollView(.horizontal) {
+                LazyHStack(spacing: .zero) {
+                    ForEach(browserSpaces) { browserSpace in
+                        WebViewStack(browserSpace: browserSpace)
+                            .containerRelativeFrame(.horizontal, count: 1, spacing: 0)
+                    }
+                }
+                .scrollTargetLayout()
+            }
         }
         .scrollPosition(id: $scrollState, anchor: .center)
         .scrollDisabled(true)
@@ -62,9 +68,5 @@ struct PageWebView: View {
                 browserWindowState.currentSpace?.currentTab?.webview?.togglePictureInPicture()
             }
         }
-    }
-    
-    func enterPiP() {
-        
     }
 }
