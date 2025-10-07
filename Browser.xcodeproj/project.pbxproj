@@ -22,6 +22,184 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				WebView/WebKit/README,
+				WebView/WebKit/Release/adattributiond,
+				WebView/WebKit/Release/ANGLEMetalLib.metallib,
+				WebView/WebKit/Release/com.apple.WebKit.GPU.xpc,
+				WebView/WebKit/Release/com.apple.WebKit.Model.xpc,
+				WebView/WebKit/Release/com.apple.WebKit.Networking.xpc,
+				WebView/WebKit/Release/com.apple.WebKit.WebContent.CaptivePortal.xpc,
+				WebView/WebKit/Release/com.apple.WebKit.WebContent.Development.xpc,
+				WebView/WebKit/Release/com.apple.WebKit.WebContent.EnhancedSecurity.xpc,
+				WebView/WebKit/Release/com.apple.WebKit.WebContent.xpc,
+				WebView/WebKit/Release/DumpRenderTree,
+				WebView/WebKit/Release/DumpRenderTree.app,
+				"WebView/WebKit/Release/DumpRenderTree.resources/AHEM____.TTF",
+				WebView/WebKit/Release/DumpRenderTree.resources/FontWithFeatures.otf,
+				WebView/WebKit/Release/DumpRenderTree.resources/FontWithFeatures.ttf,
+				WebView/WebKit/Release/DumpRenderTree.resources/WebKitWeightWatcher100.ttf,
+				WebView/WebKit/Release/DumpRenderTree.resources/WebKitWeightWatcher200.ttf,
+				WebView/WebKit/Release/DumpRenderTree.resources/WebKitWeightWatcher300.ttf,
+				WebView/WebKit/Release/DumpRenderTree.resources/WebKitWeightWatcher400.ttf,
+				WebView/WebKit/Release/DumpRenderTree.resources/WebKitWeightWatcher500.ttf,
+				WebView/WebKit/Release/DumpRenderTree.resources/WebKitWeightWatcher600.ttf,
+				WebView/WebKit/Release/DumpRenderTree.resources/WebKitWeightWatcher700.ttf,
+				WebView/WebKit/Release/DumpRenderTree.resources/WebKitWeightWatcher800.ttf,
+				WebView/WebKit/Release/DumpRenderTree.resources/WebKitWeightWatcher900.ttf,
+				WebView/WebKit/Release/dynbench,
+				WebView/WebKit/Release/ImageDiff,
+				WebView/WebKit/Release/InjectedBundleTestWebKitAPI.bundle,
+				WebView/WebKit/Release/jsc,
+				WebView/WebKit/Release/JSCLLIntOffsetsExtractor,
+				WebView/WebKit/Release/JSCLLIntSettingsExtractor,
+				WebView/WebKit/Release/LayoutTestHelper,
+				WebView/WebKit/Release/lldbWebKitTester,
+				WebView/WebKit/Release/MiniBrowser.app,
+				WebView/WebKit/Release/minidom,
+				WebView/WebKit/Release/minidom.js,
+				"WebView/WebKit/Release/PAL.swiftmodule/arm64-apple-macos.abi.json",
+				"WebView/WebKit/Release/PAL.swiftmodule/arm64-apple-macos.swiftdoc",
+				"WebView/WebKit/Release/PAL.swiftmodule/arm64-apple-macos.swiftmodule",
+				"WebView/WebKit/Release/PAL.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo",
+				"WebView/WebKit/Release/PAL.swiftmodule/Project/x86_64-apple-macos.swiftsourceinfo",
+				"WebView/WebKit/Release/PAL.swiftmodule/x86_64-apple-macos.abi.json",
+				"WebView/WebKit/Release/PAL.swiftmodule/x86_64-apple-macos.swiftdoc",
+				"WebView/WebKit/Release/PAL.swiftmodule/x86_64-apple-macos.swiftmodule",
+				"WebView/WebKit/Release/shaders/access-expression.wgsl",
+				WebView/WebKit/Release/shaders/aliases.wgsl,
+				"WebView/WebKit/Release/shaders/array-alias-constructor.wgsl",
+				"WebView/WebKit/Release/shaders/array-count-expression.wgsl",
+				"WebView/WebKit/Release/shaders/array-length-pointer.wgsl",
+				"WebView/WebKit/Release/shaders/array-length-pointer2.wgsl",
+				"WebView/WebKit/Release/shaders/array-length-unordered.wgsl",
+				"WebView/WebKit/Release/shaders/array-length.wgsl",
+				"WebView/WebKit/Release/shaders/array-primitive-struct.wgsl",
+				"WebView/WebKit/Release/shaders/array-vec3.wgsl",
+				WebView/WebKit/Release/shaders/atomics.wgsl,
+				WebView/WebKit/Release/shaders/attributes.wgsl,
+				"WebView/WebKit/Release/shaders/binding-uint-max.wgsl",
+				"WebView/WebKit/Release/shaders/const-assert.wgsl",
+				"WebView/WebKit/Release/shaders/constants-utf8.wgsl",
+				"WebView/WebKit/Release/shaders/constants-utf16.wgsl",
+				WebView/WebKit/Release/shaders/division.wgsl,
+				WebView/WebKit/Release/shaders/for.wgsl,
+				"WebView/WebKit/Release/shaders/fragment-output.wgsl",
+				"WebView/WebKit/Release/shaders/fuzz-127229681.wgsl",
+				"WebView/WebKit/Release/shaders/fuzz-128785160.wgsl",
+				"WebView/WebKit/Release/shaders/fuzz-130082002.wgsl",
+				"WebView/WebKit/Release/shaders/fuzz-130088292.wgsl",
+				"WebView/WebKit/Release/shaders/fuzz-130092499.wgsl",
+				"WebView/WebKit/Release/shaders/fuzz-133788509.wgsl",
+				"WebView/WebKit/Release/shaders/global-constant-vector.wgsl",
+				"WebView/WebKit/Release/shaders/global-ordering.wgsl",
+				"WebView/WebKit/Release/shaders/global-same-binding.wgsl",
+				"WebView/WebKit/Release/shaders/hex-double-lchar.wgsl",
+				"WebView/WebKit/Release/shaders/hex-double-uchar.wgsl",
+				WebView/WebKit/Release/shaders/if.wgsl,
+				"WebView/WebKit/Release/shaders/large-struct.wgsl",
+				"WebView/WebKit/Release/shaders/limits-brace-enclosed.wgsl",
+				"WebView/WebKit/Release/shaders/limits-composite-type.wgsl",
+				"WebView/WebKit/Release/shaders/limits-const-array.wgsl",
+				"WebView/WebKit/Release/shaders/limits-function-parameters.wgsl",
+				"WebView/WebKit/Release/shaders/limits-function-vars.wgsl",
+				"WebView/WebKit/Release/shaders/limits-private-vars.wgsl",
+				"WebView/WebKit/Release/shaders/limits-struct-members.wgsl",
+				"WebView/WebKit/Release/shaders/limits-switch-case.wgsl",
+				"WebView/WebKit/Release/shaders/limits-workgroup-vars.wgsl",
+				"WebView/WebKit/Release/shaders/location-uint-max.wgsl",
+				WebView/WebKit/Release/shaders/loop.wgsl,
+				"WebView/WebKit/Release/shaders/minus-minus-ambiguity.wgsl",
+				"WebView/WebKit/Release/shaders/name-mangling.wgsl",
+				WebView/WebKit/Release/shaders/overload.wgsl,
+				WebView/WebKit/Release/shaders/override.wgsl,
+				"WebView/WebKit/Release/shaders/pack-unpack.wgsl",
+				"WebView/WebKit/Release/shaders/packing-nested-array.wgsl",
+				"WebView/WebKit/Release/shaders/packing-pointer-arguments.wgsl",
+				WebView/WebKit/Release/shaders/pointers.wgsl,
+				WebView/WebKit/Release/shaders/references.wgsl,
+				WebView/WebKit/Release/shaders/reordering.wgsl,
+				"WebView/WebKit/Release/shaders/runtime-sized-array-resource.wgsl",
+				WebView/WebKit/Release/shaders/scope.wgsl,
+				WebView/WebKit/Release/shaders/shadowing.wgsl,
+				WebView/WebKit/Release/shaders/struct.wgsl,
+				WebView/WebKit/Release/shaders/switch.wgsl,
+				WebView/WebKit/Release/shaders/swizzle.wgsl,
+				"WebView/WebKit/Release/shaders/texture-external.wgsl",
+				"WebView/WebKit/Release/shaders/type-promotion.wgsl",
+				WebView/WebKit/Release/shaders/while.wgsl,
+				WebView/WebKit/Release/SwiftBrowser.app,
+				WebView/WebKit/Release/testair,
+				WebView/WebKit/Release/testapi,
+				WebView/WebKit/Release/testapiScripts/basic.js,
+				WebView/WebKit/Release/testapiScripts/dependencyListTests/badModuleImportId.js,
+				WebView/WebKit/Release/testapiScripts/dependencyListTests/bar.js,
+				WebView/WebKit/Release/testapiScripts/dependencyListTests/dependenciesEntry.js,
+				WebView/WebKit/Release/testapiScripts/dependencyListTests/foo.js,
+				WebView/WebKit/Release/testapiScripts/dependencyListTests/missingImport.js,
+				WebView/WebKit/Release/testapiScripts/dependencyListTests/referenceError.js,
+				WebView/WebKit/Release/testapiScripts/dependencyListTests/syntaxError.js,
+				WebView/WebKit/Release/testapiScripts/foo.js,
+				"WebView/WebKit/Release/testapiScripts/testapi-function-overrides.js",
+				WebView/WebKit/Release/testapiScripts/testapi.js,
+				WebView/WebKit/Release/testb3,
+				WebView/WebKit/Release/testdfg,
+				WebView/WebKit/Release/TestIPC,
+				WebView/WebKit/Release/testmasm,
+				WebView/WebKit/Release/testmem,
+				WebView/WebKit/Release/testRegExp,
+				WebView/WebKit/Release/testwasmdebugger,
+				WebView/WebKit/Release/TestWebKitAPI,
+				WebView/WebKit/Release/TestWebKitAPI.app,
+				"WebView/WebKit/Release/TestWebKitAPI.swiftmodule/arm64-apple-macos.abi.json",
+				"WebView/WebKit/Release/TestWebKitAPI.swiftmodule/arm64-apple-macos.swiftdoc",
+				"WebView/WebKit/Release/TestWebKitAPI.swiftmodule/arm64-apple-macos.swiftmodule",
+				"WebView/WebKit/Release/TestWebKitAPI.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo",
+				"WebView/WebKit/Release/TestWebKitAPI.swiftmodule/Project/x86_64-apple-macos.swiftsourceinfo",
+				"WebView/WebKit/Release/TestWebKitAPI.swiftmodule/x86_64-apple-macos.abi.json",
+				"WebView/WebKit/Release/TestWebKitAPI.swiftmodule/x86_64-apple-macos.swiftdoc",
+				"WebView/WebKit/Release/TestWebKitAPI.swiftmodule/x86_64-apple-macos.swiftmodule",
+				WebView/WebKit/Release/TestWebKitAPI.wkbundle/Contents/_CodeSignature/CodeResources,
+				WebView/WebKit/Release/TestWebKitAPI.wkbundle/Contents/Info.plist,
+				WebView/WebKit/Release/TestWebKitAPI.wkbundle/Contents/MacOS/TestWebKitAPI.bundle,
+				"WebView/WebKit/Release/TestWebKitAPIBundle.swiftmodule/arm64-apple-macos.abi.json",
+				"WebView/WebKit/Release/TestWebKitAPIBundle.swiftmodule/arm64-apple-macos.swiftdoc",
+				"WebView/WebKit/Release/TestWebKitAPIBundle.swiftmodule/arm64-apple-macos.swiftmodule",
+				"WebView/WebKit/Release/TestWebKitAPIBundle.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo",
+				"WebView/WebKit/Release/TestWebKitAPIBundle.swiftmodule/Project/x86_64-apple-macos.swiftsourceinfo",
+				"WebView/WebKit/Release/TestWebKitAPIBundle.swiftmodule/x86_64-apple-macos.abi.json",
+				"WebView/WebKit/Release/TestWebKitAPIBundle.swiftmodule/x86_64-apple-macos.swiftdoc",
+				"WebView/WebKit/Release/TestWebKitAPIBundle.swiftmodule/x86_64-apple-macos.swiftmodule",
+				WebView/WebKit/Release/TestWebKitAPIResources.bundle,
+				WebView/WebKit/Release/TestWGSL,
+				WebView/WebKit/Release/TestWTF,
+				WebView/WebKit/Release/usr/local/include/bmalloc/bmalloc.json,
+				WebView/WebKit/Release/usr/local/include/bmalloc/pas_bitfit_page_config_kind.def,
+				WebView/WebKit/Release/usr/local/include/bmalloc/pas_heap_config_kind.def,
+				WebView/WebKit/Release/usr/local/include/bmalloc/pas_large_free_heap_declarations.def,
+				WebView/WebKit/Release/usr/local/include/bmalloc/pas_large_free_heap_definitions.def,
+				WebView/WebKit/Release/usr/local/include/bmalloc/pas_segregated_page_config_kind.def,
+				WebView/WebKit/Release/usr/local/include/bmalloc/pas_simple_free_heap_declarations.def,
+				WebView/WebKit/Release/usr/local/include/bmalloc/pas_simple_free_heap_definitions.def,
+				"WebView/WebKit/Release/usr/local/include/wtf/Scripts/audit-spi-if-needed.sh",
+				"WebView/WebKit/Release/usr/local/include/wtf/Scripts/generate-platform-args",
+				"WebView/WebKit/Release/usr/local/include/wtf/Scripts/generate-unified-source-bundles.rb",
+				WebView/WebKit/Release/usr/local/include/wtf/Scripts/GeneratePreferences.rb,
+				WebView/WebKit/Release/usr/local/include/wtf/Scripts/Preferences/UnifiedWebPreferences.yaml,
+				WebView/WebKit/Release/usr/local/include/wtf/WTF.json,
+				"WebView/WebKit/Release/WebKitSwift.swiftmodule/arm64-apple-macos.abi.json",
+				"WebView/WebKit/Release/WebKitSwift.swiftmodule/arm64-apple-macos.swiftdoc",
+				"WebView/WebKit/Release/WebKitSwift.swiftmodule/arm64-apple-macos.swiftmodule",
+				"WebView/WebKit/Release/WebKitSwift.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo",
+				"WebView/WebKit/Release/WebKitSwift.swiftmodule/Project/x86_64-apple-macos.swiftsourceinfo",
+				"WebView/WebKit/Release/WebKitSwift.swiftmodule/x86_64-apple-macos.abi.json",
+				"WebView/WebKit/Release/WebKitSwift.swiftmodule/x86_64-apple-macos.swiftdoc",
+				"WebView/WebKit/Release/WebKitSwift.swiftmodule/x86_64-apple-macos.swiftmodule",
+				WebView/WebKit/Release/WebKitTestRunner,
+				WebView/WebKit/Release/WebKitTestRunnerApp.app,
+				WebView/WebKit/Release/WebKitTestRunnerInjectedBundle.bundle,
+				WebView/WebKit/Release/webpushd,
+				WebView/WebKit/Release/webpushtool,
+				WebView/WebKit/Release/yasm,
 			);
 			target = 4AC596AC2D3C6DC400FF0326 /* Browser */;
 		};
@@ -111,7 +289,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1630;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					4AC596AC2D3C6DC400FF0326 = {
 						CreatedOnToolsVersion = 16.2;
@@ -224,6 +402,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -282,6 +461,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -300,11 +480,23 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Browser/Preview Content\"";
 				DEVELOPMENT_TEAM = WCB4HTANA6;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readwrite;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = YES;
+				ENABLE_RESOURCE_ACCESS_CAMERA = YES;
+				ENABLE_RESOURCE_ACCESS_LOCATION = YES;
+				ENABLE_RESOURCE_ACCESS_PRINTING = YES;
+				ENABLE_RESOURCE_ACCESS_USB = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Browser/WebView/WebKit",
+					"$(PROJECT_DIR)/Browser/WebView/WebKit/Release",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Browser/Info.plist;
@@ -318,7 +510,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Browser/WebView/WebKit/Release",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sameerasw.browser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -343,11 +539,23 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Browser/Preview Content\"";
 				DEVELOPMENT_TEAM = WCB4HTANA6;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_FILE_ACCESS_DOWNLOADS_FOLDER = readwrite;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = YES;
+				ENABLE_RESOURCE_ACCESS_CAMERA = YES;
+				ENABLE_RESOURCE_ACCESS_LOCATION = YES;
+				ENABLE_RESOURCE_ACCESS_PRINTING = YES;
+				ENABLE_RESOURCE_ACCESS_USB = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Browser/WebView/WebKit",
+					"$(PROJECT_DIR)/Browser/WebView/WebKit/Release",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Browser/Info.plist;
@@ -361,7 +569,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Browser/WebView/WebKit/Release",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sameerasw.browser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
