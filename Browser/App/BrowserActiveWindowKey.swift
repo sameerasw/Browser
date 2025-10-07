@@ -20,6 +20,10 @@ struct SplitViewStateKey: FocusedValueKey {
     typealias Value = SplitViewState
 }
 
+struct UserPreferencesKey: FocusedValueKey {
+    typealias Value = UserPreferences
+}
+
 extension FocusedValues {
     var browserActiveWindowState: BrowserWindowState? {
         get { self[BrowserActiveWindowKey.self] }
@@ -34,5 +38,10 @@ extension FocusedValues {
     var splitViewState: SplitViewState? {
         get { self[SplitViewStateKey.self] }
         set { self[SplitViewStateKey.self] = newValue }
+    }
+    
+    var userPreferences: UserPreferences? {
+        get { self[UserPreferencesKey.self] }
+        set { self[UserPreferencesKey.self] = newValue }
     }
 }

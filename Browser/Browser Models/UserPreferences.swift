@@ -61,6 +61,8 @@ class UserPreferences: ObservableObject {
     
     @AppStorage("show_hover_url") var showHoverURL = true
     
+    @AppStorage("extended_sidebar_style") var extendedSidebarStyle = false
+    
     // Download preferences
     @Published var downloadLocationBookmark: Data? = nil {
         didSet {
@@ -112,7 +114,8 @@ class UserPreferences: ObservableObject {
             "show_hover_url": true,
             "url_bar_position": URLBarPosition.onSidebar.rawValue,
             "show_full_url_on_toolbar": false,
-            "web_content_transparency": false
+            "web_content_transparency": false,
+            "extended_sidebar_style": false
         ])
     }
     

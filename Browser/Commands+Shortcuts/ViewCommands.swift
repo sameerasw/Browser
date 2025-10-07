@@ -13,6 +13,7 @@ struct ViewCommands: Commands {
     @FocusedValue(\.browserActiveWindowState) var browserWindowState
     @FocusedValue(\.sidebarModel) var sidebarModel
     @FocusedValue(\.splitViewState) var splitViewState
+    @FocusedValue(\.userPreferences) var userPreferences
 
     var body: some Commands {
         CommandGroup(replacing: .toolbar) {
@@ -22,6 +23,11 @@ struct ViewCommands: Commands {
                 }
             }
                 .globalKeyboardShortcut(.toggleSidebar)
+
+            Button("Toggle Sidebar Style") {
+                userPreferences?.extendedSidebarStyle.toggle()
+            }
+                .globalKeyboardShortcut(.toggleSidebarStyle)
 
             Divider()
             
@@ -85,6 +91,7 @@ struct ViewCommands: Commands {
 
 extension KeyboardShortcuts.Name {
     static let toggleSidebar = Self("toggle_sidebar", default: .init(.s, modifiers: .command))
+    static let toggleSidebarStyle = Self("toggle_sidebar_style", default: .init(.s, modifiers: [.command, .shift]))
 
     static let showTabSwitcher = Self("show_tab_switcher", default: .init(.tab, modifiers: .control))
 
@@ -102,5 +109,5 @@ extension KeyboardShortcuts.Name {
 }
 
 extension [KeyboardShortcuts.Name] {
-    static let allViewCommands: [KeyboardShortcuts.Name] = [.toggleSidebar, .showTabSwitcher, .stopLoading, .reload, .clearCookiesAndReload, .clearCacheAndReload, .togglePictureInPicture, .zoomActualSize, .zoomIn, .zoomOut]
+    static let allViewCommands: [KeyboardShortcuts.Name] = [.toggleSidebar, .toggleSidebarStyle, .showTabSwitcher, .stopLoading, .reload, .clearCookiesAndReload, .clearCacheAndReload, .togglePictureInPicture, .zoomActualSize, .zoomIn, .zoomOut]
 }

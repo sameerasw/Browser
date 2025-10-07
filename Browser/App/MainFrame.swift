@@ -71,6 +71,7 @@ struct MainFrame: View {
         .focusedSceneValue(\.sidebarModel, sidebarModel)
         .environmentObject(splitState)
         .focusedSceneValue(\.splitViewState, splitState)
+        .focusedSceneValue(\.userPreferences, userPreferences)
         .foregroundStyle(browserWindowState.currentSpace?.textColor(in: colorScheme) ?? .primary)
         .ignoresSafeArea(.all)
     }
@@ -97,7 +98,7 @@ struct MainFrame: View {
         PageWebView(browserSpaces: browserSpaces)
             .clipShape(.rect(cornerRadius: cornerRadius))
             .shadow(radius: shadowRadius)
-            .ignoresSafeArea(edges: Edge.Set ([.top, .bottom, .trailing]))
+            .ignoresSafeArea(edges: userPreferences.extendedSidebarStyle ? .all : [.top, .bottom, .trailing])
             .onReceive(NotificationCenter.default.publisher(for: NSWindow.willEnterFullScreenNotification)) { _ in
                 withAnimation(.browserDefault) {
                     browserWindowState.isFullScreen = true
