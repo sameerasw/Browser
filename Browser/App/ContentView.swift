@@ -16,10 +16,11 @@ struct ContentView: View {
 
         MainFrame()
             .background(
-                Color.clear
-                    .glassEffect(in: .rect(cornerRadius: 28.0))
+//                Color.clear
+//                    .glassEffect(in: .rect(cornerRadius: 28.0))
+                .ultraThinMaterial
             )
-            .ignoresSafeArea(.container, edges: .top)
+            .ignoresSafeArea(.all)
             .focusedSceneValue(\.browserActiveWindowState, browserWindowState)
             .environment(browserWindowState)
             .sheet(isPresented: $browserWindowState.showURLQRCode) {

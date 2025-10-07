@@ -15,7 +15,8 @@ struct MainFrame: View {
     @Environment(\.colorScheme) var colorScheme
     
     @EnvironmentObject var userPreferences: UserPreferences
-    
+    @State private var columnVisibility: NavigationSplitViewVisibility = .all
+
     @State var sidebarModel = SidebarModel()
     
     @Query(sort: \BrowserSpace.order) var browserSpaces: [BrowserSpace]
@@ -26,27 +27,17 @@ struct MainFrame: View {
     
     var body: some View {
         @Bindable var browserWindowState = browserWindowState
-        
-        HStack(spacing: 0) {
-            if userPreferences.sidebarPosition == .leading {
-                if !sidebarModel.sidebarCollapsed {
-                    sidebar
-                    SidebarResizer()
-                }
-            }
-            
+
+        NavigationSplitView(columnVisibility: $columnVisibility) {
+            Sidebar(browserSpaces: browserSpaces)
+                .padding(8)
+                .padding(.top, 24)
+                .ignoresSafeArea(.all)
+        } detail: {
             PageWebView(browserSpaces: browserSpaces)
                 .clipShape(.rect(cornerRadius: isImmersive ? 0 : userPreferences.roundedCorners ? 8 : 0))
                 .shadow(radius: isImmersive ? 0 : userPreferences.enableShadow ? 3 : 0)
-                .padding([.top, .bottom], isImmersive ? 0 : userPreferences.enablePadding ? 10 : 0)
-                .padding(
-                    userPreferences.sidebarPosition == .leading ? .leading : .trailing,
-                    isImmersive ? 0 : sidebarModel.sidebarCollapsed ? 10 : 5
-                )
-                .padding(
-                    userPreferences.sidebarPosition == .leading ? .trailing : .leading,
-                    isImmersive ? 0 : userPreferences.enablePadding ? 10 : 0
-                )
+                .ignoresSafeArea(.all)
                 .onReceive(NotificationCenter.default.publisher(for: NSWindow.willEnterFullScreenNotification)) { _ in
                     withAnimation(.browserDefault) {
                         browserWindowState.isFullScreen = true
@@ -58,16 +49,9 @@ struct MainFrame: View {
                     }
                 }
                 .actionAlert()
-            
-            if userPreferences.sidebarPosition == .trailing {
-                if !sidebarModel.sidebarCollapsed {
-                    SidebarResizer()
-                    sidebar
-                }
-            }
         }
+
         .frame(maxWidth: .infinity)
-        .toolbar { Text("") }
         .toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
         .background {
             if let currentSpace = browserWindowState.currentSpace {
@@ -112,6 +96,7 @@ struct MainFrame: View {
         .environment(sidebarModel)
         .focusedSceneValue(\.sidebarModel, sidebarModel)
         .foregroundStyle(browserWindowState.currentSpace?.textColor(in: colorScheme) ?? .primary)
+        .ignoresSafeArea(.all)
     }
     
     var sidebar: some View {

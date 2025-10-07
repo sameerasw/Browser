@@ -29,9 +29,7 @@ struct Sidebar: View {
             SidebarBottomToolbar(browserSpaces: browserSpaces, createSpace: createSpace)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .padding(.bottom, 10)
         .opacity(sidebarModel.currentSidebarWidth == 0 ? 0 : 1)
-        .padding(.trailing, userPreferences.sidebarPosition == .trailing ? .sidebarPadding * 2 : 0)
         .gesture(WindowDragGesture()) // Move the browser window by dragging the sidebar
         .task {
             if browserSpaces.isEmpty {
