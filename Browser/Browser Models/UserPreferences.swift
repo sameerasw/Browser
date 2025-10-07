@@ -48,6 +48,7 @@ class UserPreferences: ObservableObject {
     @AppStorage("enable_padding") var enablePadding = true
     @AppStorage("enable_shadow") var enableShadow = true
     @AppStorage("immersive_view_on_fullscreen") var immersiveViewOnFullscreen = true
+    @AppStorage("web_content_transparency") var webContentTransparency = false
     
     // General preferences
     @AppStorage("clear_selected_tab") var clearSelectedTab = false
@@ -110,7 +111,8 @@ class UserPreferences: ObservableObject {
             "automatic_page_suspension": true,
             "show_hover_url": true,
             "url_bar_position": URLBarPosition.onSidebar.rawValue,
-            "show_full_url_on_toolbar": false
+            "show_full_url_on_toolbar": false,
+            "web_content_transparency": false
         ])
     }
     

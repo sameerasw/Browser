@@ -14,6 +14,7 @@ class WKWebViewController: NSViewController {
 
     @Bindable var tab: BrowserTab
     @Bindable var browserSpace: BrowserSpace
+    var userPreferences: UserPreferences
 
     var webView: MyWKWebView
     let configuration: WKWebViewConfiguration
@@ -24,9 +25,10 @@ class WKWebViewController: NSViewController {
 
     private var suspendTimer: DispatchSourceTimer?
 
-    init(tab: BrowserTab, browserSpace: BrowserSpace, noTrace: Bool = false, using modelContext: ModelContext) {
+    init(tab: BrowserTab, browserSpace: BrowserSpace, noTrace: Bool = false, using modelContext: ModelContext, userPreferences: UserPreferences) {
         self.tab = tab
         self.browserSpace = browserSpace
+        self.userPreferences = userPreferences
 
         self.configuration = SharedWebViewConfiguration.shared.configuration
         if noTrace {
@@ -46,6 +48,11 @@ class WKWebViewController: NSViewController {
         webView.allowsMagnification = true
     webView.allowsLinkPreview = true // TODO: Implement my own preview later...
     webView.isInspectable = true
+
+        // Make webView background transparent
+        webView.setValue(false, forKey: "drawsBackground")
+        webView.wantsLayer = true
+        webView.layer?.backgroundColor = NSColor.clear.cgColor
 
         webView.navigationDelegate = self
         webView.uiDelegate = self
@@ -97,6 +104,32 @@ class WKWebViewController: NSViewController {
 
     func resetSuspendTimer() {
         startSuspendTimer()
+    }
+
+    func applyTransparency() {
+        let js: String
+        if userPreferences.webContentTransparency {
+            js = """
+            if (!document.getElementById('transparency-style')) {
+                var style = document.createElement('style');
+                style.id = 'transparency-style';
+                style.innerHTML = `
+                body {
+                background-color: transparent !important;
+                }
+                `;
+                document.head.appendChild(style);
+            }
+            """
+        } else {
+            js = """
+            var style = document.getElementById('transparency-style');
+            if (style) {
+                style.remove();
+            }
+            """
+        }
+        webView.evaluateJavaScript(js, completionHandler: nil)
     }
 
     required init?(coder: NSCoder) {

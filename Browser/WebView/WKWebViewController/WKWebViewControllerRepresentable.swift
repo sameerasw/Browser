@@ -14,6 +14,7 @@ struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
     
     @Environment(BrowserWindowState.self) var browserWindowState
     @Environment(SidebarModel.self) var sidebarModel
+    @EnvironmentObject var userPreferences: UserPreferences
         
     @Bindable var browserSpace: BrowserSpace
     @Bindable var tab: BrowserTab
@@ -28,7 +29,7 @@ struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
     }
     
     func makeNSViewController(context: Context) -> WKWebViewController {
-        let wkWebViewController = WKWebViewController(tab: tab, browserSpace: browserSpace, noTrace: noTrace, using: modelContext)
+        let wkWebViewController = WKWebViewController(tab: tab, browserSpace: browserSpace, noTrace: noTrace, using: modelContext, userPreferences: userPreferences)
         wkWebViewController.coordinator = context.coordinator
         return wkWebViewController
     }
@@ -38,6 +39,9 @@ struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
                                             || tab.webviewErrorDescription != nil
                                             || tab.webviewErrorCode != nil
         nsViewController.webView.findBarView?.isHidden = nsViewController.webView.isHidden
+        
+        // Apply transparency in case it changed
+        nsViewController.applyTransparency()
     }
     
     func makeCoordinator() -> Coordinator {

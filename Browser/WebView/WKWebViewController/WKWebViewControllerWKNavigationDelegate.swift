@@ -34,6 +34,23 @@ extension WKWebViewController: WKNavigationDelegate {
                 
         self.tab.webviewErrorCode = nil
         self.tab.webviewErrorDescription = nil
+        
+        // Inject CSS to make body background transparent if enabled
+        if self.userPreferences.webContentTransparency {
+            let js = """
+            if (!document.getElementById('transparency-style')) {
+                var style = document.createElement('style');
+                style.id = 'transparency-style';
+                style.innerHTML = `
+                body {
+                background-color: transparent !important;
+                }
+                `;
+                document.head.appendChild(style);
+            }
+            """
+            webView.evaluateJavaScript(js, completionHandler: nil)
+        }
     }
     
     /// Called when the web view fails loading a page
