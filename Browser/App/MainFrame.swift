@@ -33,6 +33,7 @@ struct MainFrame: View {
                 .padding(8)
                 .padding(.top, 24)
                 .ignoresSafeArea(.all)
+        .modifier(ConditionalToolbarRemover(shouldRemove: splitState.columnVisibility == .detailOnly))
         } detail: {
             PageWebView(browserSpaces: browserSpaces)
                 .clipShape(.rect(cornerRadius: isImmersive ? 0 : userPreferences.roundedCorners ? 8 : 0))
@@ -49,6 +50,10 @@ struct MainFrame: View {
                     }
                 }
                 .actionAlert()
+        }
+
+        .onChange(of: splitState.columnVisibility) { oldValue, newValue in
+            NSApp.setBrowserWindowControls(hidden: newValue == .detailOnly)
         }
 
         .frame(maxWidth: .infinity)
@@ -105,5 +110,17 @@ struct MainFrame: View {
         Sidebar(browserSpaces: browserSpaces)
             .frame(width: sidebarModel.currentSidebarWidth)
             .readingWidth(width: $sidebarModel.currentSidebarWidth)
+    }
+}
+
+struct ConditionalToolbarRemover: ViewModifier {
+    let shouldRemove: Bool
+
+    func body(content: Content) -> some View {
+        if shouldRemove {
+            content.toolbar(removing: .sidebarToggle)
+        } else {
+            content
+        }
     }
 }

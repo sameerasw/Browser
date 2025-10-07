@@ -38,18 +38,14 @@ import SwiftUI
             if sidebarCollapsed {
                 lastSidebarWidth = currentSidebarWidth
                 currentSidebarWidth = 0
-                if UserDefaults.standard.string(forKey: "sidebar_position") == "leading" {
-                    NSApp.setBrowserWindowControls(hidden: true)
-                }
+                NSApp.setBrowserWindowControls(hidden: true)
             } else {
                 self.currentSidebarWidth = self.lastSidebarWidth
             }
         } completion: {
             // When finished, show the traffic lights if the sidebar is not collapsed
             if !self.sidebarCollapsed {
-                if UserDefaults.standard.string(forKey: "sidebar_position") == "leading" {
-                    NSApp.setBrowserWindowControls(hidden: false)
-                }
+                NSApp.setBrowserWindowControls(hidden: false)
             }
         }
     }
@@ -79,13 +75,9 @@ import SwiftUI
         withAnimation(.smooth(duration: 0.2)) {
             if inRange {
                 currentSidebarWidth = lastSidebarWidth
-                if sidebarPosition == "leading" {
-                    NSApp.setBrowserWindowControls(hidden: false)
-                }
+                NSApp.setBrowserWindowControls(hidden: false)
             } else {
-                if sidebarPosition == "leading" {
-                    NSApp.setBrowserWindowControls(hidden: true)
-                }
+                NSApp.setBrowserWindowControls(hidden: true)
                 currentSidebarWidth = 0
             }
         }
