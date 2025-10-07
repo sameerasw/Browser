@@ -10,25 +10,25 @@ import SwiftData
 
 /// Main frame of the browser.
 struct MainFrame: View {
-    
+
     @Environment(BrowserWindowState.self) var browserWindowState
     @Environment(\.colorScheme) var colorScheme
-    
+
     @EnvironmentObject var userPreferences: UserPreferences
-    @State private var columnVisibility: NavigationSplitViewVisibility = .all
+    @StateObject private var splitState = SplitViewState()
 
     @State var sidebarModel = SidebarModel()
-    
+
     @Query(sort: \BrowserSpace.order) var browserSpaces: [BrowserSpace]
-    
+
     var isImmersive: Bool {
         browserWindowState.isFullScreen && sidebarModel.sidebarCollapsed && userPreferences.immersiveViewOnFullscreen
     }
-    
+
     var body: some View {
         @Bindable var browserWindowState = browserWindowState
 
-        NavigationSplitView(columnVisibility: $columnVisibility) {
+        NavigationSplitView(columnVisibility: $splitState.columnVisibility) {
             Sidebar(browserSpaces: browserSpaces)
                 .padding(8)
                 .padding(.top, 24)
@@ -95,10 +95,12 @@ struct MainFrame: View {
         }
         .environment(sidebarModel)
         .focusedSceneValue(\.sidebarModel, sidebarModel)
+        .environmentObject(splitState)
+        .focusedSceneValue(\.splitViewState, splitState)
         .foregroundStyle(browserWindowState.currentSpace?.textColor(in: colorScheme) ?? .primary)
         .ignoresSafeArea(.all)
     }
-    
+
     var sidebar: some View {
         Sidebar(browserSpaces: browserSpaces)
             .frame(width: sidebarModel.currentSidebarWidth)

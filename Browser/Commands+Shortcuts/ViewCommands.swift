@@ -12,10 +12,15 @@ struct ViewCommands: Commands {
 
     @FocusedValue(\.browserActiveWindowState) var browserWindowState
     @FocusedValue(\.sidebarModel) var sidebarModel
+    @FocusedValue(\.splitViewState) var splitViewState
 
     var body: some Commands {
         CommandGroup(replacing: .toolbar) {
-            Button("Toggle Sidebar", action: sidebarModel?.toggleSidebar)
+            Button("Toggle Sidebar") {
+                if let splitViewState = splitViewState {
+                    splitViewState.columnVisibility = (splitViewState.columnVisibility == .all ? .detailOnly : .all)
+                }
+            }
                 .globalKeyboardShortcut(.toggleSidebar)
 
             Divider()

@@ -16,6 +16,10 @@ struct SidebarModelActiveWindowKey: FocusedValueKey {
     typealias Value = SidebarModel
 }
 
+struct SplitViewStateKey: FocusedValueKey {
+    typealias Value = SplitViewState
+}
+
 extension FocusedValues {
     var browserActiveWindowState: BrowserWindowState? {
         get { self[BrowserActiveWindowKey.self] }
@@ -25,5 +29,10 @@ extension FocusedValues {
     var sidebarModel: SidebarModel? {
         get { self[SidebarModelActiveWindowKey.self] }
         set { self[SidebarModelActiveWindowKey.self] = newValue }
+    }
+    
+    var splitViewState: SplitViewState? {
+        get { self[SplitViewStateKey.self] }
+        set { self[SplitViewStateKey.self] = newValue }
     }
 }
