@@ -15,11 +15,11 @@ struct ContentView: View {
     var body: some View {
 
         MainFrame()
-            .background(
-//                Color.clear
-//                    .glassEffect(in: .rect(cornerRadius: 28.0))
-                .ultraThinMaterial
-            )
+//            .background(
+////                Color.clear
+////                    .glassEffect(in: .rect(cornerRadius: 28.0))
+//                .ultraThinMaterial
+//            )
             .ignoresSafeArea(.all)
             .focusedSceneValue(\.browserActiveWindowState, browserWindowState)
             .environment(browserWindowState)
