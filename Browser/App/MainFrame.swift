@@ -29,28 +29,11 @@ struct MainFrame: View {
         @Bindable var browserWindowState = browserWindowState
 
         NavigationSplitView(columnVisibility: $splitState.columnVisibility) {
-            Sidebar(browserSpaces: browserSpaces)
-                .padding(8)
-                .padding(.top, 24)
-                .ignoresSafeArea(.all)
-        .modifier(ConditionalToolbarRemover(shouldRemove: splitState.columnVisibility == .detailOnly))
+            sidebarView
         } detail: {
-            PageWebView(browserSpaces: browserSpaces)
-                .clipShape(.rect(cornerRadius: isImmersive ? 0 : userPreferences.roundedCorners ? 8 : 0))
-                .shadow(radius: isImmersive ? 0 : userPreferences.enableShadow ? 3 : 0)
-                .ignoresSafeArea(.all)
-                .onReceive(NotificationCenter.default.publisher(for: NSWindow.willEnterFullScreenNotification)) { _ in
-                    withAnimation(.browserDefault) {
-                        browserWindowState.isFullScreen = true
-                    }
-                }
-                .onReceive(NotificationCenter.default.publisher(for: NSWindow.willExitFullScreenNotification)) { _ in
-                    withAnimation(.browserDefault) {
-                        browserWindowState.isFullScreen = false
-                    }
-                }
-                .actionAlert()
+            pageView
         }
+
 
         .onChange(of: splitState.columnVisibility) { oldValue, newValue in
             NSApp.setBrowserWindowControls(hidden: newValue == .detailOnly)
@@ -79,20 +62,6 @@ struct MainFrame: View {
             TabSwitcher(browserSpaces: browserSpaces)
                 .environment(browserWindowState)
         }
-        // Show the sidebar by hovering the mouse on the edge of the screen
-        .overlay(alignment: userPreferences.sidebarPosition == .leading ? .topLeading : .topTrailing) {
-            if sidebarModel.sidebarCollapsed && sidebarModel.currentSidebarWidth > 0 {
-                sidebar
-                    .background {
-                        if let currentSpace = browserWindowState.currentSpace {
-                            SidebarSpaceBackground(browserSpace: currentSpace, isSidebarCollapsed: true)
-                        }
-                    }
-                    .background(.ultraThinMaterial)
-                    .padding(userPreferences.sidebarPosition == .leading ? .trailing : .leading, .sidebarPadding)
-                    .browserTransition(.move(edge: userPreferences.sidebarPosition == .leading ? .leading : .trailing))
-            }
-        }
         .transaction {
             if userPreferences.disableAnimations {
                 $0.animation = nil
@@ -111,6 +80,46 @@ struct MainFrame: View {
             .frame(width: sidebarModel.currentSidebarWidth)
             .readingWidth(width: $sidebarModel.currentSidebarWidth)
     }
+
+    // MARK: - Sidebar
+    @ViewBuilder
+    private var sidebarView: some View {
+        Sidebar(browserSpaces: browserSpaces)
+            .padding(8)
+            .padding(.top, 24)
+            .ignoresSafeArea(.all)
+            .modifier(ConditionalToolbarRemover(shouldRemove: splitState.columnVisibility == .detailOnly))
+    }
+
+    // MARK: - Detail (WebView)
+    @ViewBuilder
+    private var pageView: some View {
+        PageWebView(browserSpaces: browserSpaces)
+            .clipShape(.rect(cornerRadius: cornerRadius))
+            .shadow(radius: shadowRadius)
+            .ignoresSafeArea(edges: Edge.Set ([.top, .bottom, .trailing]))
+            .onReceive(NotificationCenter.default.publisher(for: NSWindow.willEnterFullScreenNotification)) { _ in
+                withAnimation(.browserDefault) {
+                    browserWindowState.isFullScreen = true
+                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: NSWindow.willExitFullScreenNotification)) { _ in
+                withAnimation(.browserDefault) {
+                    browserWindowState.isFullScreen = false
+                }
+            }
+            .actionAlert()
+    }
+
+    // MARK: - Computed properties
+    private var cornerRadius: CGFloat {
+        isImmersive ? 0 : (userPreferences.roundedCorners ? 8 : 0)
+    }
+
+    private var shadowRadius: CGFloat {
+        isImmersive ? 0 : (userPreferences.enableShadow ? 3 : 0)
+    }
+
 }
 
 struct ConditionalToolbarRemover: ViewModifier {
