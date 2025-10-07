@@ -33,7 +33,7 @@ struct MainFrame: View {
         } detail: {
             pageView
         }
-
+        .animation(.easeInOut(duration: 0.3), value: splitState.columnVisibility)
 
         .onChange(of: splitState.columnVisibility) { oldValue, newValue in
             NSApp.setBrowserWindowControls(hidden: newValue == .detailOnly)
@@ -99,6 +99,7 @@ struct MainFrame: View {
             .clipShape(.rect(cornerRadius: cornerRadius))
             .shadow(radius: shadowRadius)
             .ignoresSafeArea(edges: userPreferences.extendedSidebarStyle ? .all : [.top, .bottom, .trailing])
+            .animation(.easeInOut(duration: 0.3), value: userPreferences.extendedSidebarStyle)
             .onReceive(NotificationCenter.default.publisher(for: NSWindow.willEnterFullScreenNotification)) { _ in
                 withAnimation(.browserDefault) {
                     browserWindowState.isFullScreen = true

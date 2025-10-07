@@ -18,14 +18,18 @@ struct ViewCommands: Commands {
     var body: some Commands {
         CommandGroup(replacing: .toolbar) {
             Button("Toggle Sidebar") {
-                if let splitViewState = splitViewState {
-                    splitViewState.columnVisibility = (splitViewState.columnVisibility == .all ? .detailOnly : .all)
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    if let splitViewState = splitViewState {
+                        splitViewState.columnVisibility = (splitViewState.columnVisibility == .all ? .detailOnly : .all)
+                    }
                 }
             }
                 .globalKeyboardShortcut(.toggleSidebar)
 
             Button("Toggle Sidebar Style") {
-                userPreferences?.extendedSidebarStyle.toggle()
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    userPreferences?.extendedSidebarStyle.toggle()
+                }
             }
                 .globalKeyboardShortcut(.toggleSidebarStyle)
 
