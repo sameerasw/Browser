@@ -10,10 +10,16 @@ import SwiftData
 
 struct ContentView: View {
     @State var browserWindowState = BrowserWindowState()
+    @EnvironmentObject var userPreferences: UserPreferences
+
     var body: some View {
+
         MainFrame()
+            .background(
+                Color.clear
+                    .glassEffect(in: .rect(cornerRadius: 28.0))
+            )
             .ignoresSafeArea(.container, edges: .top)
-            .background(.ultraThinMaterial)
             .focusedSceneValue(\.browserActiveWindowState, browserWindowState)
             .environment(browserWindowState)
             .sheet(isPresented: $browserWindowState.showURLQRCode) {
