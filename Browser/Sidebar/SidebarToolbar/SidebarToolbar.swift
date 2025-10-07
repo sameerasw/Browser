@@ -26,10 +26,10 @@ struct SidebarToolbar: View {
     var body: some View {
         LazyVStack(alignment: .leading) {
             HStack {
-                SidebarToolbarButton(userPreferences.sidebarPosition == .leading ? "sidebar.left" : "sidebar.right", action: sidebarModel.toggleSidebar)
-                    .padding(.leading, userPreferences.sidebarPosition == .trailing ? 5 : 0)
-                // Only add padding if the sidebar is on the leading side
-                    .padding(.leading, userPreferences.sidebarPosition == .leading ? 85 : 0)
+//                SidebarToolbarButton(userPreferences.sidebarPosition == .leading ? "sidebar.left" : "sidebar.right", action: sidebarModel.toggleSidebar)
+//                    .padding(.leading, userPreferences.sidebarPosition == .trailing ? 5 : 0)
+//                // Only add padding if the sidebar is on the leading side
+//                    .padding(.leading, userPreferences.sidebarPosition == .leading ? 85 : 0)
                 
                 Spacer()
                 
