@@ -322,6 +322,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Browser/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Zero;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Browser needs access to use your camera in websites.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Leonardo Larrañaga";
@@ -380,6 +381,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Browser/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Zero;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Browser needs access to use your camera in websites.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Leonardo Larrañaga";
