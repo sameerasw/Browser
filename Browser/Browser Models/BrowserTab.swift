@@ -37,6 +37,7 @@ final class BrowserTab: Identifiable, Comparable {
     }
 
     @Transient var webview: MyWKWebView? = nil
+    @Transient var viewController: WKWebViewController? = nil
     @Attribute(.ephemeral) var webviewErrorDescription: String? = nil
     @Attribute(.ephemeral) var webviewErrorCode: Int? = nil
 

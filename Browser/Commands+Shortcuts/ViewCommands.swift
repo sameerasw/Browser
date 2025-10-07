@@ -24,6 +24,18 @@ struct ViewCommands: Commands {
                 .globalKeyboardShortcut(.toggleSidebar)
 
             Divider()
+            
+            Button("Rescan Styles") {
+                StyleManager.shared.scanStyles()
+                // Reapply styles to current tab if transparency is enabled
+                if let tab = browserWindowState?.currentSpace?.currentTab,
+                   let webView = tab.webview,
+                   let viewController = tab.viewController {
+                    viewController.applyTransparency()
+                }
+            }
+
+            Divider()
 
             Button("Show Tab Switcher") {
                 browserWindowState?.showTabSwitcher = true

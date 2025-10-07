@@ -31,6 +31,7 @@ struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
     func makeNSViewController(context: Context) -> WKWebViewController {
         let wkWebViewController = WKWebViewController(tab: tab, browserSpace: browserSpace, noTrace: noTrace, using: modelContext, userPreferences: userPreferences)
         wkWebViewController.coordinator = context.coordinator
+        tab.viewController = wkWebViewController
         return wkWebViewController
     }
     

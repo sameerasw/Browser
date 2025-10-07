@@ -109,24 +109,40 @@ class WKWebViewController: NSViewController {
     func applyTransparency() {
         let js: String
         if userPreferences.webContentTransparency {
-            js = """
-            if (!document.getElementById('transparency-style')) {
-                var style = document.createElement('style');
-                style.id = 'transparency-style';
-                style.innerHTML = `
-                body {
-                background-color: transparent !important;
-                }
-                `;
-                document.head.appendChild(style);
+            // Get the appropriate CSS from StyleManager
+            let cssContent: String
+            if let url = webView.url, let style = StyleManager.shared.getStyle(for: url) {
+                cssContent = style
+            } else {
+                // Fallback to basic transparency if no styles available
+                cssContent = "body { background-color: transparent !important; }"
             }
+            
+            // Properly escape the CSS content for JavaScript
+            let escapedCSS = cssContent
+                .replacingOccurrences(of: "\\", with: "\\\\")
+                .replacingOccurrences(of: "`", with: "\\`")
+                .replacingOccurrences(of: "$", with: "\\$")
+            
+            js = """
+            (function() {
+                var style = document.getElementById('transparency-style');
+                if (!style) {
+                    style = document.createElement('style');
+                    style.id = 'transparency-style';
+                    document.head.appendChild(style);
+                }
+                style.textContent = `\(escapedCSS)`;
+            })();
             """
         } else {
             js = """
-            var style = document.getElementById('transparency-style');
-            if (style) {
-                style.remove();
-            }
+            (function() {
+                var style = document.getElementById('transparency-style');
+                if (style) {
+                    style.remove();
+                }
+            })();
             """
         }
         webView.evaluateJavaScript(js, completionHandler: nil)

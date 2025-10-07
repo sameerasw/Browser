@@ -37,17 +37,31 @@ extension WKWebViewController: WKNavigationDelegate {
         
         // Inject CSS to make body background transparent if enabled
         if self.userPreferences.webContentTransparency {
-            let js = """
-            if (!document.getElementById('transparency-style')) {
-                var style = document.createElement('style');
-                style.id = 'transparency-style';
-                style.innerHTML = `
-                body {
-                background-color: transparent !important;
-                }
-                `;
-                document.head.appendChild(style);
+            // Get the appropriate CSS from StyleManager
+            let cssContent: String
+            if let style = StyleManager.shared.getStyle(for: url) {
+                cssContent = style
+            } else {
+                // Fallback to basic transparency if no styles available
+                cssContent = "body { background-color: transparent !important; }"
             }
+            
+            // Properly escape the CSS content for JavaScript
+            let escapedCSS = cssContent
+                .replacingOccurrences(of: "\\", with: "\\\\")
+                .replacingOccurrences(of: "`", with: "\\`")
+                .replacingOccurrences(of: "$", with: "\\$")
+            
+            let js = """
+            (function() {
+                var style = document.getElementById('transparency-style');
+                if (!style) {
+                    style = document.createElement('style');
+                    style.id = 'transparency-style';
+                    document.head.appendChild(style);
+                }
+                style.textContent = `\(escapedCSS)`;
+            })();
             """
             webView.evaluateJavaScript(js, completionHandler: nil)
         }
