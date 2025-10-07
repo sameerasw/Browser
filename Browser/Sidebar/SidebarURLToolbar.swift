@@ -52,6 +52,7 @@ struct SidebarURLToolbar: View {
             SidebarToolbarButton("link", disabled: currentTab == nil, action: browserWindowState.copyURLToClipboard)
                 .padding(.trailing)
         }
-        .background(.ultraThinMaterial)
+        .background(.clear)
+        .glassEffect()
     }
 }

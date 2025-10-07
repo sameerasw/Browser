@@ -34,13 +34,15 @@ struct SidebarURL: View {
         .frame(maxWidth: .infinity)
         .frame(height: 30)
         .padding(3)
-        .background(
-            browserWindowState.currentSpace?.textColor(in: colorScheme) == .black ?
-            AnyShapeStyle(.ultraThinMaterial).opacity(hover ? 0.6 : 0.3) :
-                browserWindowState.currentSpace?.colors.isEmpty == true && colorScheme == .light ?
-            AnyShapeStyle(.gray).opacity(hover ? 0.3 : 0.2) :
-                AnyShapeStyle(Color.white).opacity(hover ? 0.1 : 0.05)
-        )
+//        .background(
+//            browserWindowState.currentSpace?.textColor(in: colorScheme) == .black ?
+//            AnyShapeStyle(.clear).opacity(hover ? 0.6 : 0.3) :
+//                browserWindowState.currentSpace?.colors.isEmpty == true && colorScheme == .light ?
+//            AnyShapeStyle(.gray).opacity(hover ? 0.3 : 0.2) :
+//                AnyShapeStyle(Color.white).opacity(hover ? 0.1 : 0.05)
+//        )
+        .background(.clear)
+        .glassEffect(in: .rect(cornerRadius: 10.0))
         .overlay(alignment: .bottom) {
             if userPreferences.loadingIndicatorPosition == .onURL && browserWindowState.currentSpace?.currentTab?.isLoading == true {
                 ProgressView(value: browserWindowState.currentSpace?.currentTab?.estimatedProgress ?? 0)

@@ -10,23 +10,23 @@ import SwiftData
 
 /// A view that contains all the stacks for the loaded tabs in all the spaces
 struct PageWebView: View {
-    
+
     @Environment(\.scenePhase) var scenePhase
     @Environment(BrowserWindowState.self) var browserWindowState
-    
+
     @EnvironmentObject var userPreferences: UserPreferences
-    
+
     let browserSpaces: [BrowserSpace]
-    
+
     // UUID to scroll to the current space (using browserWindowState.viewScrollState doesn't work)
     @State var scrollState: UUID?
-    
+
     var body: some View {
         VStack(spacing: 0) {
             if userPreferences.urlBarPosition == .onToolbar {
                 SidebarURLToolbar()
             }
-            
+
             ScrollView(.horizontal) {
                 LazyHStack(spacing: .zero) {
                     ForEach(browserSpaces) { browserSpace in
@@ -45,14 +45,14 @@ struct PageWebView: View {
         .onChange(of: browserWindowState.currentSpace) { _, newValue in
             scrollState = newValue?.id
         }
-        .transaction { $0.disablesAnimations = true }
+        .transaction { $0.animation = .bouncy(duration: 0.3) }
         // Try to enter Picture in Picture of current tab when tab changes or app goes to background
         .onChange(of: browserWindowState.currentSpace?.currentTab) { oldValue, newValue in
             if userPreferences.openPipOnTabChange {
                 if let oldValue {
                     oldValue.webview?.togglePictureInPicture()
                 }
-                
+
                 if let newValue {
                     newValue.webview?.togglePictureInPicture()
                 }

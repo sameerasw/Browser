@@ -16,6 +16,9 @@ struct WebViewStack: View {
                 ForEach(browserSpace.allTabs.filter { browserSpace.loadedTabs.contains($0) || $0 == currentTab }) { tab in
                     WebView(tab: tab, browserSpace: browserSpace)
                     .zIndex(tab == currentTab ? 1 : 0)
+                    .opacity(tab == currentTab ? 1 : 0)
+                    .scaleEffect(tab == currentTab ? 1 : 0.95)
+                    .animation(.bouncy(duration: 0.3), value: browserSpace.currentTab)
                     .onAppear {
                         if !browserSpace.loadedTabs.contains(tab) {
                             browserSpace.loadedTabs.append(tab)
@@ -26,6 +29,6 @@ struct WebViewStack: View {
                 VisualEffectView(material: .fullScreenUI, blendingMode: .withinWindow)
             }
         }
-        .transaction { $0.animation = nil }
+        .transaction { $0.animation = .bouncy(duration: 0.3) }
     }
 }
