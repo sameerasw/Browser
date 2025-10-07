@@ -1,8 +1,4 @@
 //
-//  Use this file to import your target's public headers that you would like to expose to Swift.
-//  There should be a WebKit.framework in the project.
+//  Legacy bridging header left intentionally empty.
+//  Public WebKit APIs are imported directly in Swift files.
 //
-
-#import "ExperimentalFeatures.h"
-#import "DeveloperFeatures.h"
-#import "MediaControls.h"

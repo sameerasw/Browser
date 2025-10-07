@@ -40,4 +40,4 @@ https://github.com/user-attachments/assets/90738982-651a-4991-8580-866325d1d128
 
 ## Building
 
-In order to build and run the app, a WebKit.framework is neccessary in the `WebView/WebKit` folder. This can be obtained at the [WebKit Build Archives page](https://webkit.org/build-archives/#mac-sequoia-x86_64%20arm64).
+The project now links against the system-provided WebKit, so a custom WebKit.framework checkout is no longer required. Open `Browser.xcodeproj` and build the `Browser` scheme with the latest Xcode on macOS.

@@ -1,6 +1,4 @@
-**/Webkit.framework/*
 *.xcuserstate
 .DS_Store
 **/xcuserdata/
 .build/
-**/Browser/WebView/WebKit/*
