@@ -6,6 +6,7 @@
 //
 
 import SwiftData
+import Foundation
 
 /// A custom website searcher that the user can add
 struct BrowserCustomSearcher: Identifiable, Codable {

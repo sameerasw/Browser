@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 extension NSWorkspace {
     var urlForDefaultBrowser: URL? {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 extension NSWindow {
     static func hasPrefix(_ prefix: String, in window: NSWindow?) -> Bool {

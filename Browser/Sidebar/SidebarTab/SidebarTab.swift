@@ -9,40 +9,32 @@ import SwiftUI
 
 /// Tab in the sidebar
 struct SidebarTab: View {
-    
+
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) var modelContext
-    
+
     @EnvironmentObject var userPreferences: UserPreferences
-    
+
     @Bindable var browserSpace: BrowserSpace
     @Bindable var browserTab: BrowserTab
-    
+
     let dragging: Bool
-    
+
     @State var backgroundColor: Color = .clear
     @State var isHoveringTab: Bool = false
     @State var isHoveringCloseButton: Bool = false
     @State var isPressed: Bool = false
-        
+
     var body: some View {
         HStack {
             faviconImage
-            
-            if browserTab.webview?.hasActiveNowPlayingSession == true {
-                Button("Mute Tab", systemImage: browserTab.webview?.mediaMutedState != .audioMuted ? "speaker.wave.2" : "speaker.slash") {
-                    browserTab.webview?.toggleMute()
-                }
-                .buttonStyle(.sidebarHover())
-                .browserTransition(.move(edge: .leading))
-            }
-            
+
             Text(browserTab.title)
                 .lineLimit(1)
                 .truncationMode(.tail)
-            
+
             Spacer()
-            
+
             if isHoveringTab {
                 closeTabButton
             }
@@ -61,7 +53,7 @@ struct SidebarTab: View {
         }
         .scaleEffect(isPressed ? 0.98 : 1.0)
     }
-    
+
     var faviconImage: some View {
         Group {
             if userPreferences.loadingIndicatorPosition == .onTab && browserTab.isLoading {
@@ -80,7 +72,7 @@ struct SidebarTab: View {
         .frame(width: 16, height: 16)
         .padding(.leading, 5)
     }
-    
+
     var closeTabButton: some View {
         Button("Close Tab", systemImage: "xmark", action: closeTab)
             .font(.title3)
@@ -94,22 +86,22 @@ struct SidebarTab: View {
             }
             .padding(.trailing, 5)
     }
-    
+
     func selectTab() {
         browserSpace.currentTab = browserTab
-        
+
         if !userPreferences.disableAnimations {
             // Scale bounce effect
             withAnimation(.bouncy(duration: 0.15, extraBounce: 0.0)) {
                 isPressed = true
-                
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     isPressed = false
                 }
             }
         }
     }
-    
+
     /// Close (delete) the tab
     func closeTab() {
         browserSpace.closeTab(browserTab, using: modelContext)

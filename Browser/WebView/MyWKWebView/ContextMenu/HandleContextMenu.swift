@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 extension MyWKWebView {
     /// Handle the context menu

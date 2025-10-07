@@ -11,18 +11,17 @@ import WebKit
 class SharedWebViewConfiguration {
     // Singleton to ensure a single shared configuration across tabs
     static let shared = SharedWebViewConfiguration()
-    
+
     // Shared configuration with cache, cookies, and other settings
     let configuration: WKWebViewConfiguration
-    
+
     private init() {
         configuration = WKWebViewConfiguration()
-        
-        configuration.allowsInlinePredictions = true
+
         configuration.allowsAirPlayForMediaPlayback = true
         configuration.websiteDataStore = .default()
         configuration.mediaTypesRequiringUserActionForPlayback = []
-        
+
         // Configure content blockers
         do {
             if let adawayURL = Bundle.main.url(forResource: "adaway", withExtension: "json") {
@@ -38,20 +37,12 @@ class SharedWebViewConfiguration {
         } catch {
             print("🚫 Error loading content blockers:", error)
         }
-        
+
         // Configure shared preferences
-        let preferences = WKPreferences()
-        preferences.isElementFullscreenEnabled = true
-        
-        preferences._developerExtrasEnabled = true
-        preferences._applePayEnabled = true
-        preferences._applePayCapabilityDisclosureAllowed = true
-        preferences._allowsPictureInPictureMediaPlayback = true
-        
-        ExperimentalFeatures.toggleExperimentalFeature("PreferPageRenderingUpdatesNear60FPSEnabled", enabled: false, preferences: preferences)
-        
-        configuration.preferences = preferences
-        
+    let preferences = WKPreferences()
+    preferences.isElementFullscreenEnabled = true
+    configuration.preferences = preferences
+
         let webPagePreferences = WKWebpagePreferences()
         webPagePreferences.allowsContentJavaScript = true
         configuration.defaultWebpagePreferences = webPagePreferences
