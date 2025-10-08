@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4AC596AC2D3C6DC400FF0326"
-               BuildableName = "Browser.app"
-               BlueprintName = "Browser"
-               ReferencedContainer = "container:Browser.xcodeproj">
+               BuildableName = "Zero.app"
+               BlueprintName = "Zero"
+               ReferencedContainer = "container:Zero.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4AC596AC2D3C6DC400FF0326"
-            BuildableName = "Browser.app"
-            BlueprintName = "Browser"
-            ReferencedContainer = "container:Browser.xcodeproj">
+            BuildableName = "Zero.app"
+            BlueprintName = "Zero"
+            ReferencedContainer = "container:Zero.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4AC596AC2D3C6DC400FF0326"
-            BuildableName = "Browser.app"
-            BlueprintName = "Browser"
-            ReferencedContainer = "container:Browser.xcodeproj">
+            BuildableName = "Zero.app"
+            BlueprintName = "Zero"
+            ReferencedContainer = "container:Zero.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
