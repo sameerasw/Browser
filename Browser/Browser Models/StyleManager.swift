@@ -8,127 +8,173 @@
 import Foundation
 import SwiftUI
 
-/// Manages website-specific CSS themes from the Styles directory
+/// Represents the JSON structure for remote styles
+struct RemoteStyles: Codable {
+    let website: [String: [String: String]]
+}
+
+/// Manages website-specific CSS themes from remote JSON
 @Observable
 class StyleManager {
     /// Shared singleton instance
     static let shared = StyleManager()
-    
+
     /// Dictionary mapping domain names to their CSS content
     private(set) var styleCache: [String: String] = [:]
-    
-    /// Fallback CSS content from example.com.css
+
+    /// Fallback CSS content
     private(set) var fallbackStyle: String = ""
-    
-    /// Path to the Resources directory where CSS files are stored
-    private var stylesDirectoryURL: URL {
-        guard let resourcePath = Bundle.main.resourcePath else {
-            return URL(fileURLWithPath: "")
-        }
-        return URL(fileURLWithPath: resourcePath)
-    }
-    
+
+    /// URL for remote styles JSON
+    private let remoteStylesURL = "https://sameerasw.github.io/my-internet/styles.json"
+
+    /// UserDefaults key for cached styles
+    private let cachedStylesKey = "cached_remote_styles"
+
     private init() {
-        scanStyles()
+        // Load cached styles first for immediate use
+        loadCachedStyles()
+        // Fetch fresh styles in background
+        fetchRemoteStyles()
     }
-    
-    /// Scans the Resources directory and loads all CSS files into cache
-    func scanStyles() {
-        styleCache.removeAll()
-        fallbackStyle = ""
-        
-        let fileManager = FileManager.default
-        
-        print("🎨 Scanning Resources directory: \(stylesDirectoryURL.path)")
-        
-        guard fileManager.fileExists(atPath: stylesDirectoryURL.path) else {
-            print("⚠️ Resources directory not found at: \(stylesDirectoryURL.path)")
-            print("⚠️ Bundle.main.resourcePath: \(Bundle.main.resourcePath ?? "nil")")
+
+    /// Fetches remote styles from the hosted JSON
+    func fetchRemoteStyles() {
+        print("� Fetching styles from remote URL: \(remoteStylesURL)")
+
+        guard let url = URL(string: remoteStylesURL) else {
+            print("⚠️ Invalid remote URL")
             return
         }
-        
-        do {
-            let files = try fileManager.contentsOfDirectory(at: stylesDirectoryURL, includingPropertiesForKeys: nil)
-            let cssFiles = files.filter { $0.pathExtension.lowercased() == "css" }
-            
-            print("🎨 Found \(cssFiles.count) CSS file(s) in Resources directory")
-            
-            for file in cssFiles {
-                let fileName = file.deletingPathExtension().lastPathComponent
-                
-                print("  📄 Processing: \(fileName).css")
-                
-                do {
-                    let cssContent = try String(contentsOf: file, encoding: .utf8)
-                    let processedCSS = processCSS(cssContent)
-                    
-                    if fileName == "example.com" {
-                        fallbackStyle = processedCSS
-                        print("  ✓ Loaded fallback style: \(fileName).css (\(processedCSS.count) chars)")
-                    } else {
-                        styleCache[fileName] = processedCSS
-                        print("  ✓ Loaded style for domain: \(fileName) (\(processedCSS.count) chars)")
-                    }
-                } catch {
-                    print("  ✗ Failed to read \(fileName).css: \(error.localizedDescription)")
+
+        Task {
+            do {
+                let (data, response) = try await URLSession.shared.data(from: url)
+
+                guard let httpResponse = response as? HTTPURLResponse,
+                      httpResponse.statusCode == 200 else {
+                    print("⚠️ Failed to fetch remote styles: Invalid response")
+                    return
                 }
+
+                // Parse JSON
+                let decoder = JSONDecoder()
+                let remoteStyles = try decoder.decode(RemoteStyles.self, from: data)
+
+                // Save to UserDefaults for caching
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    UserDefaults.standard.set(jsonString, forKey: cachedStylesKey)
+                    print("💾 Cached remote styles to UserDefaults")
+                }
+
+                // Process and update cache
+                await MainActor.run {
+                    processRemoteStyles(remoteStyles)
+                }
+
+            } catch {
+                print("⚠️ Failed to fetch remote styles: \(error.localizedDescription)")
             }
-            
-            print("🎨 Style scanning complete. \(styleCache.count) domain(s) + fallback loaded")
-            print("🎨 Available domains: \(styleCache.keys.sorted())")
-            
+        }
+    }
+
+    /// Loads cached styles from UserDefaults
+    private func loadCachedStyles() {
+        guard let jsonString = UserDefaults.standard.string(forKey: cachedStylesKey),
+              let data = jsonString.data(using: .utf8) else {
+            print("ℹ️ No cached styles found")
+            return
+        }
+
+        do {
+            let decoder = JSONDecoder()
+            let remoteStyles = try decoder.decode(RemoteStyles.self, from: data)
+            processRemoteStyles(remoteStyles)
+            print("✓ Loaded cached styles")
         } catch {
-            print("⚠️ Failed to scan Resources directory: \(error.localizedDescription)")
+            print("⚠️ Failed to load cached styles: \(error.localizedDescription)")
         }
     }
-    
-    /// Process CSS content by removing comments starting with @
-    private func processCSS(_ css: String) -> String {
-        let lines = css.components(separatedBy: .newlines)
-        let processedLines = lines.filter { line in
-            let trimmed = line.trimmingCharacters(in: .whitespaces)
-            // Skip lines that are comments starting with /* @
-            return !trimmed.hasPrefix("/* @")
+
+    /// Process remote styles and populate the cache
+    private func processRemoteStyles(_ remoteStyles: RemoteStyles) {
+        styleCache.removeAll()
+        fallbackStyle = ""
+
+        print("🎨 Processing \(remoteStyles.website.count) website(s)")
+
+        for (websiteKey, features) in remoteStyles.website {
+            // Combine all CSS features for this website
+            let combinedCSS = features.values.joined(separator: "\n\n")
+
+            // Remove .css extension if present
+            let domainKey = websiteKey.hasSuffix(".css")
+                ? String(websiteKey.dropLast(4))
+                : websiteKey
+
+            styleCache[domainKey] = combinedCSS
+//            print("  ✓ Loaded style for: \(domainKey) (\(combinedCSS.count) chars, \(features.count) features)")
         }
-        return processedLines.joined(separator: "\n")
+
+        print("🎨 Style processing complete. \(styleCache.count) website(s) loaded")
+        print("🎨 Available domains: \(styleCache.keys.sorted())")
     }
-    
+
+    /// Legacy method for backwards compatibility - now fetches from remote
+    func scanStyles() {
+        fetchRemoteStyles()
+    }
+
     /// Get CSS for a specific domain, or fallback if not found
     func getStyle(for url: URL) -> String? {
         guard let host = url.host else { return fallbackStyle }
-        
-        // Normalize domain by removing www. prefix for primary lookup
+
+        print("🔍 Looking for style for host: \(host)")
+//        print("🔍 Available cache keys: \(styleCache.keys.sorted())")
+
+        // Normalize domain by removing www. prefix
         let normalizedHost = host.hasPrefix("www.") ? String(host.dropFirst(4)) : host
-        
-        print("🔍 Looking for style for host: \(host), normalized: \(normalizedHost)")
-        print("🔍 Available cache keys: \(styleCache.keys.sorted())")
-        
-        // Primary: Try normalized version (this matches youtube.com.css for www.youtube.com)
-        if let style = styleCache[normalizedHost] {
-            print("🎨 Using custom style for: \(normalizedHost)")
-            return style
-        }
-        
-        // Secondary: Try exact match with original host (in case someone has www.youtube.com.css)
-        if let style = styleCache[host] {
-            print("🎨 Using custom style for: \(host)")
-            return style
-        }
-        
-        // Tertiary: Try adding www. prefix to normalized (if it was originally without www)
-        if !host.hasPrefix("www.") {
-            let withWWW = "www." + normalizedHost
-            if let style = styleCache[withWWW] {
-                print("🎨 Using custom style for: \(withWWW)")
-                return style
+
+        // Try to find matching styles with prefix handling
+        for (key, css) in styleCache {
+            // Handle + prefix: matches subdomains (e.g., +adobe.com matches in.adobe.com, www.adobe.com)
+            if key.hasPrefix("+") {
+                let domain = String(key.dropFirst()) // Remove the +
+                if normalizedHost.hasSuffix(domain) || normalizedHost == domain {
+                    print("🎨 Using custom style for: \(key) (subdomain match)")
+                    return css
+                }
+            }
+            // Handle - prefix: matches different TLDs (e.g., -google.com matches google.lk, google.co.uk)
+            else if key.hasPrefix("-") {
+                let domain = String(key.dropFirst()) // Remove the -
+                // Extract the base domain without TLD
+                if let baseDomain = extractBaseDomain(from: domain),
+                   let hostBaseDomain = extractBaseDomain(from: normalizedHost),
+                   baseDomain == hostBaseDomain {
+                    print("🎨 Using custom style for: \(key) (TLD match)")
+                    return css
+                }
+            }
+            // Exact match (with or without www.)
+            else if key == normalizedHost || key == host {
+                print("🎨 Using custom style for: \(key) (exact match)")
+                return css
             }
         }
-        
+
         // Return fallback
         print("🎨 Using fallback style for: \(host)")
-        return fallbackStyle
+        return fallbackStyle.isEmpty ? nil : fallbackStyle
     }
-    
+
+    /// Extract base domain from a domain string (e.g., google.com -> google)
+    private func extractBaseDomain(from domain: String) -> String? {
+        let components = domain.split(separator: ".")
+        guard components.count >= 2 else { return nil }
+        return String(components[components.count - 2])
+    }
+
     /// Check if styles are available (either domain-specific or fallback)
     var hasStyles: Bool {
         return !styleCache.isEmpty || !fallbackStyle.isEmpty

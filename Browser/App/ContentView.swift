@@ -17,7 +17,7 @@ struct ContentView: View {
         MainFrame()
             .background(
 //                Color.clear
-//                    .glassEffect(in: .rect(cornerRadius: 28.0))
+//                    .glassEffect(in: .rect(cornerRadius: 10.0))
                 .thinMaterial
             )
             .ignoresSafeArea(.all)
