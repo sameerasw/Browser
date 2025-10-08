@@ -329,7 +329,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Zero;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Browser needs access to use your camera in websites.";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Leonardo Larrañaga";
+				INFOPLIST_KEY_NSHumanReadableCopyright = sameerasw.com;
 				INFOPLIST_KEY_NSLocationUsageDescription = "Browser needs access to use your location in websites.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Browser needs access to use your location in websites.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Browser needs access to use your microphone on websites.";
@@ -388,7 +388,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Zero;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Browser needs access to use your camera in websites.";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Leonardo Larrañaga";
+				INFOPLIST_KEY_NSHumanReadableCopyright = sameerasw.com;
 				INFOPLIST_KEY_NSLocationUsageDescription = "Browser needs access to use your location in websites.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Browser needs access to use your location in websites.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Browser needs access to use your microphone on websites.";
