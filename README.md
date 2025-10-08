@@ -4,7 +4,8 @@
 
 ## Motivation
 
-This browser **—still without a name or icon—** is just a fun side project to sharpen my Swift and SwiftUI skills. It’s highly experimental and unstable, so it’s not meant for real use.
+A browser made to use with keystrokes but happen to have a pleasing UI with website specific custom themes built-in. Brings the vertical tabs from Arc, Website modifications by Zen Internet and Transparent Zen, Blazingly fast and efficient webkit rendering, Zero becomes my perfect browser for personal use. 
+
 ## Technologies
 
 - _SwiftUI_: Powers the app's entire user interface.
@@ -19,21 +20,26 @@ This browser **—still without a name or icon—** is just a fun side project t
 - [x] No-Trace Window
 - [x] Temporary Window
 - [x] Translate websites
-- [x] Web Inspector
 - [x] History
 - [x] Keyboard Shortcuts
 - [x] Ad Blocker
+- [x] Web Inspector
 - [x] **Website search with autosuggestions _on some websistes_**
 
 https://github.com/user-attachments/assets/90738982-651a-4991-8580-866325d1d128
 
 - [x] Picture-in-Picutre
+- [x] Built in custom website themes and transparency
+- [x] Liquid glass and latest design to feel at home
+- [x] Middle click
+- [x] Smooth tab switching and UI animations
+- [x] Focus mode with 0 visible UI for an immersive browsing experience
 - [x] Search in Page
 - [x] Reorder Tabs By Dragging
-- [x] Export Page as PDF, Image, etc...       
+- [x] Export Page as PDF, Image, etc...  
+- [x] Pinned Tabs     
 - [ ] Multiple Windows
 - [ ] Grid Layout
-- [x] Pinned Tabs
 - [ ] Undo and Redo Closed Tabs
 - [ ] Page Suspension
 
@@ -41,4 +47,4 @@ https://github.com/user-attachments/assets/90738982-651a-4991-8580-866325d1d128
 
 The project now links against the system-provided WebKit, so a custom WebKit.framework checkout is no longer required. Open `Browser.xcodeproj` and build the `Browser` scheme with the latest Xcode on macOS.
 
-Credits to [LeonardoLarranaga/Browser](https://github.com/LeonardoLarranaga/Browser)
+Credits to [LeonardoLarranaga/Browser](https://github.com/LeonardoLarranaga/Browser) for the open browser source <3
