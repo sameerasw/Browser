@@ -20,7 +20,7 @@ struct SidebarURL: View {
             if let currentTab = browserWindowState.currentSpace?.currentTab {
                 Text(currentTab.url.cleanHost)
                     .padding(.leading, 8)
-                
+
                 Spacer()
                 
                 if hover {
@@ -33,13 +33,7 @@ struct SidebarURL: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 40)
-//        .background(
-//            browserWindowState.currentSpace?.textColor(in: colorScheme) == .black ?
-//            AnyShapeStyle(.clear).opacity(hover ? 0.6 : 0.3) :
-//                browserWindowState.currentSpace?.colors.isEmpty == true && colorScheme == .light ?
-//            AnyShapeStyle(.gray).opacity(hover ? 0.3 : 0.2) :
-//                AnyShapeStyle(Color.white).opacity(hover ? 0.1 : 0.05)
-//        )
+        .contentShape(Rectangle())
         .background(.clear)
         .glassEffect(in: .rect(cornerRadius: 16.0))
         .overlay(alignment: .bottom) {
