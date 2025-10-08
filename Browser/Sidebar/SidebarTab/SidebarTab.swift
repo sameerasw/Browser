@@ -45,6 +45,9 @@ struct SidebarTab: View {
         .background(dragging ? .white.opacity(0.1) : browserSpace.currentTab == browserTab ? browserSpace.textColor(in: colorScheme) == .black ? .white : .white.opacity(0.2) : isHoveringTab ? .white.opacity(0.1) : .clear)
         .clipShape(.rect(cornerRadius: 10))
         .onTapGesture(perform: selectTab)
+        .onMiddleClick {
+            closeTab()
+        }
         .onHover { hover in
             self.isHoveringTab = hover
         }
