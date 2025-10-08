@@ -204,12 +204,19 @@ class StyleManager {
             // Handle - prefix: matches different TLDs (e.g., -google.com matches google.lk, google.co.uk)
             else if key.hasPrefix("-") {
                 let domain = String(key.dropFirst()) // Remove the -
-                // Extract the base domain without TLD
+                // Extract the base domain without TLD from the pattern
                 if let baseDomain = extractBaseDomain(from: domain),
-                   let hostBaseDomain = extractBaseDomain(from: normalizedHost),
-                   baseDomain == hostBaseDomain {
-                    print("🎨 Using custom style for: \(key) (TLD match)")
-                    return css
+                   let hostBaseDomain = extractBaseDomain(from: normalizedHost) {
+                    // Also check that both domains have similar structure (same number of parts)
+                    // google.com vs google.lk (both 2 parts) = match ✓
+                    // google.com vs translate.google.com (2 vs 3 parts) = no match ✗
+                    let domainParts = domain.split(separator: ".").count
+                    let hostParts = normalizedHost.split(separator: ".").count
+                    
+                    if baseDomain == hostBaseDomain && domainParts == hostParts {
+                        print("🎨 Using custom style for: \(key) (TLD match)")
+                        return css
+                    }
                 }
             }
             // Exact match (with or without www.)
