@@ -112,11 +112,17 @@ class StyleManager {
                 ? String(websiteKey.dropLast(4))
                 : websiteKey
 
-            styleCache[domainKey] = combinedCSS
-//            print("  ✓ Loaded style for: \(domainKey) (\(combinedCSS.count) chars, \(features.count) features)")
+            // Check if this is the example.com fallback style
+            if domainKey == "example.com" || domainKey == "+example.com" || domainKey == "-example.com" {
+                fallbackStyle = combinedCSS
+                print("  ✓ Loaded fallback style: \(domainKey) (\(combinedCSS.count) chars, \(features.count) features)")
+            } else {
+                styleCache[domainKey] = combinedCSS
+//                print("  ✓ Loaded style for: \(domainKey) (\(combinedCSS.count) chars, \(features.count) features)")
+            }
         }
 
-        print("🎨 Style processing complete. \(styleCache.count) website(s) loaded")
+        print("🎨 Style processing complete. \(styleCache.count) website(s) + fallback loaded")
         print("🎨 Available domains: \(styleCache.keys.sorted())")
     }
 
@@ -163,9 +169,14 @@ class StyleManager {
             }
         }
 
-        // Return fallback
-        print("🎨 Using fallback style for: \(host)")
-        return fallbackStyle.isEmpty ? nil : fallbackStyle
+        // Try fallback (example.com) if available, otherwise return nil
+        if !fallbackStyle.isEmpty {
+            print("🎨 Using fallback (example.com) style for: \(host)")
+            return fallbackStyle
+        } else {
+            print("ℹ️ No style found for: \(host)")
+            return nil
+        }
     }
 
     /// Extract base domain from a domain string (e.g., google.com -> google)
