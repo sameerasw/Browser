@@ -10,15 +10,16 @@ import SwiftData
 
 /// Horizontal scrollable collection of spaces in the sidebar
 struct SidebarSpacesTabView: View {
-    
+
     @Environment(\.modelContext) var modelContext
     @Environment(BrowserWindowState.self) var browserWindowState
-    
+    @Environment(SidebarModel.self) var sidebarModel
+
     let browserSpaces: [BrowserSpace]
-    
+
     @State var appeared = false
     @State var lastWidth = CGFloat.zero
-    
+
     var body: some View {
         ScrollView(.horizontal) {
             LazyHStack(spacing: .zero) {
@@ -37,7 +38,7 @@ struct SidebarSpacesTabView: View {
         .scrollPosition(id: .init(get: {
             browserWindowState.viewScrollState
         }, set: { position in
-            if browserWindowState.viewScrollState != position {   
+            if browserWindowState.viewScrollState != position {
                 browserWindowState.goToSpace(browserSpaces.first { $0.id == position })
             }
         }), anchor: .center)
@@ -53,13 +54,13 @@ struct SidebarSpacesTabView: View {
                     browserWindowState.currentSpace = browserSpaces.first { $0.id == newValue }
                 }
             }
-            
+
             // Delete browserSpaces with empty names if they are not the one selected
             if let currentSpace = browserWindowState.currentSpace, !currentSpace.name.isEmpty {
                 for space in browserSpaces where space.name.isEmpty {
                     modelContext.delete(space)
                 }
-                
+
                 // Update order of spaces
                 for (index, space) in browserSpaces.enumerated() {
                     space.order = index
@@ -67,13 +68,20 @@ struct SidebarSpacesTabView: View {
                 try? modelContext.save()
             }
         }
-        // This is a workaround to prevent the animation when the view first appears
+        // Ensure scroll position is restored when sidebar becomes visible
+        .onChange(of: sidebarModel.currentSidebarWidth) { oldValue, newValue in
+            if oldValue == 0 && newValue > 0, let currentSpaceId = browserWindowState.currentSpace?.id {
+                withAnimation(.browserDefault) {
+                    browserWindowState.viewScrollState = currentSpaceId
+                }
+            }
+        }
         .transaction { $0.disablesAnimations = !appeared }
         .task {
             if browserWindowState.currentSpace == nil && browserWindowState.isMainBrowserWindow {
                 browserWindowState.loadCurrentSpace(browserSpaces: browserSpaces)
             }
-                        
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.appeared = true
             }
