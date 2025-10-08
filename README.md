@@ -1,7 +1,6 @@
-# Browser
-### A very work-in-progress Arc-inspired browser for macOS.
+# Zero - A minimal fancy browser
 
-<img width="1512" alt="Browser Hero" src="https://github.com/user-attachments/assets/effe72a5-b0c4-40f6-83f1-fcc199e85369" />
+![CleanShot 2025-10-08 at 3  44 10@2x Large](https://github.com/user-attachments/assets/0053365a-76c3-478b-aea5-ec8754e95c22)
 
 ## Motivation
 
