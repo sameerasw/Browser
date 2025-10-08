@@ -37,11 +37,11 @@ https://github.com/user-attachments/assets/90738982-651a-4991-8580-866325d1d128
 - [x] Search in Page
 - [x] Reorder Tabs By Dragging
 - [x] Export Page as PDF, Image, etc...  
-- [x] Pinned Tabs     
-- [ ] Multiple Windows
+- [x] Pinned Tabs    
+- [x] Tab Suspension 
+- [x] Multiple Windows
 - [ ] Grid Layout
 - [ ] Undo and Redo Closed Tabs
-- [ ] Page Suspension
 
 ## Building
 
