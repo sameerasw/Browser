@@ -19,7 +19,7 @@ struct SidebarURL: View {
         HStack {
             if let currentTab = browserWindowState.currentSpace?.currentTab {
                 Text(currentTab.url.cleanHost)
-                    .padding(.leading, .sidebarPadding)
+                    .padding(.leading, 8)
                 
                 Spacer()
                 
@@ -32,8 +32,7 @@ struct SidebarURL: View {
             }
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 30)
-        .padding(3)
+        .frame(height: 40)
 //        .background(
 //            browserWindowState.currentSpace?.textColor(in: colorScheme) == .black ?
 //            AnyShapeStyle(.clear).opacity(hover ? 0.6 : 0.3) :
@@ -42,7 +41,7 @@ struct SidebarURL: View {
 //                AnyShapeStyle(Color.white).opacity(hover ? 0.1 : 0.05)
 //        )
         .background(.clear)
-        .glassEffect(in: .rect(cornerRadius: 10.0))
+        .glassEffect(in: .rect(cornerRadius: 16.0))
         .overlay(alignment: .bottom) {
             if userPreferences.loadingIndicatorPosition == .onURL && browserWindowState.currentSpace?.currentTab?.isLoading == true {
                 ProgressView(value: browserWindowState.currentSpace?.currentTab?.estimatedProgress ?? 0)
@@ -52,7 +51,6 @@ struct SidebarURL: View {
             }
         }
         .clipShape(.rect(cornerRadius: 10))
-        .padding(.leading, .sidebarPadding)
         .onTapGesture {
             browserWindowState.searchOpenLocation = .fromURLBar
         }

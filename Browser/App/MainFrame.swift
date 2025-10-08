@@ -126,12 +126,36 @@ struct MainFrame: View {
 
 struct ConditionalToolbarRemover: ViewModifier {
     let shouldRemove: Bool
+    @Environment(BrowserWindowState.self) var browserWindowState
 
     func body(content: Content) -> some View {
         if shouldRemove {
             content.toolbar(removing: .sidebarToggle)
         } else {
-            content
+            content.toolbar {
+                ToolbarItemGroup(placement: .primaryAction) {
+                    Button {
+                        browserWindowState.backButtonAction()
+                    } label: {
+                        Label("Back", systemImage: "arrow.left")
+                    }
+                    .help("Go back")
+
+                    Button {
+                        browserWindowState.forwardButtonAction()
+                    } label: {
+                        Label("Forward", systemImage: "arrow.right")
+                    }
+                    .help("Go forward")
+
+                    Button {
+                        browserWindowState.refreshButtonAction()
+                    } label: {
+                        Label("Reload", systemImage: "arrow.trianglehead.clockwise")
+                    }
+                    .help("Reload")
+                }
+            }
         }
     }
 }
