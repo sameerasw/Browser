@@ -23,6 +23,12 @@ struct SidebarToolbar: View {
         browserWindowState.currentSpace?.currentTab
     }
     
+    /// Check if styles are enabled for the current website
+    var areStylesEnabledForCurrentSite: Bool {
+        guard let url = currentTab?.url else { return false }
+        return StyleManager.shared.areStylesEnabled(for: url)
+    }
+    
     var body: some View {
         LazyVStack(alignment: .leading) {
             HStack {
@@ -30,10 +36,18 @@ struct SidebarToolbar: View {
 //                    .padding(.leading, userPreferences.sidebarPosition == .trailing ? 5 : 0)
 //                // Only add padding if the sidebar is on the leading side
 //                    .padding(.leading, userPreferences.sidebarPosition == .leading ? 85 : 0)
-                Button(action: { userPreferences.webContentTransparency.toggle() }) {
-                    Image(systemName: userPreferences.webContentTransparency ? "app.background.dotted" : "app.translucent")
+                Button(action: { 
+                    if let url = currentTab?.url {
+                        StyleManager.shared.toggleStyles(for: url)
+                        // Reapply styles to current tab
+                        if let viewController = currentTab?.viewController {
+                            viewController.applyTransparency()
+                        }
+                    }
+                }) {
+                    Image(systemName: areStylesEnabledForCurrentSite ? "app.background.dotted" : "app.translucent")
                 }
-                .buttonStyle(.sidebarHover(enabledColor: .primary, disabled: false, disabledColor: .primary))
+                .buttonStyle(.sidebarHover(enabledColor: .primary, disabled: currentTab == nil, disabledColor: .primary))
 
                 Spacer()
                 

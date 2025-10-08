@@ -24,14 +24,22 @@ class StyleManager {
 
     /// Fallback CSS content
     private(set) var fallbackStyle: String = ""
+    
+    /// Set of domains where styles are disabled (website-specific toggle)
+    private(set) var disabledWebsites: Set<String> = []
 
     /// URL for remote styles JSON
     private let remoteStylesURL = "https://sameerasw.github.io/my-internet/styles.json"
 
     /// UserDefaults key for cached styles
     private let cachedStylesKey = "cached_remote_styles"
+    
+    /// UserDefaults key for disabled websites
+    private let disabledWebsitesKey = "disabled_websites_for_styles"
 
     private init() {
+        // Load disabled websites list
+        loadDisabledWebsites()
         // Load cached styles first for immediate use
         loadCachedStyles()
         // Fetch fresh styles in background
@@ -95,6 +103,42 @@ class StyleManager {
             print("⚠️ Failed to load cached styles: \(error.localizedDescription)")
         }
     }
+    
+    /// Loads disabled websites from UserDefaults
+    private func loadDisabledWebsites() {
+        if let array = UserDefaults.standard.array(forKey: disabledWebsitesKey) as? [String] {
+            disabledWebsites = Set(array)
+            print("✓ Loaded \(disabledWebsites.count) disabled website(s)")
+        }
+    }
+    
+    /// Saves disabled websites to UserDefaults
+    private func saveDisabledWebsites() {
+        UserDefaults.standard.set(Array(disabledWebsites), forKey: disabledWebsitesKey)
+        print("💾 Saved \(disabledWebsites.count) disabled website(s)")
+    }
+    
+    /// Toggle styles for a specific website (enable/disable)
+    func toggleStyles(for url: URL) {
+        guard let host = url.host else { return }
+        let normalizedHost = host.hasPrefix("www.") ? String(host.dropFirst(4)) : host
+        
+        if disabledWebsites.contains(normalizedHost) {
+            disabledWebsites.remove(normalizedHost)
+            print("✅ Enabled styles for: \(normalizedHost)")
+        } else {
+            disabledWebsites.insert(normalizedHost)
+            print("🚫 Disabled styles for: \(normalizedHost)")
+        }
+        saveDisabledWebsites()
+    }
+    
+    /// Check if styles are enabled for a specific website
+    func areStylesEnabled(for url: URL) -> Bool {
+        guard let host = url.host else { return false }
+        let normalizedHost = host.hasPrefix("www.") ? String(host.dropFirst(4)) : host
+        return !disabledWebsites.contains(normalizedHost)
+    }
 
     /// Process remote styles and populate the cache
     private func processRemoteStyles(_ remoteStyles: RemoteStyles) {
@@ -134,12 +178,18 @@ class StyleManager {
     /// Get CSS for a specific domain, or fallback if not found
     func getStyle(for url: URL) -> String? {
         guard let host = url.host else { return fallbackStyle }
+        
+        // Normalize domain by removing www. prefix
+        let normalizedHost = host.hasPrefix("www.") ? String(host.dropFirst(4)) : host
+        
+        // Check if styles are disabled for this website
+        if disabledWebsites.contains(normalizedHost) {
+            print("🚫 Styles disabled for: \(host)")
+            return nil
+        }
 
         print("🔍 Looking for style for host: \(host)")
 //        print("🔍 Available cache keys: \(styleCache.keys.sorted())")
-
-        // Normalize domain by removing www. prefix
-        let normalizedHost = host.hasPrefix("www.") ? String(host.dropFirst(4)) : host
 
         // Try to find matching styles with prefix handling
         for (key, css) in styleCache {

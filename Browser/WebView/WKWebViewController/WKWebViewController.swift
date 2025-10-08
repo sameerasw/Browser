@@ -107,19 +107,14 @@ class WKWebViewController: NSViewController {
     }
 
     func applyTransparency() {
+        guard let url = webView.url else { return }
+        
         let js: String
-        if userPreferences.webContentTransparency {
-            // Get the appropriate CSS from StyleManager
-            let cssContent: String
-            if let url = webView.url, let style = StyleManager.shared.getStyle(for: url) {
-                cssContent = style
-            } else {
-                // Fallback to basic transparency if no styles available
-                cssContent = "body { background-color: transparent !important; }"
-            }
-            
-            // Properly escape the CSS content for JavaScript
-            let escapedCSS = cssContent
+        // Check if styles are enabled for this specific website
+        if StyleManager.shared.areStylesEnabled(for: url),
+           let style = StyleManager.shared.getStyle(for: url) {
+            // Apply the style
+            let escapedCSS = style
                 .replacingOccurrences(of: "\\", with: "\\\\")
                 .replacingOccurrences(of: "`", with: "\\`")
                 .replacingOccurrences(of: "$", with: "\\$")
@@ -136,6 +131,7 @@ class WKWebViewController: NSViewController {
             })();
             """
         } else {
+            // Remove the style if disabled or not available
             js = """
             (function() {
                 var style = document.getElementById('transparency-style');

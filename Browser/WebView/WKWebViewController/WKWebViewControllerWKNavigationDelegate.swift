@@ -35,19 +35,11 @@ extension WKWebViewController: WKNavigationDelegate {
         self.tab.webviewErrorCode = nil
         self.tab.webviewErrorDescription = nil
         
-        // Inject CSS to make body background transparent if enabled
-        if self.userPreferences.webContentTransparency {
-            // Get the appropriate CSS from StyleManager
-            let cssContent: String
-            if let style = StyleManager.shared.getStyle(for: url) {
-                cssContent = style
-            } else {
-                // Fallback to basic transparency if no styles available
-                cssContent = "body { background-color: transparent !important; }"
-            }
-            
+        // Inject CSS if styles are enabled for this website
+        if StyleManager.shared.areStylesEnabled(for: url),
+           let style = StyleManager.shared.getStyle(for: url) {
             // Properly escape the CSS content for JavaScript
-            let escapedCSS = cssContent
+            let escapedCSS = style
                 .replacingOccurrences(of: "\\", with: "\\\\")
                 .replacingOccurrences(of: "`", with: "\\`")
                 .replacingOccurrences(of: "$", with: "\\$")
