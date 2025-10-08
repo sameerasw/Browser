@@ -33,10 +33,12 @@ https://github.com/user-attachments/assets/90738982-651a-4991-8580-866325d1d128
 - [x] Export Page as PDF, Image, etc...       
 - [ ] Multiple Windows
 - [ ] Grid Layout
-- [ ] Pinned Tabs
+- [x] Pinned Tabs
 - [ ] Undo and Redo Closed Tabs
 - [ ] Page Suspension
 
 ## Building
 
 The project now links against the system-provided WebKit, so a custom WebKit.framework checkout is no longer required. Open `Browser.xcodeproj` and build the `Browser` scheme with the latest Xcode on macOS.
+
+Credits to [LeonardoLarranaga/Browser](https://github.com/LeonardoLarranaga/Browser)
