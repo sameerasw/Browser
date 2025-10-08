@@ -15,6 +15,11 @@ class UserPreferences: ObservableObject {
         case trailing
     }
     
+    enum WindowBackgroundStyle: String {
+        case thinMaterial
+        case liquidGlass
+    }
+    
     // App appearance preferences
     @AppStorage("disable_animations") var disableAnimations = false
     @AppStorage("sidebar_position") var sidebarPosition = SidebarPosition.leading {
@@ -28,6 +33,8 @@ class UserPreferences: ObservableObject {
         }
     }
     @AppStorage("reverse_colors_on_trailing_sidebar") var reverseColorsOnTrailingSidebar = true
+    
+    @AppStorage("window_background_style") var windowBackgroundStyle = WindowBackgroundStyle.thinMaterial
     
     enum LoadingIndicatorPosition: Int {
         case onURL
@@ -102,6 +109,7 @@ class UserPreferences: ObservableObject {
             "sidebar_position": SidebarPosition.leading.rawValue,
             "show_window_controls_trailing_sidebar": true,
             "reverse_colors_on_trailing_sidebar": true,
+            "window_background_style": WindowBackgroundStyle.thinMaterial.rawValue,
             "warn_before_quitting": true,
             "rounded_corners": true,
             "enable_padding": true,

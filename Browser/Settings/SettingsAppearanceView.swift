@@ -23,6 +23,11 @@ struct SettingsAppearanceView: View {
                 
                 Toggle("Reverse Background Colors on Trailing Sidebar", systemImage: "paintpalette", isOn: $userPreferences.reverseColorsOnTrailingSidebar)
                 
+                Picker("Window Background Style", systemImage: "rectangle.fill", selection: $userPreferences.windowBackgroundStyle) {
+                    Label("Thin Material", systemImage: "rectangle.fill").tag(UserPreferences.WindowBackgroundStyle.thinMaterial)
+                    Label("Liquid Glass", systemImage: "circle.hexagongrid.fill").tag(UserPreferences.WindowBackgroundStyle.liquidGlass)
+                }
+                
                 LoadingPlacePicker()
                 
                 Picker("URL Bar Position", systemImage: "link", selection: $userPreferences.urlBarPosition) {
