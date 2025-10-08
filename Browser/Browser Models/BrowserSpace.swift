@@ -107,22 +107,46 @@ final class BrowserSpace: Identifiable {
     }
     
     /// Closes (deletes) a tab from the space and selects the next tab
+    /// For pinned tabs: suspends if not suspended, closes if suspended
     func closeTab(_ tab: BrowserTab, using modelContext: ModelContext) {
-        let index = loadedTabs.firstIndex(of: tab) ?? 0
-        let newTab = loadedTabs[safe: index == 0 ? 1 : index - 1]
+        let isPinned = pinnedTabs.contains(tab)
         
-        unloadTab(tab)
-        
-        do {
-            tabs.removeAll(where: { $0.id == tab.id })
-            modelContext.delete(tab)
-            try modelContext.save()
-        } catch {
-            print("Error deleting tab: \(error)")
-        }
-        
-        withAnimation(.browserDefault) {
-            currentTab = newTab
+        if isPinned && !tab.isSuspended {
+            // Suspend the pinned tab
+            tab.isSuspended = true
+            unloadTab(tab)
+            try? modelContext.save()
+            
+            // Select next tab if current tab was suspended
+            if currentTab == tab {
+                let index = loadedTabs.firstIndex(of: tab) ?? 0
+                let newTab = loadedTabs[safe: index == 0 ? 1 : index - 1]
+                withAnimation(.browserDefault) {
+                    currentTab = newTab
+                }
+            }
+        } else {
+            // Close the tab (either not pinned or already suspended)
+            let index = loadedTabs.firstIndex(of: tab) ?? 0
+            let newTab = loadedTabs[safe: index == 0 ? 1 : index - 1]
+            
+            unloadTab(tab)
+            
+            do {
+                if isPinned {
+                    pinnedTabs.removeAll(where: { $0.id == tab.id })
+                } else {
+                    tabs.removeAll(where: { $0.id == tab.id })
+                }
+                modelContext.delete(tab)
+                try modelContext.save()
+            } catch {
+                print("Error deleting tab: \(error)")
+            }
+            
+            withAnimation(.browserDefault) {
+                currentTab = newTab
+            }
         }
     }
     

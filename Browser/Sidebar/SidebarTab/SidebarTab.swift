@@ -39,6 +39,7 @@ struct SidebarTab: View {
                 closeTabButton
             }
         }
+        .opacity(browserTab.isSuspended ? 0.5 : 1.0)
         .frame(maxWidth: .infinity, alignment: .leading)
         .frame(height: 30)
         .padding(3)
@@ -92,6 +93,12 @@ struct SidebarTab: View {
 
     func selectTab() {
         browserSpace.currentTab = browserTab
+        
+        // Reload suspended tab
+        if browserTab.isSuspended {
+            browserTab.isSuspended = false
+            browserTab.reload()
+        }
 
         if !userPreferences.disableAnimations {
             // Scale bounce effect

@@ -25,6 +25,8 @@ final class BrowserTab: Identifiable, Comparable {
     var order: Int
     var type: BrowserTabType
 
+    var isSuspended: Bool = false
+
     @Relationship var browserSpace: BrowserSpace?
 
     init(title: String, favicon: Data? = nil, url: URL, order: Int = 0, browserSpace: BrowserSpace?, type: BrowserTabType = .web) {
