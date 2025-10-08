@@ -11,6 +11,8 @@ extension WKWebViewController: WKScriptMessageHandler {
         switch message.name {
         case "hoverURL":
             handleHoverURL(message.body)
+        case "middleClickLink":
+            handleMiddleClickLink(message.body)
         default:
             break
         }
@@ -29,8 +31,26 @@ extension WKWebViewController: WKScriptMessageHandler {
         controller.addUserScript(scriptMessage)
     }
 
+    func addMiddleClickLinkListener() {
+        guard let middleClickScriptURL = Bundle.main.url(forResource: "MiddleClickLinkListener", withExtension: "js"),
+              let script = try? String(contentsOf: middleClickScriptURL, encoding: .utf8) else { return }
+
+        let controller = configuration.userContentController
+
+        controller.removeScriptMessageHandler(forName: "middleClickLink")
+        controller.add(self, name: "middleClickLink")
+
+        let scriptMessage = WKUserScript(source: script, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+        controller.addUserScript(scriptMessage)
+    }
+
     func handleHoverURL(_ body: Any) {
         guard let url = body as? String, !url.isEmpty else { return }
         self.coordinator.setHoverURL(to: url)
+    }
+
+    func handleMiddleClickLink(_ body: Any) {
+        guard let urlString = body as? String, let url = URL(string: urlString) else { return }
+        self.coordinator.openLinkInNewTabAction(url)
     }
 }

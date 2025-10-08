@@ -57,6 +57,9 @@ extension WKWebViewController: WKNavigationDelegate {
             """
             webView.evaluateJavaScript(js, completionHandler: nil)
         }
+        
+        // Add middle click link listener
+        addMiddleClickLinkListener()
     }
     
     /// Called when the web view fails loading a page
