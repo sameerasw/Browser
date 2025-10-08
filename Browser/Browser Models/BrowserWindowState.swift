@@ -114,8 +114,10 @@ import SwiftData
         else { return }
         
         if NSEvent.modifierFlags.contains(.command) {
+            let isCurrentTabPinned = currentSpace.pinnedTabs.contains(currentTab)
+            let insertionIndex = isCurrentTabPinned ? currentSpace.tabs.count : currentTab.order + 1
             let newTab = BrowserTab(title: backItem.title ?? "", favicon: nil, url: backItem.url, browserSpace: currentSpace)
-            currentSpace.tabs.insert(newTab, at: currentTab.order + 1)
+            currentSpace.tabs.insert(newTab, at: insertionIndex)
             currentSpace.currentTab = newTab
         } else {
             currentTab.webview?.goBack()
@@ -129,8 +131,10 @@ import SwiftData
         else { return }
         
         if NSEvent.modifierFlags.contains(.command) {
+            let isCurrentTabPinned = currentSpace.pinnedTabs.contains(currentTab)
+            let insertionIndex = isCurrentTabPinned ? currentSpace.tabs.count : currentTab.order + 1
             let newTab = BrowserTab(title: forwardItem.title ?? "", favicon: nil, url: forwardItem.url, browserSpace: currentSpace)
-            currentSpace.tabs.insert(newTab, at: currentTab.order + 1)
+            currentSpace.tabs.insert(newTab, at: insertionIndex)
             currentSpace.currentTab = newTab
         } else {
             currentTab.webview?.goForward()
@@ -143,8 +147,10 @@ import SwiftData
         else { return }
         
         if NSEvent.modifierFlags.contains(.command) {
+            let isCurrentTabPinned = currentSpace.pinnedTabs.contains(currentTab)
+            let insertionIndex = isCurrentTabPinned ? currentSpace.tabs.count : currentTab.order + 1
             let newTab = BrowserTab(title: currentTab.title, favicon: currentTab.favicon, url: currentTab.url, browserSpace: currentSpace)
-            currentSpace.tabs.insert(newTab, at: currentTab.order + 1)
+            currentSpace.tabs.insert(newTab, at: insertionIndex)
             currentSpace.currentTab = newTab
         } else {
             currentTab.reload()

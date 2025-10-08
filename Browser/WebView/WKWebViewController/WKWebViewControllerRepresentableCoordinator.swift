@@ -21,6 +21,12 @@ extension WKWebViewControllerRepresentable {
             self.parent = parent
         }
         
+        /// Calculates the correct insertion order for a new tab based on whether the current tab is pinned
+        private func calculateInsertionOrder() -> Int {
+            let isCurrentTabPinned = self.parent.browserSpace.pinnedTabs.contains(self.parent.tab)
+            return isCurrentTabPinned ? self.parent.browserSpace.tabs.count : self.parent.tab.order + 1
+        }
+        
         /// Presents an alert with a message and a system image
         func presentActionAlert(message: String, systemImage: String) {
             self.parent.browserWindowState.presentActionAlert(message: message, systemImage: systemImage)
@@ -28,13 +34,15 @@ extension WKWebViewControllerRepresentable {
         
         /// Starts a Google search with the query in a new tab
         func searchWebAction(_ query: String) {
-            let newTab = BrowserTab(title: query, url: URL(string: "https://www.google.com/search?q=\(query)")!, order: self.parent.tab.order + 1, browserSpace: self.parent.browserSpace)
+            let insertionOrder = calculateInsertionOrder()
+            let newTab = BrowserTab(title: query, url: URL(string: "https://www.google.com/search?q=\(query)")!, order: insertionOrder, browserSpace: self.parent.browserSpace)
             self.parent.browserSpace.openNewTab(newTab, using: self.parent.modelContext)
         }
         
         /// Opens a link in a new tab
         func openLinkInNewTabAction(_ url: URL) {
-            let newTab = BrowserTab(title: url.cleanHost, url: url, order: self.parent.tab.order + 1, browserSpace: self.parent.browserSpace)
+            let insertionOrder = calculateInsertionOrder()
+            let newTab = BrowserTab(title: url.cleanHost, url: url, order: insertionOrder, browserSpace: self.parent.browserSpace)
             self.parent.browserSpace.openNewTab(newTab, using: self.parent.modelContext, select: false)
         }
         
@@ -67,7 +75,8 @@ extension WKWebViewControllerRepresentable {
         
         func createNewTabFromAction(_ navigationAction: WKNavigationAction) {
             if let url = navigationAction.request.url {
-                let newTab = BrowserTab(title: url.cleanHost, url: url, order: self.parent.tab.order + 1, browserSpace: self.parent.browserSpace)
+                let insertionOrder = calculateInsertionOrder()
+                let newTab = BrowserTab(title: url.cleanHost, url: url, order: insertionOrder, browserSpace: self.parent.browserSpace)
                 self.parent.browserSpace.openNewTab(newTab, using: self.parent.modelContext, select: false)
                 self.parent.browserSpace.currentTab = newTab
             }

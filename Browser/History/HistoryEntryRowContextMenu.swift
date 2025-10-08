@@ -27,7 +27,9 @@ struct HistoryEntryRowContextMenu: ViewModifier {
             
             Button("Open in New Tab") {
                 if let currentSpace = browserTab.browserSpace {
-                    currentSpace.openNewTab(BrowserTab(title: entry.title, favicon: entry.favicon, url: entry.url, order: browserTab.order + 1, browserSpace: currentSpace, type: .web), using: modelContext)
+                    let isCurrentTabPinned = currentSpace.pinnedTabs.contains(browserTab)
+                    let insertionOrder = isCurrentTabPinned ? currentSpace.tabs.count : browserTab.order + 1
+                    currentSpace.openNewTab(BrowserTab(title: entry.title, favicon: entry.favicon, url: entry.url, order: insertionOrder, browserSpace: currentSpace, type: .web), using: modelContext)
                 }
             }
 
