@@ -46,27 +46,48 @@ struct MainFrame: View {
                 SidebarSpaceBackground(browserSpace: currentSpace, isSidebarCollapsed: false)
             }
         }
-        // Show the search view
-        .floatingPanel(isPresented: .init(get: {
-            browserWindowState.searchOpenLocation != .none
-        }, set: { newValue in
-            if !newValue {
-                browserWindowState.searchOpenLocation = .none
-            }
-        }), origin: browserWindowState.searchPanelOrigin, size: browserWindowState.searchPanelSize, shouldCenter: browserWindowState.searchOpenLocation == .fromNewTab || userPreferences.urlBarPosition == .onToolbar) {
+        .popover(
+            isPresented: .init(
+                get: { browserWindowState.searchOpenLocation != .none },
+                set: { newValue in
+                    if !newValue {
+                        browserWindowState.searchOpenLocation = .none
+                    }
+                }
+            ),
+        ) {
             SearchView()
                 .environment(browserWindowState)
+                .frame(width: browserWindowState.searchPanelSize.width,
+                       height: browserWindowState.searchPanelSize.height)
         }
-        // Show the tab switcher
-        .floatingPanel(isPresented: $browserWindowState.showTabSwitcher, size: CGSize(width: 700, height: 200)) {
-            TabSwitcher(browserSpaces: browserSpaces)
-                .environment(browserWindowState)
-        }
-        .transaction {
-            if userPreferences.disableAnimations {
-                $0.animation = nil
+
+        // Show the tab switcher as a pop-out
+        .overlay {
+            if browserWindowState.showTabSwitcher {
+                ZStack {
+                    // Optional dim background
+                    Color.black.opacity(0.001) // invisible, used to detect outside tap
+                        .ignoresSafeArea()
+                        .onTapGesture {
+                            browserWindowState.showTabSwitcher = false
+                        }
+
+                    VStack {
+                        TabSwitcher(browserSpaces: browserSpaces)
+                            .environment(browserWindowState)
+                            .frame(width: 700, height: 200)
+                            .background(.ultraThinMaterial)
+                            .cornerRadius(16)
+                            .shadow(radius: 20)
+                            .transition(.scale.combined(with: .opacity))
+                    }
+                }
+                .zIndex(999)
+                .animation(userPreferences.disableAnimations ? nil : .spring(), value: browserWindowState.showTabSwitcher)
             }
         }
+
         .environment(sidebarModel)
         .focusedSceneValue(\.sidebarModel, sidebarModel)
         .environmentObject(splitState)

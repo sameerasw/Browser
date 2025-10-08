@@ -28,9 +28,17 @@ struct ContentView: View {
                     URLQRCodeView(browserTab: currentTab)
                 }
             }
-            .floatingPanel(isPresented: $browserWindowState.showAcknowledgements, size: CGSize(width: 500, height: 300)) {
+            .popover(
+                isPresented: $browserWindowState.showAcknowledgements,
+                attachmentAnchor: .rect(.bounds),
+                arrowEdge: .top
+            ) {
                 Acknowledgments()
                     .environment(browserWindowState)
+                    .frame(width: 500, height: 300)
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(16)
             }
+
     }
 }
