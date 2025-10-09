@@ -22,7 +22,7 @@ struct MainFrame: View {
     @Query(sort: \BrowserSpace.order) var browserSpaces: [BrowserSpace]
 
     var isImmersive: Bool {
-        browserWindowState.isFullScreen && sidebarModel.sidebarCollapsed && userPreferences.immersiveViewOnFullscreen
+        browserWindowState.isFullScreen && sidebarModel.sidebarCollapsed
     }
 
     var body: some View {
@@ -140,7 +140,7 @@ struct MainFrame: View {
     }
 
     private var shadowRadius: CGFloat {
-        isImmersive ? 0 : (userPreferences.enableShadow ? 3 : 0)
+        isImmersive ? 0 : 3
     }
 
 }

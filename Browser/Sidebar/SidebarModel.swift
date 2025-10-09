@@ -59,18 +59,14 @@ import SwiftUI
     /// Only show the sidebar when the cursor is near the window's edge + threshold
     /// - Parameter event: The mouse movement event
     func handleMouseMovement(event: NSEvent) -> NSEvent? {
-        guard let keyWindow = NSApp.keyWindow,
-              let sidebarPosition = UserDefaults.standard.string(forKey: "sidebar_position")
-        else { return event }
+        guard let keyWindow = NSApp.keyWindow else { return event }
         
-        let windowX = sidebarPosition == "leading" ? keyWindow.frame.minX : keyWindow.frame.maxX
+        let windowX = keyWindow.frame.minX
         let cursorX = NSEvent.mouseLocation.x - windowX
         
         // Inside window threshold
         let threshold = currentSidebarWidth != 0 ? currentSidebarWidth + 25 : 50
-        let inRange = sidebarPosition == "leading" ?
-                            cursorX >= -50 && cursorX <= threshold :
-                            cursorX <= 50 && cursorX >= -threshold
+        let inRange = cursorX >= -50 && cursorX <= threshold
         
         withAnimation(.smooth(duration: 0.2)) {
             if inRange {

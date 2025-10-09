@@ -90,10 +90,6 @@ class BrowserAppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         window.isReleasedWhenClosed = true
         window.delegate = self
         window.toolbar?.allowsDisplayModeCustomization = false
-        
-        if userPreferences.sidebarPosition == .trailing {
-            NSApp.setBrowserWindowControls(hidden: !userPreferences.showWindowControlsOnTrailingSidebar)
-        }
     }
     
     @objc func windowDidResizeOrMove(_ notification: Notification) {

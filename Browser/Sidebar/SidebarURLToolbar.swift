@@ -35,7 +35,7 @@ struct SidebarURLToolbar: View {
             Spacer()
             
             if let url = currentTab?.url {
-                (Text(url.cleanHost) + (userPreferences.showFullURLOnToolbar ? Text("/" + url.route).foregroundStyle(foregroundColor.opacity(0.6)) : Text("")))
+                Text(url.cleanHost)
                     .lineLimit(1)
                     .foregroundStyle(foregroundColor.opacity(0.8))
                     .padding(3)

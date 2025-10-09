@@ -22,20 +22,14 @@ struct PageWebView: View {
     @State var scrollState: UUID?
 
     var body: some View {
-        VStack(spacing: 0) {
-            if userPreferences.urlBarPosition == .onToolbar {
-                SidebarURLToolbar()
-            }
-
-            ScrollView(.horizontal) {
-                LazyHStack(spacing: .zero) {
-                    ForEach(browserSpaces) { browserSpace in
-                        WebViewStack(browserSpace: browserSpace)
-                            .containerRelativeFrame(.horizontal, count: 1, spacing: 0)
-                    }
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: .zero) {
+                ForEach(browserSpaces) { browserSpace in
+                    WebViewStack(browserSpace: browserSpace)
+                        .containerRelativeFrame(.horizontal, count: 1, spacing: 0)
                 }
-                .scrollTargetLayout()
             }
+            .scrollTargetLayout()
         }
         .scrollPosition(id: $scrollState, anchor: .center)
         .scrollDisabled(true)
