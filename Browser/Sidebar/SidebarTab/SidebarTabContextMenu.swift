@@ -36,9 +36,17 @@ struct SidebarTabContextMenu: View {
             
             Button("Duplicate Tab", action: duplicateTab)
             
+            if browserTab.browserSpace?.pinnedTabs.contains(browserTab) == false {
+                Button("Suspend Tab", action: suspendTab)
+            }
+            
             Divider()
             
-            Button("Close Tab", action: closeTab)
+            if let browserSpace = browserTab.browserSpace, browserSpace.pinnedTabs.contains(browserTab) {
+                Button(browserTab.isSuspended ? "Close Tab" : "Suspend Tab", action: closeTab)
+            } else {
+                Button("Close Tab", action: closeTab)
+            }
             
             if let tabCount = browserWindowState.currentSpace?.tabs.count, tabCount > 1 {
                 if browserTab.order < tabCount - 1 {
@@ -76,6 +84,20 @@ struct SidebarTabContextMenu: View {
             browserWindowState.currentSpace?.pinnedTabs.insert(duplicateTab, at: browserTab.order + 1)
             browserWindowState.currentSpace?.currentTab = duplicateTab
         }
+    }
+    
+    /// Suspend the tab
+    func suspendTab() {
+        // If this is the current tab, switch to another tab first
+        if browserWindowState.currentSpace?.currentTab == browserTab {
+            let space = browserWindowState.currentSpace
+            // Find another tab that's not suspended
+            let newTab = space?.allTabs.first(where: { $0 != browserTab && !$0.isSuspended })
+            browserWindowState.currentSpace?.currentTab = newTab
+        }
+        
+        browserTab.isSuspended = true
+        browserTab.browserSpace?.unloadTab(browserTab)
     }
     
     /// Close (delete) the tab and selects the next tab

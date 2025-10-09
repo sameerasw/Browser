@@ -39,7 +39,7 @@ struct SidebarTab: View {
                 closeTabButton
             }
         }
-        .opacity(browserTab.isSuspended ? 0.5 : 1.0)
+                .opacity(getTabOpacity())
         .frame(maxWidth: .infinity, alignment: .leading)
         .frame(height: 30)
         .padding(3)
@@ -78,7 +78,10 @@ struct SidebarTab: View {
     }
 
     var closeTabButton: some View {
-        Button("Close Tab", systemImage: "xmark", action: closeTab)
+        let isPinned = browserSpace.pinnedTabs.contains(browserTab)
+        let buttonText = isPinned ? (browserTab.isSuspended ? "Close Tab" : "Suspend Tab") : "Close Tab"
+        
+        return Button(buttonText, systemImage: "xmark", action: closeTab)
             .font(.title3)
             .buttonStyle(.plain)
             .labelStyle(.iconOnly)
@@ -90,14 +93,34 @@ struct SidebarTab: View {
             }
             .padding(.trailing, 5)
     }
+    
+    func getTabOpacity() -> Double {
+        if browserTab.isSuspended {
+            return 0.5
+        }
+        if !browserSpace.loadedTabs.contains(browserTab) {
+            return 0.7
+        }
+        return 1.0
+    }
 
     func selectTab() {
         browserSpace.currentTab = browserTab
+        
+        // Load tab if not loaded
+        if !browserSpace.loadedTabs.contains(browserTab) {
+            browserSpace.loadedTabs.append(browserTab)
+        }
         
         // Reload suspended tab
         if browserTab.isSuspended {
             browserTab.isSuspended = false
             browserTab.reload()
+        }
+        
+        // Reset suspend timer for unpinned tabs
+        if !browserSpace.pinnedTabs.contains(browserTab) {
+            browserTab.viewController?.resetSuspendTimer()
         }
 
         if !userPreferences.disableAnimations {

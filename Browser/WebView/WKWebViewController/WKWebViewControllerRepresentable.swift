@@ -9,42 +9,48 @@ import SwiftUI
 
 /// WKWebViewController wrapper for SwiftUI
 struct WKWebViewControllerRepresentable: NSViewControllerRepresentable {
-    
+
     @Environment(\.modelContext) var modelContext
     
     @Environment(BrowserWindowState.self) var browserWindowState
     @Environment(SidebarModel.self) var sidebarModel
     @EnvironmentObject var userPreferences: UserPreferences
-        
+
     @Bindable var browserSpace: BrowserSpace
     @Bindable var tab: BrowserTab
     let noTrace: Bool
     var hoverURL: Binding<String>
-    
+
     init(tab: BrowserTab, browserSpace: BrowserSpace, noTrace: Bool = false, hoverURL: Binding<String>) {
         self.tab = tab
         self.browserSpace = browserSpace
         self.noTrace = noTrace
         self.hoverURL = hoverURL
     }
-    
+
     func makeNSViewController(context: Context) -> WKWebViewController {
         let wkWebViewController = WKWebViewController(tab: tab, browserSpace: browserSpace, noTrace: noTrace, using: modelContext, userPreferences: userPreferences)
         wkWebViewController.coordinator = context.coordinator
         tab.viewController = wkWebViewController
         return wkWebViewController
     }
-    
+
     func updateNSViewController(_ nsViewController: WKWebViewController, context: Context) {
+        let wasHidden = nsViewController.webView.isHidden
         nsViewController.webView.isHidden = tab != browserSpace.currentTab
                                             || tab.webviewErrorDescription != nil
                                             || tab.webviewErrorCode != nil
         nsViewController.webView.findBarView?.isHidden = nsViewController.webView.isHidden
-        
+
+        // Reset suspend timer if tab became visible (active)
+        if wasHidden && !nsViewController.webView.isHidden {
+            nsViewController.resetSuspendTimer()
+        }
+
         // Apply transparency in case it changed
         nsViewController.applyTransparency()
     }
-    
+
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }

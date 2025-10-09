@@ -76,6 +76,7 @@ class WKWebViewController: NSViewController {
     func cleanup() {
         // Only deinit if the tab is not loaded or was closed
         if !browserSpace.loadedTabs.contains(tab) {
+            cancelSuspendTimer()
             webView.stopLoading()
             webView.loadHTMLString("", baseURL: nil)
             webView.removeFromSuperview()
@@ -84,17 +85,25 @@ class WKWebViewController: NSViewController {
     }
 
     func startSuspendTimer() {
-        guard UserDefaults.standard.bool(forKey: "automatic_page_suspension") else { return }
+        guard UserDefaults.standard.bool(forKey: "automatic_page_suspension") else {
+            return
+        }
+
+        // Don't start timer for pinned tabs
+        if browserSpace.pinnedTabs.contains(tab) {
+            return
+        }
+
         suspendTimer?.cancel()
 
         suspendTimer = DispatchSource.makeTimerSource(queue: .main)
-        suspendTimer?.schedule(deadline: .now() + 60 * 30) // 30 minutes
+        suspendTimer?.schedule(deadline: .now() + 60 * 10) // 10 minutes
         suspendTimer?.setEventHandler {
             // Don't suspend if the tab is currently active.
             if self.browserSpace.currentTab == self.tab {
                 self.resetSuspendTimer()
             } else {
-                print("🔵 WKWebViewController suspend \(self.tab.title)")
+                self.tab.isSuspended = true
                 self.coordinator.parent.browserSpace.unloadTab(self.coordinator.parent.tab)
             }
         }
@@ -106,9 +115,14 @@ class WKWebViewController: NSViewController {
         startSuspendTimer()
     }
 
+    func cancelSuspendTimer() {
+        suspendTimer?.cancel()
+        suspendTimer = nil
+    }
+
     func applyTransparency() {
         guard let url = webView.url else { return }
-        
+
         let js: String
         // Check if styles are enabled for this specific website
         if StyleManager.shared.areStylesEnabled(for: url),

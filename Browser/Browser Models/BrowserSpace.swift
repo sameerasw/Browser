@@ -119,8 +119,9 @@ final class BrowserSpace: Identifiable {
             
             // Select next tab if current tab was suspended
             if currentTab == tab {
-                let index = loadedTabs.firstIndex(of: tab) ?? 0
-                let newTab = loadedTabs[safe: index == 0 ? 1 : index - 1]
+                // Find the next available non-suspended tab
+                let availableTabs = allTabs.filter { !$0.isSuspended && $0 != tab }
+                let newTab = availableTabs.first
                 withAnimation(.browserDefault) {
                     currentTab = newTab
                 }
@@ -187,6 +188,8 @@ final class BrowserSpace: Identifiable {
         do {
             guard let index = tabs.firstIndex(of: browserTab) else { return }
             pinnedTabs.append(tabs.remove(at: index))
+            // Cancel suspend timer for pinned tab
+            browserTab.viewController?.cancelSuspendTimer()
             try modelContext.save()
         } catch {
             print("Error pinning tab: \(error)")
@@ -198,6 +201,8 @@ final class BrowserSpace: Identifiable {
             guard let index = pinnedTabs.firstIndex(of: browserTab) else { return }
             tabs.append(pinnedTabs.remove(at: index))
             tabs.last?.browserSpace = self
+            // Start suspend timer for unpinned tab
+            browserTab.viewController?.startSuspendTimer()
             try modelContext.save()
         } catch {
             print(error.localizedDescription)
