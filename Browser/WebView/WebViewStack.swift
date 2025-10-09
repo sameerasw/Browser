@@ -10,6 +10,7 @@ import SwiftUI
 /// View that contains a stack for the loaded tabs in the current space
 struct WebViewStack: View {
     @Bindable var browserSpace: BrowserSpace
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         ZStack {
             if let currentTab = browserSpace.currentTab {
@@ -26,7 +27,27 @@ struct WebViewStack: View {
                     }
                 }
             } else {
-                VisualEffectView(material: .fullScreenUI, blendingMode: .withinWindow)
+                // Show app logo in the empty area. Invert the image when in light mode
+                // so it remains visible against a light background.
+
+                Group {
+                    if colorScheme == .light {
+                        Image("logo")
+                            .renderingMode(.original)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .opacity(0.3)
+                            .colorInvert()
+                    } else {
+                        Image("logo")
+                            .renderingMode(.original)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .opacity(0.3)
+                    }
+                }
             }
         }
         .transaction { $0.animation = .bouncy(duration: 0.3) }
