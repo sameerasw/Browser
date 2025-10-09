@@ -41,11 +41,13 @@ struct PageWebView: View {
         .scrollDisabled(true)
         .scrollContentBackground(.hidden)
         .scrollIndicators(.hidden)
-        .scrollTargetBehavior(.paging)
+        .scrollTargetBehavior(.viewAligned)
         .onChange(of: browserWindowState.currentSpace) { _, newValue in
             scrollState = newValue?.id
+            // Trigger strong haptic feedback for space changes
+            HapticFeedback.shared.performAlignment()
         }
-        .transaction { $0.animation = .bouncy(duration: 0.3) }
+        .animation(.easeInOut(duration: 0.3), value: scrollState)
         // Try to enter Picture in Picture of current tab when tab changes or app goes to background
         .onChange(of: browserWindowState.currentSpace?.currentTab) { oldValue, newValue in
             if userPreferences.openPipOnTabChange {
